@@ -16,3 +16,5 @@ Suggests:
 Config/testthat/edition: 3
 Imports: 
     dplyr
+URL: https://github.com/bastianolea/comunal
+BugReports: https://github.com/bastianolea/comunal/issues
