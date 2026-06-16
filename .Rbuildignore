@@ -4,5 +4,6 @@
 ^\.claude$
 ^LICENSE\.md$
 _instrucciones.R
+_pendientes.md
 ^data-raw$
 ^README\.Rmd$

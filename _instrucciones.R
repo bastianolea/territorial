@@ -42,15 +42,11 @@ devtools::load_all()
 comunal::is.comuna("Maipú")
 devtools::test()
 
-usethis::use_package("rlang")
-usethis::use_package("praise")
-
-
-# test_path()
-# github.com/search/advanced/
+usethis::use_package("dplyr")
+# usethis::use_package("praise")
 
 usethis::use_git()
 
 usethis::use_github()
 
-usethis::use_github_action("check-standard")
+# usethis::use_github_action("check-standard")

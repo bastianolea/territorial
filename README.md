@@ -7,28 +7,25 @@
 
 <!-- badges: end -->
 
-The goal of comunal is to …
+Herramientas para trabajar con comunas de Chile.
 
-## Installation
+*En construcción*
 
-You can install the development version of comunal like so:
-
-``` r
+<!---
+&#10;## Installation
+&#10;You can install the development version of comunal like so:
+&#10;``` r
 # FILL THIS IN! HOW CAN PEOPLE INSTALL YOUR DEV PACKAGE?
 ```
-
-## Example
-
-This is a basic example which shows you how to solve a common problem:
-
+&#10;## Example
+&#10;This is a basic example which shows you how to solve a common problem:
+&#10;
 ``` r
 # library(comunal)
 ## basic example code
 ```
-
-What is special about using `README.Rmd` instead of just `README.md`?
-You can include R chunks like so:
-
+&#10;What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
+&#10;
 ``` r
 summary(cars)
 #>      speed           dist       
@@ -39,13 +36,8 @@ summary(cars)
 #>  3rd Qu.:19.0   3rd Qu.: 56.00  
 #>  Max.   :25.0   Max.   :120.00
 ```
-
-You’ll still need to render `README.Rmd` regularly, to keep `README.md`
-up-to-date. `devtools::build_readme()` is handy for this.
-
-You can also embed plots, for example:
-
-<img src="man/figures/README-pressure-1.png" alt="" width="100%" />
-
-In that case, don’t forget to commit and push the resulting figure
-files, so they display on GitHub and CRAN.
+&#10;You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this.
+&#10;You can also embed plots, for example:
+&#10;<img src="man/figures/README-pressure-1.png" alt="" width="100%" />
+&#10;In that case, don't forget to commit and push the resulting figure files, so they display on GitHub and CRAN.
+&#10;--->
