@@ -19,23 +19,28 @@ usethis::use_r("territorios")
 usethis::use_data_raw("territorios")
 
 devtools::load_all()
-devtools::load()
 
-tiempo()
+# comunal::territorios
 
 usethis::use_testthat()
-
-
-devtools::test()
-
-
-usethis::use_r("what_time")
-
-what_time("es")
+usethis::use_test("territorios")
 
 devtools::test()
 
-devtools::check()
+usethis::use_r("comunas")
+usethis::use_test("comunas")
+
+devtools::document()
+devtools::load_all()
+comunal::comunas()
+
+usethis::use_r("is.comuna.R")
+usethis::use_test("is.comuna.R")
+
+devtools::document()
+devtools::load_all()
+comunal::is.comuna("Maipú")
+devtools::test()
 
 usethis::use_package("rlang")
 usethis::use_package("praise")
