@@ -7,6 +7,6 @@
 #' @export
 comunas <- function() {
   comunal::territorios |>
-    dplyr::select(nombre_comuna) |>
+    dplyr::select("nombre_comuna") |>
     dplyr::pull()
 }

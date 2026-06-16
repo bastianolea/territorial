@@ -4,12 +4,16 @@
 #'
 #' @format A data frame with 346 rows and 6 columns:
 #' \describe{
-#'   \item{codigo_region}{Describir}
-#'   \item{nombre_region, iso3}{Describir}
-#'   \item{codigo_provincia}{Describir}
-#'   \item{nombre_provincia}{Describir}
-#'   \item{codigo_comuna}{Describir}
-#'   \item{nombre_comuna}{Describir}
+#'   \item{codigo_region}{Código único territorial de las regiones de Chile (número entre 1 y 16)}
+#'   \item{nombre_region}{Nombre de las regiones de Chile}
+#'   \item{codigo_provincia}{Código único territorial de las provincias de Chile}
+#'   \item{nombre_provincia}{Nombre de las provincias de Chile}
+#'   \item{codigo_comuna}{Código único territorial de las comunas de Chile}
+#'   \item{nombre_comuna}{Nombre de las comunas de Chile}
 #' }
 #' @source <https://www.subdere.gov.cl/documentacion/códigos-únicos-territoriales-actualizados-al-06-de-septiembre-2018>
 "territorios"
+
+# territorios <- function() {
+#   comunal::territorios
+# }
