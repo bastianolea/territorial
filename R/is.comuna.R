@@ -7,5 +7,11 @@
 #'
 #' @examples is.comuna("Panguipulli")
 is.comuna <- function(x) {
+
   x %in% comunal::comunas()
 }
+
+
+# ejemplos <- c("Maipú", "Cerrillos", "Ñuñoa")
+#
+# is.comuna(ejemplos)

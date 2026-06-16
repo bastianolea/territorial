@@ -11,6 +11,10 @@ Herramientas para trabajar con comunas de Chile.
 
 *En construcción*
 
+Paquete desarrollado bajo el [programa de Campeones de
+ROpenSci](https://ropensci.org/es/champions/), con el apoyo de mi
+mentora [Andrea Gómez Vargas](https://github.com/SoyAndrea)
+
 <!---
 &#10;## Installation
 &#10;You can install the development version of comunal like so:

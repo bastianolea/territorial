@@ -15,6 +15,7 @@ Suggests:
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
 Imports: 
-    dplyr
+    dplyr,
+    forcats
 URL: https://github.com/bastianolea/comunal
 BugReports: https://github.com/bastianolea/comunal/issues

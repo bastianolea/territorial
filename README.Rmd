@@ -22,6 +22,8 @@ Herramientas para trabajar con comunas de Chile.
 
 _En construcción_
 
+Paquete desarrollado bajo el [programa de Campeones de ROpenSci](https://ropensci.org/es/champions/), con el apoyo de mi mentora [Andrea Gómez Vargas](https://github.com/SoyAndrea)
+
 <!---
 
 ## Installation
