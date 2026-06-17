@@ -5,6 +5,7 @@
 - [ ] editar vignettes/comunal.qmd
 - [ ] agregar github action de tests
 - [x] subir a github pages
+- [x] cambiar a español
 
 evaluar calidad de comunas 
 tabla con formas alternativas de escribir
