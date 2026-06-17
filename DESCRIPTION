@@ -1,6 +1,6 @@
 Package: comunal
 Title: Herramientas para trabajar con comunas de Chile
-Version: 0.0.0.9000
+Version: 0.0.2
 Authors@R: 
     person("Bastián", "Olea", , "bastianolea@gmail.com", role = c("aut", "cre"))
 Description: What the package does (one paragraph).
@@ -20,6 +20,6 @@ Imports:
     cli,
     dplyr,
     forcats
-URL: https://github.com/bastianolea/comunal
+URL: https://bastianolea.github.io/comunal, https://github.com/bastianolea/comunal
 BugReports: https://github.com/bastianolea/comunal/issues
 VignetteBuilder: quarto
