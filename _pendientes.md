@@ -45,6 +45,7 @@ Funciones para corregir
 - [ ] `limpiar_comunas()` = limpia comunas y las deja estandarizadas
 - [x] `as.codigo_comuna()` = convierte nombre de comunas en CUT
   - [ ] avisar si ninguno coincide con warnings
+- [x] `as.nombre_comuna()` = convierte CUT a nombre de comunas
 - [ ] `limpiar_regiones()` = limpiar nombres de regiones 
 - [ ] `abreviar_regiones()` = cambiar nombres de regiones a nombres cortos
 - [x] `ordenar_regiones()` = ordenar regiones de norte a sur
