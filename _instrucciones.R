@@ -19,17 +19,22 @@ usethis::create_package("nombre")
 devtools::check()
 
 
-# documentos ----
+# instalar el propio paquete
+# pak::local_install()
+
+# dependencias ----
+# agregar dependencia a un paquete
+usethis::use_package("dplyr")
+usethis::use_package("cli")
+
+
+# documentos mínimos ----
 
 usethis::use_mit_license()
 # usethis::use_gpl3_license()
 
 usethis::use_readme_md()
 # usethis::use_readme_rmd()
-
-# agregar dependencia a un paquete
-usethis::use_package("dplyr")
-
 
 # repositorio ----
 # crear repositorio local
@@ -40,7 +45,6 @@ usethis::use_github()
 
 # agregar acción de github de chequeo
 # usethis::use_github_action("check-standard")
-
 
 # funciones ----
 
@@ -83,18 +87,27 @@ usethis::use_test("comunas")
 # realizar todas las pruebas
 devtools::test()
 
+# y repetir
+
+# documentación ----
 # escribir documentación
 devtools::document()
 
-# y repetir
+# crear viñeta
+usethis::use_vignette("comunal.qmd") # si se llama como el paquete tiene un rol distinto
 
+# instalar el propio paquete
+# pak::local_install()
 
+# sitio del paquete
+usethis::use_pkgdown()
+pkgdown::build_site()
+# usethis::use_pkgdown_github_pages()
+# usethis::use_github_pages()
+# usethis::use_github_action("pkdown")
+# poner enlace en _pkdown.yml y description
 
 # —----
-
-
-
-
 
 #
 # comunal::comunas()
@@ -106,4 +119,3 @@ devtools::document()
 # devtools::load_all()
 # comunal::is.comuna("Maipú")
 # devtools::test()
-

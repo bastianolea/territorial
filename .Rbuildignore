@@ -7,3 +7,8 @@ _instrucciones.R
 _pendientes.md
 ^data-raw$
 ^README\.Rmd$
+^vignettes/\.quarto$
+^vignettes/*_files$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
