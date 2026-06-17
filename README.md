@@ -1,12 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# comunal
-
-<!-- badges: start -->
-
-[![R-CMD-check](https://github.com/bastianolea/comunal/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/bastianolea/comunal/actions/workflows/R-CMD-check.yaml)
-<!-- badges: end -->
+# Paquete `{comunal}`
 
 Herramientas para trabajar con comunas de Chile.
 
@@ -18,13 +13,17 @@ mentora [Andrea Gómez Vargas](https://github.com/SoyAndrea)
 
 Probando probando
 
-<!---
-&#10;## Installation
-&#10;You can install the development version of comunal like so:
-&#10;``` r
-# FILL THIS IN! HOW CAN PEOPLE INSTALL YOUR DEV PACKAGE?
+## Instalación
+
+Puedes instalar este paquete desde GitHub:
+
+``` r
+# install.packages("pak")
+pak::pkg_install("bastianolea/comunal")
 ```
-&#10;## Example
+
+<!---
+## Example
 &#10;This is a basic example which shows you how to solve a common problem:
 &#10;
 ``` r
