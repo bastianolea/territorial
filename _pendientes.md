@@ -3,8 +3,8 @@
 - [ ] `is.comuna()`: error si no se entrega comuna
 - [ ] hacer hex logo
 - [ ] editar vignettes/comunal.qmd
-- [ ] subir a github pages
 - [ ] agregar github action de tests
+- [x] subir a github pages
 
 evaluar calidad de comunas 
 tabla con formas alternativas de escribir
@@ -41,7 +41,8 @@ Funciones de pruebas
 
 Funciones para corregir
 - [ ] `limpiar_comunas()` = limpia comunas y las deja estandarizadas
-- [ ] `as.codigo_comuna()` = convierte nombre de comunas en CUT
+- [x] `as.codigo_comuna()` = convierte nombre de comunas en CUT
+  - [ ] avisar si ninguno coincide con warnings
 - [ ] `limpiar_regiones()` = limpiar nombres de regiones 
 - [ ] `abreviar_regiones()` = cambiar nombres de regiones a nombres cortos
 - [x] `ordenar_regiones()` = ordenar regiones de norte a sur
@@ -57,3 +58,7 @@ Estas deberían aplicar distinto dependiendo si se le entrega el CUT o el nombre
 Avanzado
 - tipo que combine nombre de comuna con código comunal
 - columna territorio que sea una clase que contiene toda esa info
+
+
+Ideas: 
+- sugerir posibles match de comunas con búsqueda inexacta (agrepl()?)

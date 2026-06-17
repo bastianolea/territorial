@@ -105,10 +105,14 @@ usethis::use_vignette("comunal.qmd") # si se llama como el paquete tiene un rol 
 
 # sitio del paquete
 usethis::use_pkgdown()
+
+# reconstruir sitio
 pkgdown::build_site()
 # usethis::use_github_pages()
-# usethis::use_github_action("pkgdown")
 # poner enlace en _pkdown.yml y description
+# usethis::use_github_action("pkgdown")
+# cuando se haga push se construirá el sitio
+
 
 # —----
 
