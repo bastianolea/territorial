@@ -1,14 +1,15 @@
 
 ## Pendientes
-- [ ] `is.comuna()`: error si no se entrega comuna
-- [ ] hacer hex logo
+- [ ] `is.comuna()`: poner error si no se entrega comuna
+- [ ] `is.comuna()`: poner error si no es caracter
 - [ ] editar vignettes/comunal.qmd
 - [ ] agregar github action de tests
 - [x] subir a github pages
-- [x] cambiar a español
-
-evaluar calidad de comunas 
-tabla con formas alternativas de escribir
+  - [x] cambiar a español
+- [ ] crear ejemplos con datos reales
+- [ ] crear examples para cada función
+- [ ] hacer hex logo
+- [ ] tabla con formas alternativas de escribir comunas
 
 ## Idea general
 
