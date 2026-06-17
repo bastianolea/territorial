@@ -93,6 +93,7 @@ devtools::test()
 
 # y repetir
 
+
 # documentación ----
 # escribir documentación
 devtools::document()

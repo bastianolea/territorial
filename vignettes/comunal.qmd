@@ -15,4 +15,4 @@ knitr:
 library(comunal)
 ```
 
-Explicación de como funciona el paquete!
+Explicación de como funciona el paquete! Para principiantes
