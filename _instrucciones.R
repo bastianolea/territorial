@@ -104,7 +104,7 @@ usethis::use_pkgdown()
 pkgdown::build_site()
 # usethis::use_pkgdown_github_pages()
 # usethis::use_github_pages()
-# usethis::use_github_action("pkdown")
+# usethis::use_github_action("pkgdown")
 # poner enlace en _pkdown.yml y description
 
 # —----

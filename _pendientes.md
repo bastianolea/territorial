@@ -2,6 +2,9 @@
 ## Pendientes
 - [ ] `is.comuna()`: error si no se entrega comuna
 - [ ] hacer hex logo
+- [ ] editar vignettes/comunal.qmd
+- [ ] subir a github pages
+- [ ] agregar github action de tests
 
 evaluar calidad de comunas 
 tabla con formas alternativas de escribir
