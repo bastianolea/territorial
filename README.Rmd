@@ -16,6 +16,7 @@ knitr::opts_chunk$set(
 # comunal
 
 <!-- badges: start -->
+[![R-CMD-check](https://github.com/bastianolea/comunal/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/bastianolea/comunal/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 Herramientas para trabajar con comunas de Chile.

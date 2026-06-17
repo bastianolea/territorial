@@ -10,6 +10,9 @@
 - [ ] crear examples para cada función
 - [ ] hacer hex logo
 - [ ] tabla con formas alternativas de escribir comunas
+- [ ] ver guía de estilo para pensar nombres de funciones
+- [ ] hacer ejemplos
+- [ ] cambiar tildes por ascii
 
 ## Idea general
 
