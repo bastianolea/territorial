@@ -1,6 +1,6 @@
-#' Códigos Únicos Territoriales
+#' Tabla de comunas, provincias y regiones de Chile
 #'
-#' Por Decreto Exento N° 1.115, del Ministerio del Interior y Seguridad Pública, publicado en el Diario Oficial el 21 de septiembre de 2018, se establecen las abreviaturas para identificar las regiones del país, unificando además los códigos territoriales (incluyendo la región de Ñuble, sus provincias y comunas).
+#' Tabla de datos que contiene todas las comunas del país con sus nombres oficiales, sus códigos únicos territoriales, y lo mismo para las provincias y regiones del país. Estos datos corresponden al [Ministerio del Interior de Chile](https://www.subdere.gov.cl/documentacion/códigos-únicos-territoriales-actualizados-al-06-de-septiembre-2018), publicados en el Diario Oficial el 21 de septiembre de 2018, con leves modificaciones.
 #'
 #' @format A data frame with 346 rows and 6 columns:
 #' \describe{
@@ -13,7 +13,3 @@
 #' }
 #' @source <https://www.subdere.gov.cl/documentacion/códigos-únicos-territoriales-actualizados-al-06-de-septiembre-2018>
 "territorios"
-
-# territorios <- function() {
-#   comunal::territorios
-# }

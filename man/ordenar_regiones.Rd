@@ -2,7 +2,7 @@
 % Please edit documentation in R/ordenar_regiones.R
 \name{ordenar_regiones}
 \alias{ordenar_regiones}
-\title{Ordenar regiones de Chile geográficamente}
+\title{Ordenar regiones de Chile geogr\\u00e1ficamente}
 \usage{
 ordenar_regiones(data)
 }
@@ -10,7 +10,7 @@ ordenar_regiones(data)
 \item{data}{Dataframe que contenga las columnas \code{nombre_region} y \code{codigo_region}}
 }
 \value{
-Dataframe con la variable \code{nombre_region} en formato factor, ordenado geográficamente (de norte a sur)
+Dataframe con la variable \code{nombre_region} en formato factor, ordenado geogr\\u00e1ficamente (de norte a sur)
 }
 \description{
 Ordena una columna de regiones de Chile (\code{nombre_region}) a partir de la columna \code{codigo_region}

@@ -2,16 +2,16 @@
 % Please edit documentation in R/as.codigo_comuna.R
 \name{as.codigo_comuna}
 \alias{as.codigo_comuna}
-\title{Convertir nombres de comunas a códigos de comuna}
+\title{Convertir nombres de comunas a códigos comunales}
 \usage{
 as.codigo_comuna(nombres_comunas)
 }
 \arguments{
-\item{nombres_comunas}{Nombres de comuna (como los que aparecen en \code{comunal::comunas()})}
+\item{nombres_comunas}{Nombres de comuna (como los que aparecen en \code{\link[=comunas]{comunas()}})}
 }
 \value{
 Vector numérico con códigos de comuna
 }
 \description{
-Entregando nombres de comuna correctos (como los que aparecen en \code{comunal::comunas()} o en \code{comunal::territorios}), retorna los códigos de comuna correspondientes en formato numérico. Retorna NA si no corresponde con ninguna.
+Entregando nombres de comuna correctos (como los que aparecen en \code{\link[=comunas]{comunas()}} o en \link{territorios}), retorna los códigos de comuna correspondientes en formato numérico. Retorna NA si no corresponde con ninguna.
 }

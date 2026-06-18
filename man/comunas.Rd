@@ -2,13 +2,13 @@
 % Please edit documentation in R/comunas.R
 \name{comunas}
 \alias{comunas}
-\title{Comunas}
+\title{Nombres de comunas de Chile}
 \usage{
 comunas()
 }
 \value{
-Vector de comunas
+Vector de nombres de comunas de Chile
 }
 \description{
-Vector con el nombre de las 346 comunas de Chile
+Vector de texto que contiene el nombre de las 346 comunas de Chile, tal como aparecen en la tabla \link{territorios}.
 }

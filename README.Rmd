@@ -11,6 +11,8 @@ knitr::opts_chunk$set(
   fig.path = "man/figures/README-",
   out.width = "100%"
 )
+
+options(width = 200)
 ```
 
 # Paquete `{comunal}`
@@ -21,41 +23,122 @@ Este paquete busca facilitar tareas de limpieza que suelen ser necesarias al tra
 
 Paquete desarrollado bajo el [programa de Campeones de ROpenSci](https://ropensci.org/es/champions/), con el apoyo de mi mentora [Andrea Gómez Vargas](https://github.com/SoyAndrea)
 
-_En construcción_
 
 ## Instalación
 
-Puedes instalar este paquete desde GitHub:
+Por ahora puedes instalar este paquete desde GitHub:
 
 ```r
 # install.packages("pak")
 pak::pkg_install("bastianolea/comunal")
 ```
 
-<!---
-## Example
+```r
+# install.packages("devtools")
+devtools::install_github("bastianolea/comunal")
+```
 
-This is a basic example which shows you how to solve a common problem:
+## Ejemplos
+
+El paquete ofrece una tabla de datos que contiene todas las comunas del país con sus nombres oficiales, sus códigos únicos territoriales, y lo mismo para las provincias y regiones del país.
+
+```{r tabla, message=FALSE, warning=FALSE}
+library(comunal)
+library(dplyr)
+
+head(comunal::territorios)
+```
+
+Esta tabla puede servir para hacer `left_join()` y así complementar otras fuentes de datos territoriales.
+
+Estos datos corresponden al [Ministerio del Interior de Chile](https://www.subdere.gov.cl/documentacion/códigos-únicos-territoriales-actualizados-al-06-de-septiembre-2018), publicados en el Diario Oficial el 21 de septiembre de 2018, con leves modificaciones.
+
+### Ejemplos de datos comunales
+
+Si tienes una tabla de datos con datos comunales, lo primero sería revisar la calidad de sus datos:
+
+```{r include=FALSE}
+
+```
 
 ```{r example}
 # library(comunal)
-## basic example code
+
+# head(datos)
+# 
+# revisar_comunas(datos)
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
+
+También podemos hacerlo manualmente consultando si las comunas son válidas:
+
+```{r}
+comunas <- c("Providencia", "Vitacura", "Las Condes", "Lo Barnechea", "Ratas", NA)
+
+is.comuna(comunas)
+```
+
+Algo que suele pasar es recibir datos comunales con las comunas mal escritas, pero que vienen con códigos únicos territoriales. En este caso podemos crear las comunas bien escritas a partir de los códigos únicos territoriales:
+
+```{r include=FALSE}
+datos <- tibble::tribble(
+          ~codigo_comuna,      ~municipio,
+                   13110,    "LA FLORIDA",
+                   16103, "CHILLAN VIEJO",
+                   10301,        "OSORNO",
+                   16302,      "COIHUECO",
+                   13132,      "VITACURA",
+                   13501,     "MELIPILLA",
+                   14204,     "RIO BUENO",
+                   11401,   "CHILE CHICO",
+                   16202,    "COBQUECURA",
+                   13116,     "LO ESPEJO"
+          )
+```
 
 ```{r cars}
-summary(cars)
+head(datos)
+
+# crear nombres de comuna a partir de códigos comunales
+datos |> 
+  mutate(nombre_comuna = as.nombre_comuna(codigo_comuna))
 ```
 
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this.
+También podemos tener el caso inverso: una tabla con datos comunales que vienen con nombres de comunas, pero sin códigos únicos territoriales. Podemos crear los códigos únicos territoriales a partir de los nombres de comunas:
 
-You can also embed plots, for example:
-
-```{r pressure, echo = FALSE}
-plot(pressure)
+```{r include=FALSE}
+datos <- tibble::tribble(
+  ~nombre_comuna, ~valor,
+  "Pirque",       1,
+  "Cerrillos",    2,
+  "Puente Alto",  1,
+  "La Florida",   3,
+  "Ñuñoa",        1,
+  "Conchalí",     2
+)
 ```
 
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub and CRAN.
+```{r}
+head(datos)
 
---->
+# agregar códigos comunales a partir de nombres de comunas
+datos |> 
+  mutate(codigo_comuna = as.codigo_comuna(nombre_comuna))
+```
+
+
+Pero lo anterior requiere que los nombres de las comunas estén bien escritos! Para esto existe la función `limpiar_nombres_comunas()`:
+
+```{r}
+# limpiar_nombres_comunas()
+```
+
+
+### Ejemplos de datos regionales
+
+Cuando trabajamos datos de nivel regional, una necesidad común es ordenarlos en el orden geográfico; es decir, de norte a sur. Para ello existe la función `ordenar_regiones()`:
+
+```{r}
+# ordenar_regiones()
+```
+

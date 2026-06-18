@@ -2,7 +2,7 @@
 % Please edit documentation in R/is.comuna.R
 \name{is.comuna}
 \alias{is.comuna}
-\title{Evaluar si es una comuna}
+\title{Evaluar si un texto corresponde al nombre válido de una comuna de Chile}
 \usage{
 is.comuna(x)
 }
@@ -10,11 +10,12 @@ is.comuna(x)
 \item{x}{Elemento/s a evaluar}
 }
 \value{
-TRUE o FALSE si es o no es una comuna
+TRUE o FALSE si es o no es una comuna válida
 }
 \description{
-Evaluar si es una comuna
+Dado un vector de cualquier largo, retorna TRUE o FALSE para cada elemento de acuerdo si se corresponde con los nombres de comunas oficiales, disponibles en la función \code{\link[=comunas]{comunas()}}.
 }
 \examples{
 is.comuna("Panguipulli")
+
 }
