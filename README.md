@@ -5,13 +5,16 @@
 
 Herramientas para trabajar con comunas de Chile.
 
-*En construcción*
+Este paquete busca facilitar tareas de limpieza que suelen ser
+necesarias al trabajar con datos de Chile a nivel territorial, por
+ejemplo limpiar los nombres de las comunas y regiones, agregar códigos
+comunales y regionales, ordenar las regiones del país, entre otras.
 
 Paquete desarrollado bajo el [programa de Campeones de
 ROpenSci](https://ropensci.org/es/champions/), con el apoyo de mi
 mentora [Andrea Gómez Vargas](https://github.com/SoyAndrea)
 
-Probando probando
+*En construcción*
 
 ## Instalación
 
