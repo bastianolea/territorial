@@ -106,7 +106,7 @@ pak::local_install()
 knitr::knit("README.Rmd")
 
 # sitio del paquete
-usethis::use_pkgdown()
+# usethis::use_pkgdown()
 # usethis::use_pkgdown_github_pages()
 
 # reconstruir sitio

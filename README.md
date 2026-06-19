@@ -1,45 +1,43 @@
+---
+output: github_document
+---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
+
+
 
 # Paquete `{territorial}`
 
 Herramientas para trabajar con comunas de Chile en R.
 
-Este paquete busca facilitar tareas de limpieza que suelen ser
-necesarias al trabajar con datos de Chile a nivel comunal, por ejemplo
-limpiar los nombres de las comunas y regiones, agregar códigos comunales
-y regionales, ordenar las regiones del país, entre otras.
+Este paquete busca facilitar tareas de limpieza que suelen ser necesarias al trabajar con datos de Chile a nivel comunal, por ejemplo limpiar los nombres de las comunas y regiones, agregar códigos comunales y regionales, ordenar las regiones del país, entre otras.
 
-La razón de este paquete surge de mi propia experiencia analizando datos
-sociales: los datos territoriales de Chile vienen siempre con dudosa
-calidad en las variables que especifican las comunas: nombres mal
-escritos, en mayúsculas, sin eñes, etc.
+La razón de este paquete surge de mi propia experiencia analizando datos sociales: los datos territoriales de Chile vienen siempre con dudosa calidad en las variables que especifican las comunas: nombres mal escritos, en mayúsculas, sin eñes, etc.
 
-Paquete desarrollado bajo el [programa de Campeones de
-ROpenSci](https://ropensci.org/es/champions/), con el apoyo de mi
-mentora [Andrea Gómez Vargas](https://github.com/SoyAndrea)
+Paquete desarrollado bajo el [programa de Campeones de ROpenSci](https://ropensci.org/es/champions/), con el apoyo de mi mentora [Andrea Gómez Vargas](https://github.com/SoyAndrea)
+
 
 ## Instalación
 
 Por ahora puedes instalar este paquete desde GitHub:
 
-``` r
+```r
 # install.packages("pak")
 pak::pkg_install("bastianolea/territorial")
 ```
 
-``` r
+```r
 # install.packages("devtools")
 devtools::install_github("bastianolea/territorial")
 ```
 
 ## Ejemplos
 
+
 ## Tabla de comunas, provincias y regiones de Chile
 
-El paquete ofrece una tabla de datos que contiene todas las comunas del
-país con sus nombres oficiales, sus códigos únicos territoriales, y lo
-mismo para las provincias y regiones del país.
+El paquete ofrece una tabla de datos que contiene todas las comunas del país con sus nombres oficiales, sus códigos únicos territoriales, y lo mismo para las provincias y regiones del país.
+
 
 ``` r
 library(territorial)
@@ -57,18 +55,16 @@ head(territorial::territorios)
 #> 6             1 Tarapacá                    14 Tamarugal                 1404 Huara
 ```
 
-Esta tabla puede servir para hacer `left_join()` y así complementar
-otras fuentes de datos comunales.
+Esta tabla puede servir para hacer `left_join()` y así complementar otras fuentes de datos comunales.
 
-Estos datos corresponden al [Ministerio del Interior de
-Chile](https://www.subdere.gov.cl/documentacion/códigos-únicos-territoriales-actualizados-al-06-de-septiembre-2018),
-publicados en el Diario Oficial el 21 de septiembre de 2018, con leves
-modificaciones.
+Estos datos corresponden al [Ministerio del Interior de Chile](https://www.subdere.gov.cl/documentacion/códigos-únicos-territoriales-actualizados-al-06-de-septiembre-2018), publicados en el Diario Oficial el 21 de septiembre de 2018, con leves modificaciones.
 
 ### Ejemplos de datos comunales
 
-Si tienes una tabla de datos con datos comunales, lo primero sería
-revisar la calidad de sus datos:
+Si tienes una tabla de datos con datos comunales, lo primero sería revisar la calidad de sus datos:
+
+
+
 
 ``` r
 # library(territorial)
@@ -78,8 +74,8 @@ revisar la calidad de sus datos:
 # revisar_comunas(datos)
 ```
 
-También podemos hacerlo manualmente consultando si las comunas son
-válidas:
+También podemos hacerlo manualmente consultando si las comunas son válidas:
+
 
 ``` r
 comunas <- c("Providencia", "Vitacura", "Las Condes", "Lo Barnechea", "Ratas", NA)
@@ -88,11 +84,10 @@ is_nombre_comuna(comunas)
 #> [1]  TRUE  TRUE  TRUE  TRUE FALSE FALSE
 ```
 
-Lo anterior sería equivalente a hacer
-`comunas %in% territorial::comunas()`.
+Lo anterior sería equivalente a hacer `comunas %in% territorial::comunas()`.
 
-También se puede confirmar si los códigos únicos territoriales son
-válidos:
+También se puede confirmar si los códigos únicos territoriales son válidos:
+
 
 ``` r
 comunas <- c(1101, 1107, NA, 99999)
@@ -101,10 +96,11 @@ is_codigo_comuna(comunas)
 #> [1]  TRUE  TRUE FALSE FALSE
 ```
 
-Algo que suele pasar es recibir datos comunales con las comunas mal
-escritas, pero que vienen con códigos únicos territoriales. En este caso
-podemos crear las comunas bien escritas a partir de los códigos únicos
-territoriales:
+
+Algo que suele pasar es recibir datos comunales con las comunas mal escritas, pero que vienen con códigos únicos territoriales. En este caso podemos crear las comunas bien escritas a partir de los códigos únicos territoriales:
+
+
+
 
 ``` r
 head(datos)
@@ -136,10 +132,10 @@ datos |>
 #> 10         13116 LO ESPEJO     Lo Espejo
 ```
 
-También podemos tener el caso inverso: una tabla con datos comunales que
-vienen con nombres de comunas, pero sin códigos únicos territoriales.
-Podemos crear los códigos únicos territoriales a partir de los nombres
-de comunas:
+También podemos tener el caso inverso: una tabla con datos comunales que vienen con nombres de comunas, pero sin códigos únicos territoriales. Podemos crear los códigos únicos territoriales a partir de los nombres de comunas:
+
+
+
 
 ``` r
 head(datos)
@@ -167,17 +163,19 @@ datos |>
 #> 6 Conchalí          2         13104
 ```
 
-Pero lo anterior requiere que los nombres de las comunas estén bien
-escritos! Para esto existe la función `limpiar_nombres_comunas()`:
+
+Pero lo anterior requiere que los nombres de las comunas estén bien escritos! Para esto existe la función `limpiar_nombres_comunas()`:
+
 
 ``` r
 # limpiar_nombres_comunas()
 ```
 
-Si tenemos datos de nivel comunal pero les faltan variables
-territoriales, podemos *contextualizar* los datos comunales al
-agregarles todas las variables que les faltan con la función
-`contextualizar()`:
+
+Si tenemos datos de nivel comunal pero les faltan variables territoriales, podemos _contextualizar_ los datos comunales al agregarles todas las variables que les faltan con la función `contextualizar()`:
+
+
+
 
 ``` r
 head(datos)
@@ -199,12 +197,13 @@ datos |>
 #> 3            15 Arica y Parinacota                     152 Parinacota               15201 Putre             3
 ```
 
+
 ### Ejemplos de datos regionales
 
-Cuando trabajamos datos de nivel regional, una necesidad común es
-[ordenar las regiones en el orden
-geográfico](https://bastianolea.rbind.io/blog/ordenar_regiones/); es
-decir, de norte a sur. Para ello existe la función `ordenar_regiones()`:
+Cuando trabajamos datos de nivel regional, una necesidad común es [ordenar las regiones en el orden geográfico](https://bastianolea.rbind.io/blog/ordenar_regiones/); es decir, de norte a sur. Para ello existe la función `ordenar_regiones()`:
+
+
+
 
 ``` r
 regiones
@@ -250,3 +249,4 @@ regiones |>
 #> 15            11 Aysén del General Carlos Ibáñez del Campo
 #> 16            12 Magallanes y de la Antártica Chilena
 ```
+
