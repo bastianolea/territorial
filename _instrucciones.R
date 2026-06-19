@@ -109,7 +109,7 @@ usethis::use_pkgdown()
 
 # reconstruir sitio
 pkgdown::build_site()
-# usethis::use_github_pages()
+usethis::use_github_pages()
 # poner enlace en _pkdown.yml y description
 # usethis::use_github_action("pkgdown")
 # cuando se haga push se construirá el sitio
