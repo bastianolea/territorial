@@ -1,4 +1,4 @@
-#' Ordenar regiones de Chile geogr\\u00e1ficamente
+#' Ordenar regiones de Chile geográficamente
 #'
 #' Ordena una columna de nombres de regiones de Chile (`nombre_region`) a partir de la columna `codigo_region`, resultando en una columna `nombre_region` en formato factor, ordenada de norte a sur.
 #'

@@ -1,8 +1,8 @@
-#' Convertir c\\u00f3digos comunales a nombres de comunas
+#' Convertir códigos comunales a nombres de comunas
 #'
-#' Entregando c\\u00f3digos comunales (como los que aparecen en [territorial::territorios]), retorna los nombres de comuna correspondientes. Retorna NA si no corresponde con ninguna.
+#' Entregando códigos comunales (como los que aparecen en [territorial::territorios]), retorna los nombres de comuna correspondientes. Retorna NA si no corresponde con ninguna.
 #'
-#' @param codigos_comunas C\\u00f3digos comunales en formato num\\u00e9rico
+#' @param codigos_comunas Códigos comunales en formato numérico
 #'
 #' @returns Vector con nombres de comuna
 #' @export
