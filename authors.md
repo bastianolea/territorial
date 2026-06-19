@@ -1,12 +1,12 @@
-# Authors and Citation
+# Autores y Citas
 
-## Authors
+## Autores
 
-- **Bastián Olea**. Author, maintainer.
+- **Bastián Olea**. Autor-a, mantenedor-a.
 
-## Citation
+## Cita
 
-Source:
+Código:
 [`DESCRIPTION`](https://github.com/bastianolea/territorial/blob/main/DESCRIPTION)
 
 Olea B (2026). *territorial: Funciones para trabajar con datos comunales

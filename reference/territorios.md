@@ -8,13 +8,13 @@ Chile](https://www.subdere.gov.cl/documentacion/c%C3%B3digos-%C3%BAnicos-territo
 publicados en el Diario Oficial el 21 de septiembre de 2018, con leves
 modificaciones.
 
-## Usage
+## Uso
 
 ``` r
 territorios
 ```
 
-## Format
+## Formato
 
 A data frame with 346 rows and 6 columns:
 
@@ -43,6 +43,6 @@ A data frame with 346 rows and 6 columns:
 
   Nombre de las comunas de Chile
 
-## Source
+## Fuente
 
 [https://www.subdere.gov.cl/documentacion/códigos-únicos-territoriales-actualizados-al-06-de-septiembre-2018](https://www.subdere.gov.cl/documentacion/c%C3%B3digos-%C3%BAnicos-territoriales-actualizados-al-06-de-septiembre-2018)

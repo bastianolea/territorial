@@ -6,13 +6,13 @@ variable para agregar todo el resto de variables territoriales. De esta
 manera, se contextualizan territorialmente los datos al agregar todas
 las variables territoriales faltantes.
 
-## Usage
+## Uso
 
 ``` r
 contextualizar(datos, variable = NULL)
 ```
 
-## Arguments
+## Argumentos
 
 - datos:
 
@@ -24,13 +24,13 @@ contextualizar(datos, variable = NULL)
   Variable territorial ya existente en el dataframe (`codigo_comuna` o
   `nombre_comuna`)
 
-## Value
+## Valor
 
 El mismo dataframe con las columnas `codigo_region`, `nombre_region`,
 `codigo_provincia`, `nombre_provincia`, `codigo_comuna` y
 `nombre_comuna` agregadas al inicio.
 
-## Examples
+## Ejemplos
 
 ``` r
 datos <- dplyr::tribble(
