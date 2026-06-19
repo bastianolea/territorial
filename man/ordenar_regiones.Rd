@@ -2,7 +2,7 @@
 % Please edit documentation in R/ordenar_regiones.R
 \name{ordenar_regiones}
 \alias{ordenar_regiones}
-\title{Ordenar regiones de Chile geogr\\u00e1ficamente}
+\title{Ordenar regiones de Chile geográficamente}
 \usage{
 ordenar_regiones(datos, limpiar = TRUE, ordenar = TRUE)
 }
