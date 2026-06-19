@@ -6,7 +6,7 @@
 #'
 #' @returns Vector con nombres de comuna
 #' @export
-as.nombre_comuna <- function(codigos_comunas) {
+as_nombre_comuna <- function(codigos_comunas) {
 
   if (!class(codigos_comunas) %in% c("numeric", "integer")) {
    cli::cli_abort("códigos comunales deben venir en formato numérico")

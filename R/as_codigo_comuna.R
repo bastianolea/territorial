@@ -6,7 +6,7 @@
 #'
 #' @returns Vector numérico con códigos de comuna
 #' @export
-as.codigo_comuna <- function(nombres_comunas) {
+as_codigo_comuna <- function(nombres_comunas) {
 
   codigos_comunas <- territorial::territorios$codigo_comuna
 

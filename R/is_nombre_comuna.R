@@ -8,9 +8,9 @@
 #' @export
 #'
 #' @examples
-#' is.comuna("Panguipulli")
+#' is_nombre_comuna("Panguipulli")
 #'
-is.comuna <- function(x) {
+is_nombre_comuna <- function(x) {
 
   x %in% territorial::comunas()
 }
