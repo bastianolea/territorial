@@ -1,11 +1,16 @@
 # Paquete `{territorial}`
 
-Herramientas para trabajar con comunas de Chile.
+Herramientas para trabajar con comunas de Chile en R.
 
 Este paquete busca facilitar tareas de limpieza que suelen ser
-necesarias al trabajar con datos de Chile a nivel territorial, por
-ejemplo limpiar los nombres de las comunas y regiones, agregar códigos
-comunales y regionales, ordenar las regiones del país, entre otras.
+necesarias al trabajar con datos de Chile a nivel comunal, por ejemplo
+limpiar los nombres de las comunas y regiones, agregar códigos comunales
+y regionales, ordenar las regiones del país, entre otras.
+
+La razón de este paquete surge de mi propia experiencia analizando datos
+sociales: los datos territoriales de Chile vienen siempre con dudosa
+calidad en las variables que especifican las comunas: nombres mal
+escritos, en mayúsculas, sin eñes, etc.
 
 Paquete desarrollado bajo el [programa de Campeones de
 ROpenSci](https://ropensci.org/es/champions/), con el apoyo de mi
@@ -52,7 +57,7 @@ head(territorial::territorios)
 
 Esta tabla puede servir para hacer
 [`left_join()`](https://dplyr.tidyverse.org/reference/mutate-joins.html)
-y así complementar otras fuentes de datos territoriales.
+y así complementar otras fuentes de datos comunales.
 
 Estos datos corresponden al [Ministerio del Interior de
 Chile](https://www.subdere.gov.cl/documentacion/c%C3%B3digos-%C3%BAnicos-territoriales-actualizados-al-06-de-septiembre-2018),
@@ -80,8 +85,22 @@ válidas:
 
 comunas <- c("Providencia", "Vitacura", "Las Condes", "Lo Barnechea", "Ratas", NA)
 
-is.comuna(comunas)
+is_nombre_comuna(comunas)
 #> [1]  TRUE  TRUE  TRUE  TRUE FALSE FALSE
+```
+
+Lo anterior sería equivalente a hacer
+`comunas %in% territorial::comunas()`.
+
+También se puede confirmar si los códigos únicos territoriales son
+válidos:
+
+``` r
+
+comunas <- c(1101, 1107, NA, 99999)
+
+is_codigo_comuna(comunas)
+#> [1]  TRUE  TRUE FALSE FALSE
 ```
 
 Algo que suele pasar es recibir datos comunales con las comunas mal
@@ -104,7 +123,7 @@ head(datos)
 
 # crear nombres de comuna a partir de códigos comunales
 datos |> 
-  mutate(nombre_comuna = as.nombre_comuna(codigo_comuna))
+  mutate(nombre_comuna = as_nombre_comuna(codigo_comuna))
 #> # A tibble: 10 × 3
 #>    codigo_comuna municipio     nombre_comuna
 #>            <dbl> <chr>         <chr>        
@@ -140,7 +159,7 @@ head(datos)
 
 # agregar códigos comunales a partir de nombres de comunas
 datos |> 
-  mutate(codigo_comuna = as.codigo_comuna(nombre_comuna))
+  mutate(codigo_comuna = as_codigo_comuna(nombre_comuna))
 #> # A tibble: 6 × 3
 #>   nombre_comuna valor codigo_comuna
 #>   <chr>         <dbl>         <dbl>
@@ -160,16 +179,84 @@ escritos! Para esto existe la función `limpiar_nombres_comunas()`:
 # limpiar_nombres_comunas()
 ```
 
+Si tenemos datos de nivel comunal pero les faltan variables
+territoriales, podemos *contextualizar* los datos comunales al
+agregarles todas las variables que les faltan con la función
+[`contextualizar()`](https://bastianolea.github.io/territorial/reference/contextualizar.md):
+
+``` r
+
+head(datos)
+#> # A tibble: 3 × 2
+#>   nombre_comuna valor
+#>   <chr>         <dbl>
+#> 1 Cerrillos         1
+#> 2 Arica             2
+#> 3 Putre             3
+
+datos |>
+  contextualizar(variable = "nombre_comuna")
+#> ℹ columnas agregadas: codigo_region, nombre_region, codigo_provincia, nombre_provincia y codigo_comuna
+#> # A tibble: 3 × 7
+#>   codigo_region nombre_region             codigo_provincia nombre_provincia codigo_comuna nombre_comuna valor
+#>           <dbl> <chr>                                <dbl> <chr>                    <dbl> <chr>         <dbl>
+#> 1            13 Metropolitana de Santiago              131 Santiago                 13102 Cerrillos         1
+#> 2            15 Arica y Parinacota                     151 Arica                    15101 Arica             2
+#> 3            15 Arica y Parinacota                     152 Parinacota               15201 Putre             3
+```
+
 ### Ejemplos de datos regionales
 
 Cuando trabajamos datos de nivel regional, una necesidad común es
-ordenarlos en el orden geográfico; es decir, de norte a sur. Para ello
-existe la función
+[ordenar las regiones en el orden
+geográfico](https://bastianolea.rbind.io/blog/ordenar_regiones/); es
+decir, de norte a sur. Para ello existe la función
 [`ordenar_regiones()`](https://bastianolea.github.io/territorial/reference/ordenar_regiones.md):
 
 ``` r
 
-# ordenar_regiones()
+regiones
+#> # A tibble: 16 × 2
+#>    codigo_region nombre_region                            
+#>            <dbl> <chr>                                    
+#>  1             1 Tarapacá                                 
+#>  2             2 Antofagasta                              
+#>  3             3 Atacama                                  
+#>  4             4 Coquimbo                                 
+#>  5             5 Valparaíso                               
+#>  6             6 Libertador General Bernardo O'Higgins    
+#>  7             7 Maule                                    
+#>  8             8 Biobío                                   
+#>  9             9 La Araucanía                             
+#> 10            10 Los Lagos                                
+#> 11            11 Aysén del General Carlos Ibáñez del Campo
+#> 12            12 Magallanes y de la Antártica Chilena     
+#> 13            13 Metropolitana de Santiago                
+#> 14            14 Los Ríos                                 
+#> 15            15 Arica y Parinacota                       
+#> 16            16 Ñuble
+
+regiones |> 
+  ordenar_regiones()
+#> # A tibble: 16 × 2
+#>    codigo_region nombre_region                            
+#>            <dbl> <fct>                                    
+#>  1            15 Arica y Parinacota                       
+#>  2             1 Tarapacá                                 
+#>  3             2 Antofagasta                              
+#>  4             3 Atacama                                  
+#>  5             4 Coquimbo                                 
+#>  6             5 Valparaíso                               
+#>  7            13 Metropolitana de Santiago                
+#>  8             6 Libertador General Bernardo O'Higgins    
+#>  9             7 Maule                                    
+#> 10            16 Ñuble                                    
+#> 11             8 Biobío                                   
+#> 12             9 La Araucanía                             
+#> 13            14 Los Ríos                                 
+#> 14            10 Los Lagos                                
+#> 15            11 Aysén del General Carlos Ibáñez del Campo
+#> 16            12 Magallanes y de la Antártica Chilena
 ```
 
 # Índice del paquete

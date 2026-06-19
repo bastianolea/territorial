@@ -50,8 +50,9 @@
 <div class="page-header"><h1 id="paquete-territorial">Paquete <code>{territorial}</code>
 <a class="anchor" aria-label="anchor" href="#paquete-territorial"></a>
 </h1></div>
-<p>Herramientas para trabajar con comunas de Chile.</p>
-<p>Este paquete busca facilitar tareas de limpieza que suelen ser necesarias al trabajar con datos de Chile a nivel territorial, por ejemplo limpiar los nombres de las comunas y regiones, agregar códigos comunales y regionales, ordenar las regiones del país, entre otras.</p>
+<p>Herramientas para trabajar con comunas de Chile en R.</p>
+<p>Este paquete busca facilitar tareas de limpieza que suelen ser necesarias al trabajar con datos de Chile a nivel comunal, por ejemplo limpiar los nombres de las comunas y regiones, agregar códigos comunales y regionales, ordenar las regiones del país, entre otras.</p>
+<p>La razón de este paquete surge de mi propia experiencia analizando datos sociales: los datos territoriales de Chile vienen siempre con dudosa calidad en las variables que especifican las comunas: nombres mal escritos, en mayúsculas, sin eñes, etc.</p>
 <p>Paquete desarrollado bajo el <a href="https://ropensci.org/es/champions/" class="external-link">programa de Campeones de ROpenSci</a>, con el apoyo de mi mentora <a href="https://github.com/SoyAndrea" class="external-link">Andrea Gómez Vargas</a></p>
 <div class="section level2">
 <h2 id="instalación">Instalación<a class="anchor" aria-label="anchor" href="#instalaci%C3%B3n"></a>
@@ -82,7 +83,7 @@
 <span><span class="co">#&gt; 4             1 Tarapacá                    14 Tamarugal                 1402 Camiña       </span></span>
 <span><span class="co">#&gt; 5             1 Tarapacá                    14 Tamarugal                 1403 Colchane     </span></span>
 <span><span class="co">#&gt; 6             1 Tarapacá                    14 Tamarugal                 1404 Huara</span></span></code></pre></div>
-<p>Esta tabla puede servir para hacer <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join()</a></code> y así complementar otras fuentes de datos territoriales.</p>
+<p>Esta tabla puede servir para hacer <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join()</a></code> y así complementar otras fuentes de datos comunales.</p>
 <p>Estos datos corresponden al <a href="https://www.subdere.gov.cl/documentacion/c%C3%B3digos-%C3%BAnicos-territoriales-actualizados-al-06-de-septiembre-2018" class="external-link">Ministerio del Interior de Chile</a>, publicados en el Diario Oficial el 21 de septiembre de 2018, con leves modificaciones.</p>
 <div class="section level3">
 <h3 id="ejemplos-de-datos-comunales">Ejemplos de datos comunales<a class="anchor" aria-label="anchor" href="#ejemplos-de-datos-comunales"></a>
@@ -98,10 +99,17 @@
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">comunas</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Providencia"</span>, <span class="st">"Vitacura"</span>, <span class="st">"Las Condes"</span>, <span class="st">"Lo Barnechea"</span>, <span class="st">"Ratas"</span>, <span class="cn">NA</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">is.comuna</span><span class="op">(</span><span class="va">comunas</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/is_nombre_comuna.html">is_nombre_comuna</a></span><span class="op">(</span><span class="va">comunas</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1]  TRUE  TRUE  TRUE  TRUE FALSE FALSE</span></span></code></pre></div>
-<p>Algo que suele pasar es recibir datos comunales con las comunas mal escritas, pero que vienen con códigos únicos territoriales. En este caso podemos crear las comunas bien escritas a partir de los códigos únicos territoriales:</p>
+<p>Lo anterior sería equivalente a hacer <code>comunas %in% territorial::comunas()</code>.</p>
+<p>También se puede confirmar si los códigos únicos territoriales son válidos:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">comunas</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1101</span>, <span class="fl">1107</span>, <span class="cn">NA</span>, <span class="fl">99999</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="reference/is_codigo_comuna.html">is_codigo_comuna</a></span><span class="op">(</span><span class="va">comunas</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1]  TRUE  TRUE FALSE FALSE</span></span></code></pre></div>
+<p>Algo que suele pasar es recibir datos comunales con las comunas mal escritas, pero que vienen con códigos únicos territoriales. En este caso podemos crear las comunas bien escritas a partir de los códigos únicos territoriales:</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">datos</span><span class="op">)</span></span>
 <span><span class="co">#&gt; # A tibble: 6 × 2</span></span>
 <span><span class="co">#&gt;   codigo_comuna municipio    </span></span>
@@ -115,7 +123,7 @@
 <span></span>
 <span><span class="co"># crear nombres de comuna a partir de códigos comunales</span></span>
 <span><span class="va">datos</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>nombre_comuna <span class="op">=</span> <span class="fu">as.nombre_comuna</span><span class="op">(</span><span class="va">codigo_comuna</span><span class="op">)</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>nombre_comuna <span class="op">=</span> <span class="fu"><a href="reference/as_nombre_comuna.html">as_nombre_comuna</a></span><span class="op">(</span><span class="va">codigo_comuna</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; # A tibble: 10 × 3</span></span>
 <span><span class="co">#&gt;    codigo_comuna municipio     nombre_comuna</span></span>
 <span><span class="co">#&gt;            &lt;dbl&gt; &lt;chr&gt;         &lt;chr&gt;        </span></span>
@@ -130,7 +138,7 @@
 <span><span class="co">#&gt;  9         16202 COBQUECURA    Cobquecura   </span></span>
 <span><span class="co">#&gt; 10         13116 LO ESPEJO     Lo Espejo</span></span></code></pre></div>
 <p>También podemos tener el caso inverso: una tabla con datos comunales que vienen con nombres de comunas, pero sin códigos únicos territoriales. Podemos crear los códigos únicos territoriales a partir de los nombres de comunas:</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">datos</span><span class="op">)</span></span>
 <span><span class="co">#&gt; # A tibble: 6 × 2</span></span>
 <span><span class="co">#&gt;   nombre_comuna valor</span></span>
@@ -144,7 +152,7 @@
 <span></span>
 <span><span class="co"># agregar códigos comunales a partir de nombres de comunas</span></span>
 <span><span class="va">datos</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>codigo_comuna <span class="op">=</span> <span class="fu">as.codigo_comuna</span><span class="op">(</span><span class="va">nombre_comuna</span><span class="op">)</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>codigo_comuna <span class="op">=</span> <span class="fu"><a href="reference/as_codigo_comuna.html">as_codigo_comuna</a></span><span class="op">(</span><span class="va">nombre_comuna</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; # A tibble: 6 × 3</span></span>
 <span><span class="co">#&gt;   nombre_comuna valor codigo_comuna</span></span>
 <span><span class="co">#&gt;   &lt;chr&gt;         &lt;dbl&gt;         &lt;dbl&gt;</span></span>
@@ -155,15 +163,75 @@
 <span><span class="co">#&gt; 5 Ñuñoa             1         13120</span></span>
 <span><span class="co">#&gt; 6 Conchalí          2         13104</span></span></code></pre></div>
 <p>Pero lo anterior requiere que los nombres de las comunas estén bien escritos! Para esto existe la función <code>limpiar_nombres_comunas()</code>:</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># limpiar_nombres_comunas()</span></span></code></pre></div>
+<p>Si tenemos datos de nivel comunal pero les faltan variables territoriales, podemos <em>contextualizar</em> los datos comunales al agregarles todas las variables que les faltan con la función <code><a href="reference/contextualizar.html">contextualizar()</a></code>:</p>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">datos</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 3 × 2</span></span>
+<span><span class="co">#&gt;   nombre_comuna valor</span></span>
+<span><span class="co">#&gt;   &lt;chr&gt;         &lt;dbl&gt;</span></span>
+<span><span class="co">#&gt; 1 Cerrillos         1</span></span>
+<span><span class="co">#&gt; 2 Arica             2</span></span>
+<span><span class="co">#&gt; 3 Putre             3</span></span>
+<span></span>
+<span><span class="va">datos</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="reference/contextualizar.html">contextualizar</a></span><span class="op">(</span>variable <span class="op">=</span> <span class="st">"nombre_comuna"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; ℹ columnas agregadas: codigo_region, nombre_region, codigo_provincia, nombre_provincia y codigo_comuna</span></span>
+<span><span class="co">#&gt; # A tibble: 3 × 7</span></span>
+<span><span class="co">#&gt;   codigo_region nombre_region             codigo_provincia nombre_provincia codigo_comuna nombre_comuna valor</span></span>
+<span><span class="co">#&gt;           &lt;dbl&gt; &lt;chr&gt;                                &lt;dbl&gt; &lt;chr&gt;                    &lt;dbl&gt; &lt;chr&gt;         &lt;dbl&gt;</span></span>
+<span><span class="co">#&gt; 1            13 Metropolitana de Santiago              131 Santiago                 13102 Cerrillos         1</span></span>
+<span><span class="co">#&gt; 2            15 Arica y Parinacota                     151 Arica                    15101 Arica             2</span></span>
+<span><span class="co">#&gt; 3            15 Arica y Parinacota                     152 Parinacota               15201 Putre             3</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="ejemplos-de-datos-regionales">Ejemplos de datos regionales<a class="anchor" aria-label="anchor" href="#ejemplos-de-datos-regionales"></a>
 </h3>
-<p>Cuando trabajamos datos de nivel regional, una necesidad común es ordenarlos en el orden geográfico; es decir, de norte a sur. Para ello existe la función <code><a href="reference/ordenar_regiones.html">ordenar_regiones()</a></code>:</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># ordenar_regiones()</span></span></code></pre></div>
+<p>Cuando trabajamos datos de nivel regional, una necesidad común es <a href="https://bastianolea.rbind.io/blog/ordenar_regiones/" class="external-link">ordenar las regiones en el orden geográfico</a>; es decir, de norte a sur. Para ello existe la función <code><a href="reference/ordenar_regiones.html">ordenar_regiones()</a></code>:</p>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">regiones</span></span>
+<span><span class="co">#&gt; # A tibble: 16 × 2</span></span>
+<span><span class="co">#&gt;    codigo_region nombre_region                            </span></span>
+<span><span class="co">#&gt;            &lt;dbl&gt; &lt;chr&gt;                                    </span></span>
+<span><span class="co">#&gt;  1             1 Tarapacá                                 </span></span>
+<span><span class="co">#&gt;  2             2 Antofagasta                              </span></span>
+<span><span class="co">#&gt;  3             3 Atacama                                  </span></span>
+<span><span class="co">#&gt;  4             4 Coquimbo                                 </span></span>
+<span><span class="co">#&gt;  5             5 Valparaíso                               </span></span>
+<span><span class="co">#&gt;  6             6 Libertador General Bernardo O'Higgins    </span></span>
+<span><span class="co">#&gt;  7             7 Maule                                    </span></span>
+<span><span class="co">#&gt;  8             8 Biobío                                   </span></span>
+<span><span class="co">#&gt;  9             9 La Araucanía                             </span></span>
+<span><span class="co">#&gt; 10            10 Los Lagos                                </span></span>
+<span><span class="co">#&gt; 11            11 Aysén del General Carlos Ibáñez del Campo</span></span>
+<span><span class="co">#&gt; 12            12 Magallanes y de la Antártica Chilena     </span></span>
+<span><span class="co">#&gt; 13            13 Metropolitana de Santiago                </span></span>
+<span><span class="co">#&gt; 14            14 Los Ríos                                 </span></span>
+<span><span class="co">#&gt; 15            15 Arica y Parinacota                       </span></span>
+<span><span class="co">#&gt; 16            16 Ñuble</span></span>
+<span></span>
+<span><span class="va">regiones</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="reference/ordenar_regiones.html">ordenar_regiones</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 16 × 2</span></span>
+<span><span class="co">#&gt;    codigo_region nombre_region                            </span></span>
+<span><span class="co">#&gt;            &lt;dbl&gt; &lt;fct&gt;                                    </span></span>
+<span><span class="co">#&gt;  1            15 Arica y Parinacota                       </span></span>
+<span><span class="co">#&gt;  2             1 Tarapacá                                 </span></span>
+<span><span class="co">#&gt;  3             2 Antofagasta                              </span></span>
+<span><span class="co">#&gt;  4             3 Atacama                                  </span></span>
+<span><span class="co">#&gt;  5             4 Coquimbo                                 </span></span>
+<span><span class="co">#&gt;  6             5 Valparaíso                               </span></span>
+<span><span class="co">#&gt;  7            13 Metropolitana de Santiago                </span></span>
+<span><span class="co">#&gt;  8             6 Libertador General Bernardo O'Higgins    </span></span>
+<span><span class="co">#&gt;  9             7 Maule                                    </span></span>
+<span><span class="co">#&gt; 10            16 Ñuble                                    </span></span>
+<span><span class="co">#&gt; 11             8 Biobío                                   </span></span>
+<span><span class="co">#&gt; 12             9 La Araucanía                             </span></span>
+<span><span class="co">#&gt; 13            14 Los Ríos                                 </span></span>
+<span><span class="co">#&gt; 14            10 Los Lagos                                </span></span>
+<span><span class="co">#&gt; 15            11 Aysén del General Carlos Ibáñez del Campo</span></span>
+<span><span class="co">#&gt; 16            12 Magallanes y de la Antártica Chilena</span></span></code></pre></div>
 </div>
 </div>
 </div>
