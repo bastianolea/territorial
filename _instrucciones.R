@@ -106,6 +106,7 @@ usethis::use_vignette("territorial.qmd") # si se llama como el paquete tiene un 
 
 # sitio del paquete
 usethis::use_pkgdown()
+# usethis::use_pkgdown_github_pages()
 
 # reconstruir sitio
 pkgdown::build_site()

@@ -1,6 +1,6 @@
 Package: territorial
 Title: Funciones para trabajar con datos comunales de Chile
-Version: 0.0.3
+Version: 0.2
 Authors@R: 
     person("Bastián", "Olea", , "bastianolea@gmail.com", role = c("aut", "cre"))
 Description: Este paquete busca facilitar tareas de limpieza que suelen ser necesarias al trabajar con datos de Chile a nivel comunal, por ejemplo limpiar los nombres de las comunas y regiones, agregar códigos comunales y regionales, ordenar las regiones del país, entre otras.
