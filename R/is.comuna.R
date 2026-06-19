@@ -12,5 +12,5 @@
 #'
 is.comuna <- function(x) {
 
-  x %in% comunal::comunas()
+  x %in% territorial::comunas()
 }

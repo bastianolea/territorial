@@ -15,11 +15,11 @@ knitr::opts_chunk$set(
 options(width = 200)
 ```
 
-# Paquete `{comunal}`
+# Paquete `{territorial}`
 
 Herramientas para trabajar con comunas de Chile.
 
-Este paquete busca facilitar tareas de limpieza que suelen ser necesarias al trabajar con datos de Chile a nivel territorial, por ejemplo limpiar los nombres de las comunas y regiones, agregar códigos comunales y regionales, ordenar las regiones del país, entre otras.
+Este paquete busca facilitar tareas de limpieza que suelen ser necesarias al trabajar con datos de Chile a nivel comunal, por ejemplo limpiar los nombres de las comunas y regiones, agregar códigos comunales y regionales, ordenar las regiones del país, entre otras.
 
 Paquete desarrollado bajo el [programa de Campeones de ROpenSci](https://ropensci.org/es/champions/), con el apoyo de mi mentora [Andrea Gómez Vargas](https://github.com/SoyAndrea)
 
@@ -30,12 +30,12 @@ Por ahora puedes instalar este paquete desde GitHub:
 
 ```r
 # install.packages("pak")
-pak::pkg_install("bastianolea/comunal")
+pak::pkg_install("bastianolea/territorial")
 ```
 
 ```r
 # install.packages("devtools")
-devtools::install_github("bastianolea/comunal")
+devtools::install_github("bastianolea/territorial")
 ```
 
 ## Ejemplos
@@ -43,13 +43,13 @@ devtools::install_github("bastianolea/comunal")
 El paquete ofrece una tabla de datos que contiene todas las comunas del país con sus nombres oficiales, sus códigos únicos territoriales, y lo mismo para las provincias y regiones del país.
 
 ```{r tabla, message=FALSE, warning=FALSE}
-library(comunal)
+library(territorial)
 library(dplyr)
 
-head(comunal::territorios)
+head(territorial::territorios)
 ```
 
-Esta tabla puede servir para hacer `left_join()` y así complementar otras fuentes de datos territoriales.
+Esta tabla puede servir para hacer `left_join()` y así complementar otras fuentes de datos comunales.
 
 Estos datos corresponden al [Ministerio del Interior de Chile](https://www.subdere.gov.cl/documentacion/códigos-únicos-territoriales-actualizados-al-06-de-septiembre-2018), publicados en el Diario Oficial el 21 de septiembre de 2018, con leves modificaciones.
 
@@ -62,7 +62,7 @@ Si tienes una tabla de datos con datos comunales, lo primero sería revisar la c
 ```
 
 ```{r example}
-# library(comunal)
+# library(territorial)
 
 # head(datos)
 # 
@@ -134,7 +134,7 @@ Pero lo anterior requiere que los nombres de las comunas estén bien escritos! P
 ```
 
 
-Si tenemos datos de nivel comunal pero les faltan variables territoriales, podemos _contextualizar_ los datos territoriales al agregarles todas las variables que les faltan con la función `contextualizar()`:
+Si tenemos datos de nivel comunal pero les faltan variables territoriales, podemos _contextualizar_ los datos comunales al agregarles todas las variables que les faltan con la función `contextualizar()`:
 
 ```{r include=FALSE}
 datos <- dplyr::tribble(

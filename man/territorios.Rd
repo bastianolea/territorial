@@ -22,6 +22,6 @@ A data frame with 346 rows and 6 columns:
 territorios
 }
 \description{
-Tabla de datos que contiene todas las comunas del país con sus nombres oficiales, sus códigos únicos territoriales, y lo mismo para las provincias y regiones del país. Estos datos corresponden al \href{https://www.subdere.gov.cl/documentacion/códigos-únicos-territoriales-actualizados-al-06-de-septiembre-2018}{Ministerio del Interior de Chile}, publicados en el Diario Oficial el 21 de septiembre de 2018, con leves modificaciones.
+Tabla de datos que contiene todas las comunas del país con sus nombres oficiales, sus códigos únicos comunales, y lo mismo para las provincias y regiones del país. Estos datos corresponden al \href{https://www.subdere.gov.cl/documentacion/códigos-únicos-territoriales-actualizados-al-06-de-septiembre-2018}{Ministerio del Interior de Chile}, publicados en el Diario Oficial el 21 de septiembre de 2018, con leves modificaciones.
 }
 \keyword{datasets}

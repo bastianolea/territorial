@@ -33,8 +33,8 @@ contextualizar <- function(
   # si es nombre de comuna, chequear que son correctos
 
   # verificar si existe alguna variable territorial
-  if (!any(names(datos) %in% names(comunal::territorios))) {
-    cli::cli_abort("los datos tienen que venir con alguna variable territorial, como {glue::glue_collapse(names(comunal::territorios), sep = ', ', last = ' o ')}")
+  if (!any(names(datos) %in% names(territorial::territorios))) {
+    cli::cli_abort("los datos tienen que venir con alguna variable territorial, como {glue::glue_collapse(names(territorial::territorios), sep = ', ', last = ' o ')}")
   }
 
   # chequear si existe la variable
@@ -43,14 +43,14 @@ contextualizar <- function(
   }
 
   # revisar si existen otras variables territoriales aparte de la definida
-  variables_territoriales_presentes <- length(intersect(names(datos), names(comunal::territorios)))
+  variables_territoriales_presentes <- length(intersect(names(datos), names(territorial::territorios)))
 
   if (variables_territoriales_presentes > 1) {
 
     cli::cli_alert_warning("más de una variable territorial detectada en los datos! descartando todas excepto `{variable}`.")
 
     # todas las otras
-    otras_variables_territoriales <- setdiff(names(comunal::territorios), variable)
+    otras_variables_territoriales <- setdiff(names(territorial::territorios), variable)
 
     # descartarlas
     datos <- datos |>
@@ -60,14 +60,14 @@ contextualizar <- function(
   # unir datos
   datos_a <- datos |>
     dplyr::left_join(
-      comunal::territorios,
+      territorial::territorios,
       by = variable
     )
 
   # ordenar datos
   datos_b <- datos_a |>
     dplyr::relocate(
-      names(comunal::territorios),
+      names(territorial::territorios),
       .before = 1
     )
 

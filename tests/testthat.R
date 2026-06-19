@@ -7,6 +7,6 @@
 # * https://testthat.r-lib.org/articles/special-files.html
 
 library(testthat)
-library(comunal)
+library(territorial)
 
-test_check("comunal")
+test_check("territorial")

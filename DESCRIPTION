@@ -1,9 +1,9 @@
-Package: comunal
+Package: territorial
 Title: Funciones para trabajar con datos comunales de Chile
 Version: 0.0.3
 Authors@R: 
     person("Bastián", "Olea", , "bastianolea@gmail.com", role = c("aut", "cre"))
-Description: Este paquete busca facilitar tareas de limpieza que suelen ser necesarias al trabajar con datos de Chile a nivel territorial, por ejemplo limpiar los nombres de las comunas y regiones, agregar códigos comunales y regionales, ordenar las regiones del país, entre otras.
+Description: Este paquete busca facilitar tareas de limpieza que suelen ser necesarias al trabajar con datos de Chile a nivel comunal, por ejemplo limpiar los nombres de las comunas y regiones, agregar códigos comunales y regionales, ordenar las regiones del país, entre otras.
 License: GPL (>= 3)
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
@@ -20,6 +20,6 @@ Imports:
     cli,
     dplyr,
     forcats
-URL: https://bastianolea.github.io/comunal, https://github.com/bastianolea/comunal
-BugReports: https://github.com/bastianolea/comunal/issues
+URL: https://bastianolea.github.io/territorial, https://github.com/bastianolea/territorial
+BugReports: https://github.com/bastianolea/territorial/issues
 VignetteBuilder: quarto

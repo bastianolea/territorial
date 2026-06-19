@@ -8,7 +8,7 @@
 #' @export
 ordenar_regiones <- function(data) {
 
-  # data <- comunal::territorios
+  # data <- territorial::territorios
 
   # all(c("nombre_region", "codigo_region") %in% names(data))
   #

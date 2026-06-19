@@ -10,7 +10,7 @@ test_that("ordenar regiones pero faltan columnas", {
 test_that("ordenar regiones retorna factor", {
   expect_s3_class(
     ordenar_regiones(
-      comunal::territorios
+      territorial::territorios
     )$nombre_region,
     "factor"
   )
@@ -18,7 +18,7 @@ test_that("ordenar regiones retorna factor", {
 
 test_that("ordenar regiones no cambia estructura de tabla", {
   expect_equal(
-    dim(ordenar_regiones(comunal::territorios)),
-    dim(comunal::territorios)
+    dim(ordenar_regiones(territorial::territorios)),
+    dim(territorial::territorios)
   )
 })

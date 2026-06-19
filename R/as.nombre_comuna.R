@@ -1,6 +1,6 @@
 #' Convertir c\\u00f3digos comunales a nombres de comunas
 #'
-#' Entregando c\\u00f3digos comunales (como los que aparecen en [comunal::territorios]), retorna los nombres de comuna correspondientes. Retorna NA si no corresponde con ninguna.
+#' Entregando c\\u00f3digos comunales (como los que aparecen en [territorial::territorios]), retorna los nombres de comuna correspondientes. Retorna NA si no corresponde con ninguna.
 #'
 #' @param codigos_comunas C\\u00f3digos comunales en formato num\\u00e9rico
 #'
@@ -12,9 +12,9 @@ as.nombre_comuna <- function(codigos_comunas) {
    cli::cli_abort("códigos comunales deben venir en formato numérico")
   }
 
-  nombres_comunas <- comunal::territorios$nombre_comuna
+  nombres_comunas <- territorial::territorios$nombre_comuna
 
-  nombres_encontrados <- comunal::territorios$nombre_comuna[match(codigos_comunas, comunal::territorios$codigo_comuna)]
+  nombres_encontrados <- territorial::territorios$nombre_comuna[match(codigos_comunas, territorial::territorios$codigo_comuna)]
 
   return(nombres_encontrados)
 }

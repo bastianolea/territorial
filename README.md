@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# Paquete `{comunal}`
+# Paquete `{territorial}`
 
 Herramientas para trabajar con comunas de Chile.
 
@@ -20,12 +20,12 @@ Por ahora puedes instalar este paquete desde GitHub:
 
 ``` r
 # install.packages("pak")
-pak::pkg_install("bastianolea/comunal")
+pak::pkg_install("bastianolea/territorial")
 ```
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("bastianolea/comunal")
+devtools::install_github("bastianolea/territorial")
 ```
 
 ## Ejemplos
@@ -35,10 +35,10 @@ país con sus nombres oficiales, sus códigos únicos territoriales, y lo
 mismo para las provincias y regiones del país.
 
 ``` r
-library(comunal)
+library(territorial)
 library(dplyr)
 
-head(comunal::territorios)
+head(territorial::territorios)
 #> # A tibble: 6 × 6
 #>   codigo_region nombre_region codigo_provincia nombre_provincia codigo_comuna nombre_comuna
 #>           <dbl> <chr>                    <dbl> <chr>                    <dbl> <chr>        
@@ -64,7 +64,7 @@ Si tienes una tabla de datos con datos comunales, lo primero sería
 revisar la calidad de sus datos:
 
 ``` r
-# library(comunal)
+# library(territorial)
 
 # head(datos)
 # 

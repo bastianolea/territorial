@@ -18,7 +18,6 @@ El mismo dataframe con las columnas \code{codigo_region}, \code{nombre_region}, 
 Para cualquier tabla de datos de nivel comunal que tenga al menos una variable territorial (\code{codigo_comuna} o \code{nombre_comuna}), indicar esta variable para agregar todo el resto de variables territoriales. De esta manera, se contextualizan territorialmente los datos al agregar todas las variables territoriales faltantes.
 }
 \examples{
-
 datos <- dplyr::tribble(
   ~nombre_comuna, ~valor,
   "Cerrillos",    1,
@@ -27,5 +26,4 @@ datos <- dplyr::tribble(
 
 datos |>
   contextualizar(variable = "nombre_comuna")
-
 }

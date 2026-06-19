@@ -1,4 +1,4 @@
-test_that("contextualizar datos de nivel comunal desde codigo_comuna", {
+test_that("contextualizar datos de nivel territorial desde codigo_comuna", {
   expect_no_error(
     {
       datos <- dplyr::tribble(
@@ -14,7 +14,7 @@ test_that("contextualizar datos de nivel comunal desde codigo_comuna", {
   )
 })
 
-test_that("contextualizar datos de nivel comunal desde nombre_comuna", {
+test_that("contextualizar datos de nivel territorial desde nombre_comuna", {
   expect_no_error(
     {
       datos <- dplyr::tribble(
@@ -31,7 +31,7 @@ test_that("contextualizar datos de nivel comunal desde nombre_comuna", {
 })
 
 
-test_that("contextualizar datos de nivel comunal con más de una definida debe arrojar error", {
+test_that("contextualizar datos de nivel territorial con más de una definida debe arrojar error", {
   expect_error(
     {
       datos <- dplyr::tribble(
@@ -48,7 +48,7 @@ test_that("contextualizar datos de nivel comunal con más de una definida debe a
 })
 
 
-test_that("contextualizar datos de nivel comunal con una variable territorial cuando existen otras también", {
+test_that("contextualizar datos de nivel territorial con una variable territorial cuando existen otras también", {
   expect_no_error(
     {
       datos <- dplyr::tribble(

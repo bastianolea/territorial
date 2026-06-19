@@ -60,7 +60,7 @@ usethis::use_data_raw("territorios")
 # recargar el paquete
 devtools::load_all()
 
-# comunal::territorios
+# territorial::territorios
 
 
 # pruebas ----
@@ -99,7 +99,7 @@ devtools::test()
 devtools::document()
 
 # crear viñeta
-usethis::use_vignette("comunal.qmd") # si se llama como el paquete tiene un rol distinto
+usethis::use_vignette("territorial.qmd") # si se llama como el paquete tiene un rol distinto
 
 # instalar el propio paquete
 # pak::local_install()
@@ -118,12 +118,12 @@ pkgdown::build_site()
 # —----
 
 #
-# comunal::comunas()
+# territorial::comunas()
 #
 # usethis::use_r("is.comuna.R")
 # usethis::use_test("is.comuna.R")
 #
 # devtools::document()
 # devtools::load_all()
-# comunal::is.comuna("Maipú")
+# territorial::is.comuna("Maipú")
 # devtools::test()

@@ -2,7 +2,7 @@
 ## Pendientes
 - [ ] `is.comuna()`: poner error si no se entrega comuna
 - [ ] `is.comuna()`: poner error si no es caracter
-- [ ] editar vignettes/comunal.qmd
+- [ ] editar vignettes/territorial.qmd
 - [ ] agregar github action de tests
 - [x] subir a github pages
   - [x] cambiar a español
@@ -37,7 +37,7 @@ Funciones con datos
   - [ ] cambiar a función o no????
 - [x] `comunas()` = retorna un vector con los nombres de comunas
 - [ ] `localidades()` = xxx
-- [ ] `clasificacion()` = clasificación comunal de odepa
+- [ ] `clasificacion()` = clasificación territorial de odepa
 
 Funciones de pruebas 
 - [x] `is.comuna()` = revisa si el o los elementos son comunas; recibe nombres de comunas limpios o CUT
@@ -68,7 +68,7 @@ Estas deberían aplicar distinto dependiendo si se le entrega el CUT o el nombre
 - [ ] complementar comunas con metadatos (región, provincia) (no sería un left join?)
 
 Avanzado
-- tipo que combine nombre de comuna con código comunal
+- tipo que combine nombre de comuna con código territorial
 - columna territorio que sea una clase que contiene toda esa info
 
 
