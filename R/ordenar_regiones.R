@@ -2,12 +2,36 @@
 #'
 #' Ordena una columna de nombres de regiones de Chile (`nombre_region`) a partir de la columna `codigo_region`, resultando en una columna `nombre_region` en formato factor, ordenada de norte a sur.
 #'
-#' @param data Tabla de datos que contenga las columnas `nombre_region` y `codigo_region`
+#' @param datos Tabla de datos que contenga las columnas `nombre_region` y `codigo_region`
 #' @param limpiar Para ordenar la variable `nombre_region`, se crea la variable intermedia `orden_region`, que por defecto se elimina después de usarla. Cambiar a FALSE para mantenerla.
 #' @param ordenar ¿Ordenar la tabla de datos según regiones? (por defecto TRUE)
 #'
 #' @returns Tabla de datos con la variable `nombre_region` en formato factor, ordenado geogr\\u00e1ficamente (de norte a sur)
 #' @export
+#'
+#' @examples
+#' regiones <- dplyr::tribble(
+#'   ~codigo_region,                  ~nombre_region,
+#'   1,                                   "Tarapacá",
+#'   2,                                "Antofagasta",
+#'   3,                                    "Atacama",
+#'   4,                                   "Coquimbo",
+#'   5,                                 "Valparaíso",
+#'   6,      "Libertador General Bernardo O'Higgins",
+#'   7,                                      "Maule",
+#'   8,                                     "Biobío",
+#'   9,                               "La Araucanía",
+#'   10,                                 "Los Lagos",
+#'   11, "Aysén del General Carlos Ibáñez del Campo",
+#'   12,      "Magallanes y de la Antártica Chilena",
+#'   13,                 "Metropolitana de Santiago",
+#'   14,                                  "Los Ríos",
+#'   15,                        "Arica y Parinacota",
+#'   16,                                     "Ñuble"
+#'   )
+#'
+#' regiones |>
+#'   ordenar_regiones()
 ordenar_regiones <- function(
     datos,
     limpiar = TRUE,

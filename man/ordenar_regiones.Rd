@@ -4,14 +4,42 @@
 \alias{ordenar_regiones}
 \title{Ordenar regiones de Chile geogr\\u00e1ficamente}
 \usage{
-ordenar_regiones(data)
+ordenar_regiones(datos, limpiar = TRUE, ordenar = TRUE)
 }
 \arguments{
-\item{data}{Dataframe que contenga las columnas \code{nombre_region} y \code{codigo_region}}
+\item{datos}{Tabla de datos que contenga las columnas \code{nombre_region} y \code{codigo_region}}
+
+\item{limpiar}{Para ordenar la variable \code{nombre_region}, se crea la variable intermedia \code{orden_region}, que por defecto se elimina después de usarla. Cambiar a FALSE para mantenerla.}
+
+\item{ordenar}{¿Ordenar la tabla de datos según regiones? (por defecto TRUE)}
 }
 \value{
-Dataframe con la variable \code{nombre_region} en formato factor, ordenado geogr\\u00e1ficamente (de norte a sur)
+Tabla de datos con la variable \code{nombre_region} en formato factor, ordenado geogr\\u00e1ficamente (de norte a sur)
 }
 \description{
-Ordena una columna de regiones de Chile (\code{nombre_region}) a partir de la columna \code{codigo_region}
+Ordena una columna de nombres de regiones de Chile (\code{nombre_region}) a partir de la columna \code{codigo_region}, resultando en una columna \code{nombre_region} en formato factor, ordenada de norte a sur.
+}
+\examples{
+regiones <- dplyr::tribble(
+  ~codigo_region,                  ~nombre_region,
+  1,                                   "Tarapacá",
+  2,                                "Antofagasta",
+  3,                                    "Atacama",
+  4,                                   "Coquimbo",
+  5,                                 "Valparaíso",
+  6,      "Libertador General Bernardo O'Higgins",
+  7,                                      "Maule",
+  8,                                     "Biobío",
+  9,                               "La Araucanía",
+  10,                                 "Los Lagos",
+  11, "Aysén del General Carlos Ibáñez del Campo",
+  12,      "Magallanes y de la Antártica Chilena",
+  13,                 "Metropolitana de Santiago",
+  14,                                  "Los Ríos",
+  15,                        "Arica y Parinacota",
+  16,                                     "Ñuble"
+  )
+
+regiones |>
+  ordenar_regiones()
 }

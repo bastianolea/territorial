@@ -102,7 +102,8 @@ devtools::document()
 usethis::use_vignette("territorial.qmd") # si se llama como el paquete tiene un rol distinto
 
 # instalar el propio paquete
-# pak::local_install()
+pak::local_install()
+knitr::knit("README.Rmd")
 
 # sitio del paquete
 usethis::use_pkgdown()
@@ -110,7 +111,7 @@ usethis::use_pkgdown()
 
 # reconstruir sitio
 pkgdown::build_site()
-usethis::use_github_pages()
+# usethis::use_github_pages()
 # poner enlace en _pkdown.yml y description
 # usethis::use_github_action("pkgdown")
 # cuando se haga push se construirá el sitio
