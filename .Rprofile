@@ -1,5 +1,8 @@
-# require(devtools)
-# require(usethis)
-# require(testthat)
-#
-# options(.gander_chat = ellmer::chat_claude())
+
+if (interactive()) {
+  library(devtools)
+  library(usethis)
+  library(testthat)
+
+  options(.gander_chat = ellmer::chat_claude())
+}
