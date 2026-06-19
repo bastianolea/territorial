@@ -3,8 +3,6 @@
 ^\.positai$
 ^\.claude$
 ^LICENSE\.md$
-_instrucciones.R
-_pendientes.md
 ^data-raw$
 ^README\.Rmd$
 ^vignettes/\.quarto$
@@ -13,3 +11,5 @@ _pendientes.md
 ^docs$
 ^pkgdown$
 ^\.github$
+_instrucciones.R
+_pendientes.md
