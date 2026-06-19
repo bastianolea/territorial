@@ -166,9 +166,34 @@ datos |>
 
 ### Ejemplos de datos regionales
 
-Cuando trabajamos datos de nivel regional, una necesidad común es ordenarlos en el orden geográfico; es decir, de norte a sur. Para ello existe la función `ordenar_regiones()`:
+Cuando trabajamos datos de nivel regional, una necesidad común es [ordenar las regiones en el orden geográfico](https://bastianolea.rbind.io/blog/ordenar_regiones/); es decir, de norte a sur. Para ello existe la función `ordenar_regiones()`:
+
+```{r include=FALSE}
+regiones <- dplyr::tribble(
+  ~codigo_region,                  ~nombre_region,
+  1,                                   "Tarapacá",
+  2,                                "Antofagasta",
+  3,                                    "Atacama",
+  4,                                   "Coquimbo",
+  5,                                 "Valparaíso",
+  6,      "Libertador General Bernardo O'Higgins",
+  7,                                      "Maule",
+  8,                                     "Biobío",
+  9,                               "La Araucanía",
+  10,                                 "Los Lagos",
+  11, "Aysén del General Carlos Ibáñez del Campo",
+  12,      "Magallanes y de la Antártica Chilena",
+  13,                 "Metropolitana de Santiago",
+  14,                                  "Los Ríos",
+  15,                        "Arica y Parinacota",
+  16,                                     "Ñuble"
+)
+```
 
 ```{r}
-# ordenar_regiones()
+regiones
+
+regiones |> 
+  ordenar_regiones()
 ```
 
