@@ -34,6 +34,8 @@ devtools::install_github("bastianolea/territorial")
 
 ## Ejemplos
 
+## Tabla de comunas, provincias y regiones de Chile
+
 El paquete ofrece una tabla de datos que contiene todas las comunas del
 país con sus nombres oficiales, sus códigos únicos territoriales, y lo
 mismo para las provincias y regiones del país.
