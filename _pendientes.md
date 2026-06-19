@@ -14,6 +14,7 @@
 - [ ] hacer ejemplos
 - [ ] cambiar tildes por ascii: stringi::stri_escape_unicode("Lélàô ")
 - [ ] explicar leves modificaciones de tabla de territorios
+- [ ] `contextualizar()`: qué pasa cuando es a nivel regional?
 
 ## Idea general
 
@@ -56,6 +57,7 @@ Funciones para corregir
 - [ ] `abreviar_regiones()` = cambiar nombres de regiones a nombres cortos
 - [ ] `abreviar_comunas()` = cambiar nombres de comunas a nombres cortos
 - [x] `ordenar_regiones()` = ordenar regiones de norte a sur
+- [x] `contextualizar()` = agrega variables territoriales faltantes
 
 Funciones de complementar datos
 Estas deberían aplicar distinto dependiendo si se le entrega el CUT o el nombre?

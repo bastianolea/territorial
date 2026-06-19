@@ -81,19 +81,19 @@ is.comuna(comunas)
 Algo que suele pasar es recibir datos comunales con las comunas mal escritas, pero que vienen con códigos únicos territoriales. En este caso podemos crear las comunas bien escritas a partir de los códigos únicos territoriales:
 
 ```{r include=FALSE}
-datos <- tibble::tribble(
-          ~codigo_comuna,      ~municipio,
-                   13110,    "LA FLORIDA",
-                   16103, "CHILLAN VIEJO",
-                   10301,        "OSORNO",
-                   16302,      "COIHUECO",
-                   13132,      "VITACURA",
-                   13501,     "MELIPILLA",
-                   14204,     "RIO BUENO",
-                   11401,   "CHILE CHICO",
-                   16202,    "COBQUECURA",
-                   13116,     "LO ESPEJO"
-          )
+datos <- dplyr::tribble(
+  ~codigo_comuna,      ~municipio,
+  13110,    "LA FLORIDA",
+  16103, "CHILLAN VIEJO",
+  10301,        "OSORNO",
+  16302,      "COIHUECO",
+  13132,      "VITACURA",
+  13501,     "MELIPILLA",
+  14204,     "RIO BUENO",
+  11401,   "CHILE CHICO",
+  16202,    "COBQUECURA",
+  13116,     "LO ESPEJO"
+)
 ```
 
 ```{r cars}
@@ -107,7 +107,7 @@ datos |>
 También podemos tener el caso inverso: una tabla con datos comunales que vienen con nombres de comunas, pero sin códigos únicos territoriales. Podemos crear los códigos únicos territoriales a partir de los nombres de comunas:
 
 ```{r include=FALSE}
-datos <- tibble::tribble(
+datos <- dplyr::tribble(
   ~nombre_comuna, ~valor,
   "Pirque",       1,
   "Cerrillos",    2,
@@ -131,6 +131,24 @@ Pero lo anterior requiere que los nombres de las comunas estén bien escritos! P
 
 ```{r}
 # limpiar_nombres_comunas()
+```
+
+
+Si tenemos datos de nivel comunal pero les faltan variables territoriales, podemos _contextualizar_ los datos territoriales al agregarles todas las variables que les faltan con la función `contextualizar()`:
+
+```{r include=FALSE}
+datos <- dplyr::tribble(
+  ~nombre_comuna, ~valor,
+  "Cerrillos",    1,
+  "Arica",        2,
+  "Putre",        3)
+```
+
+```{r}
+head(datos)
+
+datos |>
+  contextualizar(variable = "nombre_comuna")
 ```
 
 

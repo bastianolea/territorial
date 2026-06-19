@@ -3,5 +3,6 @@
 export(as.codigo_comuna)
 export(as.nombre_comuna)
 export(comunas)
+export(contextualizar)
 export(is.comuna)
 export(ordenar_regiones)
