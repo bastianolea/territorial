@@ -8,6 +8,8 @@ Funciones que entregan datos de uso territorial
   : Tabla de comunas, provincias y regiones de Chile
 - [`comunas()`](https://bastianolea.github.io/territorial/reference/comunas.md)
   : Nombres de comunas de Chile
+- [`regiones()`](https://bastianolea.github.io/territorial/reference/regiones.md)
+  : Nombres de regiones de Chile
 - [`contextualizar()`](https://bastianolea.github.io/territorial/reference/contextualizar.md)
   : Contextualizar datos de nivel comunal con variables territoriales
 
@@ -23,7 +25,7 @@ usados para lógica condicional
   : Evaluar si un texto corresponde al nombre válido de una comuna de
   Chile
 
-## Corrección y limpieza de comunas
+## Corrección y limpieza de territorios
 
 Funciones para transformar datos de identificación de territorios,
 ordenarlos, etc.
@@ -34,3 +36,13 @@ ordenarlos, etc.
   : Convertir códigos comunales a nombres de comunas
 - [`ordenar_regiones()`](https://bastianolea.github.io/territorial/reference/ordenar_regiones.md)
   : Ordenar regiones de Chile geográficamente
+
+## Complementar nombres de territorios
+
+Funciones que toman los nombres de territorios y hacen más cosas con
+ellos
+
+- [`articulo_region()`](https://bastianolea.github.io/territorial/reference/articulo_region.md)
+  : Artículos (de/del) de cada región de Chile
+- [`redactar_region()`](https://bastianolea.github.io/territorial/reference/redactar_region.md)
+  : Redactar nombres de regiones de Chile
