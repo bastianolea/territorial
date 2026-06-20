@@ -12,3 +12,7 @@ Vector de nombres de comunas de Chile
 \description{
 Vector de texto que contiene el nombre de las 346 comunas de Chile, tal como aparecen en la tabla \link{territorios}.
 }
+\examples{
+comunas()
+
+}

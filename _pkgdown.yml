@@ -8,13 +8,19 @@ reference:
   contents:
   - territorios
   - comunas
+  - regiones
   - contextualizar
 - title: Evaluación de unidades territoriales
   desc: Funciones que permiten probar la calidad de los datos, o pueden ser usados para lógica condicional
   contents:
   - starts_with("is_")
-- title: Corrección y limpieza de comunas
+- title: Corrección y limpieza de territorios
   desc: Funciones para transformar datos de identificación de territorios, ordenarlos, etc.
   contents:
   - starts_with("as_")
   - ordenar_regiones
+- title: Complementar nombres de territorios
+  desc: Funciones que toman los nombres de territorios y hacen más cosas con ellos
+  contents:
+  - articulo_region
+  - redactar_region

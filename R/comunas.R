@@ -5,6 +5,10 @@
 #' @returns Vector de nombres de comunas de Chile
 #'
 #' @export
+#'
+#' @examples
+#' comunas()
+#'
 comunas <- function() {
   territorial::territorios$nombre_comuna
 }

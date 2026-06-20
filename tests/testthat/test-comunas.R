@@ -1,6 +1,6 @@
-test_that("cantidad de comunas de comunas()", {
-  expect_equal(
-    length(comunas()),
+test_that("cantidad de comunas correcta", {
+  expect_length(
+    territorial::comunas(),
     346
   )
 })
