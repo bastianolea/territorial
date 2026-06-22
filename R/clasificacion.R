@@ -1,0 +1,19 @@
+#' Tabla de clasificación comunal PNDR, Censo 2024
+#'
+#' La Oficina de Estudios y Políticas Agrarias (Odepa) informó que, en el marco de la Política Nacional de Desarrollo Rural (PNDR), se realizó la actualización de la clasificación comunal utilizando los resultados del Censo de Población y Vivienda 2024. La PNDR, promulgada en 2020, establece una tipología comunal que distingue entre comunas predominantemente urbanas, mixtas y predominantemente rurales, con el objetivo de fortalecer el enfoque territorial en el diseño, implementación y evaluación de políticas públicas, programas e instrumentos de planificación.
+#' Como resultado de esta actualización, ocho comunas del país modifican su categoría respecto de la clasificación elaborada con base en el Censo 2017. En particular, dos comunas pasan de la categoría mixta a urbana, tres transitan de mixta a rural y otras tres cambian de rural a mixta. Las comunas que registran estos cambios son Vallenar y Maule, que pasan de mixtas a urbanas; Putaendo, Gorbea y Yungay, que pasan de mixtas a rurales; y Olmué, San Clemente y Cabrero, que cambian de rurales a mixtas.
+#' De acuerdo con esta actualización, 84 comunas del país se clasifican como predominantemente urbanas, 76 como mixtas y 185 como predominantemente rurales. En términos de población, el 25,1% de las personas reside en comunas mixtas y rurales, proporción que se mantiene en línea con la medición realizada a partir del Censo 2017.
+#' Los criterios técnicos y metodológicos utilizados para esta actualización, junto con el detalle completo de los resultados, se encuentran disponibles en la Minuta Técnica y en la planilla de clasificación comunal elaboradas por Odepa, [disponibles en su Biblioteca Digital.](https://bibliotecadigital.odepa.gob.cl/items/ce846880-f010-4868-a5d9-18c80f7ceabd)
+#'
+#' @format Data frame con 345 filas y 7 columnas:
+#' \describe{
+#'   \item{codigo_region}{Código único territorial de las regiones de Chile (número entre 1 y 16)}
+#'   \item{nombre_region}{Nombre de las regiones de Chile}
+#'   \item{codigo_provincia}{Código único territorial de las provincias de Chile}
+#'   \item{nombre_provincia}{Nombre de las provincias de Chile}
+#'   \item{codigo_comuna}{Código único territorial de las comunas de Chile}
+#'   \item{nombre_comuna}{Nombre de las comunas de Chile}
+#'   \item{clasificacion}{Clasificación comunal PNDR: Rural, Mixta o Urbana}
+#' }
+#' @source <https://bibliotecadigital.odepa.gob.cl/items/ce846880-f010-4868-a5d9-18c80f7ceabd>
+"clasificacion"

@@ -18,6 +18,7 @@
   - [ ] ¿es un buen nombre?
 - [ ] buscar y limpiar datos de localidades
 - [x] cambiar puntos por guiones bajos
+- [ ] `validar_regiones()`
 
 
 
