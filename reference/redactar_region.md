@@ -29,5 +29,5 @@ para cada nombre de región.
 
 ``` r
 redactar_region("Maule")
-#> Error in loadNamespace(x): no hay paquete llamado ‘stringr’
+#> [1] "Región del Maule"
 ```

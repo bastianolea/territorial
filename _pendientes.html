@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="index.html">territorial</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Cambiar la navegación">
@@ -57,6 +57,7 @@
 </ul></li>
 <li><label><input type="checkbox">buscar y limpiar datos de localidades</label></li>
 <li><label><input type="checkbox" checked>cambiar puntos por guiones bajos</label></li>
+<li><label><input type="checkbox"><code><a href="reference/validar_regiones.html">validar_regiones()</a></code></label></li>
 </ul></div>
 <div class="section level2">
 <h2 id="idea-general">Idea general<a class="anchor" aria-label="anchor" href="#idea-general"></a></h2>
@@ -77,10 +78,10 @@
 </ul></div>
 <div class="section level2">
 <h2 id="funciones">Funciones<a class="anchor" aria-label="anchor" href="#funciones"></a></h2>
-<p>Funciones con datos - [x] <code><a href="reference/territorios.html">territorios()</a></code> = tabla con todos los datos territoriales (comuna, region, provincia, clasificaciones) - [ ] cambiar a función o no???? - [x] <code><a href="reference/comunas.html">comunas()</a></code> = retorna un vector con los nombres de comunas - [ ] <code>localidades()</code> = xxx - [ ] <code>clasificacion()</code> = clasificación territorial de odepa</p>
+<p>Funciones con datos - [x] <code>territorios</code> = tabla con todos los datos territoriales (comuna, region, provincia, clasificaciones) - [ ] cambiar a función o no???? - [x] <code><a href="reference/comunas.html">comunas()</a></code> = retorna un vector con los nombres de comunas - [ ] <code>localidades()</code> = xxx - [x] <code>clasificacion</code> = clasificación territorial de odepa</p>
 <p>Funciones de pruebas - [x] <code><a href="reference/is_nombre_comuna.html">is_nombre_comuna()</a></code> = revisa si el o los elementos son comunas; recibe nombres de comunas limpios o CUT - [x] <code><a href="reference/is_codigo_comuna.html">is_codigo_comuna()</a></code> = revisa si el o los elementos son códigos de comunas válidos - [ ] <code>evaluar_comunas()</code> = revisa el nivel de suciedad de los datos - revisar si la versión en minúscula/mayúscula es igual a la entregada - [ ] <code>is_isla()</code>/<code>is_continental()</code>? detectar comunas específicas con características particulares - [ ] <code>revisar_comunas()</code> cuántas comunas únicas incluye, y si todas son válidas - función que compare si los códigos comunales corresponden con los nombres de comuna existentes???</p>
-<p>Funciones para corregir - [ ] <code>limpiar_nombres_comunas()</code> = limpia comunas y las deja estandarizadas - [x] <code><a href="reference/as_codigo_comuna.html">as_codigo_comuna()</a></code> = convierte nombre de comunas en CUT - [ ] avisar si ninguno coincide con warnings - [x] <code><a href="reference/as_nombre_comuna.html">as_nombre_comuna()</a></code> = convierte CUT a nombre de comunas - [ ] <code>limpiar_regiones()</code> = limpiar nombres de regiones - [ ] <code>abreviar_regiones()</code> = cambiar nombres de regiones a nombres cortos - [ ] <code>abreviar_comunas()</code> = cambiar nombres de comunas a nombres cortos - [x] <code><a href="reference/ordenar_regiones.html">ordenar_regiones()</a></code> = ordenar regiones de norte a sur</p>
-<p>Funciones de complementar datos Estas deberían aplicar distinto dependiendo si se le entrega el CUT o el nombre? - [ ] <code>poblacion_comuna()</code> = agregar población de comunas - [ ] <code>superficie_comuna()</code> = agregar superficie - [ ] <code>coordenadas_municipio()</code> = agregar lat/long municipio - [ ] <code>ubicar_localidad()</code> = en qué comuna está una localidad - [x] <code><a href="reference/contextualizar.html">contextualizar()</a></code> = agrega variables territoriales faltantes</p>
+<p>Funciones para corregir - [ ] <code>limpiar_nombres_comunas()</code> = limpia comunas y las deja estandarizadas - [x] <code><a href="reference/as_codigo_comuna.html">as_codigo_comuna()</a></code> = convierte nombre de comunas en CUT - [ ] avisar si ninguno coincide con warnings - [x] <code><a href="reference/as_nombre_comuna.html">as_nombre_comuna()</a></code> = convierte CUT a nombre de comunas - [ ] <code>limpiar_regiones()</code> = limpiar nombres de regiones - [ ] <code>abreviar_regiones()</code> = cambiar nombres de regiones a nombres cortos - [ ] <code>abreviar_comunas()</code> = cambiar nombres de comunas a nombres cortos - [ ] sacar desde scraping electoral Servel - [x] <code><a href="reference/ordenar_regiones.html">ordenar_regiones()</a></code> = ordenar regiones de norte a sur</p>
+<p>Funciones de complementar datos Estas deberían aplicar distinto dependiendo si se le entrega el CUT o el nombre? - [ ] <code>poblacion_comuna()</code> = agregar población de comunas - [ ] <code>superficie_comuna()</code> = agregar superficie - [ ] <code>coordenadas_municipio()</code> = agregar lat/long municipio - [ ] <code>ubicar_localidad()</code> = en qué comuna está una localidad - [x] <code><a href="reference/contextualizar.html">contextualizar()</a></code> = agrega variables territoriales faltantes - [x] <code><a href="reference/agregar_clasificacion.html">agregar_clasificacion()</a></code></p>
 <p>Avanzado - tipo que combine nombre de comuna con código territorial - columna territorio que sea una clase que contiene toda esa info</p>
 <p>Ideas: - sugerir posibles match de comunas con búsqueda inexacta (agrepl()?)</p>
 </div>
@@ -91,7 +92,7 @@
 
 
     <footer><div class="pkgdown-footer-left">
-  <p>Desarrollado por Bastián Olea.</p>
+  <p>Desarrollado por Bastián Olea Herrera.</p>
 </div>
 
 <div class="pkgdown-footer-right">

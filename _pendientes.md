@@ -39,6 +39,8 @@ buscar y limpiar datos de localidades
 
 cambiar puntos por guiones bajos
 
+[`validar_regiones()`](https://bastianolea.github.io/territorial/reference/validar_regiones.md)
+
 ## Idea general
 
 - geografía oficial
@@ -55,13 +57,12 @@ cambiar puntos por guiones bajos
 
 ## Funciones
 
-Funciones con datos - \[x\]
-[`territorios()`](https://bastianolea.github.io/territorial/reference/territorios.md)
-= tabla con todos los datos territoriales (comuna, region, provincia,
-clasificaciones) - \[ \] cambiar a función o no???? - \[x\]
+Funciones con datos - \[x\] `territorios` = tabla con todos los datos
+territoriales (comuna, region, provincia, clasificaciones) - \[ \]
+cambiar a función o no???? - \[x\]
 [`comunas()`](https://bastianolea.github.io/territorial/reference/comunas.md)
 = retorna un vector con los nombres de comunas - \[ \] `localidades()` =
-xxx - \[ \] `clasificacion()` = clasificación territorial de odepa
+xxx - \[x\] `clasificacion` = clasificación territorial de odepa
 
 Funciones de pruebas - \[x\]
 [`is_nombre_comuna()`](https://bastianolea.github.io/territorial/reference/is_nombre_comuna.md)
@@ -85,7 +86,8 @@ con warnings - \[x\]
 = convierte CUT a nombre de comunas - \[ \] `limpiar_regiones()` =
 limpiar nombres de regiones - \[ \] `abreviar_regiones()` = cambiar
 nombres de regiones a nombres cortos - \[ \] `abreviar_comunas()` =
-cambiar nombres de comunas a nombres cortos - \[x\]
+cambiar nombres de comunas a nombres cortos - \[ \] sacar desde scraping
+electoral Servel - \[x\]
 [`ordenar_regiones()`](https://bastianolea.github.io/territorial/reference/ordenar_regiones.md)
 = ordenar regiones de norte a sur
 
@@ -96,7 +98,8 @@ dependiendo si se le entrega el CUT o el nombre? - \[ \]
 `coordenadas_municipio()` = agregar lat/long municipio - \[ \]
 `ubicar_localidad()` = en qué comuna está una localidad - \[x\]
 [`contextualizar()`](https://bastianolea.github.io/territorial/reference/contextualizar.md)
-= agrega variables territoriales faltantes
+= agrega variables territoriales faltantes - \[x\]
+[`agregar_clasificacion()`](https://bastianolea.github.io/territorial/reference/agregar_clasificacion.md)
 
 Avanzado - tipo que combine nombre de comuna con código territorial -
 columna territorio que sea una clase que contiene toda esa info

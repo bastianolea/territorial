@@ -273,6 +273,8 @@ Funciones que entregan datos de uso territorial
   : Nombres de comunas de Chile
 - [`regiones()`](https://bastianolea.github.io/territorial/reference/regiones.md)
   : Nombres de regiones de Chile
+- [`clasificacion`](https://bastianolea.github.io/territorial/reference/clasificacion.md)
+  : Tabla de clasificación comunal PNDR, Censo 2024
 - [`contextualizar()`](https://bastianolea.github.io/territorial/reference/contextualizar.md)
   : Contextualizar datos de nivel comunal con variables territoriales
 
@@ -287,6 +289,8 @@ usados para lógica condicional
 - [`is_nombre_comuna()`](https://bastianolea.github.io/territorial/reference/is_nombre_comuna.md)
   : Evaluar si un texto corresponde al nombre válido de una comuna de
   Chile
+- [`validar_regiones()`](https://bastianolea.github.io/territorial/reference/validar_regiones.md)
+  : Validación de calidad de nombres de regiones de Chile
 
 ## Corrección y limpieza de territorios
 
@@ -309,6 +313,14 @@ ellos
   : Artículos (de/del) de cada región de Chile
 - [`redactar_region()`](https://bastianolea.github.io/territorial/reference/redactar_region.md)
   : Redactar nombres de regiones de Chile
+
+## Complementar datos territoriales
+
+Funciones para agregar nuevas variables a partir de datos territoriales
+existentes
+
+- [`agregar_clasificacion()`](https://bastianolea.github.io/territorial/reference/agregar_clasificacion.md)
+  : Agregar clasificación comunal PNDR a comunas
 
 # Artículos
 
