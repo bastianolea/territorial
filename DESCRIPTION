@@ -1,8 +1,8 @@
 Package: territorial
 Title: Funciones para trabajar con datos comunales de Chile
-Version: 0.2
+Version: 0.3
 Authors@R: 
-    person("Bastián", "Olea", , "bastianolea@gmail.com", role = c("aut", "cre"))
+    person("Bastián", "Olea Herrera", , "bastianolea@gmail.com", role = c("aut", "cre"))
 Description: Este paquete busca facilitar tareas de limpieza que suelen ser necesarias al trabajar con datos de Chile a nivel comunal, por ejemplo limpiar los nombres de las comunas y regiones, agregar códigos comunales y regionales, ordenar las regiones del país, entre otras.
 License: GPL (>= 3)
 Encoding: UTF-8
@@ -19,7 +19,8 @@ Config/testthat/edition: 3
 Imports: 
     cli,
     dplyr,
-    forcats
+    forcats,
+    stringr
 URL: https://bastianolea.github.io/territorial, https://github.com/bastianolea/territorial
 BugReports: https://github.com/bastianolea/territorial/issues
 VignetteBuilder: quarto
