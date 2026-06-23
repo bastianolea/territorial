@@ -28,6 +28,8 @@ usados para lógica condicional
   Chile
 - [`validar_regiones()`](https://bastianolea.github.io/territorial/reference/validar_regiones.md)
   : Validación de calidad de nombres de regiones de Chile
+- [`validar_comunas()`](https://bastianolea.github.io/territorial/reference/validar_comunas.md)
+  : Validación de calidad de nombres de comunas de Chile
 
 ## Corrección y limpieza de territorios
 

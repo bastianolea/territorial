@@ -43,6 +43,9 @@ cambiar puntos por guiones bajos
 
 arreglar: no se llaman artículos, sino preposiciones
 
+hacer tests de
+[`validar_comunas()`](https://bastianolea.github.io/territorial/reference/validar_comunas.md)
+
 ## Idea general
 
 - geografía oficial
