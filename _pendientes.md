@@ -87,9 +87,10 @@ con warnings - \[x\]
 [`as_nombre_comuna()`](https://bastianolea.github.io/territorial/reference/as_nombre_comuna.md)
 = convierte CUT a nombre de comunas - \[ \] `limpiar_regiones()` =
 limpiar nombres de regiones - \[ \] `abreviar_regiones()` = cambiar
-nombres de regiones a nombres cortos - \[ \] `abreviar_comunas()` =
-cambiar nombres de comunas a nombres cortos - \[ \] sacar desde scraping
-electoral Servel - \[x\]
+nombres de regiones a nombres cortos - \[ \]
+[`abreviar_comunas()`](https://bastianolea.github.io/territorial/reference/abreviar_comunas.md)
+= cambiar nombres de comunas a nombres cortos - \[ \] sacar desde
+scraping electoral Servel - \[x\]
 [`ordenar_regiones()`](https://bastianolea.github.io/territorial/reference/ordenar_regiones.md)
 = ordenar regiones de norte a sur
 

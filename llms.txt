@@ -346,6 +346,8 @@ ellos
   : Preposición (de/del) de cada región de Chile
 - [`redactar_region()`](https://bastianolea.github.io/territorial/reference/redactar_region.md)
   : Redactar nombres de regiones de Chile
+- [`abreviar_comunas()`](https://bastianolea.github.io/territorial/reference/abreviar_comunas.md)
+  : Abreviar comunas
 
 ## Complementar datos territoriales
 
