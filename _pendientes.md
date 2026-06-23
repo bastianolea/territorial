@@ -19,6 +19,7 @@
 - [ ] buscar y limpiar datos de localidades
 - [x] cambiar puntos por guiones bajos
 - [ ] `validar_regiones()`
+- [ ] arreglar: no se llaman artículos, sino preposiciones
 
 
 
