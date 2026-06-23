@@ -200,3 +200,13 @@ regiones |>
   ordenar_regiones()
 ```
 
+Otro problema que podemos tener son datos de regiones con los nombres mal escritos. Para eso tenemos la función `validar_regiones()`, que revisará los nombres de las regiones y reportará los problemas existentes:
+
+```r
+validar_regiones(c("los lagos", "nuble", "OHIGGINS"))
+#> ! mayúsculas: 1 caso de regiones escritas en mayúsculas
+#> ! mayúsculas: 2 casos de regiones escritas en minúsculas
+#> ! ortografía: 1 caso de la Región de Ñuble escrita sin eñe
+#> ! ortografía: 1 caso de la Región de O'Higgins escrita sin su apóstrofo (')
+```
+
