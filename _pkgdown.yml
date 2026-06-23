@@ -17,6 +17,7 @@ reference:
   contents:
   - starts_with("is_")
   - validar_regiones
+  - validar_comunas
 
 - title: Corrección y limpieza de territorios
   desc: Funciones para transformar datos de identificación de territorios, ordenarlos, etc.

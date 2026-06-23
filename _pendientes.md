@@ -20,6 +20,7 @@
 - [x] cambiar puntos por guiones bajos
 - [x] `validar_regiones()`
 - [x] arreglar: no se llaman artículos, sino preposiciones
+- [ ] hacer tests de `validar_comunas()`
 
 
 
