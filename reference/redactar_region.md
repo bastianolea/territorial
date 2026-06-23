@@ -21,8 +21,8 @@ redactar_region(nombre_region)
 ## Valor
 
 Vector de nombres de región redactados, incluyendo la palabra "Región",
-y el artículo apropiado (de o del, según
-[`articulo_region()`](https://bastianolea.github.io/territorial/reference/articulo_region.md))
+y la preposición apropiada ('de' o 'del', según
+[`preposicion_region()`](https://bastianolea.github.io/territorial/reference/preposicion_region.md))
 para cada nombre de región.
 
 ## Ejemplos

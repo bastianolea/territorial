@@ -41,6 +41,8 @@ cambiar puntos por guiones bajos
 
 [`validar_regiones()`](https://bastianolea.github.io/territorial/reference/validar_regiones.md)
 
+arreglar: no se llaman artículos, sino preposiciones
+
 ## Idea general
 
 - geografía oficial

@@ -236,6 +236,19 @@
 <span><span class="co">#&gt; 14            10 Los Lagos                                </span></span>
 <span><span class="co">#&gt; 15            11 Aysén del General Carlos Ibáñez del Campo</span></span>
 <span><span class="co">#&gt; 16            12 Magallanes y de la Antártica Chilena</span></span></code></pre></div>
+<p>Otro problema que podemos tener son datos de regiones con los nombres mal escritos. Para eso tenemos la función <code><a href="reference/validar_regiones.html">validar_regiones()</a></code>, que revisará los nombres de las regiones y reportará los problemas existentes:</p>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="reference/validar_regiones.html">validar_regiones</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"los lagos"</span>, <span class="st">"nuble"</span>, <span class="st">"OHIGGINS"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; ! mayúsculas: 1 caso de regiones escritas en mayúsculas</span></span>
+<span><span class="co">#&gt; ! mayúsculas: 2 casos de regiones escritas en minúsculas</span></span>
+<span><span class="co">#&gt; ! ortografía: 1 caso de la Región de Ñuble escrita sin eñe</span></span>
+<span><span class="co">#&gt; ! ortografía: 1 caso de la Región de O'Higgins escrita sin su apóstrofo (')</span></span></code></pre></div>
+<p>Un típico problema es que tenemos las regiones y necesitamos incluirlas en un texto, pero si anteponemos “Región de” no siempre queda bien: por ejemplo, no se dice “Región de Metropolitana”, ni tampoco se dice “Región de Maule”, sino que cada región tiene su preposición apropiada. Para esto usamos la función <code><a href="reference/redactar_region.html">redactar_region()</a></code>, que a su vez usa <code><a href="reference/preposicion_region.html">preposicion_region()</a></code> para identificar la preposición correcta:</p>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="reference/redactar_region.html">redactar_region</a></span><span class="op">(</span><span class="st">"Metropolitana"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "Región Metropolitana"</span></span>
+<span><span class="fu"><a href="reference/redactar_region.html">redactar_region</a></span><span class="op">(</span><span class="st">"Maule"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "Región del Maule"</span></span></code></pre></div>
 </div>
 </div>
 </div>

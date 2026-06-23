@@ -261,6 +261,39 @@ regiones |>
 #> 16            12 Magallanes y de la Antártica Chilena
 ```
 
+Otro problema que podemos tener son datos de regiones con los nombres
+mal escritos. Para eso tenemos la función
+[`validar_regiones()`](https://bastianolea.github.io/territorial/reference/validar_regiones.md),
+que revisará los nombres de las regiones y reportará los problemas
+existentes:
+
+``` r
+
+validar_regiones(c("los lagos", "nuble", "OHIGGINS"))
+#> ! mayúsculas: 1 caso de regiones escritas en mayúsculas
+#> ! mayúsculas: 2 casos de regiones escritas en minúsculas
+#> ! ortografía: 1 caso de la Región de Ñuble escrita sin eñe
+#> ! ortografía: 1 caso de la Región de O'Higgins escrita sin su apóstrofo (')
+```
+
+Un típico problema es que tenemos las regiones y necesitamos incluirlas
+en un texto, pero si anteponemos “Región de” no siempre queda bien: por
+ejemplo, no se dice “Región de Metropolitana”, ni tampoco se dice
+“Región de Maule”, sino que cada región tiene su preposición apropiada.
+Para esto usamos la función
+[`redactar_region()`](https://bastianolea.github.io/territorial/reference/redactar_region.md),
+que a su vez usa
+[`preposicion_region()`](https://bastianolea.github.io/territorial/reference/preposicion_region.md)
+para identificar la preposición correcta:
+
+``` r
+
+redactar_region("Metropolitana")
+#> [1] "Región Metropolitana"
+redactar_region("Maule")
+#> [1] "Región del Maule"
+```
+
 # Índice del paquete
 
 ## Datos territoriales
@@ -309,8 +342,8 @@ ordenarlos, etc.
 Funciones que toman los nombres de territorios y hacen más cosas con
 ellos
 
-- [`articulo_region()`](https://bastianolea.github.io/territorial/reference/articulo_region.md)
-  : Artículos (de/del) de cada región de Chile
+- [`preposicion_region()`](https://bastianolea.github.io/territorial/reference/preposicion_region.md)
+  : Preposición (de/del) de cada región de Chile
 - [`redactar_region()`](https://bastianolea.github.io/territorial/reference/redactar_region.md)
   : Redactar nombres de regiones de Chile
 

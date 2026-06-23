@@ -46,8 +46,8 @@ ordenarlos, etc.
 Funciones que toman los nombres de territorios y hacen más cosas con
 ellos
 
-- [`articulo_region()`](https://bastianolea.github.io/territorial/reference/articulo_region.md)
-  : Artículos (de/del) de cada región de Chile
+- [`preposicion_region()`](https://bastianolea.github.io/territorial/reference/preposicion_region.md)
+  : Preposición (de/del) de cada región de Chile
 - [`redactar_region()`](https://bastianolea.github.io/territorial/reference/redactar_region.md)
   : Redactar nombres de regiones de Chile
 
