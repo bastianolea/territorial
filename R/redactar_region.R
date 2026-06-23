@@ -4,7 +4,7 @@
 #'
 #' @param nombre_region Nombres de región, como aparecen en [territorial::regiones()]
 #'
-#' @returns Vector de nombres de región redactados, incluyendo la palabra "Región", y el artículo apropiado (de o del, según [territorial::articulo_region()]) para cada nombre de región.
+#' @returns Vector de nombres de región redactados, incluyendo la palabra "Región", y la preposición apropiada ('de' o 'del', según [territorial::preposicion_region()]) para cada nombre de región.
 #' @export
 #'
 #' @examples
@@ -17,7 +17,7 @@ redactar_region <- function(nombre_region) {
     cli::cli_abort("nombres de regiones deben venir en texto")
   }
 
-  articulos <- territorial::articulo_region(nombre_region)
+  articulos <- territorial::preposicion_region(nombre_region)
 
   redaccion <- paste("Región", articulos, nombre_region) |>
     stringr::str_squish() # por la RM, que no tiene artículo

@@ -263,3 +263,17 @@ validar_regiones(c("los lagos", "nuble", "OHIGGINS"))
 #> ! ortografía: 1 caso de la Región de Ñuble escrita sin eñe
 #> ! ortografía: 1 caso de la Región de O'Higgins escrita sin su apóstrofo (')
 ```
+
+Un típico problema es que tenemos las regiones y necesitamos incluirlas
+en un texto, pero si anteponemos “Región de” no siempre queda bien: por
+ejemplo, no se dice “Región de Metropolitana”, ni tampoco se dice
+“Región de Maule”, sino que cada región tiene su preposición apropiada.
+Para esto usamos la función `redactar_region()`, que a su vez usa
+`preposicion_region()` para identificar la preposición correcta:
+
+``` r
+redactar_region("Metropolitana")
+#> [1] "Región Metropolitana"
+redactar_region("Maule")
+#> [1] "Región del Maule"
+```

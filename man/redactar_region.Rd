@@ -10,7 +10,7 @@ redactar_region(nombre_region)
 \item{nombre_region}{Nombres de región, como aparecen en \code{\link[=regiones]{regiones()}}}
 }
 \value{
-Vector de nombres de región redactados, incluyendo la palabra "Región", y el artículo apropiado (de o del, según \code{\link[=articulo_region]{articulo_region()}}) para cada nombre de región.
+Vector de nombres de región redactados, incluyendo la palabra "Región", y la preposición apropiada ('de' o 'del', según \code{\link[=preposicion_region]{preposicion_region()}}) para cada nombre de región.
 }
 \description{
 A partir de los nombres de regiones de Chile (como aparecen en \code{\link[=regiones]{regiones()}}), retorna la redacción de los nombres incluyendo "Región de/del"; por ejemplo, "Maule" se vuelve en "Región del Maule".

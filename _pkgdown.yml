@@ -24,7 +24,7 @@ reference:
 - title: Complementar nombres de territorios
   desc: Funciones que toman los nombres de territorios y hacen más cosas con ellos
   contents:
-  - articulo_region
+  - preposicion_region
   - redactar_region
 - title: Complementar datos territoriales
   desc: Funciones para agregar nuevas variables a partir de datos territoriales existentes

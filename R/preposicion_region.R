@@ -1,15 +1,15 @@
-#' Artículos (de/del) de cada región de Chile
+#' Preposición (de/del) de cada región de Chile
 #'
-#' Esta función entrega el artículo usado para cada región de Chile; por ejemplo, Valparaíso es la "Región _de_ Valparaíso", pero Maule es la "Región _del_ Maule".
+#' Esta función entrega la preposición usada para cada región de Chile; por ejemplo, Valparaíso es la "Región _de_ Valparaíso", pero Maule es la "Región _del_ Maule".
 #'
 #' @param nombre_region Nombres de región, como aparecen en [territorial::regiones()]
 #'
-#' @returns Vector de artículos para cada nombre de región. Retorna NA si no se detecta la región.
+#' @returns Vector de preposiciones para cada nombre de región. Retorna NA si no se detecta la región.
 #' @export
 #'
 #' @examples
-#' articulo_region("Ñuble")
-articulo_region <- function(nombre_region) {
+#' preposicion_region("Ñuble")
+preposicion_region <- function(nombre_region) {
   if (!is.character(nombre_region)) {
     cli::cli_abort("nombres de regiones deben venir en texto")
   }
@@ -42,14 +42,14 @@ articulo_region <- function(nombre_region) {
     "Metropolitana"
   )
 
-  articulos <- dplyr::case_when(
+  preposicion <- dplyr::case_when(
     nombre_region %in% regiones_del ~ "del",
     nombre_region %in% regiones_de ~ "de",
     nombre_region %in% regiones_sin ~ ""
   )
 
-  if (!length(articulos) == length(nombre_region)) {
+  if (!length(preposicion) == length(nombre_region)) {
     cli::cli_abort("resultado no es del mismo largo que input")
   }
-  return(articulos)
+  return(preposicion)
 }
