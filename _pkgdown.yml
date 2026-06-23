@@ -11,21 +11,26 @@ reference:
   - regiones
   - clasificacion
   - contextualizar
+
 - title: Evaluación de unidades territoriales
   desc: Funciones que permiten probar la calidad de los datos, o pueden ser usados para lógica condicional
   contents:
   - starts_with("is_")
   - validar_regiones
+
 - title: Corrección y limpieza de territorios
   desc: Funciones para transformar datos de identificación de territorios, ordenarlos, etc.
   contents:
   - starts_with("as_")
   - ordenar_regiones
+
 - title: Complementar nombres de territorios
   desc: Funciones que toman los nombres de territorios y hacen más cosas con ellos
   contents:
   - preposicion_region
   - redactar_region
+  - abreviar_comunas
+
 - title: Complementar datos territoriales
   desc: Funciones para agregar nuevas variables a partir de datos territoriales existentes
   contents:

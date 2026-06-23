@@ -8,7 +8,7 @@
   - [x] cambiar a español
 - [x] escribir readme
 - [ ] crear ejemplos con datos reales
-- [ ] crear examples para cada función
+- [x] crear examples para cada función
 - [ ] hacer hex logo
 - [ ] tabla con formas alternativas de escribir comunas
 - [ ] ver guía de estilo para pensar nombres de funciones
@@ -18,8 +18,8 @@
   - [ ] ¿es un buen nombre?
 - [ ] buscar y limpiar datos de localidades
 - [x] cambiar puntos por guiones bajos
-- [ ] `validar_regiones()`
-- [ ] arreglar: no se llaman artículos, sino preposiciones
+- [x] `validar_regiones()`
+- [x] arreglar: no se llaman artículos, sino preposiciones
 
 
 
