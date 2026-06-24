@@ -2,7 +2,7 @@
 % Please edit documentation in R/abreviar_comunas.R
 \name{abreviar_comunas}
 \alias{abreviar_comunas}
-\title{Abreviar comunas}
+\title{Crear abreviaciones de 3 letras desde nombres comunas}
 \usage{
 abreviar_comunas(nombre_comuna)
 }
