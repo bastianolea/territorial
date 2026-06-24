@@ -11,7 +11,8 @@ por ejemplo:
   ([`validar_comunas()`](https://bastianolea.github.io/territorial/reference/validar_comunas.md)
   y
   [`validar_regiones()`](https://bastianolea.github.io/territorial/reference/validar_regiones.md))
-- ~~Limpiar los nombres de las comunas y regiones~~
+- Limpiar automáticamente los nombres de las comunas con
+  [`limpiar_comunas()`](https://bastianolea.github.io/territorial/reference/limpiar_comunas.md)
 - Agregar todos los datos territoriales (regiones y provincias con sus
   códigos únicos) a partir de las comunas
   ([`contextualizar()`](https://bastianolea.github.io/territorial/reference/contextualizar.md))
@@ -90,15 +91,97 @@ revisar la calidad de sus datos:
 
 ``` r
 
-# library(territorial)
-
-# head(datos)
-# 
-# revisar_comunas(datos)
+datos
+#> # A tibble: 8 × 1
+#>   nombre_comuna    
+#>   <chr>            
+#> 1 PIRQUE           
+#> 2 El Monte         
+#> 3 Maipu            
+#> 4 santiago         
+#> 5 prohibidencia    
+#> 6 CERRILLOS        
+#> 7 San José De Maipo
+#> 8 OHiggins
 ```
 
-También podemos hacerlo manualmente consultando si las comunas son
-válidas:
+``` r
+
+library(territorial)
+
+datos |> 
+  validar_comunas()
+#> ! mayúsculas: 2 casos de comunas escritas en mayúsculas
+#> ! mayúsculas: 2 casos de comunas escritas en minúsculas
+#> ! mayúsculas: 1 caso de comunas con preposiciones ('de', 'del') escritas en mayúsculas
+#> ℹ resumen: 7 casos de comunas que no conciden con comunas correctamente escritas (ver `territorial::comunas()`)
+#> # A tibble: 8 × 1
+#>   nombre_comuna    
+#>   <chr>            
+#> 1 PIRQUE           
+#> 2 El Monte         
+#> 3 Maipu            
+#> 4 santiago         
+#> 5 prohibidencia    
+#> 6 CERRILLOS        
+#> 7 San José De Maipo
+#> 8 OHiggins
+```
+
+La función
+[`validar_comunas()`](https://bastianolea.github.io/territorial/reference/validar_comunas.md)
+indica qué posibles problemas existen con los nombres de las comunas.
+Posteriormente, podemos usar
+[`limpiar_comunas()`](https://bastianolea.github.io/territorial/reference/limpiar_comunas.md)
+para corregir automáticamente los nombres de las comunas:
+
+``` r
+
+library(dplyr)
+
+datos |> 
+  mutate(nombre_corregido = limpiar_comunas(nombre_comuna))
+#> ℹ Limpiando 8 nombres de comunas (8 son distintas)
+#> 
+#> ── Paso 1: confirmar comunas correctas
+#> ℹ De las 8 comunas, 1 ya eran correctas: El Monte
+#> 
+#> ── Paso 2: coincidencias por limpieza de texto
+#> ℹ A partir de la limpieza de texto, se limpiaron 7 de 8 comunas: Pirque, El Monte, Maipú, Santiago, Cerrillos, San José de Maipo y O'Higgins
+#> 
+#> ── Paso 3: coincidencias aproximadas de texto
+#> ℹ Se limpiaron 1 de 1 comunas por medio de coincidencias aproximadas de texto: Providencia
+#> 
+#> ── Conclusión de limpieza de comunas
+#> ✔ De las 8 comunas, se limpiaron 8 en total (100%)
+#> ℹ Mostrando proceso:
+#> # A tibble: 8 × 5
+#>   original          correctas limpieza          coincidencia resultado        
+#>   <chr>             <chr>     <chr>             <chr>        <chr>            
+#> 1 PIRQUE            <NA>      Pirque            <NA>         Pirque           
+#> 2 El Monte          El Monte  El Monte          <NA>         El Monte         
+#> 3 Maipu             <NA>      Maipú             <NA>         Maipú            
+#> 4 santiago          <NA>      Santiago          <NA>         Santiago         
+#> 5 prohibidencia     <NA>      <NA>              Providencia  Providencia      
+#> 6 CERRILLOS         <NA>      Cerrillos         <NA>         Cerrillos        
+#> 7 San José De Maipo <NA>      San José de Maipo <NA>         San José de Maipo
+#> 8 OHiggins          <NA>      O'Higgins         <NA>         O'Higgins
+#> 
+#> # A tibble: 8 × 2
+#>   nombre_comuna     nombre_corregido 
+#>   <chr>             <chr>            
+#> 1 PIRQUE            Pirque           
+#> 2 El Monte          El Monte         
+#> 3 Maipu             Maipú            
+#> 4 santiago          Santiago         
+#> 5 prohibidencia     Providencia      
+#> 6 CERRILLOS         Cerrillos        
+#> 7 San José De Maipo San José de Maipo
+#> 8 OHiggins          O'Higgins
+```
+
+También podemos confirmar los nombres manualmente consultando si las
+comunas son válidas:
 
 ``` r
 

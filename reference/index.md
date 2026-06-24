@@ -29,10 +29,10 @@ usados para lógica condicional
 - [`is_nombre_region()`](https://bastianolea.github.io/territorial/reference/is_nombre_region.md)
   : Evaluar si un texto corresponde a un nombre de región de Chile
   válido
-- [`validar_regiones()`](https://bastianolea.github.io/territorial/reference/validar_regiones.md)
-  : Validación de calidad de nombres de regiones de Chile
 - [`validar_comunas()`](https://bastianolea.github.io/territorial/reference/validar_comunas.md)
   : Validación de calidad de nombres de comunas de Chile
+- [`validar_regiones()`](https://bastianolea.github.io/territorial/reference/validar_regiones.md)
+  : Validación de calidad de nombres de regiones de Chile
 
 ## Limpieza y corrección de territorios
 
@@ -47,6 +47,8 @@ ordenarlos, etc.
   : Ordenar regiones de Chile geográficamente
 - [`ubicar_comunas()`](https://bastianolea.github.io/territorial/reference/ubicar_comunas.md)
   : Ubicar comunas en la región que les corresponde
+- [`limpiar_comunas()`](https://bastianolea.github.io/territorial/reference/limpiar_comunas.md)
+  : Limpieza de nombres de comunas de Chile a sus nombres oficiales
 
 ## Complementar nombres de territorios
 
@@ -55,6 +57,8 @@ ellos
 
 - [`preposicion_region()`](https://bastianolea.github.io/territorial/reference/preposicion_region.md)
   : Preposición (de/del) de cada región de Chile
+- [`redactar_comunas()`](https://bastianolea.github.io/territorial/reference/redactar_comunas.md)
+  : Redactar una secuencia de comunas en una oración
 - [`redactar_region()`](https://bastianolea.github.io/territorial/reference/redactar_region.md)
   : Redactar nombres de regiones de Chile
 - [`abreviar_comunas()`](https://bastianolea.github.io/territorial/reference/abreviar_comunas.md)
