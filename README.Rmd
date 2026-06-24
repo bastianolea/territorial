@@ -22,7 +22,7 @@ Herramientas para facilitar el trabajo con datos de comunas y regiones de Chile 
 Este paquete busca facilitar tareas de limpieza que suelen ser necesarias al trabajar con datos de Chile a nivel comunal y regional, por ejemplo:
 
 - Revisar si los nombres de comunas y regiones vienen bien escritos (`validar_comunas()` y `validar_regiones()`)
-- ~~Limpiar los nombres de las comunas y regiones~~
+- Limpiar automáticamente los nombres de las comunas con `limpiar_comunas()`
 - Agregar todos los datos territoriales (regiones y provincias con sus códigos únicos) a partir de las comunas (`contextualizar()`)
 - Convertir nombres de comunas a códigos únicos comunales (`as_codigo_comuna()`) y viceversa (`as_nombre_comuna()`)
 - Ordenar las regiones del país de norte a sur (`ordenar_regiones()`)
@@ -71,17 +71,33 @@ Si tienes una tabla de datos con datos comunales, lo primero sería revisar la c
 
 ```{r include=FALSE}
 
+datos <- dplyr::tibble(
+  nombre_comuna = c("PIRQUE", "El Monte", "Maipu", "santiago", "prohibidencia", "CERRILLOS", "San José De Maipo", "OHiggins")
+)
+
 ```
 
-```{r example}
-# library(territorial)
-
-# head(datos)
-# 
-# revisar_comunas(datos)
+```{r}
+datos
 ```
 
-También podemos hacerlo manualmente consultando si las comunas son válidas:
+```{r}
+library(territorial)
+
+datos |> 
+  validar_comunas()
+```
+
+La función `validar_comunas()` indica qué posibles problemas existen con los nombres de las comunas. Posteriormente, podemos usar `limpiar_comunas()` para corregir automáticamente los nombres de las comunas:
+
+```{r}
+library(dplyr)
+
+datos |> 
+  mutate(nombre_corregido = limpiar_comunas(nombre_comuna))
+```
+
+También podemos confirmar los nombres manualmente consultando si las comunas son válidas:
 
 ```{r}
 comunas <- c("Providencia", "Vitacura", "Las Condes", "Lo Barnechea", "Ratas", NA)

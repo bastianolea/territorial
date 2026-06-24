@@ -1,9 +1,9 @@
 Package: territorial
-Title: Funciones para trabajar con datos comunales de Chile
-Version: 0.4
+Title: Funciones para trabajar con datos comunales y regionales de Chile
+Version: 0.7.0
 Authors@R: 
     person("Bastián", "Olea Herrera", , "bastianolea@gmail.com", role = c("aut", "cre"))
-Description: Este paquete busca facilitar tareas de limpieza que suelen ser necesarias al trabajar con datos de Chile a nivel comunal, por ejemplo limpiar los nombres de las comunas y regiones, agregar códigos comunales y regionales, ordenar las regiones del país, entre otras.
+Description: Este paquete busca facilitar tareas de limpieza que suelen ser necesarias al trabajar con datos de Chile a nivel comunal, por ejemplo: limpiar los nombres de las comunas y regiones, agregar códigos comunales y regionales, ordenar las regiones del país, entre otras.
 License: GPL (>= 3)
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)

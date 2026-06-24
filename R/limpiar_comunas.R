@@ -1,5 +1,19 @@
+#' Limpieza de nombres de comunas de Chile a sus nombres oficiales
+#'
+#' A partir de un vector de nombres de columnas, se realizan tres pasos de limpieza (confirmación de nombres correctas, limpieza de texto, detección por coincidencia) para retornar los nombres de comunas oficiales apropiados. Los nombres de comunas son los que aparecen en [territorial::comunas()].
+#'
+#' @param nombre_comuna Vector de nombres de comunas
+#' @param mostrar_proceso Por defecto, muestra una tabla con el resultado del proceso de limpieza. Cambiar a FALSE para ocultar.
+#' @param aproximar El paso de limpieza por aproximación y coincidencia de nombres puede entregar resultados inexactos. Cambiar a FALSE para omitir.
+#'
+#' @returns Vector de nombres de comunas con correcciones aplicadas.
+#' @export
+#'
+#' @examples
+#' limpiar_comunas(c("COLCHANE", "Alto Ospicio", "probidencia", "huara", "laflorida", "cerritos", "llay-llay"))
 limpiar_comunas <- function(
   nombre_comuna,
+  aproximar = TRUE,
   mostrar_proceso = TRUE
 ) {
   # nombre_comuna <- c(territorial::comunas()[1:4], toupper(territorial::comunas()[5:8]), "coyiguay", "laflorida", "cerritos", "llay-llay", "asdf")
@@ -36,6 +50,7 @@ limpiar_comunas <- function(
   cli::cli_alert_info(
     "De las {nrow(resultados)} comunas, {length(comunas_correctas)} ya eran correctas: {redactar_comunas(comunas_correctas)}"
   )
+  cli::cli_par()
 
   # limpiar ----
   # bajar a minusculas y sacar tildes, comparar con correctas con mismo tratamiento
@@ -69,20 +84,28 @@ limpiar_comunas <- function(
   cli::cli_alert_info(
     "A partir de la limpieza de texto, se limpiaron {length(comunas_limpias)} de {nrow(resultados)} comunas: {redactar_comunas(comunas_limpias)}"
   )
-  cli::cli_rule()
+  cli::cli_par()
 
   # coincidir ----
   # las demás, aproximarlas con agrepl, retornar con advertencia
-  cli::cli_h3("Paso 3: coincidencias parciales de texto")
+  cli::cli_h3("Paso 3: coincidencias aproximadas de texto")
 
-  faltantes <- resultados |>
-    dplyr::mutate(
-      coincidir = dplyr::if_else(
-        is.na(correctas) & is.na(limpieza),
-        nombre_comuna,
-        NA
+  if (aproximar) {
+    faltantes <- resultados |>
+      dplyr::mutate(
+        coincidir = dplyr::if_else(
+          is.na(correctas) & is.na(limpieza),
+          nombre_comuna,
+          NA
+        )
       )
-    )
+  } else {
+    cli::cli_alert_info("Omitiendo limpieza por coincidencias aproximadas")
+    faltantes <- resultados |>
+      dplyr::mutate(
+        coincidir = NA
+      )
+  }
 
   comunas_coincidir <- faltantes |>
     dplyr::select(coincidir) |>
@@ -143,14 +166,14 @@ limpiar_comunas <- function(
   # informar
   if (length(comunas_coincididas) > 0) {
     cli::cli_alert_info(
-      "Se limpiaron {length(comunas_coincididas)} de {length(comunas_coincidir)} comunas por medio de coincidencias parciales de texto: {redactar_comunas(comunas_coincididas)}"
+      "Se limpiaron {length(comunas_coincididas)} de {length(comunas_coincidir)} comunas por medio de coincidencias aproximadas de texto: {redactar_comunas(comunas_coincididas)}"
     )
   } else {
-    cli::cli_alert_danger(
+    cli::cli_alert_warning(
       "No se limpiaron comunas como parte de este paso"
     )
   }
-  cli::cli_rule()
+  cli::cli_par()
 
   # terminar ----
   cli::cli_h3("Conclusión de limpieza de comunas")
@@ -166,8 +189,7 @@ limpiar_comunas <- function(
     na.omit() |>
     dplyr::pull()
 
-  porcentaje <- length(comunas_limpiadas) /
-    sum(length(comunas_limpiadas), nrow(resultados))
+  porcentaje <- length(comunas_limpiadas) / nrow(resultados)
 
   # informar
   cli::cli_alert_success(
