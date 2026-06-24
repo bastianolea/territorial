@@ -14,3 +14,4 @@
 _instrucciones.R
 _pendientes.md
 .Rprofile
+^img/*

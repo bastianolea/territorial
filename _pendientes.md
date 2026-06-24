@@ -21,6 +21,7 @@
 - [x] `validar_regiones()`
 - [x] arreglar: no se llaman artículos, sino preposiciones
 - [ ] hacer tests de `validar_comunas()`
+- [ ] función para averiguar en qué región está una comuna
 
 
 

@@ -1,6 +1,4 @@
-# crear nombres cortos de comunas
-
-#' Abreviar comunas
+#' Crear abreviaciones de 3 letras desde nombres comunas
 #'
 #' A partir de un vector de nombres de comunas (como [territorial::comunas()]), retorna nombres de comunas abreviados, como siglas de 3 caracteres (a excepción de Santiago, que queda STGO). Sirve para poner nombres de comunas donde hay poco espacio, como en mapas. Las abreviaciones no necesariamente son únicas.
 #'

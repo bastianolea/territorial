@@ -19,11 +19,12 @@ reference:
   - validar_regiones
   - validar_comunas
 
-- title: Corrección y limpieza de territorios
+- title: Limpieza y corrección de territorios
   desc: Funciones para transformar datos de identificación de territorios, ordenarlos, etc.
   contents:
   - starts_with("as_")
   - ordenar_regiones
+  - ubicar_comunas
 
 - title: Complementar nombres de territorios
   desc: Funciones que toman los nombres de territorios y hacen más cosas con ellos

@@ -57,7 +57,7 @@ test_that("validar región O'Higgins sin apóstrofo", {
 }) |>
   suppressMessages()
 
-test_that("validar región O'Higgins con apóstrogo", {
+test_that("validar región O'Higgins con apóstrofo", {
   expect_no_condition(
     validar_regiones("Región del Libertador General Bernardo O'Higgins")
   )
@@ -70,11 +70,6 @@ test_that("validar región O'Higgins con apóstrofo incorrecto", {
 }) |>
   suppressMessages()
 
-test_that("validar región O'Higgins con apóstrofo correcto", {
-  expect_no_condition(
-    validar_regiones("Región del Libertador General Bernardo O'Higgins")
-  )
-})
 
 test_that("validar región Aysén con i latina", {
   expect_condition(

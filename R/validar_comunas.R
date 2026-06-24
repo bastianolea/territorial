@@ -1,8 +1,8 @@
 #' Validación de calidad de nombres de comunas de Chile
 #'
-#' Esta función recibe la columna con nombres de comunas de un dataframe (idealmente `nombre_comuna`), y retorna una evaluación de posibles problemas con los nombres existentes. Funciona tanto con un dataframe con una columna `nombre_comuna`, o un vector que contenga los nombres de comunas a evaluar.
+#' Esta función recibe una columna con nombres de comunas de un dataframe (idealmente `nombre_comuna`), o un vector con nombres de comunas, y retorna una evaluación de posibles problemas con los nombres existentes. Funciona tanto con un dataframe con una columna `nombre_comuna`, o un vector que contenga los nombres de comunas a evaluar.
 #'
-#' @param nombre_comuna Columna con nombres de comunas, o vector con nombres de comunas
+#' @param nombre_comuna Columna de un dataframe con nombres de comunas, o vector con nombres de comunas
 #'
 #' @returns Dataframe o vector intacto, con mensajes de diagnóstico si se encuentran problemas de calidad
 #' @export
@@ -10,6 +10,8 @@
 #' @examples
 #' validar_comunas(c("colliguay", "la florida", "paine"))
 #'
+#' territorial::territorios |>
+#'   validar_comunas()
 validar_comunas <- function(
   datos,
   variable = "nombre_comuna"
@@ -70,11 +72,11 @@ validar_comunas <- function(
 
   # comunas correctas ---
   # nombre_comuna <- c("Puente Alto", "Perrito", "Cerrillos")
-  revisar$comunas_correctas <- nombre_comuna %in% territorial::comunas()
+  revisar$comunas_correctas <- !nombre_comuna %in% territorial::comunas()
 
   if (any(revisar$comunas_correctas)) {
-    cli::cli_alert_warning(
-      "ortografía: {sum(revisar$comunas_correctas)} caso{?s} de comunas que no conciden con comunas correctamente escritas (ver {.fun territorial::comunas})"
+    cli::cli_alert_info(
+      "resumen: {sum(revisar$comunas_correctas)} caso{?s} de comunas que no conciden con comunas correctamente escritas (ver {.fun territorial::comunas})"
     )
   }
 
