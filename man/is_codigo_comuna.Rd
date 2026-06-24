@@ -2,18 +2,18 @@
 % Please edit documentation in R/is_codigo_comuna.R
 \name{is_codigo_comuna}
 \alias{is_codigo_comuna}
-\title{Evaluar si un texto corresponde a un código territorial válido de una comuna de Chile}
+\title{Evaluar si un dato corresponde a un código territorial válido de una comuna de Chile}
 \usage{
-is_codigo_comuna(x)
+is_codigo_comuna(codigo_comuna)
 }
 \arguments{
-\item{x}{Elemento/s a evaluar}
+\item{codigo_comuna}{Elemento/s a evaluar}
 }
 \value{
-TRUE o FALSE si es o no es una comuna válida
+TRUE o FALSE si es o no es un código único territorial válido
 }
 \description{
-Dado un vector de cualquier largo, retorna TRUE o FALSE para cada elemento de acuerdo si se corresponde con los códigos únicos territoriales de comunas de Chile, disponibles en la función \link{territorios}.
+Dado un vector de cualquier largo, retorna TRUE o FALSE para cada elemento de acuerdo si se corresponde con los códigos únicos territoriales de comunas de Chile, disponibles en \link{territorios}.
 }
 \examples{
 is_codigo_comuna(1101)

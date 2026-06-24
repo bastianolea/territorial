@@ -4,7 +4,7 @@ template:
   bootstrap: 5
 reference:
 - title: Datos territoriales
-  desc:  Funciones que entregan datos de uso territorial
+  desc:  Funciones y tablas de datos que entregan datos de uso territorial
   contents:
   - territorios
   - comunas

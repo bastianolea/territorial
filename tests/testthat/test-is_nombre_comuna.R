@@ -10,3 +10,10 @@ test_that("confirmar si más de un nombre de comuna son válidos", {
     c(TRUE, FALSE, TRUE)
   )
 })
+
+
+test_that("probar error al confirmar nombre de comuna", {
+  expect_error(
+    territorial::is_nombre_comuna(1234)
+  )
+})

@@ -4,10 +4,10 @@
 \alias{is_nombre_comuna}
 \title{Evaluar si un texto corresponde al nombre válido de una comuna de Chile}
 \usage{
-is_nombre_comuna(x)
+is_nombre_comuna(nombre_comuna)
 }
 \arguments{
-\item{x}{Elemento/s a evaluar}
+\item{nombre_comuna}{Elemento/s a evaluar}
 }
 \value{
 TRUE o FALSE si es o no es una comuna válida
