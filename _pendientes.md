@@ -2,13 +2,13 @@
 
 ## Pendientes
 
-`is.comuna()`: poner error si no se entrega comuna
+`is_comuna()`: poner error si no se entrega comuna
 
-`is.comuna()`: poner error si no es caracter
+`is_comuna()`: poner error si no es caracter
 
 editar vignettes/territorial.qmd
 
-agregar github action de tests
+\[-\] agregar github action de tests (no porque webea el warning)
 
 subir a github pages
 
@@ -26,7 +26,7 @@ tabla con formas alternativas de escribir comunas
 
 ver guía de estilo para pensar nombres de funciones
 
-cambiar tildes por ascii: stringi::stri_escape_unicode(“Lélàô”)
+\[-\] cambiar tildes por ascii: stringi::stri_escape_unicode(“Lélàô”)
 
 explicar leves modificaciones de tabla de territorios
 
@@ -45,6 +45,12 @@ arreglar: no se llaman artículos, sino preposiciones
 
 hacer tests de
 [`validar_comunas()`](https://bastianolea.github.io/territorial/reference/validar_comunas.md)
+
+función para averiguar en qué región está una comuna
+
+qué pasa en is_nombre_region con los nombres cortos de regiones?
+
+convertir a nombres cortos de regiones
 
 ## Idea general
 

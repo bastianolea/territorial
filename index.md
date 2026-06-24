@@ -1,16 +1,36 @@
 # Paquete `{territorial}`
 
-Herramientas para trabajar con comunas de Chile en R.
+Herramientas para facilitar el trabajo con datos de comunas y regiones
+de Chile en R.
 
 Este paquete busca facilitar tareas de limpieza que suelen ser
-necesarias al trabajar con datos de Chile a nivel comunal, por ejemplo
-limpiar los nombres de las comunas y regiones, agregar códigos comunales
-y regionales, ordenar las regiones del país, entre otras.
+necesarias al trabajar con datos de Chile a nivel comunal y regional,
+por ejemplo:
 
-La razón de este paquete surge de mi propia experiencia analizando datos
-sociales: los datos territoriales de Chile vienen siempre con dudosa
+- Revisar si los nombres de comunas y regiones vienen bien escritos
+  ([`validar_comunas()`](https://bastianolea.github.io/territorial/reference/validar_comunas.md)
+  y
+  [`validar_regiones()`](https://bastianolea.github.io/territorial/reference/validar_regiones.md))
+- ~~Limpiar los nombres de las comunas y regiones~~
+- Agregar todos los datos territoriales (regiones y provincias con sus
+  códigos únicos) a partir de las comunas
+  ([`contextualizar()`](https://bastianolea.github.io/territorial/reference/contextualizar.md))
+- Convertir nombres de comunas a códigos únicos comunales
+  ([`as_codigo_comuna()`](https://bastianolea.github.io/territorial/reference/as_codigo_comuna.md))
+  y viceversa
+  ([`as_nombre_comuna()`](https://bastianolea.github.io/territorial/reference/as_nombre_comuna.md))
+- Ordenar las regiones del país de norte a sur
+  ([`ordenar_regiones()`](https://bastianolea.github.io/territorial/reference/ordenar_regiones.md))
+- Redactar los nombres de las regiones
+  ([`redactar_region()`](https://bastianolea.github.io/territorial/reference/redactar_region.md))
+- y más!
+
+La razón de este paquete viene de mi propia experiencia trabajando con
+datos sociales: los datos territoriales vienen siempre con dudosa
 calidad en las variables que especifican las comunas: nombres mal
 escritos, en mayúsculas, sin eñes, etc.
+
+------------------------------------------------------------------------
 
 Paquete desarrollado bajo el [programa de Campeones de
 ROpenSci](https://ropensci.org/es/champions/), con el apoyo de mi
@@ -26,13 +46,10 @@ Por ahora puedes instalar este paquete desde GitHub:
 pak::pkg_install("bastianolea/territorial")
 ```
 
-``` r
-
-# install.packages("devtools")
-devtools::install_github("bastianolea/territorial")
-```
-
 ## Ejemplos
+
+Los siguientes ejemplos muestran algunos usos de
+[territorial](https://bastianolea.github.io/territorial).
 
 ## Tabla de comunas, provincias y regiones de Chile
 

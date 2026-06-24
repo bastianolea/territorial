@@ -1,4 +1,4 @@
-# Abreviar comunas
+# Crear abreviaciones de 3 letras desde nombres comunas
 
 A partir de un vector de nombres de comunas (como
 [`comunas()`](https://bastianolea.github.io/territorial/reference/comunas.md)),

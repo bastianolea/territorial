@@ -1,14 +1,14 @@
-# Evaluar si un dato corresponde a un código territorial válido de una comuna de Chile
+# Evaluar si un texto corresponde a un nombre de región de Chile válido
 
 Dado un vector de cualquier largo, retorna TRUE o FALSE para cada
-elemento de acuerdo si se corresponde con los códigos únicos
-territoriales de comunas de Chile, disponibles en
+elemento de acuerdo si se corresponde con los nombres de regiones de
+Chile, disponibles en
 [territorios](https://bastianolea.github.io/territorial/reference/territorios.md).
 
 ## Uso
 
 ``` r
-is_codigo_comuna(codigo_comuna)
+is_nombre_region(nombre_region)
 ```
 
 ## Argumentos
@@ -24,6 +24,6 @@ TRUE o FALSE si es o no es un código único territorial válido
 ## Ejemplos
 
 ``` r
-is_codigo_comuna(1101)
+is_nombre_region("Maule")
 #> [1] TRUE
 ```

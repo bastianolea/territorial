@@ -8,12 +8,12 @@ oficiales, disponibles en la función
 ## Uso
 
 ``` r
-is_nombre_comuna(x)
+is_nombre_comuna(nombre_comuna)
 ```
 
 ## Argumentos
 
-- x:
+- nombre_comuna:
 
   Elemento/s a evaluar
 
