@@ -13,7 +13,7 @@ is_nombre_region(nombre_region)
 
 ## Argumentos
 
-- codigo_comuna:
+- nombre_region:
 
   Elemento/s a evaluar
 

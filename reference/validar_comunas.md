@@ -4,20 +4,26 @@ Esta función recibe una columna con nombres de comunas de un dataframe
 (idealmente `nombre_comuna`), o un vector con nombres de comunas, y
 retorna una evaluación de posibles problemas con los nombres existentes.
 Funciona tanto con un dataframe con una columna `nombre_comuna`, o un
-vector que contenga los nombres de comunas a evaluar.
+vector que contenga los nombres de comunas a evaluar. La función
+solamente retorna avisos cuando existan problemas, por lo que si todos
+los datos son correctos, solo devolverá los datos tal cual.
 
 ## Uso
 
 ``` r
-validar_comunas(datos, variable = "nombre_comuna")
+validar_comunas(datos, nombre_comuna = NULL)
 ```
 
 ## Argumentos
 
+- datos:
+
+  Dataframe con una columna de nombre de comunas, o vector de nombres de
+  comunas
+
 - nombre_comuna:
 
-  Columna de un dataframe con nombres de comunas, o vector con nombres
-  de comunas
+  Columna de un dataframe con nombres de comunas
 
 ## Valor
 
@@ -27,10 +33,10 @@ problemas de calidad
 ## Ejemplos
 
 ``` r
-validar_comunas(c("colliguay", "la florida", "paine"))
+validar_comunas(c("chiguayante", "la florida", "paine"))
 #> ! mayúsculas: 3 casos de comunas escritas en minúsculas
 #> ℹ resumen: 3 casos de comunas que no conciden con comunas correctamente escritas (ver `territorial::comunas()`)
-#> [1] "colliguay"  "la florida" "paine"     
+#> [1] "chiguayante" "la florida"  "paine"      
 
 territorial::territorios |>
   validar_comunas()

@@ -4,19 +4,26 @@ Esta función recibe la columna con nombres de regiones de un dataframe
 (idealmente `nombre_region`), y retorna una evaluación de posibles
 problemas con los nombres existentes. Funciona tanto con un dataframe
 con una columna `nombre_region`, o un vector que contenga los nombres de
-regiones a evaluar.
+regiones a evaluar. La función solamente retorna avisos cuando existan
+problemas, por lo que si todos los datos son correctos, solo devolverá
+los datos tal cual.
 
 ## Uso
 
 ``` r
-validar_regiones(datos, variable = "nombre_region")
+validar_regiones(datos, nombre_region = NULL)
 ```
 
 ## Argumentos
 
+- datos:
+
+  Dataframe con una columna de nombre de regiones, o vector de nombres
+  de regiones
+
 - nombre_region:
 
-  Columna con nombres de regiones, o vector con nombres de regiones
+  Columna de un dataframe con nombres de regiones
 
 ## Valor
 
