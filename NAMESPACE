@@ -2,6 +2,7 @@
 
 export(abreviar_comunas)
 export(agregar_clasificacion)
+export(agregar_orden_region)
 export(as_codigo_comuna)
 export(as_nombre_comuna)
 export(comunas)

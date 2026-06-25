@@ -36,4 +36,4 @@ reference:
 - title: Complementar datos territoriales
   desc: Funciones para agregar nuevas variables a partir de datos territoriales existentes
   contents:
-  - agregar_clasificacion
+  - starts_with("agregar_")

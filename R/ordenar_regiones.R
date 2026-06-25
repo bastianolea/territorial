@@ -33,17 +33,18 @@
 #' regiones |>
 #'   ordenar_regiones()
 ordenar_regiones <- function(
-    datos,
-    limpiar = TRUE,
-    ordenar = TRUE
+  datos,
+  limpiar = TRUE,
+  ordenar = TRUE
 ) {
-
   if (!any(class(datos) %in% "data.frame")) {
     cli::cli_abort("esta función requiere de un dataframe")
   }
 
   if (!all(c("nombre_region", "codigo_region") %in% names(datos))) {
-    cli::cli_abort("se necesitan las columnas `codigo_region` y `nombre_region`")
+    cli::cli_abort(
+      "se necesitan las columnas `codigo_region` y `nombre_region`"
+    )
   }
 
   if (!is.numeric(datos$codigo_region)) {
@@ -55,27 +56,11 @@ ordenar_regiones <- function(
   # }
 
   datos_ordenados <- datos |>
-    dplyr::mutate(orden_region = dplyr::recode_values(
-      codigo_region,
-      15 ~ 1,
-      1 ~ 2,
-      2 ~ 3,
-      3 ~ 4,
-      4 ~ 5,
-      5 ~ 6,
-      13 ~ 7,
-      6 ~ 8,
-      7 ~ 9,
-      16 ~ 10,
-      8 ~ 11,
-      9 ~ 12,
-      14 ~ 13,
-      10 ~ 14,
-      11 ~ 15,
-      12 ~ 16)) |>
+    dplyr::mutate(orden_region = agregar_orden_region(codigo_region)) |>
     # ordenar regiones
-    dplyr::mutate(nombre_region = forcats::fct_reorder(nombre_region,
-                                                       orden_region))
+    dplyr::mutate(
+      nombre_region = forcats::fct_reorder(nombre_region, orden_region)
+    )
 
   # excluir o mantener variable intermedia
   if (limpiar) {

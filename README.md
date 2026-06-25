@@ -39,7 +39,7 @@ Por ahora puedes instalar este paquete desde GitHub:
 
 ``` r
 # install.packages("pak")
-pak::pkg_install("bastianolea/territorial")
+pak::pak("bastianolea/territorial")
 ```
 
 ## Ejemplos
