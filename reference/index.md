@@ -71,3 +71,5 @@ existentes
 
 - [`agregar_clasificacion()`](https://bastianolea.github.io/territorial/reference/agregar_clasificacion.md)
   : Agregar clasificación comunal PNDR a comunas
+- [`agregar_orden_region()`](https://bastianolea.github.io/territorial/reference/agregar_orden_region.md)
+  : Agregar orden geográfico (norte a sur) a códigos de regiones
