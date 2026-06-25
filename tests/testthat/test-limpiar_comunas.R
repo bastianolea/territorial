@@ -1,4 +1,4 @@
-test_that("prueba de limpieza de comunas", {
+test_that("prueba de limpieza de comunas 1", {
   expect_equal(
     limpiar_comunas(
       c("CERRILLOS", "la florida", "ñunoa", "nunoa"),
@@ -51,15 +51,44 @@ test_that("prueba de limpieza de comunas 2", {
 })
 
 
-test_that("prueba de limpieza de comunas 3, no se la puede", {
-  expect_no_error(
+test_that("prueba de limpieza de comunas 3, antes no se la podía", {
+  expect_equal(
     limpiar_comunas(
-      c(
-        "La Florida",
-        "Coyiguay"
-      ),
+      c("La Florida", "Quirigue"),
       mostrar_proceso = FALSE
     ) |>
-      suppressMessages()
+      suppressMessages(),
+    c("La Florida", "Quirihue")
+  )
+})
+
+
+test_that("prueba de limpieza de comunas 4, antes no se la podía", {
+  expect_equal(
+    limpiar_comunas(
+      c("O´HIGGINS", "TREHUACO"),
+      mostrar_proceso = FALSE
+    ) |>
+      suppressMessages(),
+    c("O'Higgins", "Treguaco")
+  )
+})
+
+test_that("prueba de limpieza de comunas desde datos de prueba 1", {
+  expect_all_false(
+    {
+      datos <- read.csv(here::here(
+        "data-raw/test_digitalizacion_municipal.csv"
+      ))
+
+      datos_limpios <- datos |>
+        dplyr::tibble() |>
+        dplyr::mutate(
+          nombre_comuna = limpiar_comunas(municipio, mostrar_proceso = FALSE)
+        ) |>
+        suppressMessages()
+
+      is.na(datos_limpios$nombre_comuna)
+    }
   )
 })

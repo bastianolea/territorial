@@ -12,20 +12,18 @@
 #' @examples
 #' limpiar_comunas(c("COLCHANE", "Alto Ospicio", "probidencia", "huara", "laflorida", "cerritos", "llay-llay"))
 limpiar_comunas <- function(
-    nombre_comuna,
-    aproximar = TRUE,
-    mostrar_proceso = TRUE
+  nombre_comuna,
+  aproximar = TRUE,
+  mostrar_proceso = TRUE
 ) {
   # nombre_comuna <- c(territorial::comunas()[1:4], toupper(territorial::comunas()[5:8]), "coyiguay", "laflorida", "cerritos", "llay-llay", "asdf")
 
   # nombre_comuna <- c("Iquique", "COLCHANE", "Alto Hospicio", "probidencia", "Pozo Almonte", "Camiña", "HUARA", "PICA", "ANTOFAGASTA", "laflorida", "cerritos", "llay-llay", "asdf", NA )
 
-
   # si no hay en un paso, mostrar mensaje distinto
   # al redactar, si son demasiadas, truncar
   # O´HIGGINS, TREHUACO
   # nombre_comuna <- c("O´HIGGINS", "TREHUACO")
-
 
   # empezar a registrar resultados
   resultados <- dplyr::tibble(nombre_comuna)
@@ -56,7 +54,7 @@ limpiar_comunas <- function(
   cli::cli_h3("Paso 1: confirmar comunas correctas")
   if (length(comunas_correctas) == 0) {
     cli::cli_alert_info(
-      "De las {nrow(resultados)} comunas, ninguna corresponde a nombres correctos. Los siguientes pasos intentarán la limpieza"
+      "De las {nrow(resultados)} comunas, ninguna tiene nombres 100% correctos. Los siguientes pasos intentarán la limpieza"
     )
   } else {
     cli::cli_alert_info(
@@ -111,7 +109,9 @@ limpiar_comunas <- function(
           nombre_comuna,
           NA
         )
-      )
+      ) |>
+      #limpiar comuna
+      dplyr::mutate(coincidir = limpiar_texto(coincidir))
   } else {
     cli::cli_alert_info("Omitiendo limpieza por coincidencias aproximadas")
     faltantes <- resultados |>
@@ -131,16 +131,19 @@ limpiar_comunas <- function(
       if (is.na(comuna_faltante)) {
         return(NA)
       }
+      # comuna_faltante <- faltantes$coincidir[10]
 
-      # comuna_faltante <- faltantes$coincidir[4]
-
-      resultado <- agrep(
-        comuna_faltante,
-        comunas_oficiales_limpias,
-        value = TRUE,
-        max.distance = 0.2,
-        costs = list(insert = 4, delet = 5, subst = 3)
-      )
+      resultado <-
+        agrep(
+          comuna_faltante,
+          comunas_oficiales_limpias,
+          value = TRUE,
+          max.distance = 0.25,
+          ignore.case = FALSE,
+          fixed = TRUE,
+          costs = list(ins = 1, del = 1, sub = 1)
+        ) |>
+        rev()
 
       if (length(resultado) == 0) {
         cli::cli_alert_warning(
