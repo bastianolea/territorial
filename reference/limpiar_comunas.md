@@ -39,12 +39,13 @@ limpiar_comunas(c("COLCHANE", "Alto Ospicio", "probidencia", "huara", "laflorida
 #> ℹ Limpiando 7 nombres de comunas (7 son distintas)
 #> 
 #> ── Paso 1: confirmar comunas correctas 
-#> ℹ De las 7 comunas, 0 ya eran correctas: 
+#> ℹ De las 7 comunas, ninguna tiene nombres 100% correctos. Los siguientes pasos intentarán la limpieza
 #> 
 #> ── Paso 2: coincidencias por limpieza de texto 
 #> ℹ A partir de la limpieza de texto, se limpiaron 2 de 7 comunas: Colchane y Huara
 #> 
 #> ── Paso 3: coincidencias aproximadas de texto 
+#> ! alerta, se encontraron más de una coincidencia para la comuna `laflorida`: la florida y florida
 #> ℹ Se limpiaron 5 de 5 comunas por medio de coincidencias aproximadas de texto: Alto Hospicio, Providencia, La Florida, Cerrillos y Llaillay
 #> 
 #> ── Conclusión de limpieza de comunas 
