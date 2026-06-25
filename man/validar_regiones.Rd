@@ -4,16 +4,18 @@
 \alias{validar_regiones}
 \title{Validación de calidad de nombres de regiones de Chile}
 \usage{
-validar_regiones(datos, variable = "nombre_region")
+validar_regiones(datos, nombre_region = NULL)
 }
 \arguments{
-\item{nombre_region}{Columna con nombres de regiones, o vector con nombres de regiones}
+\item{datos}{Dataframe con una columna de nombre de regiones, o vector de nombres de regiones}
+
+\item{nombre_region}{Columna de un dataframe con nombres de regiones}
 }
 \value{
 Dataframe o vector intacto, con mensajes de diagnóstico si se encuentran problemas de calidad
 }
 \description{
-Esta función recibe la columna con nombres de regiones de un dataframe (idealmente \code{nombre_region}), y retorna una evaluación de posibles problemas con los nombres existentes. Funciona tanto con un dataframe con una columna \code{nombre_region}, o un vector que contenga los nombres de regiones a evaluar.
+Esta función recibe la columna con nombres de regiones de un dataframe (idealmente \code{nombre_region}), y retorna una evaluación de posibles problemas con los nombres existentes. Funciona tanto con un dataframe con una columna \code{nombre_region}, o un vector que contenga los nombres de regiones a evaluar. La función solamente retorna avisos cuando existan problemas, por lo que si todos los datos son correctos, solo devolverá los datos tal cual.
 }
 \examples{
 validar_regiones(c("los lagos", "nuble", "OHIGGINS"))

@@ -77,9 +77,7 @@ test_that("prueba de limpieza de comunas 4, antes no se la podía", {
 test_that("prueba de limpieza de comunas desde datos de prueba 1", {
   expect_all_false(
     {
-      datos <- read.csv(here::here(
-        "data-raw/test_digitalizacion_municipal.csv"
-      ))
+      datos <- read.csv(test_path("testdata/test_digitalizacion_municipal.csv"))
 
       datos_limpios <- datos |>
         dplyr::tibble() |>

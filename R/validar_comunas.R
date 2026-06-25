@@ -1,26 +1,28 @@
 #' Validación de calidad de nombres de comunas de Chile
 #'
-#' Esta función recibe una columna con nombres de comunas de un dataframe (idealmente `nombre_comuna`), o un vector con nombres de comunas, y retorna una evaluación de posibles problemas con los nombres existentes. Funciona tanto con un dataframe con una columna `nombre_comuna`, o un vector que contenga los nombres de comunas a evaluar.
+#' Esta función recibe una columna con nombres de comunas de un dataframe (idealmente `nombre_comuna`), o un vector con nombres de comunas, y retorna una evaluación de posibles problemas con los nombres existentes. Funciona tanto con un dataframe con una columna `nombre_comuna`, o un vector que contenga los nombres de comunas a evaluar. La función solamente retorna avisos cuando existan problemas, por lo que si todos los datos son correctos, solo devolverá los datos tal cual.
 #'
-#' @param nombre_comuna Columna de un dataframe con nombres de comunas, o vector con nombres de comunas
+#' @param datos Dataframe con una columna de nombre de comunas, o vector de nombres de comunas
+#' @param nombre_comuna Columna de un dataframe con nombres de comunas
 #'
 #' @returns Dataframe o vector intacto, con mensajes de diagnóstico si se encuentran problemas de calidad
 #' @export
 #'
 #' @examples
-#' validar_comunas(c("colliguay", "la florida", "paine"))
+#' validar_comunas(c("chiguayante", "la florida", "paine"))
 #'
 #' territorial::territorios |>
 #'   validar_comunas()
 validar_comunas <- function(
   datos,
-  variable = "nombre_comuna"
+  nombre_comuna = NULL
 ) {
   # si es una tabla, extraer columna como vector
   if (any(class(datos) %in% "data.frame")) {
     nombre_comuna <- datos |>
       dplyr::ungroup() |>
-      dplyr::select(dplyr::all_of(variable)) |>
+      # dplyr::select(dplyr::all_of(variable)) |>
+      dplyr::select(nombre_comuna) |>
       dplyr::pull()
   } else if (is.vector(datos)) {
     nombre_comuna <- as.character(datos)

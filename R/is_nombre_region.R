@@ -2,7 +2,7 @@
 #'
 #' Dado un vector de cualquier largo, retorna TRUE o FALSE para cada elemento de acuerdo si se corresponde con los nombres de regiones de Chile, disponibles en [territorial::territorios].
 #'
-#' @param codigo_comuna Elemento/s a evaluar
+#' @param nombre_region Elemento/s a evaluar
 #'
 #' @returns TRUE o FALSE si es o no es un código único territorial válido
 #' @export

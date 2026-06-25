@@ -57,7 +57,6 @@ test_that("validar comuna O'Higgins con apóstrofo", {
 # }) |>
 #   suppressMessages()
 
-
 test_that("validar comuna Aysén con i latina", {
   expect_condition(
     validar_comunas(c("Aisén"))
@@ -70,3 +69,26 @@ test_that("validar comuna Aysén con y griega", {
     validar_comunas("Aysén")
   )
 })
+
+
+test_that("validar comuna desde dataframe 1", {
+  expect_no_condition(
+    territorial::territorios |>
+      validar_comunas()
+  )
+}) |>
+  suppressMessages()
+
+
+test_that("validar comuna desde dataframe 2", {
+  expect_condition(
+    {
+      datos <- dplyr::tibble(
+        nombre_comuna = c("chiguayante", "la florida", "paine")
+      )
+      datos |>
+        validar_comunas()
+    }
+  )
+}) |>
+  suppressMessages()

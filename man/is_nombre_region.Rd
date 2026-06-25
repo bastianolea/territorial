@@ -7,7 +7,7 @@
 is_nombre_region(nombre_region)
 }
 \arguments{
-\item{codigo_comuna}{Elemento/s a evaluar}
+\item{nombre_region}{Elemento/s a evaluar}
 }
 \value{
 TRUE o FALSE si es o no es un código único territorial válido

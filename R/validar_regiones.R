@@ -1,8 +1,9 @@
 #' Validación de calidad de nombres de regiones de Chile
 #'
-#' Esta función recibe la columna con nombres de regiones de un dataframe (idealmente `nombre_region`), y retorna una evaluación de posibles problemas con los nombres existentes. Funciona tanto con un dataframe con una columna `nombre_region`, o un vector que contenga los nombres de regiones a evaluar.
+#' Esta función recibe la columna con nombres de regiones de un dataframe (idealmente `nombre_region`), y retorna una evaluación de posibles problemas con los nombres existentes. Funciona tanto con un dataframe con una columna `nombre_region`, o un vector que contenga los nombres de regiones a evaluar. La función solamente retorna avisos cuando existan problemas, por lo que si todos los datos son correctos, solo devolverá los datos tal cual.
 #'
-#' @param nombre_region Columna con nombres de regiones, o vector con nombres de regiones
+#' @param datos Dataframe con una columna de nombre de regiones, o vector de nombres de regiones
+#' @param nombre_region Columna de un dataframe con nombres de regiones
 #'
 #' @returns Dataframe o vector intacto, con mensajes de diagnóstico si se encuentran problemas de calidad
 #' @export
@@ -12,13 +13,14 @@
 #'
 validar_regiones <- function(
   datos,
-  variable = "nombre_region"
+  nombre_region = NULL
 ) {
   # si es una tabla, extraer columna como vector
   if (any(class(datos) %in% "data.frame")) {
     nombre_region <- datos |>
       dplyr::ungroup() |>
-      dplyr::select(dplyr::all_of(variable)) |>
+      # dplyr::select(dplyr::all_of(variable)) |>
+      dplyr::select(nombre_region) |>
       dplyr::pull()
   } else if (is.vector(datos)) {
     nombre_region <- as.character(datos)
@@ -142,6 +144,16 @@ validar_regiones <- function(
       "redacción: {sum(revisar$preposiciones)} caso{?s} de regiones sin sus preposiciones ('la', 'los')"
     )
   }
+
+  # avisar si está todo ok, pero interfiere con los tests
+  # if (
+  #   !revisar |>
+  #     unlist() |>
+  #     is.na() |>
+  #     any()
+  # ) {
+  #   message("todas las regiones están escritas correctamente!")
+  # }
 
   return(datos)
 }

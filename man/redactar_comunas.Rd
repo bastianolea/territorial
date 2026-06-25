@@ -4,16 +4,18 @@
 \alias{redactar_comunas}
 \title{Redactar una secuencia de comunas en una oración}
 \usage{
-redactar_comunas(x)
+redactar_comunas(nombre_comuna, largo = 10)
 }
 \arguments{
-\item{x}{Nombres de comunas}
+\item{nombre_comuna}{Nombres de comunas}
+
+\item{largo}{Por defecto, si son demasiadas comunas, trunca el largo a \code{x} comunas. Cambiar a 0 para que muestre todas las comunas.}
 }
 \value{
 Texto con comunas separadas por comas
 }
 \description{
-Para un vector de nombrees de comuna, retorna un texto con las comunas redactadas y separadas por comas.
+Para un vector de nombres de comuna, retorna un texto con las comunas redactadas y separadas por comas. Por defecto, sólo redacta un texto de 10 comunas y al final pone "y x comunas más".
 }
 \examples{
 redactar_comunas(c("Paine", "Isla de Maipo", "Pirque"))

@@ -90,3 +90,12 @@ test_that("validar regiones sin sus preposiciones", {
   )
 }) |>
   suppressMessages()
+
+
+test_that("validar regiones desde dataframe", {
+  expect_no_condition(
+    territorial::territorios |>
+      validar_regiones()
+  )
+}) |>
+  suppressMessages()

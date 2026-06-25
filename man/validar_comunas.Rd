@@ -4,19 +4,21 @@
 \alias{validar_comunas}
 \title{Validación de calidad de nombres de comunas de Chile}
 \usage{
-validar_comunas(datos, variable = "nombre_comuna")
+validar_comunas(datos, nombre_comuna = NULL)
 }
 \arguments{
-\item{nombre_comuna}{Columna de un dataframe con nombres de comunas, o vector con nombres de comunas}
+\item{datos}{Dataframe con una columna de nombre de comunas, o vector de nombres de comunas}
+
+\item{nombre_comuna}{Columna de un dataframe con nombres de comunas}
 }
 \value{
 Dataframe o vector intacto, con mensajes de diagnóstico si se encuentran problemas de calidad
 }
 \description{
-Esta función recibe una columna con nombres de comunas de un dataframe (idealmente \code{nombre_comuna}), o un vector con nombres de comunas, y retorna una evaluación de posibles problemas con los nombres existentes. Funciona tanto con un dataframe con una columna \code{nombre_comuna}, o un vector que contenga los nombres de comunas a evaluar.
+Esta función recibe una columna con nombres de comunas de un dataframe (idealmente \code{nombre_comuna}), o un vector con nombres de comunas, y retorna una evaluación de posibles problemas con los nombres existentes. Funciona tanto con un dataframe con una columna \code{nombre_comuna}, o un vector que contenga los nombres de comunas a evaluar. La función solamente retorna avisos cuando existan problemas, por lo que si todos los datos son correctos, solo devolverá los datos tal cual.
 }
 \examples{
-validar_comunas(c("colliguay", "la florida", "paine"))
+validar_comunas(c("chiguayante", "la florida", "paine"))
 
 territorial::territorios |>
   validar_comunas()
