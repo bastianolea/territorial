@@ -12,13 +12,20 @@
 #' @examples
 #' limpiar_comunas(c("COLCHANE", "Alto Ospicio", "probidencia", "huara", "laflorida", "cerritos", "llay-llay"))
 limpiar_comunas <- function(
-  nombre_comuna,
-  aproximar = TRUE,
-  mostrar_proceso = TRUE
+    nombre_comuna,
+    aproximar = TRUE,
+    mostrar_proceso = TRUE
 ) {
   # nombre_comuna <- c(territorial::comunas()[1:4], toupper(territorial::comunas()[5:8]), "coyiguay", "laflorida", "cerritos", "llay-llay", "asdf")
 
   # nombre_comuna <- c("Iquique", "COLCHANE", "Alto Hospicio", "probidencia", "Pozo Almonte", "Camiña", "HUARA", "PICA", "ANTOFAGASTA", "laflorida", "cerritos", "llay-llay", "asdf", NA )
+
+
+  # si no hay en un paso, mostrar mensaje distinto
+  # al redactar, si son demasiadas, truncar
+  # O´HIGGINS, TREHUACO
+  # nombre_comuna <- c("O´HIGGINS", "TREHUACO")
+
 
   # empezar a registrar resultados
   resultados <- dplyr::tibble(nombre_comuna)
@@ -47,9 +54,15 @@ limpiar_comunas <- function(
 
   # informar
   cli::cli_h3("Paso 1: confirmar comunas correctas")
-  cli::cli_alert_info(
-    "De las {nrow(resultados)} comunas, {length(comunas_correctas)} ya eran correctas: {redactar_comunas(comunas_correctas)}"
-  )
+  if (length(comunas_correctas) == 0) {
+    cli::cli_alert_info(
+      "De las {nrow(resultados)} comunas, ninguna corresponde a nombres correctos. Los siguientes pasos intentarán la limpieza"
+    )
+  } else {
+    cli::cli_alert_info(
+      "De las {nrow(resultados)} comunas, {length(comunas_correctas)} ya eran correctas: {redactar_comunas(comunas_correctas)}"
+    )
+  }
   cli::cli_par()
 
   # limpiar ----
