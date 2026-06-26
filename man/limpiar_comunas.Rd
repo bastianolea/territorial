@@ -19,6 +19,23 @@ Vector de nombres de comunas con correcciones aplicadas.
 \description{
 A partir de un vector de nombres de columnas, se realizan tres pasos de limpieza (confirmación de nombres correctas, limpieza de texto, detección por coincidencia) para retornar los nombres de comunas oficiales apropiados. Los nombres de comunas son los que aparecen en \code{\link[=comunas]{comunas()}}.
 }
+\details{
+Los nombres son limpiados en tres pasos:
+\enumerate{
+\item Contrastando los nombres entregados con los nombres correctos de las comunas (\code{\link[=comunas]{comunas()}}), para ver si hay comunas bien escritas antes de proseguir con la limpieza de las demás.
+\item Se \emph{limpian} los nombres de comunas entregados, transformándolos a minúsculas y eliminando todo tipo de símbolos posibles, para dejar las palabras en sus formas más básicas (por ejemplo, \code{Ñuñoa} se vuelve \code{nunoa}). Luego, se aplica el mismo proceso a los nombres de comunas correctos (\code{\link[=comunas]{comunas()}}), y se hace un cruce entre ambos conjuntos de nombres: si los nombres coinciden, significa que se entregaron nombres de comunas escritos en mayúsculas o minúsculas, comunas sin tildes o con tildes extra, comunas sin símbolos especiales o si eñe, entre otras, y son reemplazadas con sus versiones correctas.
+\item Si en el paso anterior quedaron comunas que no coincidieron (es decir, que sus problemas van más allá de tildes, mayúsculas o símbolos), se realiza una coincidencia parcial de textos o \emph{fuzzy matching} usando la función \code{base::agrepl()}, que utiliza el \href{https://es.wikipedia.org/wiki/Distancia_de_Levenshtein}{algoritmo de distancia de Levenshtein} para encontrar las comunas correctamente escritas que más se parecen a las comunas entregadas. Se esta forma, se pueden encontrar las comunas correctamente escritas para casos de comunas con faltas de ortografía (\code{Pobidencia} en vez de \code{Providencia}), comunas sin espacios entre sus palabras (\code{laflorida} en vez de \verb{La Florida}), y formas alternativas de escribir las comunas (\code{llay-llay} en vez de \code{Llaillay}). En todos estos casos se emite una alerta que indica la coincidencia encontrada, ya que al ser una aproxmación, no se garantiza que la coincidencia sea correcta. Puedes desactivar este paso poniendo \code{aproximar = FALSE}.
+Finalmente, se muestra una tabla que describe el proceso de limpieza para su revisión (que puede ocultarse con \code{mostrar_proceso = FALSE}, y se retornan las comunas correctas.
+}
+}
 \examples{
 limpiar_comunas(c("COLCHANE", "Alto Ospicio", "probidencia", "huara", "laflorida", "cerritos", "llay-llay"))
+
+datos <- dplyr::tibble(
+  nombre_comuna = c("PIRQUE", "El Monte", "Maipu", "santiago", "prohibidencia", "CERRILLOS", "San José De Maipo", "OHiggins"),
+  valores = c(4, 6, 2, 8, 6, 3, 5, 8)
+  )
+
+datos |>
+  dplyr::mutate(nombre_corregido = limpiar_comunas(nombre_comuna))
 }

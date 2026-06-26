@@ -1,6 +1,6 @@
 Package: territorial
 Title: Funciones para trabajar con datos comunales y regionales de Chile
-Version: 0.7.6
+Version: 0.7.7
 Authors@R: 
     person("Bastián", "Olea Herrera", , "bastianolea@gmail.com", role = c("aut", "cre"))
 Description: Este paquete busca facilitar tareas de limpieza que suelen ser necesarias al trabajar con datos de Chile a nivel comunal, por ejemplo: limpiar los nombres de las comunas y regiones, agregar códigos comunales y regionales, ordenar las regiones del país, entre otras.
@@ -14,6 +14,7 @@ LazyData: true
 Suggests: 
     knitr,
     quarto,
+    rmarkdown,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
 Imports: 
@@ -22,8 +23,9 @@ Imports:
     forcats,
     glue,
     purrr,
+    rlang,
     stringi,
     stringr
 URL: https://bastianolea.github.io/territorial, https://github.com/bastianolea/territorial
 BugReports: https://github.com/bastianolea/territorial/issues
-VignetteBuilder: quarto
+VignetteBuilder: quarto, knitr

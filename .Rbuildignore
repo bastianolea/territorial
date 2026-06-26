@@ -5,6 +5,7 @@
 ^LICENSE\.md$
 ^data-raw$
 ^README\.Rmd$
+^README\.qmd$
 ^vignettes/\.quarto$
 ^vignettes/*_files$
 ^_pkgdown\.yml$

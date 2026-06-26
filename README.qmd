@@ -1,0 +1,99 @@
+---
+format:
+  gfm:
+    output-file: README.md
+    preserve-yaml: false
+---
+
+# Paquete `{territorial}` <a href="https://bastianolea.github.io/territorial/"><img src="man/figures/logo.png" align="right" height="180" alt="territorial website" /></a>
+
+Herramientas para facilitar el trabajo con datos de comunas y regiones de Chile en R.
+
+Este paquete busca facilitar tareas de limpieza que suelen ser necesarias al trabajar con datos de Chile a nivel comunal y regional, por ejemplo:
+
+- Revisar si los nombres de comunas y regiones vienen bien escritos (`validar_comunas()` y `validar_regiones()`)
+- Limpiar automáticamente los nombres de las comunas con `limpiar_comunas()`
+- Agregar todos los datos territoriales (regiones y provincias con sus códigos únicos) a partir de las comunas (`contextualizar()`)
+- Convertir nombres de comunas a códigos únicos comunales (`as_codigo_comuna()`) y viceversa (`as_nombre_comuna()`)
+- Ordenar las regiones del país de norte a sur (`ordenar_regiones()`)
+- Redactar los nombres de las regiones (`redactar_region()`)
+- y más!
+
+La razón de este paquete viene de mi propia experiencia trabajando con datos sociales: los datos territoriales vienen siempre con dudosa calidad en las variables que especifican las comunas: nombres mal escritos, en mayúsculas, sin eñes, etc.
+
+Revisa la viñeta `vignette("territorial")` para una introducción al paquete!
+
+----
+
+Paquete desarrollado bajo el [programa de Campeones de ROpenSci](https://ropensci.org/es/champions/), con el apoyo de mi mentora [Andrea Gómez Vargas](https://github.com/SoyAndrea)
+
+
+----
+
+## Instalación
+
+Por ahora puedes instalar este paquete desde GitHub:
+
+```r
+# install.packages("pak")
+pak::pak("bastianolea/territorial")
+```
+
+
+## Usando `{territorial}`
+
+Como su nombre lo dice, `{territorial}` entrega varias herramientas para trabajar con datos territoriales de Chile, principalmente sus regiones o comunas.
+
+La premisa del paquete es que tenemos una tabla (`territorial::territorios`) que contiene los nombres oficiales y los códigos únicos territoriales de todas las regiones, provincias y comunas de Chile.
+
+Si tienes datos comunales de Chile, puedes revisar la calidad de sus comunas con `validar_comunas()`, para detectar posibles problemas:
+
+```{r}
+library(territorial)
+```
+
+```{r}
+#| include: false
+datos <- dplyr::tibble(
+  nombre_comuna = c("PIRQUE", "El Monte", "Maipu", "santiago", "prohibidencia", "CERRILLOS", "San José De Maipo", "OHiggins")
+)
+```
+
+```{r}
+library(territorial)
+
+datos |> 
+  validar_comunas(nombre_comuna) |> 
+  invisible()
+```
+
+También puedes limpiar automáticamente las comunas con `limpiar_comunas()`, y obtener una columna con las comunas correctas (que salen de la tabla `territorial::territorios`), obtenidas por medio de varias técnicas de limpieza de datos:
+
+```{r}
+library(dplyr)
+
+datos |> 
+  mutate(nombre_corregido = limpiar_comunas(nombre_comuna))
+```
+
+Si necesitamos agregar datos territoriales a una tabla de datos que solamente tiene las comunas o los códigos únicos territoriales de Chile (`vignette(codigos_unicos_territoriales)`), podemos usar `contextualizar()` para agregar rápidamente todas las columnas territoriales que falten.
+
+```{r}
+datos <- tribble(
+  ~nombre_comuna, ~poblacion,
+  "Puente Alto",    1,
+  "La Florida",     1,
+  "La Granja",      1,
+  "San Joaquín",    1)
+```
+
+```{r}
+datos |>
+  contextualizar(nombre_comuna)
+```
+
+Así, un dataframe que solamente tiene nombres de comuna puede pasar a tener todas las demás variables que descrien territorialmente a esos datos.
+
+---
+
+Estas son algunas de las funciones principales, pero existen muchas más que facilitan el trabajo con datos territoriales de Chile: [revisa el índice!](/reference/)

@@ -16,17 +16,25 @@
 #'   "Putre",        3)
 #'
 #' datos |>
-#'   contextualizar(variable = "nombre_comuna")
+#'   contextualizar(nombre_comuna)
 contextualizar <- function(
-    datos,
-    variable = NULL
+  datos,
+  variable
 ) {
+  # datos <- dplyr::tribble(
+  #   ~nombre_comuna, ~valor,
+  #   "Cerrillos",    1,
+  #   "Arica",        2,
+  #   "Putre",        3)
 
-  # variable = "codigo_comuna"
+  # obtener variable entregada
+  variable <- rlang::as_name(rlang::enquo(variable))
 
   # sólo una variable
   if (length(variable) != 1) {
-    cli::cli_abort("especificar sólo una variable, las otras variables territoriales ya existentes en los datos serán descartadas")
+    cli::cli_abort(
+      "especificar sólo una variable, las otras variables territoriales ya existentes en los datos serán descartadas"
+    )
   }
 
   # si es código comunal, chequear que son correctos
@@ -34,7 +42,9 @@ contextualizar <- function(
 
   # verificar si existe alguna variable territorial
   if (!any(names(datos) %in% names(territorial::territorios))) {
-    cli::cli_abort("los datos tienen que venir con alguna variable territorial, como {glue::glue_collapse(names(territorial::territorios), sep = ', ', last = ' o ')}")
+    cli::cli_abort(
+      "los datos tienen que venir con alguna variable territorial, como {glue::glue_collapse(names(territorial::territorios), sep = ', ', last = ' o ')}"
+    )
   }
 
   # chequear si existe la variable
@@ -43,14 +53,21 @@ contextualizar <- function(
   }
 
   # revisar si existen otras variables territoriales aparte de la definida
-  variables_territoriales_presentes <- length(intersect(names(datos), names(territorial::territorios)))
+  variables_territoriales_presentes <- length(intersect(
+    names(datos),
+    names(territorial::territorios)
+  ))
 
   if (variables_territoriales_presentes > 1) {
-
-    cli::cli_alert_warning("más de una variable territorial detectada en los datos! descartando todas excepto `{variable}`.")
+    cli::cli_alert_warning(
+      "más de una variable territorial detectada en los datos! descartando todas excepto `{variable}`."
+    )
 
     # todas las otras
-    otras_variables_territoriales <- setdiff(names(territorial::territorios), variable)
+    otras_variables_territoriales <- setdiff(
+      names(territorial::territorios),
+      variable
+    )
 
     # descartarlas
     datos <- datos |>
@@ -74,19 +91,24 @@ contextualizar <- function(
   # revisiones de resultado
   # confirmar que tengan las mismas filas
   if (!nrow(datos_b) == nrow(datos)) {
-    cli::cli_alert_warning("problemas con el left_join(): cambió el número de filas")
+    cli::cli_alert_warning(
+      "problemas con el left_join(): cambió el número de filas"
+    )
   }
 
   # confirmar que tenga más columnas
   if (!length(datos_b) > length(datos)) {
-    cli::cli_alert_warning("problemas con el left_join(): no aumentó el número de columnas")
+    cli::cli_alert_warning(
+      "problemas con el left_join(): no aumentó el número de columnas"
+    )
   }
 
   # mensajes
   # revisar columnas nuevas y avisar
   diferencia <- setdiff(names(datos_b), names(datos))
-  cli::cli_alert_info("columnas agregadas: {glue::glue_collapse(diferencia, sep = ', ', last = ' y ')}")
+  cli::cli_alert_info(
+    "columnas agregadas: {glue::glue_collapse(diferencia, sep = ', ', last = ' y ')}"
+  )
 
   return(datos_b)
 }
-

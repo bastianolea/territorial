@@ -4,7 +4,7 @@
 \alias{contextualizar}
 \title{Contextualizar datos de nivel comunal con variables territoriales}
 \usage{
-contextualizar(datos, variable = NULL)
+contextualizar(datos, variable)
 }
 \arguments{
 \item{datos}{Dataframe de datos comunales al que se quieren agregar columnas con variables territoriales}
@@ -25,5 +25,5 @@ datos <- dplyr::tribble(
   "Putre",        3)
 
 datos |>
-  contextualizar(variable = "nombre_comuna")
+  contextualizar(nombre_comuna)
 }

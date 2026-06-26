@@ -1,0 +1,27 @@
+---
+title: "Códigos Únicos Territoriales"
+vignette: >
+  %\VignetteIndexEntry{codigos_unicos_territoriales}
+  %\VignetteEngine{quarto::html}
+  %\VignetteEncoding{UTF-8}
+knitr:
+  opts_chunk:
+    collapse: true
+    comment: '#>'
+---
+
+```{r}
+#| label: setup
+#| warning: false
+#| message: false
+library(territorial)
+library(dplyr)
+```
+
+_En construcción_
+
+```{r}
+territorial::territorios |> 
+  select(starts_with("codigo"))
+```
+

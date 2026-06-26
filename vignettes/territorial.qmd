@@ -1,7 +1,7 @@
 ---
-title: "territorial"
+title: "Introducción a `{territorial}`"
 vignette: >
-  %\VignetteIndexEntry{comunal}
+  %\VignetteIndexEntry{territorial}
   %\VignetteEngine{quarto::html}
   %\VignetteEncoding{UTF-8}
 knitr:
@@ -10,10 +10,6 @@ knitr:
     comment: '#>'
 ---
 
-```{r}
-#| label: setup
-library(territorial)
-```
 
 ## Instalación
 
@@ -21,21 +17,20 @@ Por ahora puedes instalar este paquete desde GitHub:
 
 ```r
 # install.packages("pak")
-pak::pkg_install("bastianolea/territorial")
+pak::pak("bastianolea/territorial")
 ```
 
-```r
-# install.packages("devtools")
-devtools::install_github("bastianolea/territorial")
+```{r}
+#| label: setup
+library(territorial)
 ```
-
-
-## Ejemplos
 
 Los siguientes ejemplos muestran algunos usos de `{territorial}`.
 
+## Ejemplos de datos comunales
 
-## Tabla de comunas, provincias y regiones de Chile
+
+### Tabla de comunas, provincias y regiones de Chile
 
 El paquete ofrece una tabla de datos que contiene todas las comunas del país con sus nombres oficiales, sus códigos únicos territoriales, y lo mismo para las provincias y regiones del país.
 
@@ -48,44 +43,48 @@ library(dplyr)
 head(territorial::territorios)
 ```
 
-Esta tabla puede servir para hacer `left_join()` y así complementar otras fuentes de datos comunales.
+Esta tabla es la fuente de toda la información territorial usada en el paquete, y corresponde a los datos oficiales de la [Subsecretría de Desarrollo Regional y Administrativo, Ministerio del Interior de Chile](https://www.subdere.gov.cl/documentacion/códigos-únicos-territoriales-actualizados-al-06-de-septiembre-2018).
 
-Estos datos corresponden al [Ministerio del Interior de Chile](https://www.subdere.gov.cl/documentacion/códigos-únicos-territoriales-actualizados-al-06-de-septiembre-2018), publicados en el Diario Oficial el 21 de septiembre de 2018, con leves modificaciones.
+### Validación de calidad de nombres de comunas
 
-### Ejemplos de datos comunales
-
-Si tienes una tabla de datos con datos comunales, lo primero sería revisar la calidad de sus datos. La función `validar_comunas()` indica qué posibles problemas existen con los nombres de las comunas:
+Si tienes una tabla de datos con datos comunales, lo primero sería revisar la calidad de sus datos. La función `validar_comunas()` indica qué posibles problemas existen con los nombres de las comunas.
 
 ```{r}
 #| include: false
 
 datos <- dplyr::tibble(
-  nombre_comuna = c("PIRQUE", "El Monte", "Maipu", "santiago", "prohibidencia", "CERRILLOS", "San José De Maipo", "OHiggins")
+  nombre_comuna = c("PIRQUE", "El Monte", "Maipu", "santiago", "prohibidencia", "CERRILLOS", "San José De Maipo", "OHiggins"),
+  valores = c(4, 6, 2, 8, 6, 3, 5, 8)
 )
 
 ```
 
+Imaginemos una tabla de datos con muy mala calidad de nombres de comunas:
 ```{r}
 datos
 ```
 
-```{r}
-library(territorial)
+Para empezar a trabajar con estos datos, validamos su calidad primero:
 
+```{r}
 datos |> 
   validar_comunas(nombre_comuna) |> 
   invisible()
 ```
-Posteriormente, podemos usar `limpiar_comunas()` para corregir automáticamente los nombres de las comunas:
+
+### Limpieza de nombres de comunas de Chile
+
+Luego de saber más o menos el tipo de problemas que tienen los nombres de las comunas en esta tabla, podemos usar la función `limpiar_comunas()` para corregir automáticamente los nombres de las comunas:
 
 ```{r}
-library(dplyr)
-
 datos |> 
   mutate(nombre_corregido = limpiar_comunas(nombre_comuna))
 ```
+Esta función realiza una limpieza de los nombres en tres pasos, que puedes leer en detalle en su documentación: `?limpiar_comunas`.
 
-También podemos confirmar los nombres manualmente consultando si las comunas son válidas:
+#### Funciones para confirmar nombres de comunas
+
+Si necesitamos más control, también podemos confirmar los nombres manualmente consultando si las comunas son válidas:
 
 ```{r}
 comunas <- c("Providencia", "Vitacura", "Las Condes", "Lo Barnechea", "Ratas", NA)
@@ -93,7 +92,7 @@ comunas <- c("Providencia", "Vitacura", "Las Condes", "Lo Barnechea", "Ratas", N
 is_nombre_comuna(comunas)
 ```
 
-Lo anterior sería equivalente a hacer `comunas %in% territorial::comunas()`.
+Lo anterior sería equivalente a hacer `comunas %in% territorial::comunas()`. Esto puede servir, por ejemplo, para validar datos en una aplicación Shiny.
 
 También se puede confirmar si los códigos únicos territoriales son válidos:
 
@@ -103,6 +102,8 @@ comunas <- c(1101, 1107, NA, 99999)
 is_codigo_comuna(comunas)
 ```
 
+
+### Crear nombres de comunas a partir de códigos únicos territoriales
 
 Algo que suele pasar es recibir datos comunales con las comunas mal escritas, pero que vienen con códigos únicos territoriales. En este caso podemos crear las comunas bien escritas a partir de los códigos únicos territoriales:
 
@@ -131,6 +132,8 @@ datos |>
   mutate(nombre_comuna = as_nombre_comuna(codigo_comuna))
 ```
 
+
+### Obtener códigos únicos territoriales a partir de nombres de comunas
 También podemos tener el caso inverso: una tabla con datos comunales que vienen con nombres de comunas, pero sin códigos únicos territoriales. Podemos crear los códigos únicos territoriales a partir de los nombres de comunas:
 
 ```{r}
@@ -154,13 +157,9 @@ datos |>
   mutate(codigo_comuna = as_codigo_comuna(nombre_comuna))
 ```
 
+Naturalmente, lo anterior requiere que los nombres de las comunas estén bien escritos, así que habría que haber confirmado con `validar_comunas()` y/o haber limpiado con `limpiar_comunas()`.
 
-Pero lo anterior requiere que los nombres de las comunas estén bien escritos! Para esto existe la función `limpiar_nombres_comunas()`:
-
-```{r}
-# limpiar_nombres_comunas()
-```
-
+### Agregar variables territoriales faltantes
 
 Si tenemos datos de nivel comunal pero les faltan variables territoriales, podemos _contextualizar_ los datos comunales al agregarles todas las variables que les faltan con la función `contextualizar()`:
 
@@ -177,12 +176,13 @@ datos <- dplyr::tribble(
 head(datos)
 
 datos |>
-  contextualizar(variable = "nombre_comuna")
+  contextualizar(nombre_comuna)
 ```
 
 
-### Ejemplos de datos regionales
+## Ejemplos de datos regionales
 
+### Ordenar regiones de Chile
 Cuando trabajamos datos de nivel regional, una necesidad común es [ordenar las regiones en el orden geográfico](https://bastianolea.rbind.io/blog/ordenar_regiones/); es decir, de norte a sur. Para ello existe la función `ordenar_regiones()`:
 
 ```{r include=FALSE}
@@ -214,6 +214,8 @@ regiones |>
   ordenar_regiones()
 ```
 
+### Validación de calidad de nombres de regiones
+
 Otro problema que podemos tener son datos de regiones con los nombres mal escritos. Para eso tenemos la función `validar_regiones()`, que revisará los nombres de las regiones y reportará los problemas existentes:
 
 ```r
@@ -224,6 +226,8 @@ validar_regiones(c("los lagos", "nuble", "OHIGGINS"))
 #> ! ortografía: 1 caso de la Región de O'Higgins escrita sin su apóstrofo (')
 ```
 
+### Uso de regiones para la redacción de textos
+
 Un típico problema es que tenemos las regiones y necesitamos incluirlas en un texto, pero si anteponemos "Región de" no siempre queda bien: por ejemplo, no se dice "Región de Metropolitana", ni tampoco se dice "Región de Maule", sino que cada región tiene su preposición apropiada. Para esto usamos la función `redactar_region()`, que a su vez usa  `preposicion_region()` para identificar la preposición correcta:
 
 ```{r}
@@ -231,3 +235,6 @@ redactar_region("Metropolitana")
 redactar_region("Maule")
 ```
 
+----
+
+Estas son algunas de las funciones principales, pero existen muchas más que facilitan el trabajo con datos territoriales de Chile: [revisa el índice!](/reference/)
