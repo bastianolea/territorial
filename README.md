@@ -5,9 +5,13 @@
 Herramientas para facilitar el trabajo con datos de comunas y regiones
 de Chile en R.
 
-Este paquete busca facilitar tareas de limpieza que suelen ser
-necesarias al trabajar con datos de Chile a nivel comunal y regional,
-por ejemplo:
+El objetivo de este paquete es poder ayudar a todas las personas que
+trabajan datos territoriales de Chile a simplificar sus procesos de
+análisis de datos con R. Principalmente, este paquete busca facilitar
+tareas de limpieza y procesamiento de datos que suelen ser necesarias al
+trabajar con datos de Chile a nivel comunal y regional.
+
+Por ejemplo:
 
 - Revisar si los nombres de comunas y regiones vienen bien escritos
   (`validar_comunas()` y `validar_regiones()`)
@@ -35,22 +39,28 @@ Paquete desarrollado bajo el [programa de Campeones de
 ROpenSci](https://ropensci.org/es/champions/), con el apoyo de mi
 mentora [Andrea Gómez Vargas](https://github.com/SoyAndrea)
 
-------------------------------------------------------------------------
-
 ## Instalación
 
-Por ahora puedes instalar este paquete desde GitHub:
+Puedes instalar la versión de desarrollo este paquete desde GitHub:
 
 ``` r
 # install.packages("pak")
 pak::pak("bastianolea/territorial")
 ```
 
+*Nota:* el paquete está en etapa de desarrollo. Si bien es funcional y
+útil en este momento, sus funciones pueden cambiar en futuras versiones,
+y su estabilidad no está garantizada.
+
 ## Usando `{territorial}`
 
 Como su nombre lo dice, `{territorial}` entrega varias herramientas para
 trabajar con datos territoriales de Chile, principalmente sus regiones o
 comunas.
+
+``` r
+library(territorial)
+```
 
 La premisa del paquete es que tenemos una tabla
 (`territorial::territorios`) que contiene los nombres oficiales y los
@@ -61,12 +71,6 @@ Si tienes datos comunales de Chile, puedes revisar la calidad de sus
 comunas con `validar_comunas()`, para detectar posibles problemas:
 
 ``` r
-library(territorial)
-```
-
-``` r
-library(territorial)
-
 datos |> 
   validar_comunas(nombre_comuna) |> 
   invisible()
@@ -88,19 +92,6 @@ de varias técnicas de limpieza de datos:
 ``` r
 library(dplyr)
 ```
-
-    Warning: package 'dplyr' was built under R version 4.4.3
-
-
-    Attaching package: 'dplyr'
-
-    The following objects are masked from 'package:stats':
-
-        filter, lag
-
-    The following objects are masked from 'package:base':
-
-        intersect, setdiff, setequal, union
 
 ``` r
 datos |> 
@@ -186,6 +177,8 @@ Así, un dataframe que solamente tiene nombres de comuna puede pasar a
 tener todas las demás variables que descrien territorialmente a esos
 datos.
 
-Estas son algunas de las variables principales, pero existen muchas más
+------------------------------------------------------------------------
+
+Estas son algunas de las funciones principales, pero existen muchas más
 que facilitan el trabajo con datos territoriales de Chile: [revisa el
-índice!](./reference/index.html)
+índice!](./reference/)
