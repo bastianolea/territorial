@@ -31,10 +31,14 @@ Este paquete busca facilitar tareas de limpieza que suelen ser necesarias al tra
 
 La razón de este paquete viene de mi propia experiencia trabajando con datos sociales: los datos territoriales vienen siempre con dudosa calidad en las variables que especifican las comunas: nombres mal escritos, en mayúsculas, sin eñes, etc.
 
+Revisa la viñeta `vignette("territorial")` para una introducción al paquete!
+
 ----
 
 Paquete desarrollado bajo el [programa de Campeones de ROpenSci](https://ropensci.org/es/champions/), con el apoyo de mi mentora [Andrea Gómez Vargas](https://github.com/SoyAndrea)
 
+
+----
 
 ## Instalación
 
@@ -45,198 +49,12 @@ Por ahora puedes instalar este paquete desde GitHub:
 pak::pak("bastianolea/territorial")
 ```
 
-## Ejemplos
 
-Los siguientes ejemplos muestran algunos usos de `{territorial}`.
+## Uso
 
-
-## Tabla de comunas, provincias y regiones de Chile
-
-El paquete ofrece una tabla de datos que contiene todas las comunas del país con sus nombres oficiales, sus códigos únicos territoriales, y lo mismo para las provincias y regiones del país.
-
-```{r tabla, message=FALSE, warning=FALSE}
-library(territorial)
-library(dplyr)
-
-head(territorial::territorios)
-```
-
-Esta tabla puede servir para hacer `left_join()` y así complementar otras fuentes de datos comunales.
-
-Estos datos corresponden al [Ministerio del Interior de Chile](https://www.subdere.gov.cl/documentacion/códigos-únicos-territoriales-actualizados-al-06-de-septiembre-2018), publicados en el Diario Oficial el 21 de septiembre de 2018, con leves modificaciones.
-
-### Ejemplos de datos comunales
-
-Si tienes una tabla de datos con datos comunales, lo primero sería revisar la calidad de sus datos:
-
-```{r include=FALSE}
-
-datos <- dplyr::tibble(
-  nombre_comuna = c("PIRQUE", "El Monte", "Maipu", "santiago", "prohibidencia", "CERRILLOS", "San José De Maipo", "OHiggins")
-)
-
-```
+Si tienes datos comunales de Chile, puedes revisar la calidad de sus comunas, para detectar posibles problemas:
 
 ```{r}
-datos
-```
 
-```{r}
-library(territorial)
-
-datos |> 
-  validar_comunas()
-```
-
-La función `validar_comunas()` indica qué posibles problemas existen con los nombres de las comunas. Posteriormente, podemos usar `limpiar_comunas()` para corregir automáticamente los nombres de las comunas:
-
-```{r}
-library(dplyr)
-
-datos |> 
-  mutate(nombre_corregido = limpiar_comunas(nombre_comuna))
-```
-
-También podemos confirmar los nombres manualmente consultando si las comunas son válidas:
-
-```{r}
-comunas <- c("Providencia", "Vitacura", "Las Condes", "Lo Barnechea", "Ratas", NA)
-
-is_nombre_comuna(comunas)
-```
-
-Lo anterior sería equivalente a hacer `comunas %in% territorial::comunas()`.
-
-También se puede confirmar si los códigos únicos territoriales son válidos:
-
-```{r}
-comunas <- c(1101, 1107, NA, 99999)
-
-is_codigo_comuna(comunas)
-```
-
-
-Algo que suele pasar es recibir datos comunales con las comunas mal escritas, pero que vienen con códigos únicos territoriales. En este caso podemos crear las comunas bien escritas a partir de los códigos únicos territoriales:
-
-```{r include=FALSE}
-datos <- dplyr::tribble(
-  ~codigo_comuna,      ~municipio,
-  13110,    "LA FLORIDA",
-  16103, "CHILLAN VIEJO",
-  10301,        "OSORNO",
-  16302,      "COIHUECO",
-  13132,      "VITACURA",
-  13501,     "MELIPILLA",
-  14204,     "RIO BUENO",
-  11401,   "CHILE CHICO",
-  16202,    "COBQUECURA",
-  13116,     "LO ESPEJO"
-)
-```
-
-```{r cars}
-head(datos)
-
-# crear nombres de comuna a partir de códigos comunales
-datos |> 
-  mutate(nombre_comuna = as_nombre_comuna(codigo_comuna))
-```
-
-También podemos tener el caso inverso: una tabla con datos comunales que vienen con nombres de comunas, pero sin códigos únicos territoriales. Podemos crear los códigos únicos territoriales a partir de los nombres de comunas:
-
-```{r include=FALSE}
-datos <- dplyr::tribble(
-  ~nombre_comuna, ~valor,
-  "Pirque",       1,
-  "Cerrillos",    2,
-  "Puente Alto",  1,
-  "La Florida",   3,
-  "Ñuñoa",        1,
-  "Conchalí",     2
-)
-```
-
-```{r}
-head(datos)
-
-# agregar códigos comunales a partir de nombres de comunas
-datos |> 
-  mutate(codigo_comuna = as_codigo_comuna(nombre_comuna))
-```
-
-
-Pero lo anterior requiere que los nombres de las comunas estén bien escritos! Para esto existe la función `limpiar_nombres_comunas()`:
-
-```{r}
-# limpiar_nombres_comunas()
-```
-
-
-Si tenemos datos de nivel comunal pero les faltan variables territoriales, podemos _contextualizar_ los datos comunales al agregarles todas las variables que les faltan con la función `contextualizar()`:
-
-```{r include=FALSE}
-datos <- dplyr::tribble(
-  ~nombre_comuna, ~valor,
-  "Cerrillos",    1,
-  "Arica",        2,
-  "Putre",        3)
-```
-
-```{r}
-head(datos)
-
-datos |>
-  contextualizar(variable = "nombre_comuna")
-```
-
-
-### Ejemplos de datos regionales
-
-Cuando trabajamos datos de nivel regional, una necesidad común es [ordenar las regiones en el orden geográfico](https://bastianolea.rbind.io/blog/ordenar_regiones/); es decir, de norte a sur. Para ello existe la función `ordenar_regiones()`:
-
-```{r include=FALSE}
-regiones <- dplyr::tribble(
-  ~codigo_region,                  ~nombre_region,
-  1,                                   "Tarapacá",
-  2,                                "Antofagasta",
-  3,                                    "Atacama",
-  4,                                   "Coquimbo",
-  5,                                 "Valparaíso",
-  6,      "Libertador General Bernardo O'Higgins",
-  7,                                      "Maule",
-  8,                                     "Biobío",
-  9,                               "La Araucanía",
-  10,                                 "Los Lagos",
-  11, "Aysén del General Carlos Ibáñez del Campo",
-  12,      "Magallanes y de la Antártica Chilena",
-  13,                 "Metropolitana de Santiago",
-  14,                                  "Los Ríos",
-  15,                        "Arica y Parinacota",
-  16,                                     "Ñuble"
-)
-```
-
-```{r}
-regiones
-
-regiones |> 
-  ordenar_regiones()
-```
-
-Otro problema que podemos tener son datos de regiones con los nombres mal escritos. Para eso tenemos la función `validar_regiones()`, que revisará los nombres de las regiones y reportará los problemas existentes:
-
-```r
-validar_regiones(c("los lagos", "nuble", "OHIGGINS"))
-#> ! mayúsculas: 1 caso de regiones escritas en mayúsculas
-#> ! mayúsculas: 2 casos de regiones escritas en minúsculas
-#> ! ortografía: 1 caso de la Región de Ñuble escrita sin eñe
-#> ! ortografía: 1 caso de la Región de O'Higgins escrita sin su apóstrofo (')
-```
-
-Un típico problema es que tenemos las regiones y necesitamos incluirlas en un texto, pero si anteponemos "Región de" no siempre queda bien: por ejemplo, no se dice "Región de Metropolitana", ni tampoco se dice "Región de Maule", sino que cada región tiene su preposición apropiada. Para esto usamos la función `redactar_region()`, que a su vez usa  `preposicion_region()` para identificar la preposición correcta:
-
-```{r}
-redactar_region("Metropolitana")
-redactar_region("Maule")
 ```
 
