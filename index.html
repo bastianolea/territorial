@@ -28,7 +28,7 @@
 
     <a class="navbar-brand me-2" href="index.html">territorial</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.7.6</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.7.7</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Cambiar la navegación">
@@ -39,6 +39,12 @@
       <ul class="navbar-nav me-auto">
 <li class="nav-item"><a class="nav-link" href="articles/territorial.html">Primeros pasos</a></li>
 <li class="nav-item"><a class="nav-link" href="reference/index.html">Índice</a></li>
+<li class="nav-item dropdown">
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-art-culos" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Artículos</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-art-culos">
+<li><a class="dropdown-item" href="articles/codigos_unicos_territoriales.html">Códigos Únicos Territoriales</a></li>
+  </ul>
+</li>
       </ul>
 <ul class="navbar-nav">
 <li class="nav-item"><form class="form-inline" role="search">
@@ -71,8 +77,10 @@
 <li>y más!</li>
 </ul>
 <p>La razón de este paquete viene de mi propia experiencia trabajando con datos sociales: los datos territoriales vienen siempre con dudosa calidad en las variables que especifican las comunas: nombres mal escritos, en mayúsculas, sin eñes, etc.</p>
+<p>Revisa la viñeta <code><a href="articles/territorial.html">vignette("territorial")</a></code> para una introducción al paquete!</p>
 <hr>
 <p>Paquete desarrollado bajo el <a href="https://ropensci.org/es/champions/" class="external-link">programa de Campeones de ROpenSci</a>, con el apoyo de mi mentora <a href="https://github.com/SoyAndrea" class="external-link">Andrea Gómez Vargas</a></p>
+<hr>
 <div class="section level2">
 <h2 id="instalación">Instalación<a class="anchor" aria-label="anchor" href="#instalaci%C3%B3n"></a>
 </h2>
@@ -82,261 +90,111 @@
 <span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/pak.html" class="external-link">pak</a></span><span class="op">(</span><span class="st">"bastianolea/territorial"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
-<h2 id="ejemplos">Ejemplos<a class="anchor" aria-label="anchor" href="#ejemplos"></a>
+<h2 id="usando-territorial">Usando <code>{territorial}</code>
+<a class="anchor" aria-label="anchor" href="#usando-territorial"></a>
 </h2>
-<p>Los siguientes ejemplos muestran algunos usos de <a href="https://bastianolea.github.io/territorial">territorial</a>.</p>
-</div>
-<div class="section level2">
-<h2 id="tabla-de-comunas-provincias-y-regiones-de-chile">Tabla de comunas, provincias y regiones de Chile<a class="anchor" aria-label="anchor" href="#tabla-de-comunas-provincias-y-regiones-de-chile"></a>
-</h2>
-<p>El paquete ofrece una tabla de datos que contiene todas las comunas del país con sus nombres oficiales, sus códigos únicos territoriales, y lo mismo para las provincias y regiones del país.</p>
+<p>Como su nombre lo dice, <a href="https://bastianolea.github.io/territorial">territorial</a> entrega varias herramientas para trabajar con datos territoriales de Chile, principalmente sus regiones o comunas.</p>
+<p>La premisa del paquete es que tenemos una tabla (<code><a href="reference/territorios.html">territorial::territorios</a></code>) que contiene los nombres oficiales y los códigos únicos territoriales de todas las regiones, provincias y comunas de Chile.</p>
+<p>Si tienes datos comunales de Chile, puedes revisar la calidad de sus comunas con <code><a href="reference/validar_comunas.html">validar_comunas()</a></code>, para detectar posibles problemas:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://bastianolea.github.io/territorial">territorial</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fu">territorial</span><span class="fu">::</span><span class="va"><a href="reference/territorios.html">territorios</a></span><span class="op">)</span></span>
-<span><span class="co">#&gt; # A tibble: 6 × 6</span></span>
-<span><span class="co">#&gt;   codigo_region nombre_region codigo_provincia nombre_provincia codigo_comuna nombre_comuna</span></span>
-<span><span class="co">#&gt;           &lt;dbl&gt; &lt;chr&gt;                    &lt;dbl&gt; &lt;chr&gt;                    &lt;dbl&gt; &lt;chr&gt;        </span></span>
-<span><span class="co">#&gt; 1             1 Tarapacá                    11 Iquique                   1101 Iquique      </span></span>
-<span><span class="co">#&gt; 2             1 Tarapacá                    11 Iquique                   1107 Alto Hospicio</span></span>
-<span><span class="co">#&gt; 3             1 Tarapacá                    14 Tamarugal                 1401 Pozo Almonte </span></span>
-<span><span class="co">#&gt; 4             1 Tarapacá                    14 Tamarugal                 1402 Camiña       </span></span>
-<span><span class="co">#&gt; 5             1 Tarapacá                    14 Tamarugal                 1403 Colchane     </span></span>
-<span><span class="co">#&gt; 6             1 Tarapacá                    14 Tamarugal                 1404 Huara</span></span></code></pre></div>
-<p>Esta tabla puede servir para hacer <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join()</a></code> y así complementar otras fuentes de datos comunales.</p>
-<p>Estos datos corresponden al <a href="https://www.subdere.gov.cl/documentacion/c%C3%B3digos-%C3%BAnicos-territoriales-actualizados-al-06-de-septiembre-2018" class="external-link">Ministerio del Interior de Chile</a>, publicados en el Diario Oficial el 21 de septiembre de 2018, con leves modificaciones.</p>
-<div class="section level3">
-<h3 id="ejemplos-de-datos-comunales">Ejemplos de datos comunales<a class="anchor" aria-label="anchor" href="#ejemplos-de-datos-comunales"></a>
-</h3>
-<p>Si tienes una tabla de datos con datos comunales, lo primero sería revisar la calidad de sus datos:</p>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://bastianolea.github.io/territorial">territorial</a></span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">datos</span></span>
-<span><span class="co">#&gt; # A tibble: 8 × 1</span></span>
-<span><span class="co">#&gt;   nombre_comuna    </span></span>
-<span><span class="co">#&gt;   &lt;chr&gt;            </span></span>
-<span><span class="co">#&gt; 1 PIRQUE           </span></span>
-<span><span class="co">#&gt; 2 El Monte         </span></span>
-<span><span class="co">#&gt; 3 Maipu            </span></span>
-<span><span class="co">#&gt; 4 santiago         </span></span>
-<span><span class="co">#&gt; 5 prohibidencia    </span></span>
-<span><span class="co">#&gt; 6 CERRILLOS        </span></span>
-<span><span class="co">#&gt; 7 San José De Maipo</span></span>
-<span><span class="co">#&gt; 8 OHiggins</span></span></code></pre></div>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://bastianolea.github.io/territorial">territorial</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">datos</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu"><a href="reference/validar_comunas.html">validar_comunas</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; ! mayúsculas: 2 casos de comunas escritas en mayúsculas</span></span>
-<span><span class="co">#&gt; ! mayúsculas: 2 casos de comunas escritas en minúsculas</span></span>
-<span><span class="co">#&gt; ! mayúsculas: 1 caso de comunas con preposiciones ('de', 'del') escritas en mayúsculas</span></span>
-<span><span class="co">#&gt; ℹ resumen: 7 casos de comunas que no conciden con comunas correctamente escritas (ver `territorial::comunas()`)</span></span>
-<span><span class="co">#&gt; # A tibble: 8 × 1</span></span>
-<span><span class="co">#&gt;   nombre_comuna    </span></span>
-<span><span class="co">#&gt;   &lt;chr&gt;            </span></span>
-<span><span class="co">#&gt; 1 PIRQUE           </span></span>
-<span><span class="co">#&gt; 2 El Monte         </span></span>
-<span><span class="co">#&gt; 3 Maipu            </span></span>
-<span><span class="co">#&gt; 4 santiago         </span></span>
-<span><span class="co">#&gt; 5 prohibidencia    </span></span>
-<span><span class="co">#&gt; 6 CERRILLOS        </span></span>
-<span><span class="co">#&gt; 7 San José De Maipo</span></span>
-<span><span class="co">#&gt; 8 OHiggins</span></span></code></pre></div>
-<p>La función <code><a href="reference/validar_comunas.html">validar_comunas()</a></code> indica qué posibles problemas existen con los nombres de las comunas. Posteriormente, podemos usar <code><a href="reference/limpiar_comunas.html">limpiar_comunas()</a></code> para corregir automáticamente los nombres de las comunas:</p>
+<span>  <span class="fu"><a href="reference/validar_comunas.html">validar_comunas</a></span><span class="op">(</span><span class="va">nombre_comuna</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/invisible.html" class="external-link">invisible</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="sc">!</span> mayúsculas<span class="sc">:</span> <span class="dv">2</span> casos de comunas escritas en mayúsculas</span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="sc">!</span> mayúsculas<span class="sc">:</span> <span class="dv">2</span> casos de comunas escritas en minúsculas</span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a><span class="sc">!</span> mayúsculas<span class="sc">:</span> <span class="dv">1</span> caso de comunas con <span class="fu">preposiciones</span> (<span class="st">'de'</span>, <span class="st">'del'</span>) escritas en mayúsculas</span>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a>ℹ resumen<span class="sc">:</span> <span class="dv">7</span> casos de comunas que no conciden con comunas correctamente <span class="fu">escritas</span> (ver <span class="st">`</span><span class="at">territorial::comunas()</span><span class="st">`</span>)</span></code></pre></div>
+<p>También puedes limpiar automáticamente las comunas con <code><a href="reference/limpiar_comunas.html">limpiar_comunas()</a></code>, y obtener una columna con las comunas correctas (que salen de la tabla <code><a href="reference/territorios.html">territorial::territorios</a></code>), obtenidas por medio de varias técnicas de limpieza de datos:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">datos</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>nombre_corregido <span class="op">=</span> <span class="fu"><a href="reference/limpiar_comunas.html">limpiar_comunas</a></span><span class="op">(</span><span class="va">nombre_comuna</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co">#&gt; ℹ Limpiando 8 nombres de comunas (8 son distintas)</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; ── Paso 1: confirmar comunas correctas</span></span>
-<span><span class="co">#&gt; ℹ De las 8 comunas, 1 ya eran correctas: El Monte</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; ── Paso 2: coincidencias por limpieza de texto</span></span>
-<span><span class="co">#&gt; ℹ A partir de la limpieza de texto, se limpiaron 7 de 8 comunas: Pirque, El Monte, Maipú, Santiago, Cerrillos, San José de Maipo y O'Higgins</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; ── Paso 3: coincidencias aproximadas de texto</span></span>
-<span><span class="co">#&gt; ℹ Se limpiaron 1 de 1 comunas por medio de coincidencias aproximadas de texto: Providencia</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; ── Conclusión de limpieza de comunas</span></span>
-<span><span class="co">#&gt; ✔ De las 8 comunas, se limpiaron 8 en total (100%)</span></span>
-<span><span class="co">#&gt; ℹ Mostrando proceso:</span></span>
-<span><span class="co">#&gt; # A tibble: 8 × 5</span></span>
-<span><span class="co">#&gt;   original          correctas limpieza          coincidencia resultado        </span></span>
-<span><span class="co">#&gt;   &lt;chr&gt;             &lt;chr&gt;     &lt;chr&gt;             &lt;chr&gt;        &lt;chr&gt;            </span></span>
-<span><span class="co">#&gt; 1 PIRQUE            &lt;NA&gt;      Pirque            &lt;NA&gt;         Pirque           </span></span>
-<span><span class="co">#&gt; 2 El Monte          El Monte  El Monte          &lt;NA&gt;         El Monte         </span></span>
-<span><span class="co">#&gt; 3 Maipu             &lt;NA&gt;      Maipú             &lt;NA&gt;         Maipú            </span></span>
-<span><span class="co">#&gt; 4 santiago          &lt;NA&gt;      Santiago          &lt;NA&gt;         Santiago         </span></span>
-<span><span class="co">#&gt; 5 prohibidencia     &lt;NA&gt;      &lt;NA&gt;              Providencia  Providencia      </span></span>
-<span><span class="co">#&gt; 6 CERRILLOS         &lt;NA&gt;      Cerrillos         &lt;NA&gt;         Cerrillos        </span></span>
-<span><span class="co">#&gt; 7 San José De Maipo &lt;NA&gt;      San José de Maipo &lt;NA&gt;         San José de Maipo</span></span>
-<span><span class="co">#&gt; 8 OHiggins          &lt;NA&gt;      O'Higgins         &lt;NA&gt;         O'Higgins</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; # A tibble: 8 × 2</span></span>
-<span><span class="co">#&gt;   nombre_comuna     nombre_corregido </span></span>
-<span><span class="co">#&gt;   &lt;chr&gt;             &lt;chr&gt;            </span></span>
-<span><span class="co">#&gt; 1 PIRQUE            Pirque           </span></span>
-<span><span class="co">#&gt; 2 El Monte          El Monte         </span></span>
-<span><span class="co">#&gt; 3 Maipu             Maipú            </span></span>
-<span><span class="co">#&gt; 4 santiago          Santiago         </span></span>
-<span><span class="co">#&gt; 5 prohibidencia     Providencia      </span></span>
-<span><span class="co">#&gt; 6 CERRILLOS         Cerrillos        </span></span>
-<span><span class="co">#&gt; 7 San José De Maipo San José de Maipo</span></span>
-<span><span class="co">#&gt; 8 OHiggins          O'Higgins</span></span></code></pre></div>
-<p>También podemos confirmar los nombres manualmente consultando si las comunas son válidas:</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">comunas</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Providencia"</span>, <span class="st">"Vitacura"</span>, <span class="st">"Las Condes"</span>, <span class="st">"Lo Barnechea"</span>, <span class="st">"Ratas"</span>, <span class="cn">NA</span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu"><a href="reference/is_nombre_comuna.html">is_nombre_comuna</a></span><span class="op">(</span><span class="va">comunas</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1]  TRUE  TRUE  TRUE  TRUE FALSE FALSE</span></span></code></pre></div>
-<p>Lo anterior sería equivalente a hacer <code>comunas %in% territorial::comunas()</code>.</p>
-<p>También se puede confirmar si los códigos únicos territoriales son válidos:</p>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>Warning<span class="sc">:</span> package <span class="st">'dplyr'</span> was built under R version <span class="dv">4</span>.<span class="fl">4.3</span></span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a>Attaching package<span class="sc">:</span> <span class="st">'dplyr'</span></span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a>The following objects are masked from <span class="st">'package:stats'</span><span class="sc">:</span></span>
+<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a></span>
+<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a>    filter, lag</span>
+<span id="cb6-9"><a href="#cb6-9" tabindex="-1"></a></span>
+<span id="cb6-10"><a href="#cb6-10" tabindex="-1"></a>The following objects are masked from <span class="st">'package:base'</span><span class="sc">:</span></span>
+<span id="cb6-11"><a href="#cb6-11" tabindex="-1"></a></span>
+<span id="cb6-12"><a href="#cb6-12" tabindex="-1"></a>    intersect, setdiff, setequal, union</span></code></pre></div>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">comunas</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1101</span>, <span class="fl">1107</span>, <span class="cn">NA</span>, <span class="fl">99999</span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu"><a href="reference/is_codigo_comuna.html">is_codigo_comuna</a></span><span class="op">(</span><span class="va">comunas</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1]  TRUE  TRUE FALSE FALSE</span></span></code></pre></div>
-<p>Algo que suele pasar es recibir datos comunales con las comunas mal escritas, pero que vienen con códigos únicos territoriales. En este caso podemos crear las comunas bien escritas a partir de los códigos únicos territoriales:</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">datos</span><span class="op">)</span></span>
-<span><span class="co">#&gt; # A tibble: 6 × 2</span></span>
-<span><span class="co">#&gt;   codigo_comuna municipio    </span></span>
-<span><span class="co">#&gt;           &lt;dbl&gt; &lt;chr&gt;        </span></span>
-<span><span class="co">#&gt; 1         13110 LA FLORIDA   </span></span>
-<span><span class="co">#&gt; 2         16103 CHILLAN VIEJO</span></span>
-<span><span class="co">#&gt; 3         10301 OSORNO       </span></span>
-<span><span class="co">#&gt; 4         16302 COIHUECO     </span></span>
-<span><span class="co">#&gt; 5         13132 VITACURA     </span></span>
-<span><span class="co">#&gt; 6         13501 MELIPILLA</span></span>
-<span></span>
-<span><span class="co"># crear nombres de comuna a partir de códigos comunales</span></span>
-<span><span class="va">datos</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>nombre_comuna <span class="op">=</span> <span class="fu"><a href="reference/as_nombre_comuna.html">as_nombre_comuna</a></span><span class="op">(</span><span class="va">codigo_comuna</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co">#&gt; # A tibble: 10 × 3</span></span>
-<span><span class="co">#&gt;    codigo_comuna municipio     nombre_comuna</span></span>
-<span><span class="co">#&gt;            &lt;dbl&gt; &lt;chr&gt;         &lt;chr&gt;        </span></span>
-<span><span class="co">#&gt;  1         13110 LA FLORIDA    La Florida   </span></span>
-<span><span class="co">#&gt;  2         16103 CHILLAN VIEJO Chillán Viejo</span></span>
-<span><span class="co">#&gt;  3         10301 OSORNO        Osorno       </span></span>
-<span><span class="co">#&gt;  4         16302 COIHUECO      Coihueco     </span></span>
-<span><span class="co">#&gt;  5         13132 VITACURA      Vitacura     </span></span>
-<span><span class="co">#&gt;  6         13501 MELIPILLA     Melipilla    </span></span>
-<span><span class="co">#&gt;  7         14204 RIO BUENO     Río Bueno    </span></span>
-<span><span class="co">#&gt;  8         11401 CHILE CHICO   Chile Chico  </span></span>
-<span><span class="co">#&gt;  9         16202 COBQUECURA    Cobquecura   </span></span>
-<span><span class="co">#&gt; 10         13116 LO ESPEJO     Lo Espejo</span></span></code></pre></div>
-<p>También podemos tener el caso inverso: una tabla con datos comunales que vienen con nombres de comunas, pero sin códigos únicos territoriales. Podemos crear los códigos únicos territoriales a partir de los nombres de comunas:</p>
+<code class="sourceCode R"><span><span class="va">datos</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>nombre_corregido <span class="op">=</span> <span class="fu"><a href="reference/limpiar_comunas.html">limpiar_comunas</a></span><span class="op">(</span><span class="va">nombre_comuna</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a>ℹ Limpiando <span class="dv">8</span> nombres de <span class="fu">comunas</span> (<span class="dv">8</span> son distintas)</span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a>── Paso <span class="dv">1</span><span class="sc">:</span> confirmar comunas correctas </span>
+<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a>ℹ De las <span class="dv">8</span> comunas, <span class="dv">1</span> ya eran correctas<span class="sc">:</span> El Monte</span>
+<span id="cb8-6"><a href="#cb8-6" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" tabindex="-1"></a>── Paso <span class="dv">2</span><span class="sc">:</span> coincidencias por limpieza de texto </span>
+<span id="cb8-8"><a href="#cb8-8" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="#cb8-9" tabindex="-1"></a>ℹ A partir de la limpieza de texto, se limpiaron <span class="dv">7</span> de <span class="dv">8</span> comunas<span class="sc">:</span> Pirque, El Monte, Maipú, Santiago, Cerrillos, San José de Maipo y O<span class="st">'Higgins</span></span>
+<span id="cb8-10"><a href="#cb8-10" tabindex="-1"></a></span>
+<span id="cb8-11"><a href="#cb8-11" tabindex="-1"></a><span class="st">── Paso 3: coincidencias aproximadas de texto </span></span>
+<span id="cb8-12"><a href="#cb8-12" tabindex="-1"></a></span>
+<span id="cb8-13"><a href="#cb8-13" tabindex="-1"></a><span class="st">ℹ Se limpiaron 1 de 1 comunas por medio de coincidencias aproximadas de texto: Providencia</span></span>
+<span id="cb8-14"><a href="#cb8-14" tabindex="-1"></a></span>
+<span id="cb8-15"><a href="#cb8-15" tabindex="-1"></a><span class="st">── Conclusión de limpieza de comunas </span></span>
+<span id="cb8-16"><a href="#cb8-16" tabindex="-1"></a></span>
+<span id="cb8-17"><a href="#cb8-17" tabindex="-1"></a><span class="st">✔ De las 8 comunas, se limpiaron 8 en total (100%)</span></span>
+<span id="cb8-18"><a href="#cb8-18" tabindex="-1"></a></span>
+<span id="cb8-19"><a href="#cb8-19" tabindex="-1"></a><span class="st">ℹ Mostrando proceso:</span></span>
+<span id="cb8-20"><a href="#cb8-20" tabindex="-1"></a></span>
+<span id="cb8-21"><a href="#cb8-21" tabindex="-1"></a><span class="st"># A tibble: 8 × 5</span></span>
+<span id="cb8-22"><a href="#cb8-22" tabindex="-1"></a><span class="st">  original          correctas limpieza          coincidencia resultado        </span></span>
+<span id="cb8-23"><a href="#cb8-23" tabindex="-1"></a><span class="st">  &lt;chr&gt;             &lt;chr&gt;     &lt;chr&gt;             &lt;chr&gt;        &lt;chr&gt;            </span></span>
+<span id="cb8-24"><a href="#cb8-24" tabindex="-1"></a><span class="st">1 PIRQUE            &lt;NA&gt;      Pirque            &lt;NA&gt;         Pirque           </span></span>
+<span id="cb8-25"><a href="#cb8-25" tabindex="-1"></a><span class="st">2 El Monte          El Monte  El Monte          &lt;NA&gt;         El Monte         </span></span>
+<span id="cb8-26"><a href="#cb8-26" tabindex="-1"></a><span class="st">3 Maipu             &lt;NA&gt;      Maipú             &lt;NA&gt;         Maipú            </span></span>
+<span id="cb8-27"><a href="#cb8-27" tabindex="-1"></a><span class="st">4 santiago          &lt;NA&gt;      Santiago          &lt;NA&gt;         Santiago         </span></span>
+<span id="cb8-28"><a href="#cb8-28" tabindex="-1"></a><span class="st">5 prohibidencia     &lt;NA&gt;      &lt;NA&gt;              Providencia  Providencia      </span></span>
+<span id="cb8-29"><a href="#cb8-29" tabindex="-1"></a><span class="st">6 CERRILLOS         &lt;NA&gt;      Cerrillos         &lt;NA&gt;         Cerrillos        </span></span>
+<span id="cb8-30"><a href="#cb8-30" tabindex="-1"></a><span class="st">7 San José De Maipo &lt;NA&gt;      San José de Maipo &lt;NA&gt;         San José de Maipo</span></span>
+<span id="cb8-31"><a href="#cb8-31" tabindex="-1"></a><span class="st">8 OHiggins          &lt;NA&gt;      O'</span>Higgins         <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>         O<span class="st">'Higgins        </span></span>
+<span id="cb8-32"><a href="#cb8-32" tabindex="-1"></a></span>
+<span id="cb8-33"><a href="#cb8-33" tabindex="-1"></a><span class="st"># A tibble: 8 × 2</span></span>
+<span id="cb8-34"><a href="#cb8-34" tabindex="-1"></a><span class="st">  nombre_comuna     nombre_corregido </span></span>
+<span id="cb8-35"><a href="#cb8-35" tabindex="-1"></a><span class="st">  &lt;chr&gt;             &lt;chr&gt;            </span></span>
+<span id="cb8-36"><a href="#cb8-36" tabindex="-1"></a><span class="st">1 PIRQUE            Pirque           </span></span>
+<span id="cb8-37"><a href="#cb8-37" tabindex="-1"></a><span class="st">2 El Monte          El Monte         </span></span>
+<span id="cb8-38"><a href="#cb8-38" tabindex="-1"></a><span class="st">3 Maipu             Maipú            </span></span>
+<span id="cb8-39"><a href="#cb8-39" tabindex="-1"></a><span class="st">4 santiago          Santiago         </span></span>
+<span id="cb8-40"><a href="#cb8-40" tabindex="-1"></a><span class="st">5 prohibidencia     Providencia      </span></span>
+<span id="cb8-41"><a href="#cb8-41" tabindex="-1"></a><span class="st">6 CERRILLOS         Cerrillos        </span></span>
+<span id="cb8-42"><a href="#cb8-42" tabindex="-1"></a><span class="st">7 San José De Maipo San José de Maipo</span></span>
+<span id="cb8-43"><a href="#cb8-43" tabindex="-1"></a><span class="st">8 OHiggins          O'</span>Higgins        </span></code></pre></div>
+<p>Si necesitamos agregar datos territoriales a una tabla de datos que solamente tiene las comunas o los códigos únicos territoriales de Chile (<code>vignette(codigos_unicos_territoriales)</code>), podemos usar <code><a href="reference/contextualizar.html">contextualizar()</a></code> para agregar rápidamente todas las columnas territoriales que falten.</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">datos</span><span class="op">)</span></span>
-<span><span class="co">#&gt; # A tibble: 6 × 2</span></span>
-<span><span class="co">#&gt;   nombre_comuna valor</span></span>
-<span><span class="co">#&gt;   &lt;chr&gt;         &lt;dbl&gt;</span></span>
-<span><span class="co">#&gt; 1 Pirque            1</span></span>
-<span><span class="co">#&gt; 2 Cerrillos         2</span></span>
-<span><span class="co">#&gt; 3 Puente Alto       1</span></span>
-<span><span class="co">#&gt; 4 La Florida        3</span></span>
-<span><span class="co">#&gt; 5 Ñuñoa             1</span></span>
-<span><span class="co">#&gt; 6 Conchalí          2</span></span>
-<span></span>
-<span><span class="co"># agregar códigos comunales a partir de nombres de comunas</span></span>
-<span><span class="va">datos</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>codigo_comuna <span class="op">=</span> <span class="fu"><a href="reference/as_codigo_comuna.html">as_codigo_comuna</a></span><span class="op">(</span><span class="va">nombre_comuna</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co">#&gt; # A tibble: 6 × 3</span></span>
-<span><span class="co">#&gt;   nombre_comuna valor codigo_comuna</span></span>
-<span><span class="co">#&gt;   &lt;chr&gt;         &lt;dbl&gt;         &lt;dbl&gt;</span></span>
-<span><span class="co">#&gt; 1 Pirque            1         13202</span></span>
-<span><span class="co">#&gt; 2 Cerrillos         2         13102</span></span>
-<span><span class="co">#&gt; 3 Puente Alto       1         13201</span></span>
-<span><span class="co">#&gt; 4 La Florida        3         13110</span></span>
-<span><span class="co">#&gt; 5 Ñuñoa             1         13120</span></span>
-<span><span class="co">#&gt; 6 Conchalí          2         13104</span></span></code></pre></div>
-<p>Pero lo anterior requiere que los nombres de las comunas estén bien escritos! Para esto existe la función <code>limpiar_nombres_comunas()</code>:</p>
+<code class="sourceCode R"><span><span class="va">datos</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tribble.html" class="external-link">tribble</a></span><span class="op">(</span></span>
+<span>  <span class="op">~</span><span class="va">nombre_comuna</span>, <span class="op">~</span><span class="va">poblacion</span>,</span>
+<span>  <span class="st">"Puente Alto"</span>,    <span class="fl">1</span>,</span>
+<span>  <span class="st">"La Florida"</span>,     <span class="fl">1</span>,</span>
+<span>  <span class="st">"La Granja"</span>,      <span class="fl">1</span>,</span>
+<span>  <span class="st">"San Joaquín"</span>,    <span class="fl">1</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># limpiar_nombres_comunas()</span></span></code></pre></div>
-<p>Si tenemos datos de nivel comunal pero les faltan variables territoriales, podemos <em>contextualizar</em> los datos comunales al agregarles todas las variables que les faltan con la función <code><a href="reference/contextualizar.html">contextualizar()</a></code>:</p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">datos</span><span class="op">)</span></span>
-<span><span class="co">#&gt; # A tibble: 3 × 2</span></span>
-<span><span class="co">#&gt;   nombre_comuna valor</span></span>
-<span><span class="co">#&gt;   &lt;chr&gt;         &lt;dbl&gt;</span></span>
-<span><span class="co">#&gt; 1 Cerrillos         1</span></span>
-<span><span class="co">#&gt; 2 Arica             2</span></span>
-<span><span class="co">#&gt; 3 Putre             3</span></span>
-<span></span>
-<span><span class="va">datos</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="reference/contextualizar.html">contextualizar</a></span><span class="op">(</span>variable <span class="op">=</span> <span class="st">"nombre_comuna"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; ℹ columnas agregadas: codigo_region, nombre_region, codigo_provincia, nombre_provincia y codigo_comuna</span></span>
-<span><span class="co">#&gt; # A tibble: 3 × 7</span></span>
-<span><span class="co">#&gt;   codigo_region nombre_region             codigo_provincia nombre_provincia codigo_comuna nombre_comuna valor</span></span>
-<span><span class="co">#&gt;           &lt;dbl&gt; &lt;chr&gt;                                &lt;dbl&gt; &lt;chr&gt;                    &lt;dbl&gt; &lt;chr&gt;         &lt;dbl&gt;</span></span>
-<span><span class="co">#&gt; 1            13 Metropolitana de Santiago              131 Santiago                 13102 Cerrillos         1</span></span>
-<span><span class="co">#&gt; 2            15 Arica y Parinacota                     151 Arica                    15101 Arica             2</span></span>
-<span><span class="co">#&gt; 3            15 Arica y Parinacota                     152 Parinacota               15201 Putre             3</span></span></code></pre></div>
-</div>
-<div class="section level3">
-<h3 id="ejemplos-de-datos-regionales">Ejemplos de datos regionales<a class="anchor" aria-label="anchor" href="#ejemplos-de-datos-regionales"></a>
-</h3>
-<p>Cuando trabajamos datos de nivel regional, una necesidad común es <a href="https://bastianolea.rbind.io/blog/ordenar_regiones/" class="external-link">ordenar las regiones en el orden geográfico</a>; es decir, de norte a sur. Para ello existe la función <code><a href="reference/ordenar_regiones.html">ordenar_regiones()</a></code>:</p>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">regiones</span></span>
-<span><span class="co">#&gt; # A tibble: 16 × 2</span></span>
-<span><span class="co">#&gt;    codigo_region nombre_region                            </span></span>
-<span><span class="co">#&gt;            &lt;dbl&gt; &lt;chr&gt;                                    </span></span>
-<span><span class="co">#&gt;  1             1 Tarapacá                                 </span></span>
-<span><span class="co">#&gt;  2             2 Antofagasta                              </span></span>
-<span><span class="co">#&gt;  3             3 Atacama                                  </span></span>
-<span><span class="co">#&gt;  4             4 Coquimbo                                 </span></span>
-<span><span class="co">#&gt;  5             5 Valparaíso                               </span></span>
-<span><span class="co">#&gt;  6             6 Libertador General Bernardo O'Higgins    </span></span>
-<span><span class="co">#&gt;  7             7 Maule                                    </span></span>
-<span><span class="co">#&gt;  8             8 Biobío                                   </span></span>
-<span><span class="co">#&gt;  9             9 La Araucanía                             </span></span>
-<span><span class="co">#&gt; 10            10 Los Lagos                                </span></span>
-<span><span class="co">#&gt; 11            11 Aysén del General Carlos Ibáñez del Campo</span></span>
-<span><span class="co">#&gt; 12            12 Magallanes y de la Antártica Chilena     </span></span>
-<span><span class="co">#&gt; 13            13 Metropolitana de Santiago                </span></span>
-<span><span class="co">#&gt; 14            14 Los Ríos                                 </span></span>
-<span><span class="co">#&gt; 15            15 Arica y Parinacota                       </span></span>
-<span><span class="co">#&gt; 16            16 Ñuble</span></span>
-<span></span>
-<span><span class="va">regiones</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu"><a href="reference/ordenar_regiones.html">ordenar_regiones</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; # A tibble: 16 × 2</span></span>
-<span><span class="co">#&gt;    codigo_region nombre_region                            </span></span>
-<span><span class="co">#&gt;            &lt;dbl&gt; &lt;fct&gt;                                    </span></span>
-<span><span class="co">#&gt;  1            15 Arica y Parinacota                       </span></span>
-<span><span class="co">#&gt;  2             1 Tarapacá                                 </span></span>
-<span><span class="co">#&gt;  3             2 Antofagasta                              </span></span>
-<span><span class="co">#&gt;  4             3 Atacama                                  </span></span>
-<span><span class="co">#&gt;  5             4 Coquimbo                                 </span></span>
-<span><span class="co">#&gt;  6             5 Valparaíso                               </span></span>
-<span><span class="co">#&gt;  7            13 Metropolitana de Santiago                </span></span>
-<span><span class="co">#&gt;  8             6 Libertador General Bernardo O'Higgins    </span></span>
-<span><span class="co">#&gt;  9             7 Maule                                    </span></span>
-<span><span class="co">#&gt; 10            16 Ñuble                                    </span></span>
-<span><span class="co">#&gt; 11             8 Biobío                                   </span></span>
-<span><span class="co">#&gt; 12             9 La Araucanía                             </span></span>
-<span><span class="co">#&gt; 13            14 Los Ríos                                 </span></span>
-<span><span class="co">#&gt; 14            10 Los Lagos                                </span></span>
-<span><span class="co">#&gt; 15            11 Aysén del General Carlos Ibáñez del Campo</span></span>
-<span><span class="co">#&gt; 16            12 Magallanes y de la Antártica Chilena</span></span></code></pre></div>
-<p>Otro problema que podemos tener son datos de regiones con los nombres mal escritos. Para eso tenemos la función <code><a href="reference/validar_regiones.html">validar_regiones()</a></code>, que revisará los nombres de las regiones y reportará los problemas existentes:</p>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="reference/validar_regiones.html">validar_regiones</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"los lagos"</span>, <span class="st">"nuble"</span>, <span class="st">"OHIGGINS"</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co">#&gt; ! mayúsculas: 1 caso de regiones escritas en mayúsculas</span></span>
-<span><span class="co">#&gt; ! mayúsculas: 2 casos de regiones escritas en minúsculas</span></span>
-<span><span class="co">#&gt; ! ortografía: 1 caso de la Región de Ñuble escrita sin eñe</span></span>
-<span><span class="co">#&gt; ! ortografía: 1 caso de la Región de O'Higgins escrita sin su apóstrofo (')</span></span></code></pre></div>
-<p>Un típico problema es que tenemos las regiones y necesitamos incluirlas en un texto, pero si anteponemos “Región de” no siempre queda bien: por ejemplo, no se dice “Región de Metropolitana”, ni tampoco se dice “Región de Maule”, sino que cada región tiene su preposición apropiada. Para esto usamos la función <code><a href="reference/redactar_region.html">redactar_region()</a></code>, que a su vez usa <code><a href="reference/preposicion_region.html">preposicion_region()</a></code> para identificar la preposición correcta:</p>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="reference/redactar_region.html">redactar_region</a></span><span class="op">(</span><span class="st">"Metropolitana"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] "Región Metropolitana"</span></span>
-<span><span class="fu"><a href="reference/redactar_region.html">redactar_region</a></span><span class="op">(</span><span class="st">"Maule"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] "Región del Maule"</span></span></code></pre></div>
-</div>
+<code class="sourceCode R"><span><span class="va">datos</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="reference/contextualizar.html">contextualizar</a></span><span class="op">(</span><span class="va">nombre_comuna</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a>ℹ columnas agregadas<span class="sc">:</span> codigo_region, nombre_region, codigo_provincia, nombre_provincia y codigo_comuna</span>
+<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a><span class="co"># A tibble: 4 × 7</span></span>
+<span id="cb11-4"><a href="#cb11-4" tabindex="-1"></a>  codigo_region nombre_region    codigo_provincia nombre_provincia codigo_comuna</span>
+<span id="cb11-5"><a href="#cb11-5" tabindex="-1"></a>          <span class="sc">&lt;</span>dbl<span class="sc">&gt;</span> <span class="er">&lt;</span>chr<span class="sc">&gt;</span>                       <span class="er">&lt;</span>dbl<span class="sc">&gt;</span> <span class="er">&lt;</span>chr<span class="sc">&gt;</span>                    <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb11-6"><a href="#cb11-6" tabindex="-1"></a><span class="dv">1</span>            <span class="dv">13</span> Metropolitana d…              <span class="dv">132</span> Cordillera               <span class="dv">13201</span></span>
+<span id="cb11-7"><a href="#cb11-7" tabindex="-1"></a><span class="dv">2</span>            <span class="dv">13</span> Metropolitana d…              <span class="dv">131</span> Santiago                 <span class="dv">13110</span></span>
+<span id="cb11-8"><a href="#cb11-8" tabindex="-1"></a><span class="dv">3</span>            <span class="dv">13</span> Metropolitana d…              <span class="dv">131</span> Santiago                 <span class="dv">13111</span></span>
+<span id="cb11-9"><a href="#cb11-9" tabindex="-1"></a><span class="dv">4</span>            <span class="dv">13</span> Metropolitana d…              <span class="dv">131</span> Santiago                 <span class="dv">13129</span></span>
+<span id="cb11-10"><a href="#cb11-10" tabindex="-1"></a><span class="co"># ℹ 2 more variables: nombre_comuna &lt;chr&gt;, poblacion &lt;dbl&gt;</span></span></code></pre></div>
+<p>Así, un dataframe que solamente tiene nombres de comuna puede pasar a tener todas las demás variables que descrien territorialmente a esos datos.</p>
+<p>Estas son algunas de las variables principales, pero existen muchas más que facilitan el trabajo con datos territoriales de Chile: <a href="./reference/index.html">revisa el índice!</a></p>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="enlaces">

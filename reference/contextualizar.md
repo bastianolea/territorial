@@ -9,7 +9,7 @@ las variables territoriales faltantes.
 ## Uso
 
 ``` r
-contextualizar(datos, variable = NULL)
+contextualizar(datos, variable)
 ```
 
 ## Argumentos
@@ -40,7 +40,7 @@ datos <- dplyr::tribble(
   "Putre",        3)
 
 datos |>
-  contextualizar(variable = "nombre_comuna")
+  contextualizar(nombre_comuna)
 #> ℹ columnas agregadas: codigo_region, nombre_region, codigo_provincia, nombre_provincia y codigo_comuna
 #> # A tibble: 3 × 7
 #>   codigo_region nombre_region    codigo_provincia nombre_provincia codigo_comuna

@@ -2,8 +2,9 @@ pandoc: 3.8.3
 pkgdown: 2.2.0
 pkgdown_sha: ~
 articles:
+  codigos_unicos_territoriales: codigos_unicos_territoriales.html
   territorial: territorial.html
-last_built: 2026-06-25T22:00Z
+last_built: 2026-06-26T18:23Z
 urls:
   reference: https://bastianolea.github.io/territorial/reference
   article: https://bastianolea.github.io/territorial/articles
