@@ -16,7 +16,7 @@ territorios
 
 ## Formato
 
-A data frame with 346 rows and 6 columns:
+Un data frame con 346 filas y 6 columnas:
 
 - codigo_region:
 
@@ -46,3 +46,10 @@ A data frame with 346 rows and 6 columns:
 ## Fuente
 
 [https://www.subdere.gov.cl/documentacion/códigos-únicos-territoriales-actualizados-al-06-de-septiembre-2018](https://www.subdere.gov.cl/documentacion/c%C3%B3digos-%C3%BAnicos-territoriales-actualizados-al-06-de-septiembre-2018)
+
+## Detalles
+
+Las modificaciones realizadas a los datos son: formas alternativas de
+escribir las comunas de Treguaco (Trehuaco) y Paiguano (Paihuano),
+optando por las formas que son usadas por sus municipios (Trehuaco y
+Paihuano, respectivamente).

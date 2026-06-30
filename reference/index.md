@@ -14,6 +14,8 @@ Funciones y tablas de datos que entregan datos de uso territorial
   : Tabla de clasificación comunal PNDR, Censo 2024
 - [`contextualizar()`](https://bastianolea.github.io/territorial/reference/contextualizar.md)
   : Contextualizar datos de nivel comunal con variables territoriales
+- [`localidades`](https://bastianolea.github.io/territorial/reference/localidades.md)
+  : Tabla de localidades de Chile
 
 ## Evaluación de unidades territoriales
 

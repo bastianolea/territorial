@@ -78,30 +78,83 @@
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://bastianolea.github.io/territorial">territorial</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span></code></pre></div>
 </div>
-<p><em>En construcción</em></p>
+<p>El Ministerio del Interior de Chile es el organismo encargado de establecer la división política administrativa de Chile, y entre otras tareas, esto implica la sistematización de una codificación única para reconocer las regiones, provincias y comunas del país. La última actualización fue en 2018, al incluirse la región de Ñuble.</p>
+<p>Los códigos únicos territoriales son números que identifican de manera única a las regiones, provincias y comunas de Chile. Son especialmente útiles para poder trabajar con datos territoriales sin tener que estar filtrando constantemente por nombres, que pueden ser largos, difíciles de escirbir, o derechamente incorrectos. Por eso, al trabajar con datos se prefiere operar sobre los códigos únicos territoriales para eliminar posibilidades de error.</p>
+<p>El paquete <a href="https://bastianolea.github.io/territorial">territorial</a> incluye la tabla de datos <code>territorios</code>, que presenta los códigos únicos territoriales de regiones, provincias y comunas, junto a sus nombres oficiales.</p>
+<section class="level2"><h2 id="regiones">Regiones<a class="anchor" aria-label="anchor" href="#regiones"></a>
+</h2>
+<p>Las <strong>regiones</strong> se identifican con un código entre 1 y 16, siendo 1 Tarapacá, 16 Ñuble, y 13 la Región Metropolitana.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">territorial</span><span class="fu">::</span><span class="va"><a href="../reference/territorios.html">territorios</a></span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html" class="external-link">starts_with</a></span><span class="op">(</span><span class="st">"codigo"</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co">#&gt; # A tibble: 346 × 3</span></span>
-<span><span class="co">#&gt;    codigo_region codigo_provincia codigo_comuna</span></span>
-<span><span class="co">#&gt;            &lt;dbl&gt;            &lt;dbl&gt;         &lt;dbl&gt;</span></span>
-<span><span class="co">#&gt;  1             1               11          1101</span></span>
-<span><span class="co">#&gt;  2             1               11          1107</span></span>
-<span><span class="co">#&gt;  3             1               14          1401</span></span>
-<span><span class="co">#&gt;  4             1               14          1402</span></span>
-<span><span class="co">#&gt;  5             1               14          1403</span></span>
-<span><span class="co">#&gt;  6             1               14          1404</span></span>
-<span><span class="co">#&gt;  7             1               14          1405</span></span>
-<span><span class="co">#&gt;  8             2               21          2101</span></span>
-<span><span class="co">#&gt;  9             2               21          2102</span></span>
-<span><span class="co">#&gt; 10             2               21          2103</span></span>
-<span><span class="co">#&gt; # ℹ 336 more rows</span></span></code></pre></div>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html" class="external-link">ends_with</a></span><span class="op">(</span><span class="st">"region"</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/distinct.html" class="external-link">distinct</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span>n <span class="op">=</span> <span class="cn">Inf</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 16 × 2</span></span>
+<span><span class="co">#&gt;    codigo_region nombre_region                            </span></span>
+<span><span class="co">#&gt;            &lt;dbl&gt; &lt;chr&gt;                                    </span></span>
+<span><span class="co">#&gt;  1             1 Tarapacá                                 </span></span>
+<span><span class="co">#&gt;  2             2 Antofagasta                              </span></span>
+<span><span class="co">#&gt;  3             3 Atacama                                  </span></span>
+<span><span class="co">#&gt;  4             4 Coquimbo                                 </span></span>
+<span><span class="co">#&gt;  5             5 Valparaíso                               </span></span>
+<span><span class="co">#&gt;  6             6 Libertador General Bernardo O'Higgins    </span></span>
+<span><span class="co">#&gt;  7             7 Maule                                    </span></span>
+<span><span class="co">#&gt;  8             8 Biobío                                   </span></span>
+<span><span class="co">#&gt;  9             9 La Araucanía                             </span></span>
+<span><span class="co">#&gt; 10            10 Los Lagos                                </span></span>
+<span><span class="co">#&gt; 11            11 Aysén del General Carlos Ibáñez del Campo</span></span>
+<span><span class="co">#&gt; 12            12 Magallanes y de la Antártica Chilena     </span></span>
+<span><span class="co">#&gt; 13            13 Metropolitana de Santiago                </span></span>
+<span><span class="co">#&gt; 14            14 Los Ríos                                 </span></span>
+<span><span class="co">#&gt; 15            15 Arica y Parinacota                       </span></span>
+<span><span class="co">#&gt; 16            16 Ñuble</span></span></code></pre></div>
 </div>
-
-
-
-<script id="quarto-html-after-body" type="application/javascript">
+</section><section class="level2"><h2 id="provincias">Provincias<a class="anchor" aria-label="anchor" href="#provincias"></a>
+</h2>
+<p>Las <strong>provincias</strong> toman el código de la región a la que pertenecen, y le agregan un dígito al final. Por ejemplo, en la Región Metropolitana (región de código 13) existen 6 provincias, siendo la provincia de Santiago la de código 131 (región 13, provincia 1), la provincia Cordillera código 132 (región 13, provincia 2), etc.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">territorial</span><span class="fu">::</span><span class="va"><a href="../reference/territorios.html">territorios</a></span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">codigo_region</span> <span class="op">==</span> <span class="fl">13</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html" class="external-link">ends_with</a></span><span class="op">(</span><span class="st">"provincia"</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/distinct.html" class="external-link">distinct</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 6 × 2</span></span>
+<span><span class="co">#&gt;   codigo_provincia nombre_provincia</span></span>
+<span><span class="co">#&gt;              &lt;dbl&gt; &lt;chr&gt;           </span></span>
+<span><span class="co">#&gt; 1              131 Santiago        </span></span>
+<span><span class="co">#&gt; 2              132 Cordillera      </span></span>
+<span><span class="co">#&gt; 3              133 Chacabuco       </span></span>
+<span><span class="co">#&gt; 4              134 Maipo           </span></span>
+<span><span class="co">#&gt; 5              135 Melipilla       </span></span>
+<span><span class="co">#&gt; 6              136 Talagante</span></span></code></pre></div>
+</div>
+</section><section class="level2"><h2 id="comunas">Comunas<a class="anchor" aria-label="anchor" href="#comunas"></a>
+</h2>
+<p>Las <strong>comunas</strong> de Chile poseen códigos únicos territoriales que van del 1101 (región 1, provincia 1, comuna <code>01</code>, correspondiente a <em>Iquique</em>) al 16305 (región 15, provincia 3, comuna <code>05</code>, comuna de <em>San Nicolás</em>). Por ejemplo, las comunas de la región de Tarapacá son:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">territorial</span><span class="fu">::</span><span class="va"><a href="../reference/territorios.html">territorios</a></span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">nombre_region</span> <span class="op">==</span> <span class="st">"Tarapacá"</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html" class="external-link">ends_with</a></span><span class="op">(</span><span class="st">"comuna"</span><span class="op">)</span>, <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html" class="external-link">ends_with</a></span><span class="op">(</span><span class="st">"provincia"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 7 × 4</span></span>
+<span><span class="co">#&gt;   codigo_comuna nombre_comuna codigo_provincia nombre_provincia</span></span>
+<span><span class="co">#&gt;           &lt;dbl&gt; &lt;chr&gt;                    &lt;dbl&gt; &lt;chr&gt;           </span></span>
+<span><span class="co">#&gt; 1          1101 Iquique                     11 Iquique         </span></span>
+<span><span class="co">#&gt; 2          1107 Alto Hospicio               11 Iquique         </span></span>
+<span><span class="co">#&gt; 3          1401 Pozo Almonte                14 Tamarugal       </span></span>
+<span><span class="co">#&gt; 4          1402 Camiña                      14 Tamarugal       </span></span>
+<span><span class="co">#&gt; 5          1403 Colchane                    14 Tamarugal       </span></span>
+<span><span class="co">#&gt; 6          1404 Huara                       14 Tamarugal       </span></span>
+<span><span class="co">#&gt; 7          1405 Pica                        14 Tamarugal</span></span></code></pre></div>
+</div>
+</section><section class="level2"><h2 id="referencias">Referencias<a class="anchor" aria-label="anchor" href="#referencias"></a>
+</h2>
+<ul>
+<li><a href="https://www.subdere.gov.cl/sites/default/files/documentos/DTO-1115-SEPT_2018.pdf" class="external-link">Decreto Exento N° 1.115 del Ministerio del Interior y Seguridad Pública que actualiza los códigos territoriales</a></li>
+<li><a href="https://www.subdere.gov.cl/documentacion/c%C3%B3digos-%C3%BAnicos-territoriales-actualizados-al-06-de-septiembre-2018" class="external-link">Subdere: Códigos Únicos Territoriales - Actualizado al 2018</a></li>
+<li><a href="https://codificador.digital.gob.cl/codificaciones-del-estado/codigos-unicos-territoriales" class="external-link">Gobierno digital: plataforma Codificador</a></li>
+</ul></section><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
@@ -184,7 +237,8 @@
       }
     }
   });
-  </script></main>
+  </script></main><aside class="col-md-3"><nav id="toc" aria-label="Índice de contenidos"><h2>En esta página</h2>
+    </nav></aside>
 </div>
 
 

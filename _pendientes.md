@@ -72,8 +72,9 @@ Funciones con datos - \[x\] `territorios` = tabla con todos los datos
 territoriales (comuna, region, provincia, clasificaciones) - \[ \]
 cambiar a función o no???? - \[x\]
 [`comunas()`](https://bastianolea.github.io/territorial/reference/comunas.md)
-= retorna un vector con los nombres de comunas - \[ \] `localidades()` =
-xxx - \[x\] `clasificacion` = clasificación territorial de odepa
+= retorna un vector con los nombres de comunas - \[ \]
+[`localidades()`](https://bastianolea.github.io/territorial/reference/localidades.md)
+= xxx - \[x\] `clasificacion` = clasificación territorial de odepa
 
 Funciones de pruebas - \[x\]
 [`is_nombre_comuna()`](https://bastianolea.github.io/territorial/reference/is_nombre_comuna.md)

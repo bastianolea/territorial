@@ -27,7 +27,7 @@ comunas()
 #>  [19] "Tierra Amarilla"      "Chañaral"             "Diego de Almagro"    
 #>  [22] "Vallenar"             "Alto del Carmen"      "Freirina"            
 #>  [25] "Huasco"               "La Serena"            "Coquimbo"            
-#>  [28] "Andacollo"            "La Higuera"           "Paiguano"            
+#>  [28] "Andacollo"            "La Higuera"           "Paihuano"            
 #>  [31] "Vicuña"               "Illapel"              "Canela"              
 #>  [34] "Los Vilos"            "Salamanca"            "Ovalle"              
 #>  [37] "Combarbalá"           "Monte Patria"         "Punitaqui"           
@@ -131,7 +131,7 @@ comunas()
 #> [331] "Pinto"                "Quillón"              "San Ignacio"         
 #> [334] "Yungay"               "Quirihue"             "Cobquecura"          
 #> [337] "Coelemu"              "Ninhue"               "Portezuelo"          
-#> [340] "Ranquil"              "Treguaco"             "San Carlos"          
+#> [340] "Ranquil"              "Trehuaco"             "San Carlos"          
 #> [343] "Coihueco"             "Ñiquén"               "San Fabián"          
 #> [346] "San Nicolás"         
 ```
