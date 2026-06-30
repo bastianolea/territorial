@@ -1,0 +1,48 @@
+---
+title: "Localidades"
+vignette: >
+  %\VignetteIndexEntry{localidades}
+  %\VignetteEngine{quarto::html}
+  %\VignetteEncoding{UTF-8}
+knitr:
+  opts_chunk:
+    collapse: true
+    comment: '#>'
+---
+
+Según la definición del INE, una localidad es un "Área geográfica con nombre propio de conocimiento generalizado por la población. Puede estar poblada o no, aunque debe contener, a lo menos, una vivienda susceptible de ser habitada. Generalmente, se circunscribe dentro de un distrito censal; no obstante, puede rebasar a éste.” 
+
+En el paquete `{territorial}`, la tabla `territorial::localidades` contiene una lista de todas las localidades de Chile, en base a la información del [estudio de **Identificación de localidades en condición de aislamiento**](https://ide.subdere.gov.cl/estudio-actualizacion-de-base-censal-identificacion-de-localidades-en-condicion-de-aislamiento/), realizado por la [Subsecretaría de Desarrollo Regional y Administrativo](https://ide.subdere.gov.cl) y publicado el año 2021.
+
+```{r setup}
+#| message: false
+#| warning: false
+library(territorial)
+library(dplyr)
+```
+
+```{r}
+territorial::localidades
+```
+
+Esta tabla puede ser ampliada en sus columnas territoriales usando la función `territorial::contextualizar()`, para agregar las comunas, regiones y provincias correspondientes a cada localidad:
+
+```{r}
+territorial::localidades |> 
+  contextualizar(codigo_comuna) |> 
+  glimpse()
+```
+
+Si se tiene el nombre de una localidad de Chile, y se de sea conocer dónde está ubicada, existe la función `territorial::ubicar_localidades()`:
+
+```{r}
+ubicar_localidades(c("Chada", "La Dormida", "Mallarauco"))
+```
+
+
+## Referencias
+- [Infraestructura de Datos Geoespaciales, Subsecretaría de Desarrollo Regional y Administrativo (IDE Subdere)](https://ide.subdere.gov.cl)
+- [Identificación de localidades en condición de aislamiento](https://ide.subdere.gov.cl/wp-content/uploads/2023/11/EABC-ILCA-2021-2.pdf) (en PDF)
+
+## Agradecimientos
+- Matías Poch Clavero, profesional de la Unidad de Investigación Territorial, Subsecretaría de Desarrollo Regional y Administrativo

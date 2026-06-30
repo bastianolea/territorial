@@ -19,6 +19,7 @@ localidades <- localidades |>
     tipo = str_to_sentence(tipo),
     subtipo = str_to_sentence(sub_tipo)
   ) |>
-  select(codigo_comuna, localidad, tipo, subtipo, habitantes, viviendas)
+  select(codigo_comuna, localidad, tipo, subtipo, habitantes, viviendas) |>
+  mutate(habitantes = as.numeric(habitantes), viviendas = as.numeric(viviendas))
 
 usethis::use_data(localidades, overwrite = TRUE)

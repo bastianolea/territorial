@@ -24,7 +24,7 @@ reference:
   contents:
   - starts_with("as_")
   - starts_with("ordenar_")
-  - ubicar_comunas
+  - starts_with("ubicar_")
   - starts_with("limpiar_")
 
 - title: Complementar nombres de territorios
