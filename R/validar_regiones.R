@@ -11,9 +11,8 @@
 #' @examples
 #' validar_regiones(c("los lagos", "nuble", "OHIGGINS"))
 #'
-#' datos |>
-#'   validar_regiones(region)
-#'
+#' territorial::territorios |>
+#'   validar_regiones(nombre_region)
 validar_regiones <- function(
   datos,
   variable = NULL

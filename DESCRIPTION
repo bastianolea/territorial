@@ -29,3 +29,4 @@ Imports:
 URL: https://bastianolea.github.io/territorial, https://github.com/bastianolea/territorial
 BugReports: https://github.com/bastianolea/territorial/issues
 VignetteBuilder: quarto, knitr
+Config/Needs/website: quarto

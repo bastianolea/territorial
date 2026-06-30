@@ -251,7 +251,7 @@ limpiar_comunas <- function(
 
   # informar
   cli::cli_alert_success(
-    "De las {nrow(resultados)} comunas distintas, se limpiaron {length(comunas_limpiadas)} en total ({round(porcentaje, 2) * 100}%)"
+    "De las {nrow(resultados)} comunas distintas, se limpiaron {length(comunas_limpiadas)} en total ({round(porcentaje, 3) * 100}%)"
   )
 
   if (mostrar_proceso) {

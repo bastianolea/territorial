@@ -13,9 +13,6 @@
 #'
 #' territorial::territorios |>
 #'   validar_comunas(nombre_comuna)
-#'
-#' datos |>
-#'   validar_comunas(comuna)
 validar_comunas <- function(
   datos,
   variable = NULL

@@ -1,5 +1,5 @@
 ---
-title: "Introducción a `{territorial}`"
+title: "Introducción al paquete"
 vignette: >
   %\VignetteIndexEntry{territorial}
   %\VignetteEngine{quarto::html}

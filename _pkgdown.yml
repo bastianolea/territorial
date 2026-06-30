@@ -2,6 +2,7 @@ url: https://bastianolea.github.io/territorial/
 lang: es
 template:
   bootstrap: 5
+
 reference:
 - title: Datos territoriales
   desc:  Funciones y tablas de datos que entregan datos de uso territorial
@@ -12,13 +13,11 @@ reference:
   - clasificacion
   - contextualizar
   - localidades
-
 - title: Evaluación de unidades territoriales
   desc: Funciones que permiten probar la calidad de los datos, o pueden ser usados para lógica condicional
   contents:
   - starts_with("is_")
   - starts_with("validar")
-
 - title: Limpieza y corrección de territorios
   desc: Funciones para transformar datos de identificación de territorios, ordenarlos, etc.
   contents:
@@ -26,15 +25,26 @@ reference:
   - starts_with("ordenar_")
   - starts_with("ubicar_")
   - starts_with("limpiar_")
-
 - title: Complementar nombres de territorios
   desc: Funciones que toman los nombres de territorios y hacen más cosas con ellos
   contents:
   - preposicion_region
   - starts_with("redactar_")
   - starts_with("abreviar_")
-
 - title: Complementar datos territoriales
   desc: Funciones para agregar nuevas variables a partir de datos territoriales existentes
   contents:
   - starts_with("agregar_")
+
+# articles:
+# - title: Viñetas
+#   navbar: ~
+#   desc: Información general sobre el paquete
+#   contents:
+#   - territorial
+#   - localidades
+#   - codigos_unicos_territoriales
+# - title: Ejemplos
+#   desc: Casos de uso del paquete
+#   contents:
+#   - articles/ejemplo_servel

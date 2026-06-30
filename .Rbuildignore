@@ -16,3 +16,6 @@ _instrucciones.R
 _pendientes.md
 .Rprofile
 ^img/*
+^vignettes/articles/\.quarto$
+^vignettes/articles/*_files$
+^vignettes/articles$
