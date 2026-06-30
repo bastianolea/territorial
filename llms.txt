@@ -257,6 +257,8 @@ ordenarlos, etc.
   : Ordenar regiones de Chile geográficamente
 - [`ubicar_comunas()`](https://bastianolea.github.io/territorial/reference/ubicar_comunas.md)
   : Ubicar comunas en la región que les corresponde
+- [`ubicar_localidades()`](https://bastianolea.github.io/territorial/reference/ubicar_localidades.md)
+  : Ubicar localidades en la comuna que les corresponde
 - [`limpiar_comunas()`](https://bastianolea.github.io/territorial/reference/limpiar_comunas.md)
   : Limpieza de nombres de comunas de Chile a sus nombres oficiales
 
@@ -290,5 +292,6 @@ existentes
 
 - [Códigos Únicos
   Territoriales](https://bastianolea.github.io/territorial/articles/codigos_unicos_territoriales.md):
+- [Localidades](https://bastianolea.github.io/territorial/articles/localidades.md):
 - [Introducción a
   \`{territorial}\`](https://bastianolea.github.io/territorial/articles/territorial.md):

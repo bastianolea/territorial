@@ -49,6 +49,8 @@ ordenarlos, etc.
   : Ordenar regiones de Chile geográficamente
 - [`ubicar_comunas()`](https://bastianolea.github.io/territorial/reference/ubicar_comunas.md)
   : Ubicar comunas en la región que les corresponde
+- [`ubicar_localidades()`](https://bastianolea.github.io/territorial/reference/ubicar_localidades.md)
+  : Ubicar localidades en la comuna que les corresponde
 - [`limpiar_comunas()`](https://bastianolea.github.io/territorial/reference/limpiar_comunas.md)
   : Limpieza de nombres de comunas de Chile a sus nombres oficiales
 
