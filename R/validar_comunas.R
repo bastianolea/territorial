@@ -3,7 +3,7 @@
 #' Esta función recibe una columna con nombres de comunas de un dataframe (idealmente `nombre_comuna`), o un vector con nombres de comunas, y retorna una evaluación de posibles problemas con los nombres existentes. Funciona tanto con un dataframe con una columna `nombre_comuna`, o un vector que contenga los nombres de comunas a evaluar. La función solamente retorna avisos cuando existan problemas, por lo que si todos los datos son correctos, solo devolverá los datos tal cual.
 #'
 #' @param datos Dataframe con una columna de nombre de comunas, o vector de nombres de comunas
-#' @param nombre_comuna Columna de un dataframe con nombres de comunas
+#' @param variable Columna del dataframe con los nombres de comunas (se pasa sin comillas, p.ej. `comuna`)
 #'
 #' @returns Dataframe o vector intacto, con mensajes de diagnóstico si se encuentran problemas de calidad
 #' @export
@@ -12,18 +12,25 @@
 #' validar_comunas(c("chiguayante", "la florida", "paine"))
 #'
 #' territorial::territorios |>
-#'   validar_comunas()
+#'   validar_comunas(nombre_comuna)
+#'
+#' datos |>
+#'   validar_comunas(comuna)
 validar_comunas <- function(
   datos,
-  nombre_comuna = NULL
+  variable = NULL
 ) {
   # si es una tabla, extraer columna como vector
   if (any(class(datos) %in% "data.frame")) {
-    nombre_comuna <- datos |>
-      dplyr::ungroup() |>
-      # dplyr::select(dplyr::all_of(variable)) |>
-      dplyr::select(nombre_comuna) |>
-      dplyr::pull()
+    col_expr <- rlang::enquo(variable)
+
+    if (rlang::quo_is_null(col_expr)) {
+      cli::cli_abort(
+        "Debes especificar la columna de comunas, p.ej.: {.code validar_comunas(comuna)}"
+      )
+    }
+
+    nombre_comuna <- dplyr::pull(dplyr::ungroup(datos), !!col_expr)
   } else if (is.vector(datos)) {
     nombre_comuna <- as.character(datos)
   } else {

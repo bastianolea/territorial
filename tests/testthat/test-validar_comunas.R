@@ -74,7 +74,7 @@ test_that("validar comuna Aysén con y griega", {
 test_that("validar comuna desde dataframe 1", {
   expect_no_condition(
     territorial::territorios |>
-      validar_comunas()
+      validar_comunas(nombre_comuna)
   )
 }) |>
   suppressMessages()
@@ -87,7 +87,7 @@ test_that("validar comuna desde dataframe 2", {
         nombre_comuna = c("chiguayante", "la florida", "paine")
       )
       datos |>
-        validar_comunas()
+        validar_comunas(nombre_comuna)
     }
   )
 }) |>
