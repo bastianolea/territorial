@@ -2,6 +2,8 @@
 #'
 #' Tabla de datos que contiene todas las comunas del país con sus nombres oficiales, sus códigos únicos comunales, y lo mismo para las provincias y regiones del país. Al ser una tabla de las comunas de Chile, tiene 346 filas. Estos datos corresponden al [Ministerio del Interior de Chile](https://www.subdere.gov.cl/documentacion/códigos-únicos-territoriales-actualizados-al-06-de-septiembre-2018), publicados en el Diario Oficial el 21 de septiembre de 2018, con leves modificaciones.
 #'
+#' Las modificaciones realizadas a los datos son: formas alternativas de escribir las comunas de Treguaco (Trehuaco) y Paiguano (Paihuano), optando por las formas que son usadas por sus municipios (Trehuaco y Paihuano, respectivamente).
+#'
 #' @format A data frame with 346 rows and 6 columns:
 #' \describe{
 #'   \item{codigo_region}{Código único territorial de las regiones de Chile (número entre 1 y 16)}
