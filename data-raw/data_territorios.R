@@ -7,7 +7,14 @@ territorios <- codigos_comunales |>
   janitor::clean_names() |>
   select(-abreviatura_region) |>
   rename(codigo_comuna = codigo_comuna_2018) |>
-  mutate(across(starts_with("codigo"), as.numeric))
+  mutate(across(starts_with("codigo"), as.numeric)) |>
+  mutate(
+    nombre_comuna = replace_values(
+      nombre_comuna,
+      "Paiguano" ~ "Paihuano",
+      "Treguaco" ~ "Trehuaco"
+    )
+  )
 
 usethis::use_data(territorios, overwrite = TRUE)
 # Document your data (see <https://r-pkgs.org/data.html>).

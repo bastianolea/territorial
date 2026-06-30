@@ -66,11 +66,11 @@ test_that("prueba de limpieza de comunas 3, antes no se la podía", {
 test_that("prueba de limpieza de comunas 4, antes no se la podía", {
   expect_equal(
     limpiar_comunas(
-      c("O´HIGGINS", "TREHUACO"),
+      c("O´HIGGINS", "TREGUACO"),
       mostrar_proceso = FALSE
     ) |>
       suppressMessages(),
-    c("O'Higgins", "Treguaco")
+    c("O'Higgins", "Trehuaco")
   )
 })
 
