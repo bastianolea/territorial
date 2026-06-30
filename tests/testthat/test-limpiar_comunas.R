@@ -90,3 +90,15 @@ test_that("prueba de limpieza de comunas desde datos de prueba 1", {
     }
   )
 })
+
+
+test_that("prueba de limpieza de comunas 5, cabo de hornos", {
+  expect_equal(
+    limpiar_comunas(
+      c("CABO DE HORNOS (EX-NAVARINO)"),
+      mostrar_proceso = FALSE
+    ),
+    c("Cabo de Hornos")
+  )
+}) |>
+  suppressMessages()

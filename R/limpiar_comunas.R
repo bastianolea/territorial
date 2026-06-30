@@ -2,10 +2,11 @@
 #'
 #' A partir de un vector de nombres de columnas, se realizan tres pasos de limpieza (confirmación de nombres correctas, limpieza de texto, detección por coincidencia) para retornar los nombres de comunas oficiales apropiados. Los nombres de comunas son los que aparecen en [territorial::comunas()].
 #'
-#' Los nombres son limpiados en tres pasos:
+#' Los nombres son limpiados en cuatro pasos:
 #' 1. Contrastando los nombres entregados con los nombres correctos de las comunas ([territorial::comunas()]), para ver si hay comunas bien escritas antes de proseguir con la limpieza de las demás.
 #' 2. Se _limpian_ los nombres de comunas entregados, transformándolos a minúsculas y eliminando todo tipo de símbolos posibles, para dejar las palabras en sus formas más básicas (por ejemplo, `Ñuñoa` se vuelve `nunoa`). Luego, se aplica el mismo proceso a los nombres de comunas correctos ([territorial::comunas()]), y se hace un cruce entre ambos conjuntos de nombres: si los nombres coinciden, significa que se entregaron nombres de comunas escritos en mayúsculas o minúsculas, comunas sin tildes o con tildes extra, comunas sin símbolos especiales o si eñe, entre otras, y son reemplazadas con sus versiones correctas.
-#' 3. Si en el paso anterior quedaron comunas que no coincidieron (es decir, que sus problemas van más allá de tildes, mayúsculas o símbolos), se realiza una coincidencia parcial de textos o _fuzzy matching_ usando la función `base::agrepl()`, que utiliza el [algoritmo de distancia de Levenshtein](https://es.wikipedia.org/wiki/Distancia_de_Levenshtein) para encontrar las comunas correctamente escritas que más se parecen a las comunas entregadas. Se esta forma, se pueden encontrar las comunas correctamente escritas para casos de comunas con faltas de ortografía (`Pobidencia` en vez de `Providencia`), comunas sin espacios entre sus palabras (`laflorida` en vez de `La Florida`), y formas alternativas de escribir las comunas (`llay-llay` en vez de `Llaillay`). En todos estos casos se emite una alerta que indica la coincidencia encontrada, ya que al ser una aproxmación, no se garantiza que la coincidencia sea correcta. Puedes desactivar este paso poniendo `aproximar = FALSE`.
+#' 3. Se buscan algunos casos especiales de comunas que son típicamente mal escritos, pero que son difíciles de identificar de manera automática, por ejemplo, cuando a la comuna de _Cabo de Hornos_ le ponen "Ex-Navarino".
+#' 4. Si en los pasos anteriores quedaron comunas que no coincidieron (es decir, que sus problemas van más allá de tildes, mayúsculas o símbolos), se realiza una coincidencia parcial de textos o _fuzzy matching_ usando la función `base::agrepl()`, que utiliza el [algoritmo de distancia de Levenshtein](https://es.wikipedia.org/wiki/Distancia_de_Levenshtein) para encontrar las comunas correctamente escritas que más se parecen a las comunas entregadas. Se esta forma, se pueden encontrar las comunas correctamente escritas para casos de comunas con faltas de ortografía (`Pobidencia` en vez de `Providencia`), comunas sin espacios entre sus palabras (`laflorida` en vez de `La Florida`), y formas alternativas de escribir las comunas (`llay-llay` en vez de `Llaillay`). En todos estos casos se emite una alerta que indica la coincidencia encontrada, ya que al ser una aproxmación, no se garantiza que la coincidencia sea correcta. Puedes desactivar este paso poniendo `aproximar = FALSE`.
 #' Finalmente, se muestra una tabla que describe el proceso de limpieza para su revisión (que puede ocultarse con `mostrar_proceso = FALSE`, y se retornan las comunas correctas.
 #'
 #' @param nombre_comuna Vector de nombres de comunas
@@ -34,17 +35,23 @@ limpiar_comunas <- function(
 
   # nombre_comuna <- c("Iquique", "COLCHANE", "Alto Hospicio", "probidencia", "Pozo Almonte", "Camiña", "HUARA", "PICA", "ANTOFAGASTA", "laflorida", "cerritos", "llay-llay", "asdf", NA )
 
-  # si no hay en un paso, mostrar mensaje distinto
-  # al redactar, si son demasiadas, truncar
-  # O´HIGGINS, TREHUACO
   # nombre_comuna <- c("O´HIGGINS", "TREHUACO")
 
+  # nombre_comuna <- c("PORVENIR", "PORVENIR", "NATALES", "NATALES", "CABO DE HORNOS(EX-NAVARINO)")
+
   # empezar a registrar resultados
-  resultados <- dplyr::tibble(nombre_comuna)
+  comunas_originales <- dplyr::tibble(nombre_comuna)
+
+  resultados <- comunas_originales |>
+    dplyr::distinct()
 
   cli::cli_alert_info(
-    "Limpiando {nrow(resultados)} nombres de comuna{?s} ({dplyr::n_distinct(nombre_comuna)} son distintas)"
+    "Limpiando {nrow(comunas_originales)} nombres de comuna{?s} ({dplyr::n_distinct(nombre_comuna)} son distintas)"
   )
+
+  # optimizar ----
+  resultados <- resultados |>
+    dplyr::mutate(comunas_limpias = limpiar_texto(nombre_comuna))
 
   # correctas ----
 
@@ -68,11 +75,11 @@ limpiar_comunas <- function(
   cli::cli_h3("Paso 1: confirmar comunas correctas")
   if (length(comunas_correctas) == 0) {
     cli::cli_alert_info(
-      "De las {nrow(resultados)} comunas, ninguna tiene nombres 100% correctos. Los siguientes pasos intentarán la limpieza"
+      "De las {nrow(resultados)} comunas distintas, ninguna tiene nombres 100% correctos. Los siguientes pasos intentarán la limpieza"
     )
   } else {
     cli::cli_alert_info(
-      "De las {nrow(resultados)} comunas, {length(comunas_correctas)} ya eran correctas: {redactar_comunas(comunas_correctas)}"
+      "De las {nrow(resultados)} comunas distintas, {length(comunas_correctas)} ya eran correctas: {redactar_comunas(comunas_correctas)}"
     )
   }
   cli::cli_par()
@@ -90,9 +97,9 @@ limpiar_comunas <- function(
     dplyr::mutate(
       limpieza = dplyr::if_else(
         # !is.na(correctas) ~ NA_character_,
-        limpiar_texto(nombre_comuna) %in% comunas_oficiales_limpias,
+        comunas_limpias %in% comunas_oficiales_limpias,
         territorial::comunas()[match(
-          limpiar_texto(nombre_comuna),
+          comunas_limpias,
           comunas_oficiales_limpias
         )],
         NA
@@ -111,21 +118,42 @@ limpiar_comunas <- function(
   )
   cli::cli_par()
 
+  # casos especiales ----
+  cli::cli_h3("Paso 3: casos especiales")
+
+  resultados <- resultados |>
+    dplyr::mutate(
+      especiales = dplyr::case_when(
+        stringr::str_detect(comunas_limpias, "cabo.*hornos") ~ "Cabo de Hornos",
+        stringr::str_detect(comunas_limpias, "navarino") ~ "Cabo de Hornos"
+      )
+    )
+
+  # extraer limpiadas en este paso
+  comunas_especiales <- resultados |>
+    dplyr::select(especiales) |>
+    na.omit() |>
+    dplyr::pull()
+
+  # informar
+  cli::cli_alert_info(
+    "Se encontraron {length(comunas_especiales)} casos especiales: {redactar_comunas(comunas_especiales)}"
+  )
+  cli::cli_par()
+
   # coincidir ----
   # las demás, aproximarlas con agrepl, retornar con advertencia
-  cli::cli_h3("Paso 3: coincidencias aproximadas de texto")
+  cli::cli_h3("Paso 4: coincidencias aproximadas de texto")
 
   if (aproximar) {
     faltantes <- resultados |>
       dplyr::mutate(
         coincidir = dplyr::if_else(
-          is.na(correctas) & is.na(limpieza),
-          nombre_comuna,
+          is.na(correctas) & is.na(limpieza) & is.na(especiales),
+          comunas_limpias,
           NA
         )
-      ) |>
-      #limpiar comuna
-      dplyr::mutate(coincidir = limpiar_texto(coincidir))
+      )
   } else {
     cli::cli_alert_info("Omitiendo limpieza por coincidencias aproximadas")
     faltantes <- resultados |>
@@ -211,7 +239,7 @@ limpiar_comunas <- function(
   limpiado <- resultados |>
     dplyr::rename(original = nombre_comuna) |>
     dplyr::mutate(
-      resultado = dplyr::coalesce(correctas, limpieza, coincidencia)
+      resultado = dplyr::coalesce(correctas, limpieza, especiales, coincidencia)
     )
 
   comunas_limpiadas <- limpiado |>
@@ -223,13 +251,28 @@ limpiar_comunas <- function(
 
   # informar
   cli::cli_alert_success(
-    "De las {nrow(resultados)} comunas, se limpiaron {length(comunas_limpiadas)} en total ({round(porcentaje, 2) * 100}%)"
+    "De las {nrow(resultados)} comunas distintas, se limpiaron {length(comunas_limpiadas)} en total ({round(porcentaje, 2) * 100}%)"
   )
 
   if (mostrar_proceso) {
     cli::cli_alert_info("Mostrando proceso:")
-    print(limpiado, n = Inf)
+    limpiado |>
+      dplyr::distinct() |>
+      print(n = Inf)
   }
 
-  return(limpiado$resultado)
+  # volver a unir con las originales
+  resultado <- comunas_originales |>
+    dplyr::left_join(
+      limpiado |>
+        dplyr::filter(!is.na(resultado)) |>
+        dplyr::select(nombre_comuna = original, resultado),
+      by = "nombre_comuna"
+    )
+
+  if (length(resultado$resultado) != length(nombre_comuna)) {
+    cli::cli_abort("El resultado no es del mismo largo que el input")
+  }
+
+  return(resultado$resultado)
 }
