@@ -27,7 +27,7 @@ validar_comunas <- function(
   } else if (is.vector(datos)) {
     nombre_comuna <- as.character(datos)
   } else {
-    cli::cli_abort("datos de tipo incompatible, debe ser dataframe o vector")
+    cli::cli_abort("Datos de tipo incompatible, debe ser dataframe o vector")
   }
 
   # nombre_comuna <- territorial::comunas()
@@ -37,6 +37,16 @@ validar_comunas <- function(
 
   revisar <- list()
 
+  # comunas correctas ---
+  # nombre_comuna <- c("Puente Alto", "Perrito", "Cerrillos")
+  revisar$comunas_correctas <- !nombre_comuna %in% territorial::comunas()
+
+  if (any(revisar$comunas_correctas)) {
+    cli::cli_alert_info(
+      "Resumen: {sum(revisar$comunas_correctas)} caso{?s} de comunas que no conciden con comunas correctamente escritas (ver {.fun territorial::comunas})"
+    )
+  }
+
   # mayúsculas ----
   # nombre_comuna <- territorial::comunas()
   # nombre_comuna <-  c(toupper(territorial::comunas()[1:4]), territorial::comunas()[5:16])
@@ -44,7 +54,7 @@ validar_comunas <- function(
 
   if (any(revisar$mayusculas)) {
     cli::cli_alert_warning(
-      "mayúsculas: {sum(revisar$mayusculas)} caso{?s} de comunas escritas en mayúsculas"
+      "Mayúsculas: {sum(revisar$mayusculas)} caso{?s} de comunas escritas en mayúsculas {redactar_comunas(nombre_comuna[revisar$mayusculas])}"
     )
   }
 
@@ -55,7 +65,7 @@ validar_comunas <- function(
 
   if (any(revisar$minusculas)) {
     cli::cli_alert_warning(
-      "mayúsculas: {sum(revisar$minusculas)} caso{?s} de comunas escritas en minúsculas"
+      "Minúsculas: {sum(revisar$minusculas)} caso{?s} de comunas escritas en minúsculas: {redactar_comunas(nombre_comuna[revisar$minusculas])}"
     )
   }
 
@@ -68,52 +78,109 @@ validar_comunas <- function(
 
   if (any(revisar$mayusc_preposic)) {
     cli::cli_alert_warning(
-      "mayúsculas: {sum(revisar$mayusc_preposic)} caso{?s} de comunas con preposiciones ('de', 'del') escritas en mayúsculas"
-    )
-  }
-
-  # comunas correctas ---
-  # nombre_comuna <- c("Puente Alto", "Perrito", "Cerrillos")
-  revisar$comunas_correctas <- !nombre_comuna %in% territorial::comunas()
-
-  if (any(revisar$comunas_correctas)) {
-    cli::cli_alert_info(
-      "resumen: {sum(revisar$comunas_correctas)} caso{?s} de comunas que no conciden con comunas correctamente escritas (ver {.fun territorial::comunas})"
+      "Mayúsculas: {sum(revisar$mayusc_preposic)} caso{?s} de comunas con preposiciones ('de', 'del') escritas en mayúsculas: {redactar_comunas(nombre_comuna[revisar$mayusc_preposic])}"
     )
   }
 
   # # comunas sin tilde ----
-  # comunas_con_tilde <- territorial::comunas() |>
-  #   stringr::str_subset("á|é|í|ó|ú|Á|É|Í|Ó|Ú")
-  #
-  # comunas_sin_tilde <- chartr(
-  #   "áéíóúÁÉÍÓÚ",
-  #   "aeiouAEIOU",
-  #   comunas_con_tilde
+  # nombre_comuna <- territorial::comunas()
+  # nombre_comuna <- c("Maipu", "Alhue", "Peñalolén", "Nunoa", "vina del mar")
+  comunas_con_tilde <- territorial::comunas() |>
+    stringr::str_subset("á|é|í|ó|ú|Á|É|Í|Ó|Ú")
+
+  comunas_sin_tilde <- chartr(
+    "áéíóúÁÉÍÓÚ",
+    "aeiouAEIOU",
+    comunas_con_tilde
+  )
+
+  revisar$sin_tilde <- tolower(nombre_comuna) %in% tolower(comunas_sin_tilde)
+
+  if (any(revisar$sin_tilde)) {
+    cli::cli_alert_info(
+      "Tildes: {sum(revisar$sin_tilde)} caso{?s} de comunas que deberían tener tildes y no los tienen: {redactar_comunas(nombre_comuna[revisar$sin_tilde])}"
+    )
+  }
+
+  # comunas sin eñe ----
+  comunas_con_eñe <- territorial::comunas() |>
+    stringr::str_subset("ñ|Ñ")
+
+  comunas_sin_eñe <- chartr(
+    "ñÑ",
+    "nN",
+    comunas_con_eñe
+  )
+
+  revisar$sin_eñe <- tolower(nombre_comuna) %in% tolower(comunas_sin_eñe)
+
+  if (any(revisar$sin_eñe)) {
+    cli::cli_alert_info(
+      "Eñes: {sum(revisar$sin_eñe)} caso{?s} de comunas escritas sin eñe: {redactar_comunas(nombre_comuna[revisar$sin_eñe])}"
+    )
+  }
+
+  # comunas sin diéresis ----
+  comunas_con_dieresis <- territorial::comunas() |>
+    stringr::str_subset("ä|ë|ï|ö|ü|Ä|Ë|Ï|Ö|Ü")
+
+  comunas_sin_dieresis <- chartr(
+    "äëïöüÄËÏÖÜ",
+    "aeiouAEIOU",
+    comunas_con_dieresis
+  )
+
+  revisar$sin_dieresis <- tolower(nombre_comuna) %in%
+    tolower(comunas_sin_dieresis)
+
+  if (any(revisar$sin_dieresis)) {
+    cli::cli_alert_info(
+      "Eñes: {sum(revisar$sin_dieresis)} caso{?s} de comunas que deberían tener diéresis (¨) y no tienen: {redactar_comunas(nombre_comuna[revisar$sin_dieresis])}"
+    )
+  }
+
+  # problemas típicos ----
+  comunas_mal_escritas <- c(
+    "Ohiggins",
+    "O´higgins",
+    "O`higgins",
+    "Llay-llay",
+    "Llayllay",
+    "Llay llay",
+    "Llai llay",
+    "Llai llai"
+  )
+
+  revisar$tipicos <- tolower(nombre_comuna) %in%
+    tolower(comunas_mal_escritas)
+
+  if (any(revisar$tipicos)) {
+    cli::cli_alert_info(
+      "Problemas comunes: {sum(revisar$tipicos)} caso{?s} de comunas popularmente mal escritas: {redactar_comunas(nombre_comuna[revisar$tipicos])}"
+    )
+  }
+
+  # formas recomendadas ----
+  comunas_recomendadas <- c(
+    "Treguaco",
+    "Paiguano",
+    "Aisén",
+    "Aisen"
+  )
+
+  revisar$distintas <- tolower(nombre_comuna) %in%
+    tolower(comunas_recomendadas)
+
+  if (any(revisar$distintas)) {
+    cli::cli_alert_info(
+      "Escrituras alternativas: {sum(revisar$distintas)} caso{?s} de comunas escritas de una forma no recomendada, aunque válida: {redactar_comunas(nombre_comuna[revisar$distintas])}"
+    )
+  }
+
+  # # inexistentes ----
+  # comunas_recomendadas <- c(
+  #   "Navarino",
   # )
-  # tolower(nombre_comuna) %in% tolower(comunas_limpias)
-  #
-  # # comunas sin eñe ----
-  # comunas_con_eñe <- territorial::comunas() |>
-  #   stringr::str_subset("ñ|Ñ")
-  #
-  # comunas_sin_eñe <- chartr(
-  #   "ñÑ",
-  #   "nN",
-  #   comunas_con_eñe
-  # )
-  #
-  # # comunas sin diéresis ----
-  # comunas_con_dieresis <- territorial::comunas() |>
-  #   stringr::str_subset("ä|ë|ï|ö|ü|Ä|Ë|Ï|Ö|Ü")
-  #
-  # comunas_sin_dieresis <- chartr(
-  #   "äëïöüÄËÏÖÜ",
-  #   "aeiouAEIOU",
-  #   comunas_con_dieresis
-  # )
-  #
-  # O'Higgins ----
 
   return(datos)
 }

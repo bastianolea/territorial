@@ -92,3 +92,16 @@ test_that("validar comuna desde dataframe 2", {
   )
 }) |>
   suppressMessages()
+
+test_that("validar escritura alternativa de paiguano", {
+  expect_condition(
+    validar_comunas("Paiguano")
+  )
+}) |>
+  suppressMessages()
+
+test_that("validar escritura correcta de paiguano", {
+  expect_no_condition(
+    validar_comunas("Paihuano")
+  )
+})
