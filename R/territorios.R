@@ -4,7 +4,7 @@
 #'
 #' Las modificaciones realizadas a los datos son: formas alternativas de escribir las comunas de Treguaco (Trehuaco) y Paiguano (Paihuano), optando por las formas que son usadas por sus municipios (Trehuaco y Paihuano, respectivamente).
 #'
-#' @format A data frame with 346 rows and 6 columns:
+#' @format Un data frame con 346 filas y 6 columnas:
 #' \describe{
 #'   \item{codigo_region}{Código único territorial de las regiones de Chile (número entre 1 y 16)}
 #'   \item{nombre_region}{Nombre de las regiones de Chile}

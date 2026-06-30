@@ -11,6 +11,7 @@ reference:
   - regiones
   - clasificacion
   - contextualizar
+  - localidades
 
 - title: Evaluación de unidades territoriales
   desc: Funciones que permiten probar la calidad de los datos, o pueden ser usados para lógica condicional
