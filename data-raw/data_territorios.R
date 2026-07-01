@@ -12,9 +12,13 @@ territorios <- codigos_comunales |>
     nombre_comuna = replace_values(
       nombre_comuna,
       "Paiguano" ~ "Paihuano",
-      "Treguaco" ~ "Trehuaco"
+      "Treguaco" ~ "Trehuaco",
+      "Los Alamos" ~ "Los Álamos",
+      "Los Angeles" ~ "Los Ángeles"
     )
   )
 
+# # revisar
+# territorios |> filter(str_detect(nombre_comuna, "Coy"))
+
 usethis::use_data(territorios, overwrite = TRUE)
-# Document your data (see <https://r-pkgs.org/data.html>).
