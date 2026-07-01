@@ -41,7 +41,7 @@ jobs:
         shell: bash
 
       - name: Build site
-        run: pkgdown::build_site_github_pages(new_process = FALSE, install = FALSE)
+        run: pkgdown::build_site_github_pages(new_process = FALSE, install = TRUE)
         shell: Rscript {0}
         env:
           LANG: es_ES.UTF-8
