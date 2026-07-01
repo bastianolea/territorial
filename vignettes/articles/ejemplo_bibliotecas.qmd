@@ -1,0 +1,163 @@
+---
+title: "Ejemplo: préstamos bibliotecarios"
+description: Limpieza de datos comunales de préstamos en bibliotecas públicas de Chile según género, obtenidos desde el Servicio Nacional del Patrimonio Cultural mediante solicitud de transparencia.
+knitr:
+  opts_chunk:
+    collapse: true
+    comment: '#>'
+editor_options: 
+  chunk_output_type: console
+---
+
+En este ejemplo se limpian datos territoriales sobre préstamo de material bibliográfico en bibliotecas públicas de Chile, a nivel comunal y por género de las personas solicitantes de material. Los datos corresponden al año 2025, y fueron obtenidos desde el Servicio Nacional del Patrimonio Cultural por medio de una solicitud de transparencia realizada el año 2025.
+
+Estos datos son públicos y oficiales, y fueron obtenidos como parte del desarrollo del [Índice de Brechas de Género](https://www.descentralizachile.cl/ibg/) de Subdere.
+
+Puedes [descargar aquí los datos](https://github.com/bastianolea/territorial/raw/main/data-raw/ejemplo_bibliotecas.xlsx) para seguir el ejemplo.
+
+----
+
+Primero cargamos los datos originales:
+
+```{r}
+library(readxl)
+library(here)
+
+biblio <- read_xlsx(
+  here("data-raw/ejemplo_bibliotecas.xlsx"),
+  sheet = 2,
+  skip = 3)
+
+biblio
+```
+
+Notamos que en una sola columna se codifican las regiones, las comunas y el sexo de las personas, una pésima práctica de gestión de los datos, pero que lamentablemente resulta común, y que las cifras que corresponden a libros prestados están disgregadas en varias columnas que codifican una misma variable, la edad.
+
+Empezamos la limpieza omitiendo la variable de edad para quedarnos con la columna que codifica los tres grupos, y la cantidad total de préstamos:
+
+```{r}
+#| message: false
+#| warning: false
+
+library(dplyr)
+library(janitor)
+
+biblio <- biblio |> 
+  clean_names() |> 
+  select(grupo = region_comuna_sexo, 
+         prestamos = total_general)
+
+biblio
+```
+
+Luego intentamos codificar los valores de la columna miscelánea para detectar cuando las filas contengan valores por género:
+
+```{r}
+biblio <- biblio |> 
+  mutate(tipo = case_when(
+    grupo %in% c("Mujer", "Hombre", "Sin información", 
+                 "No binario", "No binario**") ~ "genero",
+    .default = "otro")
+  ) |> 
+  filter(grupo != "Total general")
+
+biblio
+```
+
+
+Dado que detectamos en la columna `tipo` las observaciones que contienen datos de género, podemos asumir que todas las demás filas corresponden a unidades territoriales: ya sean comunas o regiones. 
+
+```{r}
+biblio <- biblio |> 
+  mutate(unidad = case_when(tipo == "otro" ~ grupo))
+
+biblio
+```
+
+Como las filas de esta tabla desordenada vienen ordenadas, podemos identificar que los géneros que detectamos en cada fila corresponden a la comuna que tienen inmediatamente encima, así que extendemos el valor de las unidades territoriales hacia abajo con `tidyr::fill()`:
+
+```{r}
+library(tidyr)
+
+biblio <- biblio |> 
+  fill(unidad, .direction = "down")
+
+biblio
+```
+
+Ahora recodificamos rápidamente los géneros para reducir sus posibilidades, y excluimos todos los demás valores que nos resultan irrelevantes por el momento:
+
+```{r}
+library(stringr)
+
+biblio <- biblio |> 
+  filter(tipo == "genero") |> 
+  mutate(genero = case_when(
+    grupo == "Mujer" ~ "Femenino",
+    grupo == "Hombre" ~ "Masculino",
+    str_detect(grupo, "No bin") ~ "No binario")) |> 
+  filter_out(is.na(genero))
+
+biblio
+```
+
+Como solamente las comunas tenían datos de género, al excluir los géneros no identificados también estamos excluyendo los totales regionales, que entorpecían la estructura de los datos sin aportar información (dado que son meramente la suma de los valores comunales).
+
+Finalmente, pivotamos los valores hacia lo ancho, para terminar con una columna por género, y una fila por comuna.
+```{r}
+biblio_ancho <- biblio |> 
+  select(-tipo, -grupo) |> 
+  pivot_wider(names_from = genero, values_from = prestamos, values_fill = 0)
+
+biblio_ancho
+```
+
+Ahora cargamos el paquete `{territorial}` para evaluar la calidad de los nombres de las comunas en esta base de datos:
+
+```{r}
+library(territorial)
+
+biblio_ancho |> 
+  validar_comunas(unidad)
+```
+
+Como vemos en el reporte, nos encontramos con varias comunas con problemas de escritura: entre ellas La Calera (debería ser _Calera)_, Alto BioBío (_Alto Biobío_), Aisén y Coihaique con redacciones alternativas y O’Higgins con un apóstrofo incorrecto.
+
+Para corregir estos problemas y limpiar los datos de nivel comunal usamos `limpiar_comunas()` sobre la columna que contiene las unidades territoriales:
+
+```{r}
+biblio_limpio <- biblio_ancho |> 
+  mutate(nombre_comuna = limpiar_comunas(unidad)) |> 
+  relocate(nombre_comuna) |> 
+  select(-unidad)
+
+biblio_limpio
+```
+
+La función indica los detalles de los problemas corregidos, e indica que, si bien habían 317 comunas de 325 correctamente escritas, se limpiaron el 100% de las comunas; es decir, cada comuna encontró una coincicencia con una comuna bien escrita, por medio de alguno de los pasos de limpieza.
+
+Ahora que tenemos las comunas correctas, podemos usar `contextualizar()` para agregar todas las demás columnas territoriales (códigos únicos territoriales, regiones, provincias), o si solamente necesitamos las regiones, usamos `ubicar_comunas()` para obtener la región de cada comuna:
+
+```{r}
+biblio_limpio <- biblio_limpio |> 
+  mutate(nombre_region = ubicar_comunas(nombre_comuna)) |> 
+  relocate(nombre_region, .after = nombre_comuna)
+
+biblio_limpio
+```
+
+Terminamos un dataset con datos limpios! Podemos confirmarlo porque `validar_comunas()` no retorna ninguna alerta:
+
+```{r}
+biblio_limpio |> 
+  validar_comunas(nombre_comuna)
+```
+
+O podemos confirmar filtrando los datos que no son nombres de comuna correctos:
+
+```{r}
+biblio_limpio |> 
+  filter(!is_nombre_comuna(nombre_comuna))
+```
+
+

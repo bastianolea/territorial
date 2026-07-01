@@ -12,7 +12,7 @@ validar_comunas(datos, variable = NULL)
 \item{variable}{Columna del dataframe con los nombres de comunas (se pasa sin comillas, p.ej. \code{comuna})}
 }
 \value{
-Dataframe o vector intacto, con mensajes de diagnóstico si se encuentran problemas de calidad
+Dataframe o vector intacto pero en modo invisible, con mensajes de diagnóstico si se encuentran problemas de calidad
 }
 \description{
 Esta función recibe una columna con nombres de comunas de un dataframe (idealmente \code{nombre_comuna}), o un vector con nombres de comunas, y retorna una evaluación de posibles problemas con los nombres existentes. Funciona tanto con un dataframe con una columna \code{nombre_comuna}, o un vector que contenga los nombres de comunas a evaluar. La función solamente retorna avisos cuando existan problemas, por lo que si todos los datos son correctos, solo devolverá los datos tal cual.

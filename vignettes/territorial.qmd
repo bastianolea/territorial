@@ -1,5 +1,6 @@
 ---
 title: "Introducción al paquete"
+description: Instalación y primeros pasos con el paquete `{territorial}`.
 vignette: >
   %\VignetteIndexEntry{territorial}
   %\VignetteEngine{quarto::html}

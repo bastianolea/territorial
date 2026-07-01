@@ -4,14 +4,14 @@
 \alias{limpiar_comunas}
 \title{Limpieza de nombres de comunas de Chile a sus nombres oficiales}
 \usage{
-limpiar_comunas(nombre_comuna, aproximar = TRUE, mostrar_proceso = TRUE)
+limpiar_comunas(nombre_comuna, aproximar = TRUE, mostrar_proceso = FALSE)
 }
 \arguments{
 \item{nombre_comuna}{Vector de nombres de comunas}
 
 \item{aproximar}{El paso de limpieza por aproximación y coincidencia de nombres puede entregar resultados inexactos. Cambiar a FALSE para omitir.}
 
-\item{mostrar_proceso}{Por defecto, muestra una tabla con el resultado del proceso de limpieza. Cambiar a FALSE para ocultar.}
+\item{mostrar_proceso}{Mostrar una tabla con el resultado del proceso de limpieza. Elegir entre TRUE o FALSE.}
 }
 \value{
 Vector de nombres de comunas con correcciones aplicadas.

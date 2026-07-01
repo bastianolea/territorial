@@ -36,15 +36,17 @@ reference:
   contents:
   - starts_with("agregar_")
 
-# articles:
-# - title: Viñetas
-#   navbar: ~
-#   desc: Información general sobre el paquete
-#   contents:
-#   - territorial
-#   - localidades
-#   - codigos_unicos_territoriales
-# - title: Ejemplos
-#   desc: Casos de uso del paquete
-#   contents:
-#   - articles/ejemplo_servel
+articles:
+- title: Viñetas
+  navbar: ~
+  desc: Información general sobre el paquete
+  contents:
+  - territorial
+  - localidades
+  - codigos_unicos_territoriales
+- title: Ejemplos
+  navbar: Ejemplos
+  desc: Casos de uso del paquete
+  contents:
+  - articles/ejemplo_servel
+  - articles/ejemplo_bibliotecas

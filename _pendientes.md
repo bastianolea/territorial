@@ -2,21 +2,21 @@
 ## Pendientes
 - [ ] `is_comuna()`: poner error si no se entrega comuna
 - [ ] `is_comuna()`: poner error si no es caracter
-- [ ] editar vignettes/territorial.qmd
+- [x] editar vignettes/territorial.qmd
 - [-] agregar github action de tests (no porque webea el warning)
 - [x] subir a github pages
   - [x] cambiar a español
 - [x] escribir readme
-- [ ] crear ejemplos con datos reales
+- [x] crear ejemplos con datos reales
 - [x] crear examples para cada función
 - [x] hacer hex logo
-- [ ] tabla con formas alternativas de escribir comunas
+- [x] tabla con formas alternativas de escribir comunas
 - [ ] ver guía de estilo para pensar nombres de funciones
 - [-] cambiar tildes por ascii: stringi::stri_escape_unicode("Lélàô ")
-- [ ] explicar leves modificaciones de tabla de territorios
+- [x] explicar leves modificaciones de tabla de territorios
 - [ ] `contextualizar()`: qué pasa cuando es a nivel regional?
   - [ ] ¿es un buen nombre?
-- [ ] buscar y limpiar datos de localidades
+- [x] buscar y limpiar datos de localidades
 - [x] cambiar puntos por guiones bajos
 - [x] `validar_regiones()`
 - [x] arreglar: no se llaman artículos, sino preposiciones

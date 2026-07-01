@@ -1,5 +1,6 @@
 ---
 title: "Códigos Únicos Territoriales"
+description: Información sobre la tabla de códigos únicos territoriales (CUT) de comunas, provincias y regiones.
 vignette: >
   %\VignetteIndexEntry{codigos_unicos_territoriales}
   %\VignetteEngine{quarto::html}
@@ -33,6 +34,7 @@ territorial::territorios |>
   distinct() |> 
   print(n = Inf)
 ```
+
 ## Provincias
 Las **provincias** toman el código de la región a la que pertenecen, y le agregan un dígito al final. Por ejemplo, en la Región Metropolitana (región de código 13) existen 6 provincias, siendo la provincia de Santiago la de código 131 (región 13, provincia 1), la provincia Cordillera código 132 (región 13, provincia 2), etc.
 

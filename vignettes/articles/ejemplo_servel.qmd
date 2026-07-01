@@ -1,5 +1,6 @@
 ---
 title: "Ejemplo: datos electorales"
+description: Limpieza de datos comunales de afiliaciones a partidos políticos según género, obtenidos desde el Servel mediante solicitud de transparencia.
 knitr:
   opts_chunk:
     collapse: true
@@ -9,6 +10,12 @@ editor_options:
 ---
 
 En este ejemplo usaremos el paquete de R `{territorial}` para llevar a cabo una limpieza de datos territoriales correspondientes a afiliaciones a partidos políticos por sexo y edad. Los datos fueron obtenidos por una solicitud de transparencia (Concejo por la Transparencia) al Servicio Electoral (Servel) de Chile en el año 2025.
+
+Estos datos son públicos y oficiales, y fueron obtenidos como parte del desarrollo del [Índice de Brechas de Género](https://www.descentralizachile.cl/ibg/) de Subdere.
+
+Puedes [descargar aquí los datos](https://github.com/bastianolea/territorial/raw/main/data-raw/ejemplo_servel_partidos.xlsx) para seguir el ejemplo.
+
+----
 
 Primero cargamos los datos:
 
@@ -39,6 +46,9 @@ servel
 
 Ahora realizamos una limpieza de los nombres de las columnas:
 ```{r}
+#| message: false
+#| warning: false
+
 library(dplyr)
 library(janitor)
 

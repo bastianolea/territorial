@@ -1,5 +1,6 @@
 ---
 title: "Localidades"
+description: Sobre la tabla de localidades de Chile, basada en datos del estudio de Localidades en condición de aislamiento de Subdere (2021).
 vignette: >
   %\VignetteIndexEntry{localidades}
   %\VignetteEngine{quarto::html}
