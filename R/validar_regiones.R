@@ -5,7 +5,7 @@
 #' @param datos Dataframe con una columna de nombre de regiones, o vector de nombres de regiones
 #' @param variable Columna del dataframe con los nombres de regiones (se pasa sin comillas, p.ej. `region`)
 #'
-#' @returns Dataframe o vector intacto, con mensajes de diagnóstico si se encuentran problemas de calidad
+#' @returns Dataframe o vector intacto pero en modo invisible, con mensajes de diagnóstico si se encuentran problemas de calidad
 #' @export
 #'
 #' @examples
@@ -31,7 +31,7 @@ validar_regiones <- function(
   } else if (is.vector(datos)) {
     nombre_region <- as.character(datos)
   } else {
-    cli::cli_abort("datos de tipo incompatible, debe ser dataframe o vector")
+    cli::cli_abort("Datos de tipo incompatible, debe ser dataframe o vector")
   }
   # nombre_region <- territorial::regiones()
   # nombre_region <-  c(toupper(territorial::regiones()[1:4]), territorial::regiones()[5:16])
@@ -55,7 +55,7 @@ validar_regiones <- function(
 
   if (any(revisar$mayusculas)) {
     cli::cli_alert_warning(
-      "mayúsculas: {sum(revisar$mayusculas)} caso{?s} de regiones escritas en mayúsculas"
+      "Mayúsculas: {sum(revisar$mayusculas)} caso{?s} de regiones escritas en mayúsculas"
     )
   }
 
@@ -66,7 +66,7 @@ validar_regiones <- function(
 
   if (any(revisar$minusculas)) {
     cli::cli_alert_warning(
-      "mayúsculas: {sum(revisar$minusculas)} caso{?s} de regiones escritas en minúsculas"
+      "Mayúsculas: {sum(revisar$minusculas)} caso{?s} de regiones escritas en minúsculas"
     )
   }
 
@@ -79,7 +79,7 @@ validar_regiones <- function(
 
   if (any(revisar$mayusc_preposic)) {
     cli::cli_alert_warning(
-      "mayúsculas: {sum(revisar$mayusc_preposic)} caso{?s} de regiones con preposiciones ('de', 'del') escritas en mayúsculas"
+      "Mayúsculas: {sum(revisar$mayusc_preposic)} caso{?s} de regiones con preposiciones ('de', 'del') escritas en mayúsculas"
     )
   }
 
@@ -89,7 +89,7 @@ validar_regiones <- function(
 
   if (any(revisar$nuble)) {
     cli::cli_alert_warning(
-      "ortografía: {sum(revisar$nuble)} caso{?s} de la Región de Ñuble escrita sin eñe"
+      "Ortografía: {sum(revisar$nuble)} caso{?s} de la Región de Ñuble escrita sin eñe"
     )
   }
 
@@ -99,7 +99,7 @@ validar_regiones <- function(
 
   if (any(revisar$ohiggins_1)) {
     cli::cli_alert_warning(
-      "ortografía: {sum(revisar$ohiggins_1)} caso{?s} de la Región de O'Higgins escrita sin su apóstrofo (')"
+      "Ortografía: {sum(revisar$ohiggins_1)} caso{?s} de la Región de O'Higgins escrita sin su apóstrofo (')"
     )
   }
 
@@ -112,7 +112,7 @@ validar_regiones <- function(
 
   if (any(revisar$ohiggins_2)) {
     cli::cli_alert_warning(
-      "ortografía: {sum(revisar$ohiggins_2)} caso{?s} de la Región de O'Higgins escrita con un apóstrofo (') incorrecto"
+      "Ortografía: {sum(revisar$ohiggins_2)} caso{?s} de la Región de O'Higgins escrita con un apóstrofo (') incorrecto"
     )
   }
 
@@ -122,7 +122,7 @@ validar_regiones <- function(
 
   if (any(revisar$aysen)) {
     cli::cli_alert_warning(
-      "ortografía: {sum(revisar$aysen)} caso{?s} de la Región de Aysén escrita con 'i' latina (no es incorrecto, pero es más usado con 'y' griega)"
+      "Ortografía: {sum(revisar$aysen)} caso{?s} de la Región de Aysén escrita con 'i' latina (no es incorrecto, pero es más usado con 'y' griega)"
     )
   }
 
@@ -134,7 +134,7 @@ validar_regiones <- function(
 
   if (any(revisar$tildes)) {
     cli::cli_alert_warning(
-      "ortografía: {sum(revisar$tildes)} caso{?s} de regiones escritas sin tilde"
+      "Ortografía: {sum(revisar$tildes)} caso{?s} de regiones escritas sin tilde"
     )
   }
 
@@ -147,19 +147,21 @@ validar_regiones <- function(
 
   if (any(revisar$preposiciones)) {
     cli::cli_alert_warning(
-      "redacción: {sum(revisar$preposiciones)} caso{?s} de regiones sin sus preposiciones ('la', 'los')"
+      "Redacción: {sum(revisar$preposiciones)} caso{?s} de regiones sin sus preposiciones ('la', 'los')"
     )
   }
 
-  # avisar si está todo ok, pero interfiere con los tests
-  # if (
-  #   !revisar |>
-  #     unlist() |>
-  #     is.na() |>
-  #     any()
-  # ) {
-  #   message("todas las regiones están escritas correctamente!")
-  # }
+  # browser()
 
-  return(datos)
+  n_problemas <- unlist(revisar) |> sum()
+
+  if (n_problemas == 0) {
+    cli::cli_alert_success("Todas las regiones están correctas!")
+  } else {
+    cli::cli_alert_danger(
+      "Validación de regiones: se encontr{?ó/aron} {n_problemas} problema{?s} con las regiones!"
+    )
+  }
+
+  return(invisible(datos))
 }

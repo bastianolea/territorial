@@ -46,7 +46,7 @@ validar_comunas <- function(
   revisar$comunas_correctas <- !nombre_comuna %in% territorial::comunas()
 
   if (any(revisar$comunas_correctas)) {
-    cli::cli_alert_info(
+    cli::cli_alert_warning(
       "Resumen: {sum(revisar$comunas_correctas)} caso{?s} de comunas que no conciden con comunas correctamente escritas (ver {.fun territorial::comunas}): {redactar_comunas(nombre_comuna[revisar$comunas_correctas])}"
     )
   }
@@ -185,6 +185,20 @@ validar_comunas <- function(
   # comunas_recomendadas <- c(
   #   "Navarino",
   # )
+
+  # browser()
+
+  # terminar ----
+
+  n_problemas <- unlist(revisar) |> sum()
+
+  if (n_problemas == 0) {
+    cli::cli_alert_success("Todas las comunas están correctas!")
+  } else {
+    cli::cli_alert_danger(
+      "Validación de comunas: se encontr{?ó/aron} {n_problemas} problema{?s} con las comunas! Usa {.fn territorial::limpiar_comunas} para solucionarlos."
+    )
+  }
 
   return(invisible(datos))
 }
