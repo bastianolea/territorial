@@ -47,7 +47,8 @@
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>Ejemplos</h6></li>
     <li><a class="dropdown-item" href="../articles/ejemplo_servel.html">Ejemplo: datos electorales</a></li>
-    <li><a class="dropdown-item" href="../articles/ejemplo_bibliotecas.html">Ejemplo: préstamos bibliotecarios</a></li>
+    <li><a class="dropdown-item" href="../articles/ejemplo_bibliotecas.html">Ejemplo: préstamos en bibliotecas</a></li>
+    <li><a class="dropdown-item" href="../articles/ejemplo_sercotec.html">Ejemplo: beneficiarios Sercotec</a></li>
   </ul>
 </li>
       </ul>
@@ -181,11 +182,12 @@
 <span></span>
 <span><span class="va">servel</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="../reference/validar_comunas.html">validar_comunas</a></span><span class="op">(</span><span class="va">comuna</span><span class="op">)</span></span>
-<span><span class="co">#&gt; ℹ Resumen: 12091 casos de comunas que no conciden con comunas correctamente escritas (ver `territorial::comunas()`): ANTOFAGASTA, CALAMA, MARIA ELENA, MEJILLONES, OLLAGUE, SAN PEDRO DE ATACAMA, SIERRA GORDA, TALTAL, TOCOPILLA, ARICA y 337 comunas más</span></span>
+<span><span class="co">#&gt; ! Resumen: 12091 casos de comunas que no conciden con comunas correctamente escritas (ver `territorial::comunas()`): ANTOFAGASTA, CALAMA, MARIA ELENA, MEJILLONES, OLLAGUE, SAN PEDRO DE ATACAMA, SIERRA GORDA, TALTAL, TOCOPILLA, ARICA y 337 comunas más</span></span>
 <span><span class="co">#&gt; ! Mayúsculas: 12091 casos de comunas escritas en mayúsculas: ANTOFAGASTA, CALAMA, MARIA ELENA, MEJILLONES, OLLAGUE, SAN PEDRO DE ATACAMA, SIERRA GORDA, TALTAL, TOCOPILLA, ARICA y 337 comunas más</span></span>
 <span><span class="co">#&gt; ℹ Tildes: 2335 casos de comunas que deberían tener tildes y no los tienen: MARIA ELENA, COPIAPO, AYSEN, RIO IBAÑEZ, COMBARBALA, RIO HURTADO, CURACAUTIN, PITRUFQUEN, PUCON, PUREN y 60 comunas más</span></span>
 <span><span class="co">#&gt; ℹ Eñes: 29 casos de comunas que deberían tener diéresis (¨) y no tienen: OLLAGUE</span></span>
-<span><span class="co">#&gt; ℹ Escrituras alternativas: 31 casos de comunas escritas de una forma no recomendada, aunque válida: PAIGUANO</span></span></code></pre></div>
+<span><span class="co">#&gt; ℹ Escrituras alternativas: 31 casos de comunas escritas de una forma no recomendada, aunque válida: PAIGUANO</span></span>
+<span><span class="co">#&gt; ✖ Validación de comunas: se encontraron 26577 problemas con las comunas! Usa `territorial::limpiar_comunas()` para solucionarlos.</span></span></code></pre></div>
 </div>
 <p>Vemos que hay miles de comunas escritas en mayúsculas, más de 2 mil comunas sin tildes, 29 casos de comunas sin eñes, y formas incorrectas de escribir comunas.</p>
 <p>Para arreglar las comunas mal escritas, usaremos la función <code><a href="../reference/limpiar_comunas.html">limpiar_comunas()</a></code> sobre la columna original, para crear una columna de nombres limpios:</p>
@@ -244,22 +246,9 @@
 <div class="sourceCode cell-code" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">servel_limpio</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="../reference/validar_regiones.html">validar_regiones</a></span><span class="op">(</span><span class="va">region</span><span class="op">)</span></span>
-<span><span class="co">#&gt; ! mayúsculas: 12091 casos de regiones escritas en mayúsculas</span></span>
-<span><span class="co">#&gt; ! ortografía: 3205 casos de regiones escritas sin tilde</span></span>
-<span><span class="co">#&gt; # A tibble: 12,091 × 6</span></span>
-<span><span class="co">#&gt;    region         comuna      partido             sexo  afiliados nombre_comuna</span></span>
-<span><span class="co">#&gt;    &lt;chr&gt;          &lt;chr&gt;       &lt;chr&gt;               &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt;        </span></span>
-<span><span class="co">#&gt;  1 DE ANTOFAGASTA ANTOFAGASTA RENOVACION NACIONAL M           748 Antofagasta  </span></span>
-<span><span class="co">#&gt;  2 DE ANTOFAGASTA ANTOFAGASTA RENOVACION NACIONAL V           676 Antofagasta  </span></span>
-<span><span class="co">#&gt;  3 DE ANTOFAGASTA CALAMA      RENOVACION NACIONAL M           294 Calama       </span></span>
-<span><span class="co">#&gt;  4 DE ANTOFAGASTA CALAMA      RENOVACION NACIONAL V           288 Calama       </span></span>
-<span><span class="co">#&gt;  5 DE ANTOFAGASTA MARIA ELENA RENOVACION NACIONAL M            38 María Elena  </span></span>
-<span><span class="co">#&gt;  6 DE ANTOFAGASTA MARIA ELENA RENOVACION NACIONAL V            24 María Elena  </span></span>
-<span><span class="co">#&gt;  7 DE ANTOFAGASTA MEJILLONES  RENOVACION NACIONAL M            10 Mejillones   </span></span>
-<span><span class="co">#&gt;  8 DE ANTOFAGASTA MEJILLONES  RENOVACION NACIONAL V            20 Mejillones   </span></span>
-<span><span class="co">#&gt;  9 DE ANTOFAGASTA OLLAGUE     RENOVACION NACIONAL M             8 Ollagüe      </span></span>
-<span><span class="co">#&gt; 10 DE ANTOFAGASTA OLLAGUE     RENOVACION NACIONAL V            12 Ollagüe      </span></span>
-<span><span class="co">#&gt; # ℹ 12,081 more rows</span></span></code></pre></div>
+<span><span class="co">#&gt; ! Mayúsculas: 12091 casos de regiones escritas en mayúsculas</span></span>
+<span><span class="co">#&gt; ! Ortografía: 3205 casos de regiones escritas sin tilde</span></span>
+<span><span class="co">#&gt; ✖ Validación de regiones: se encontraron 15296 problemas con las regiones!</span></span></code></pre></div>
 </div>
 <p>Nuevamente encontramos un caos de nombres de regiones. Pero, como ya obtuvimos las comunas limpias, podemos usar la función <code><a href="../reference/contextualizar.html">contextualizar()</a></code> para basarnos en las comunas limpias para agregar columnas que contextualicen dichas comunas en sus respectivas provincias y regiones:</p>
 <div class="cell">

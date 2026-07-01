@@ -35,9 +35,11 @@ diagnóstico si se encuentran problemas de calidad
 
 ``` r
 validar_comunas(c("chiguayante", "la florida", "paine"))
-#> ℹ Resumen: 3 casos de comunas que no conciden con comunas correctamente escritas (ver `territorial::comunas()`): chiguayante, la florida y paine
+#> ! Resumen: 3 casos de comunas que no conciden con comunas correctamente escritas (ver `territorial::comunas()`): chiguayante, la florida y paine
 #> ! Minúsculas: 3 casos de comunas escritas en minúsculas: chiguayante, la florida y paine
+#> ✖ Validación de comunas: se encontraron 6 problemas con las comunas! Usa `territorial::limpiar_comunas()` para solucionarlos.
 
 territorial::territorios |>
   validar_comunas(nombre_comuna)
+#> ✔ Todas las comunas están correctas!
 ```

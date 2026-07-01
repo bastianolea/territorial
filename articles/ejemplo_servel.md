@@ -130,11 +130,12 @@ library(territorial)
 
 servel |> 
   validar_comunas(comuna)
-#> ℹ Resumen: 12091 casos de comunas que no conciden con comunas correctamente escritas (ver `territorial::comunas()`): ANTOFAGASTA, CALAMA, MARIA ELENA, MEJILLONES, OLLAGUE, SAN PEDRO DE ATACAMA, SIERRA GORDA, TALTAL, TOCOPILLA, ARICA y 337 comunas más
+#> ! Resumen: 12091 casos de comunas que no conciden con comunas correctamente escritas (ver `territorial::comunas()`): ANTOFAGASTA, CALAMA, MARIA ELENA, MEJILLONES, OLLAGUE, SAN PEDRO DE ATACAMA, SIERRA GORDA, TALTAL, TOCOPILLA, ARICA y 337 comunas más
 #> ! Mayúsculas: 12091 casos de comunas escritas en mayúsculas: ANTOFAGASTA, CALAMA, MARIA ELENA, MEJILLONES, OLLAGUE, SAN PEDRO DE ATACAMA, SIERRA GORDA, TALTAL, TOCOPILLA, ARICA y 337 comunas más
 #> ℹ Tildes: 2335 casos de comunas que deberían tener tildes y no los tienen: MARIA ELENA, COPIAPO, AYSEN, RIO IBAÑEZ, COMBARBALA, RIO HURTADO, CURACAUTIN, PITRUFQUEN, PUCON, PUREN y 60 comunas más
 #> ℹ Eñes: 29 casos de comunas que deberían tener diéresis (¨) y no tienen: OLLAGUE
 #> ℹ Escrituras alternativas: 31 casos de comunas escritas de una forma no recomendada, aunque válida: PAIGUANO
+#> ✖ Validación de comunas: se encontraron 26577 problemas con las comunas! Usa `territorial::limpiar_comunas()` para solucionarlos.
 ```
 
 Vemos que hay miles de comunas escritas en mayúsculas, más de 2 mil
@@ -211,22 +212,9 @@ Queda limpiar las regiones. Primero las validamos con
 
 servel_limpio |> 
   validar_regiones(region)
-#> ! mayúsculas: 12091 casos de regiones escritas en mayúsculas
-#> ! ortografía: 3205 casos de regiones escritas sin tilde
-#> # A tibble: 12,091 × 6
-#>    region         comuna      partido             sexo  afiliados nombre_comuna
-#>    <chr>          <chr>       <chr>               <chr>     <dbl> <chr>        
-#>  1 DE ANTOFAGASTA ANTOFAGASTA RENOVACION NACIONAL M           748 Antofagasta  
-#>  2 DE ANTOFAGASTA ANTOFAGASTA RENOVACION NACIONAL V           676 Antofagasta  
-#>  3 DE ANTOFAGASTA CALAMA      RENOVACION NACIONAL M           294 Calama       
-#>  4 DE ANTOFAGASTA CALAMA      RENOVACION NACIONAL V           288 Calama       
-#>  5 DE ANTOFAGASTA MARIA ELENA RENOVACION NACIONAL M            38 María Elena  
-#>  6 DE ANTOFAGASTA MARIA ELENA RENOVACION NACIONAL V            24 María Elena  
-#>  7 DE ANTOFAGASTA MEJILLONES  RENOVACION NACIONAL M            10 Mejillones   
-#>  8 DE ANTOFAGASTA MEJILLONES  RENOVACION NACIONAL V            20 Mejillones   
-#>  9 DE ANTOFAGASTA OLLAGUE     RENOVACION NACIONAL M             8 Ollagüe      
-#> 10 DE ANTOFAGASTA OLLAGUE     RENOVACION NACIONAL V            12 Ollagüe      
-#> # ℹ 12,081 more rows
+#> ! Mayúsculas: 12091 casos de regiones escritas en mayúsculas
+#> ! Ortografía: 3205 casos de regiones escritas sin tilde
+#> ✖ Validación de regiones: se encontraron 15296 problemas con las regiones!
 ```
 
 Nuevamente encontramos un caos de nombres de regiones. Pero, como ya

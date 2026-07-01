@@ -47,7 +47,8 @@
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>Ejemplos</h6></li>
     <li><a class="dropdown-item" href="articles/ejemplo_servel.html">Ejemplo: datos electorales</a></li>
-    <li><a class="dropdown-item" href="articles/ejemplo_bibliotecas.html">Ejemplo: préstamos bibliotecarios</a></li>
+    <li><a class="dropdown-item" href="articles/ejemplo_bibliotecas.html">Ejemplo: préstamos en bibliotecas</a></li>
+    <li><a class="dropdown-item" href="articles/ejemplo_sercotec.html">Ejemplo: beneficiarios Sercotec</a></li>
   </ul>
 </li>
       </ul>
@@ -107,7 +108,7 @@
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">datos</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="reference/validar_comunas.html">validar_comunas</a></span><span class="op">(</span><span class="va">nombre_comuna</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb4"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a>ℹ Resumen<span class="sc">:</span> <span class="dv">7</span> casos de comunas que no conciden con comunas correctamente <span class="fu">escritas</span> (ver <span class="st">`</span><span class="at">territorial::comunas()</span><span class="st">`</span>)<span class="sc">:</span> PIRQUE, Maipu, santiago, prohibidencia, CERRILLOS, San José De Maipo y OHiggins</span>
+<div class="sourceCode" id="cb4"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="sc">!</span> Resumen<span class="sc">:</span> <span class="dv">7</span> casos de comunas que no conciden con comunas correctamente <span class="fu">escritas</span> (ver <span class="st">`</span><span class="at">territorial::comunas()</span><span class="st">`</span>)<span class="sc">:</span> PIRQUE, Maipu, santiago, prohibidencia, CERRILLOS, San José De Maipo y OHiggins</span>
 <span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="sc">!</span> Mayúsculas<span class="sc">:</span> <span class="dv">2</span> casos de comunas escritas en mayúsculas<span class="sc">:</span> PIRQUE y CERRILLOS</span>
 <span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a></span>
@@ -117,7 +118,9 @@
 <span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a></span>
 <span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a>ℹ Tildes<span class="sc">:</span> <span class="dv">1</span> caso de comunas que deberían tener tildes y no los tienen<span class="sc">:</span> Maipu</span>
 <span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a></span>
-<span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a>ℹ Problemas comunes<span class="sc">:</span> <span class="dv">1</span> caso de comunas popularmente mal escritas<span class="sc">:</span> OHiggins</span></code></pre></div>
+<span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a>ℹ Problemas comunes<span class="sc">:</span> <span class="dv">1</span> caso de comunas popularmente mal escritas<span class="sc">:</span> OHiggins</span>
+<span id="cb4-12"><a href="#cb4-12" tabindex="-1"></a></span>
+<span id="cb4-13"><a href="#cb4-13" tabindex="-1"></a>✖ Validación de comunas<span class="sc">:</span> se encontraron <span class="dv">14</span> problemas con las comunas<span class="sc">!</span> Usa <span class="st">`</span><span class="at">territorial::limpiar_comunas()</span><span class="st">`</span> para solucionarlos.</span></code></pre></div>
 <p>También puedes limpiar automáticamente las comunas con <code><a href="reference/limpiar_comunas.html">limpiar_comunas()</a></code>, y obtener una columna con las comunas correctas (que salen de la tabla <code><a href="reference/territorios.html">territorial::territorios</a></code>), obtenidas por medio de varias técnicas de limpieza de datos:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span></code></pre></div>

@@ -47,7 +47,8 @@
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>Ejemplos</h6></li>
     <li><a class="dropdown-item" href="../articles/ejemplo_servel.html">Ejemplo: datos electorales</a></li>
-    <li><a class="dropdown-item" href="../articles/ejemplo_bibliotecas.html">Ejemplo: préstamos bibliotecarios</a></li>
+    <li><a class="dropdown-item" href="../articles/ejemplo_bibliotecas.html">Ejemplo: préstamos en bibliotecas</a></li>
+    <li><a class="dropdown-item" href="../articles/ejemplo_sercotec.html">Ejemplo: beneficiarios Sercotec</a></li>
   </ul>
 </li>
       </ul>
@@ -136,12 +137,13 @@
 <div class="sourceCode cell-code" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">datos</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="../reference/validar_comunas.html">validar_comunas</a></span><span class="op">(</span><span class="va">nombre_comuna</span><span class="op">)</span></span>
-<span><span class="co">#&gt; ℹ Resumen: 7 casos de comunas que no conciden con comunas correctamente escritas (ver `territorial::comunas()`): PIRQUE, Maipu, santiago, prohibidencia, CERRILLOS, San José De Maipo y OHiggins</span></span>
+<span><span class="co">#&gt; ! Resumen: 7 casos de comunas que no conciden con comunas correctamente escritas (ver `territorial::comunas()`): PIRQUE, Maipu, santiago, prohibidencia, CERRILLOS, San José De Maipo y OHiggins</span></span>
 <span><span class="co">#&gt; ! Mayúsculas: 2 casos de comunas escritas en mayúsculas: PIRQUE y CERRILLOS</span></span>
 <span><span class="co">#&gt; ! Minúsculas: 2 casos de comunas escritas en minúsculas: santiago y prohibidencia</span></span>
 <span><span class="co">#&gt; ! Mayúsculas: 1 caso de comunas con preposiciones ('de', 'del') escritas en mayúsculas: San José De Maipo</span></span>
 <span><span class="co">#&gt; ℹ Tildes: 1 caso de comunas que deberían tener tildes y no los tienen: Maipu</span></span>
-<span><span class="co">#&gt; ℹ Problemas comunes: 1 caso de comunas popularmente mal escritas: OHiggins</span></span></code></pre></div>
+<span><span class="co">#&gt; ℹ Problemas comunes: 1 caso de comunas popularmente mal escritas: OHiggins</span></span>
+<span><span class="co">#&gt; ✖ Validación de comunas: se encontraron 14 problemas con las comunas! Usa `territorial::limpiar_comunas()` para solucionarlos.</span></span></code></pre></div>
 </div>
 </section><section class="level3"><h3 id="limpieza-de-nombres-de-comunas-de-chile">Limpieza de nombres de comunas de Chile<a class="anchor" aria-label="anchor" href="#limpieza-de-nombres-de-comunas-de-chile"></a>
 </h3>

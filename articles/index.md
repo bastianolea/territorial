@@ -30,9 +30,16 @@ Casos de uso del paquete
   Limpieza de datos comunales de afiliaciones a partidos políticos según
   género, obtenidos desde el Servel mediante solicitud de transparencia.
 
-- [Ejemplo: préstamos
-  bibliotecarios](https://bastianolea.github.io/territorial/articles/ejemplo_bibliotecas.md):
+- [Ejemplo: préstamos en
+  bibliotecas](https://bastianolea.github.io/territorial/articles/ejemplo_bibliotecas.md):
 
   Limpieza de datos comunales de préstamos en bibliotecas públicas de
   Chile según género, obtenidos desde el Servicio Nacional del
   Patrimonio Cultural mediante solicitud de transparencia.
+
+- [Ejemplo: beneficiarios
+  Sercotec](https://bastianolea.github.io/territorial/articles/ejemplo_sercotec.md):
+
+  Limpieza de datos comunales de beneficiarios de programas de Sercotec
+  en Chile según sexo, obtenidos desde datos abiertos del Servicio de
+  Cooperación Técnica.

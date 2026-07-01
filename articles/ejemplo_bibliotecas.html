@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Ejemplo: préstamos bibliotecarios • territorial</title>
+<title>Ejemplo: préstamos en bibliotecas • territorial</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="96x96" href="../favicon-96x96.png">
 <link rel="icon" type="”image/svg+xml”" href="../favicon.svg">
 <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
@@ -17,7 +17,7 @@
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><script src="ejemplo_bibliotecas_files/libs/quarto-html/popper.min.js"></script><script src="ejemplo_bibliotecas_files/libs/quarto-html/tippy.umd.min.js"></script><link href="ejemplo_bibliotecas_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="ejemplo_bibliotecas_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Ejemplo: préstamos bibliotecarios">
+<!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Ejemplo: préstamos en bibliotecas">
 <meta property="og:image" content="https://bastianolea.github.io/territorial/logo.png">
 </head>
 <body>
@@ -47,7 +47,8 @@
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>Ejemplos</h6></li>
     <li><a class="dropdown-item" href="../articles/ejemplo_servel.html">Ejemplo: datos electorales</a></li>
-    <li><a class="dropdown-item" href="../articles/ejemplo_bibliotecas.html">Ejemplo: préstamos bibliotecarios</a></li>
+    <li><a class="dropdown-item" href="../articles/ejemplo_bibliotecas.html">Ejemplo: préstamos en bibliotecas</a></li>
+    <li><a class="dropdown-item" href="../articles/ejemplo_sercotec.html">Ejemplo: beneficiarios Sercotec</a></li>
   </ul>
 </li>
       </ul>
@@ -64,7 +65,7 @@
 </nav><div class="container template-quarto">
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
-      <img src="../logo.png" class="logo" alt=""><h1>Ejemplo: préstamos bibliotecarios</h1>
+      <img src="../logo.png" class="logo" alt=""><h1>Ejemplo: préstamos en bibliotecas</h1>
 
 
 
@@ -275,8 +276,9 @@
 <span></span>
 <span><span class="va">biblio_ancho</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="../reference/validar_comunas.html">validar_comunas</a></span><span class="op">(</span><span class="va">unidad</span><span class="op">)</span></span>
-<span><span class="co">#&gt; ℹ Resumen: 8 casos de comunas que no conciden con comunas correctamente escritas (ver `territorial::comunas()`): La Calera, Treguaco, Alto BioBío, Los Ángeles, Padre las Casas, Aisén, Coihaique y O’Higgins</span></span>
-<span><span class="co">#&gt; ℹ Escrituras alternativas: 2 casos de comunas escritas de una forma no recomendada, aunque válida: Treguaco y Aisén</span></span></code></pre></div>
+<span><span class="co">#&gt; ! Resumen: 8 casos de comunas que no conciden con comunas correctamente escritas (ver `territorial::comunas()`): La Calera, Treguaco, Alto BioBío, Los Ángeles, Padre las Casas, Aisén, Coihaique y O’Higgins</span></span>
+<span><span class="co">#&gt; ℹ Escrituras alternativas: 2 casos de comunas escritas de una forma no recomendada, aunque válida: Treguaco y Aisén</span></span>
+<span><span class="co">#&gt; ✖ Validación de comunas: se encontraron 10 problemas con las comunas! Usa `territorial::limpiar_comunas()` para solucionarlos.</span></span></code></pre></div>
 </div>
 <p>Como vemos en el reporte, nos encontramos con varias comunas con problemas de escritura: entre ellas La Calera (debería ser <em>Calera)</em>, Alto BioBío (<em>Alto Biobío</em>), Aisén y Coihaique con redacciones alternativas y O’Higgins con un apóstrofo incorrecto.</p>
 <p>Para corregir estos problemas y limpiar los datos de nivel comunal usamos <code><a href="../reference/limpiar_comunas.html">limpiar_comunas()</a></code> sobre la columna que contiene las unidades territoriales:</p>
@@ -348,7 +350,8 @@
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">biblio_limpio</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu"><a href="../reference/validar_comunas.html">validar_comunas</a></span><span class="op">(</span><span class="va">nombre_comuna</span><span class="op">)</span></span></code></pre></div>
+<span>  <span class="fu"><a href="../reference/validar_comunas.html">validar_comunas</a></span><span class="op">(</span><span class="va">nombre_comuna</span><span class="op">)</span></span>
+<span><span class="co">#&gt; ✔ Todas las comunas están correctas!</span></span></code></pre></div>
 </div>
 <p>O podemos confirmar filtrando los datos que no son nombres de comuna correctos:</p>
 <div class="cell">

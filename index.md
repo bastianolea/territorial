@@ -88,7 +88,7 @@ datos |>
 ```
 
 ``` R
-ℹ Resumen: 7 casos de comunas que no conciden con comunas correctamente escritas (ver `territorial::comunas()`): PIRQUE, Maipu, santiago, prohibidencia, CERRILLOS, San José De Maipo y OHiggins
+! Resumen: 7 casos de comunas que no conciden con comunas correctamente escritas (ver `territorial::comunas()`): PIRQUE, Maipu, santiago, prohibidencia, CERRILLOS, San José De Maipo y OHiggins
 
 ! Mayúsculas: 2 casos de comunas escritas en mayúsculas: PIRQUE y CERRILLOS
 
@@ -99,6 +99,8 @@ datos |>
 ℹ Tildes: 1 caso de comunas que deberían tener tildes y no los tienen: Maipu
 
 ℹ Problemas comunes: 1 caso de comunas popularmente mal escritas: OHiggins
+
+✖ Validación de comunas: se encontraron 14 problemas con las comunas! Usa `territorial::limpiar_comunas()` para solucionarlos.
 ```
 
 También puedes limpiar automáticamente las comunas con

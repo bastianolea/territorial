@@ -81,12 +81,13 @@ Para empezar a trabajar con estos datos, validamos su calidad primero:
 
 datos |> 
   validar_comunas(nombre_comuna)
-#> ℹ Resumen: 7 casos de comunas que no conciden con comunas correctamente escritas (ver `territorial::comunas()`): PIRQUE, Maipu, santiago, prohibidencia, CERRILLOS, San José De Maipo y OHiggins
+#> ! Resumen: 7 casos de comunas que no conciden con comunas correctamente escritas (ver `territorial::comunas()`): PIRQUE, Maipu, santiago, prohibidencia, CERRILLOS, San José De Maipo y OHiggins
 #> ! Mayúsculas: 2 casos de comunas escritas en mayúsculas: PIRQUE y CERRILLOS
 #> ! Minúsculas: 2 casos de comunas escritas en minúsculas: santiago y prohibidencia
 #> ! Mayúsculas: 1 caso de comunas con preposiciones ('de', 'del') escritas en mayúsculas: San José De Maipo
 #> ℹ Tildes: 1 caso de comunas que deberían tener tildes y no los tienen: Maipu
 #> ℹ Problemas comunes: 1 caso de comunas popularmente mal escritas: OHiggins
+#> ✖ Validación de comunas: se encontraron 14 problemas con las comunas! Usa `territorial::limpiar_comunas()` para solucionarlos.
 ```
 
 ### Limpieza de nombres de comunas de Chile

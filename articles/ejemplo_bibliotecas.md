@@ -1,4 +1,4 @@
-# Ejemplo: préstamos bibliotecarios
+# Ejemplo: préstamos en bibliotecas
 
 En este ejemplo se limpian datos territoriales sobre préstamo de
 material bibliográfico en bibliotecas públicas de Chile, a nivel comunal
@@ -248,8 +248,9 @@ library(territorial)
 
 biblio_ancho |> 
   validar_comunas(unidad)
-#> ℹ Resumen: 8 casos de comunas que no conciden con comunas correctamente escritas (ver `territorial::comunas()`): La Calera, Treguaco, Alto BioBío, Los Ángeles, Padre las Casas, Aisén, Coihaique y O’Higgins
+#> ! Resumen: 8 casos de comunas que no conciden con comunas correctamente escritas (ver `territorial::comunas()`): La Calera, Treguaco, Alto BioBío, Los Ángeles, Padre las Casas, Aisén, Coihaique y O’Higgins
 #> ℹ Escrituras alternativas: 2 casos de comunas escritas de una forma no recomendada, aunque válida: Treguaco y Aisén
+#> ✖ Validación de comunas: se encontraron 10 problemas con las comunas! Usa `territorial::limpiar_comunas()` para solucionarlos.
 ```
 
 Como vemos en el reporte, nos encontramos con varias comunas con
@@ -348,6 +349,7 @@ no retorna ninguna alerta:
 
 biblio_limpio |> 
   validar_comunas(nombre_comuna)
+#> ✔ Todas las comunas están correctas!
 ```
 
 O podemos confirmar filtrando los datos que no son nombres de comuna
