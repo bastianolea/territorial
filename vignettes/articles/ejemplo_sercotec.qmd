@@ -1,0 +1,122 @@
+---
+title: "Ejemplo: beneficiarios Sercotec"
+description: Limpieza de datos comunales de beneficiarios de programas de Sercotec en Chile según sexo, obtenidos desde datos abiertos del Servicio de Cooperación Técnica.
+knitr:
+  opts_chunk:
+    collapse: true
+    comment: '#>'
+editor_options: 
+  chunk_output_type: console
+---
+
+En este ejemplo se limpian datos territoriales sobre personas beneficiarias de programas de apoyo al emprendimiento de Sercotec (Servicio de Cooperación Técnica) en Chile, a nivel comunal y por sexo. Los datos corresponden al año 2024, y fueron obtenidos mediante solicitud de transparencia el año 2025.
+
+Estos datos son públicos y oficiales, y fueron obtenidos como parte del desarrollo del [Índice de Brechas de Género](https://www.descentralizachile.cl/ibg/) de Subdere.
+
+Puedes [descargar aquí los datos](https://github.com/bastianolea/territorial/raw/main/data-raw/ejemplo_sercotec_beneficiarios.xlsx) para seguir el ejemplo.
+
+----
+
+Primero cargamos los datos originales:
+
+```{r}
+#| message: false
+#| warning: false
+library(readxl)
+library(here)
+library(janitor)
+library(dplyr)
+
+sercotec <- read_xlsx(
+  here("data-raw/ejemplo_sercotec_beneficiarios.xlsx")) |> 
+  clean_names() |> 
+  rename(año = 1)
+
+sercotec
+```
+
+Los datos contienen una fila por cada persona beneficiaria, con columnas que identifican el programa, el sexo y la comuna, entre otras.
+
+Filtramos los datos para quedarnos solamente con el año 2024, y sólo con los casos que tienen sexo y comuna informados:
+
+```{r}
+sercotec <- sercotec |> 
+  filter(!is.na(sexo_contacto),
+         !is.na(comuna_beneficiario)) |> 
+  filter(año == 2024)
+```
+
+Revisamos las categorías de sexo disponibles:
+
+```{r}
+sercotec |> 
+  count(sexo_contacto)
+```
+
+Finalmente agrupamos por comuna y sexo para obtener el conteo de personas beneficiarias:
+
+```{r}
+sercotec <- sercotec |>
+  group_by(comuna_beneficiario, sexo_contacto) |> 
+  count() |> 
+  ungroup()
+
+sercotec
+```
+
+Ahora cargamos el paquete `{territorial}` para evaluar la calidad de los nombres de las comunas usados en esta base de datos:
+
+```{r}
+library(territorial)
+
+sercotec |> 
+  validar_comunas(comuna_beneficiario)
+```
+
+La validación detecta varios problemas: _Los Alamos_ le falta el tilde (muchas personas siguen pensando que las letras mayúsculas no llevan tilde, un vestigio de la antigua imprenta), _OHiggins_ tiene su apóstrofo omitido, mientras que _Aisén_ y _Treguaco_ están escritas de forma no recomendada. También hay valores como _No Informada_ y _Otro lugar_ que no corresponden a comunas reales.
+
+Para corregir estos problemas usamos `territorial::limpiar_comunas()` sobre la columna que contiene los nombres comunales:
+
+```{r}
+sercotec_limpio <- sercotec |> 
+  mutate(nombre_comuna = limpiar_comunas(comuna_beneficiario))
+```
+
+La función limpia automáticamente los tildes faltantes, las escrituras alternativas (como _Aisén_ por _Aysén_ y _Treguaco_ por _Trehuaco_), y los casos especiales como _Puerto Saavedra_ (que se estandariza como _Saavedra_) y _Cabo de Hornos_ (que se le suele añadir el texto "Ex Navarino" o similar). También detecta que _No Informada_ y _Otro lugar_ no son comunas reales, dejándolas como `NA`.
+
+Filtramos las filas sin comuna identificada, eliminamos la columna de nombres de comunas originales, y verificamos el resultado:
+
+```{r}
+sercotec_limpio <- sercotec_limpio |> 
+  filter(!is.na(nombre_comuna)) |> 
+  select(-comuna_beneficiario)
+
+sercotec_limpio
+```
+
+Opcionalmente, confirmamos que los datos están limpios:
+
+```{r}
+sercotec_limpio |> 
+  validar_comunas(nombre_comuna)
+```
+
+Finalmente, podemos usar `ubicar_comunas()` para agregar la región correspondiente a cada comuna, y `as_codigo_comuna()` para transformar el nombre de la comuna en código único territorial (ver `vignette("codigos_unicos_territoriales")`):
+
+```{r}
+sercotec_limpio <- sercotec_limpio |> 
+  mutate(nombre_region = ubicar_comunas(nombre_comuna)) |> 
+  mutate(codigo_comuna = as_codigo_comuna(nombre_comuna)) |> 
+  relocate(codigo_comuna, nombre_region, .after = nombre_comuna)
+
+sercotec_limpio
+```
+
+O bien, usamos `territorial::contextualizar()` para agregar todas las columnas de identificación territorial a partir del nombre de comuna:
+
+```{r}
+sercotec_limpio |> 
+  contextualizar(nombre_comuna)
+```
+
+Con esto tenemos un dataset limpio y territorializado, listo para análisis posteriores.
