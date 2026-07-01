@@ -31,7 +31,7 @@ jobs:
 
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          extra-packages: any::pkgdown, local::.
+          extra-packages: any::pkgdown, local::., any::readxl
           needs: website
 
       - name: Set locale to Spanish
