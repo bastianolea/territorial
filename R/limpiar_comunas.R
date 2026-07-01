@@ -129,6 +129,7 @@ limpiar_comunas <- function(
         stringr::str_detect(comunas_limpias, "coihaique") ~ "Coyhaique",
         stringr::str_detect(comunas_limpias, "ais(e|é)n") ~ "Aysén",
         stringr::str_detect(comunas_limpias, "la calera") ~ "Calera",
+        stringr::str_detect(comunas_limpias, "puerto s(aa|a)vedra") ~ "Saavedra"
       )
     )
 
