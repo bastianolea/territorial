@@ -9,7 +9,7 @@ oficiales apropiados. Los nombres de comunas son los que aparecen en
 ## Uso
 
 ``` r
-limpiar_comunas(nombre_comuna, aproximar = TRUE, mostrar_proceso = TRUE)
+limpiar_comunas(nombre_comuna, aproximar = TRUE, mostrar_proceso = FALSE)
 ```
 
 ## Argumentos
@@ -25,8 +25,8 @@ limpiar_comunas(nombre_comuna, aproximar = TRUE, mostrar_proceso = TRUE)
 
 - mostrar_proceso:
 
-  Por defecto, muestra una tabla con el resultado del proceso de
-  limpieza. Cambiar a FALSE para ocultar.
+  Mostrar una tabla con el resultado del proceso de limpieza. Elegir
+  entre TRUE o FALSE.
 
 ## Valor
 
@@ -34,7 +34,7 @@ Vector de nombres de comunas con correcciones aplicadas.
 
 ## Detalles
 
-Los nombres son limpiados en tres pasos:
+Los nombres son limpiados en cuatro pasos:
 
 1.  Contrastando los nombres entregados con los nombres correctos de las
     comunas
@@ -54,7 +54,12 @@ Los nombres son limpiados en tres pasos:
     comunas sin símbolos especiales o si eñe, entre otras, y son
     reemplazadas con sus versiones correctas.
 
-3.  Si en el paso anterior quedaron comunas que no coincidieron (es
+3.  Se buscan algunos casos especiales de comunas que son típicamente
+    mal escritos, pero que son difíciles de identificar de manera
+    automática, por ejemplo, cuando a la comuna de *Cabo de Hornos* le
+    ponen "Ex-Navarino".
+
+4.  Si en los pasos anteriores quedaron comunas que no coincidieron (es
     decir, que sus problemas van más allá de tildes, mayúsculas o
     símbolos), se realiza una coincidencia parcial de textos o *fuzzy
     matching* usando la función
@@ -82,28 +87,20 @@ limpiar_comunas(c("COLCHANE", "Alto Ospicio", "probidencia", "huara", "laflorida
 #> ℹ Limpiando 7 nombres de comunas (7 son distintas)
 #> 
 #> ── Paso 1: confirmar comunas correctas 
-#> ℹ De las 7 comunas, ninguna tiene nombres 100% correctos. Los siguientes pasos intentarán la limpieza
+#> ℹ De las 7 comunas distintas, ninguna tiene nombres 100% correctos. Los siguientes pasos intentarán la limpieza
 #> 
 #> ── Paso 2: coincidencias por limpieza de texto 
 #> ℹ A partir de la limpieza de texto, se limpiaron 2 de 7 comunas: Colchane y Huara
 #> 
-#> ── Paso 3: coincidencias aproximadas de texto 
+#> ── Paso 3: casos especiales 
+#> ℹ Se encontraron 0 casos especiales: 
+#> 
+#> ── Paso 4: coincidencias aproximadas de texto 
 #> ! alerta, se encontraron más de una coincidencia para la comuna `laflorida`: la florida y florida
 #> ℹ Se limpiaron 5 de 5 comunas por medio de coincidencias aproximadas de texto: Alto Hospicio, Providencia, La Florida, Cerrillos y Llaillay
 #> 
 #> ── Conclusión de limpieza de comunas 
-#> ✔ De las 7 comunas, se limpiaron 7 en total (100%)
-#> ℹ Mostrando proceso:
-#> # A tibble: 7 × 5
-#>   original     correctas limpieza coincidencia  resultado    
-#>   <chr>        <chr>     <chr>    <chr>         <chr>        
-#> 1 COLCHANE     NA        Colchane NA            Colchane     
-#> 2 Alto Ospicio NA        NA       Alto Hospicio Alto Hospicio
-#> 3 probidencia  NA        NA       Providencia   Providencia  
-#> 4 huara        NA        Huara    NA            Huara        
-#> 5 laflorida    NA        NA       La Florida    La Florida   
-#> 6 cerritos     NA        NA       Cerrillos     Cerrillos    
-#> 7 llay-llay    NA        NA       Llaillay      Llaillay     
+#> ✔ De las 7 comunas distintas, se limpiaron 7 en total (100%)
 #> 
 #> [1] "Colchane"      "Alto Hospicio" "Providencia"   "Huara"        
 #> [5] "La Florida"    "Cerrillos"     "Llaillay"     
@@ -118,28 +115,19 @@ datos |>
 #> ℹ Limpiando 8 nombres de comunas (8 son distintas)
 #> 
 #> ── Paso 1: confirmar comunas correctas 
-#> ℹ De las 8 comunas, 1 ya eran correctas: El Monte
+#> ℹ De las 8 comunas distintas, 1 ya eran correctas: El Monte
 #> 
 #> ── Paso 2: coincidencias por limpieza de texto 
 #> ℹ A partir de la limpieza de texto, se limpiaron 7 de 8 comunas: Pirque, El Monte, Maipú, Santiago, Cerrillos, San José de Maipo y O'Higgins
 #> 
-#> ── Paso 3: coincidencias aproximadas de texto 
+#> ── Paso 3: casos especiales 
+#> ℹ Se encontraron 0 casos especiales: 
+#> 
+#> ── Paso 4: coincidencias aproximadas de texto 
 #> ℹ Se limpiaron 1 de 1 comunas por medio de coincidencias aproximadas de texto: Providencia
 #> 
 #> ── Conclusión de limpieza de comunas 
-#> ✔ De las 8 comunas, se limpiaron 8 en total (100%)
-#> ℹ Mostrando proceso:
-#> # A tibble: 8 × 5
-#>   original          correctas limpieza          coincidencia resultado        
-#>   <chr>             <chr>     <chr>             <chr>        <chr>            
-#> 1 PIRQUE            NA        Pirque            NA           Pirque           
-#> 2 El Monte          El Monte  El Monte          NA           El Monte         
-#> 3 Maipu             NA        Maipú             NA           Maipú            
-#> 4 santiago          NA        Santiago          NA           Santiago         
-#> 5 prohibidencia     NA        NA                Providencia  Providencia      
-#> 6 CERRILLOS         NA        Cerrillos         NA           Cerrillos        
-#> 7 San José De Maipo NA        San José de Maipo NA           San José de Maipo
-#> 8 OHiggins          NA        O'Higgins         NA           O'Higgins        
+#> ✔ De las 8 comunas distintas, se limpiaron 8 en total (100%)
 #> 
 #> # A tibble: 8 × 3
 #>   nombre_comuna     valores nombre_corregido 

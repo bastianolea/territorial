@@ -84,18 +84,21 @@ para detectar posibles problemas:
 ``` r
 
 datos |> 
-  validar_comunas(nombre_comuna) |> 
-  invisible()
+  validar_comunas(nombre_comuna)
 ```
 
 ``` R
-! mayúsculas: 2 casos de comunas escritas en mayúsculas
+ℹ Resumen: 7 casos de comunas que no conciden con comunas correctamente escritas (ver `territorial::comunas()`): PIRQUE, Maipu, santiago, prohibidencia, CERRILLOS, San José De Maipo y OHiggins
 
-! mayúsculas: 2 casos de comunas escritas en minúsculas
+! Mayúsculas: 2 casos de comunas escritas en mayúsculas: PIRQUE y CERRILLOS
 
-! mayúsculas: 1 caso de comunas con preposiciones ('de', 'del') escritas en mayúsculas
+! Minúsculas: 2 casos de comunas escritas en minúsculas: santiago y prohibidencia
 
-ℹ resumen: 7 casos de comunas que no conciden con comunas correctamente escritas (ver `territorial::comunas()`)
+! Mayúsculas: 1 caso de comunas con preposiciones ('de', 'del') escritas en mayúsculas: San José De Maipo
+
+ℹ Tildes: 1 caso de comunas que deberían tener tildes y no los tienen: Maipu
+
+ℹ Problemas comunes: 1 caso de comunas popularmente mal escritas: OHiggins
 ```
 
 También puedes limpiar automáticamente las comunas con
@@ -120,33 +123,23 @@ datos |>
 
 ── Paso 1: confirmar comunas correctas 
 
-ℹ De las 8 comunas, 1 ya eran correctas: El Monte
+ℹ De las 8 comunas distintas, 1 ya eran correctas: El Monte
 
 ── Paso 2: coincidencias por limpieza de texto 
 
 ℹ A partir de la limpieza de texto, se limpiaron 7 de 8 comunas: Pirque, El Monte, Maipú, Santiago, Cerrillos, San José de Maipo y O'Higgins
 
-── Paso 3: coincidencias aproximadas de texto 
+── Paso 3: casos especiales 
+
+ℹ Se encontraron 0 casos especiales: 
+
+── Paso 4: coincidencias aproximadas de texto 
 
 ℹ Se limpiaron 1 de 1 comunas por medio de coincidencias aproximadas de texto: Providencia
 
 ── Conclusión de limpieza de comunas 
 
-✔ De las 8 comunas, se limpiaron 8 en total (100%)
-
-ℹ Mostrando proceso:
-
-# A tibble: 8 × 5
-  original          correctas limpieza          coincidencia resultado        
-  <chr>             <chr>     <chr>             <chr>        <chr>            
-1 PIRQUE            <NA>      Pirque            <NA>         Pirque           
-2 El Monte          El Monte  El Monte          <NA>         El Monte         
-3 Maipu             <NA>      Maipú             <NA>         Maipú            
-4 santiago          <NA>      Santiago          <NA>         Santiago         
-5 prohibidencia     <NA>      <NA>              Providencia  Providencia      
-6 CERRILLOS         <NA>      Cerrillos         <NA>         Cerrillos        
-7 San José De Maipo <NA>      San José de Maipo <NA>         San José de Maipo
-8 OHiggins          <NA>      O'Higgins         <NA>         O'Higgins        
+✔ De las 8 comunas distintas, se limpiaron 8 en total (100%)
 
 # A tibble: 8 × 2
   nombre_comuna     nombre_corregido 
@@ -288,10 +281,39 @@ existentes
 
 # Artículos
 
-### Todos los artículos
+### Viñetas
+
+Información general sobre el paquete
+
+- [Introducción al
+  paquete](https://bastianolea.github.io/territorial/articles/territorial.md):
+
+  Instalación y primeros pasos con el paquete {territorial}.
+
+- [Localidades](https://bastianolea.github.io/territorial/articles/localidades.md):
+
+  Sobre la tabla de localidades de Chile, basada en datos del estudio de
+  Localidades en condición de aislamiento de Subdere (2021).
 
 - [Códigos Únicos
   Territoriales](https://bastianolea.github.io/territorial/articles/codigos_unicos_territoriales.md):
-- [Localidades](https://bastianolea.github.io/territorial/articles/localidades.md):
-- [Introducción a
-  \`{territorial}\`](https://bastianolea.github.io/territorial/articles/territorial.md):
+
+  Información sobre la tabla de códigos únicos territoriales (CUT) de
+  comunas, provincias y regiones.
+
+### Ejemplos
+
+Casos de uso del paquete
+
+- [Ejemplo: datos
+  electorales](https://bastianolea.github.io/territorial/articles/ejemplo_servel.md):
+
+  Limpieza de datos comunales de afiliaciones a partidos políticos según
+  género, obtenidos desde el Servel mediante solicitud de transparencia.
+
+- [Ejemplo: préstamos
+  bibliotecarios](https://bastianolea.github.io/territorial/articles/ejemplo_bibliotecas.md):
+
+  Limpieza de datos comunales de préstamos en bibliotecas públicas de
+  Chile según género, obtenidos desde el Servicio Nacional del
+  Patrimonio Cultural mediante solicitud de transparencia.

@@ -70,7 +70,7 @@ comunas()
 #> [148] "Penco"                "San Pedro de la Paz"  "Santa Juana"         
 #> [151] "Talcahuano"           "Tomé"                 "Hualpén"             
 #> [154] "Lebu"                 "Arauco"               "Cañete"              
-#> [157] "Contulmo"             "Curanilahue"          "Los Alamos"          
+#> [157] "Contulmo"             "Curanilahue"          "Los Álamos"          
 #> [160] "Tirúa"                "Los Angeles"          "Antuco"              
 #> [163] "Cabrero"              "Laja"                 "Mulchén"             
 #> [166] "Nacimiento"           "Negrete"              "Quilaco"             

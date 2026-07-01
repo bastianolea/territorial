@@ -11,7 +11,7 @@ los datos son correctos, solo devolverá los datos tal cual.
 ## Uso
 
 ``` r
-validar_comunas(datos, nombre_comuna = NULL)
+validar_comunas(datos, variable = NULL)
 ```
 
 ## Argumentos
@@ -21,38 +21,23 @@ validar_comunas(datos, nombre_comuna = NULL)
   Dataframe con una columna de nombre de comunas, o vector de nombres de
   comunas
 
-- nombre_comuna:
+- variable:
 
-  Columna de un dataframe con nombres de comunas
+  Columna del dataframe con los nombres de comunas (se pasa sin
+  comillas, p.ej. `comuna`)
 
 ## Valor
 
-Dataframe o vector intacto, con mensajes de diagnóstico si se encuentran
-problemas de calidad
+Dataframe o vector intacto pero en modo invisible, con mensajes de
+diagnóstico si se encuentran problemas de calidad
 
 ## Ejemplos
 
 ``` r
 validar_comunas(c("chiguayante", "la florida", "paine"))
-#> ℹ Resumen: 3 casos de comunas que no conciden con comunas correctamente escritas (ver `territorial::comunas()`)
+#> ℹ Resumen: 3 casos de comunas que no conciden con comunas correctamente escritas (ver `territorial::comunas()`): chiguayante, la florida y paine
 #> ! Minúsculas: 3 casos de comunas escritas en minúsculas: chiguayante, la florida y paine
-#> [1] "chiguayante" "la florida"  "paine"      
 
 territorial::territorios |>
-  validar_comunas()
-#> # A tibble: 346 × 6
-#>    codigo_region nombre_region codigo_provincia nombre_provincia codigo_comuna
-#>            <dbl> <chr>                    <dbl> <chr>                    <dbl>
-#>  1             1 Tarapacá                    11 Iquique                   1101
-#>  2             1 Tarapacá                    11 Iquique                   1107
-#>  3             1 Tarapacá                    14 Tamarugal                 1401
-#>  4             1 Tarapacá                    14 Tamarugal                 1402
-#>  5             1 Tarapacá                    14 Tamarugal                 1403
-#>  6             1 Tarapacá                    14 Tamarugal                 1404
-#>  7             1 Tarapacá                    14 Tamarugal                 1405
-#>  8             2 Antofagasta                 21 Antofagasta               2101
-#>  9             2 Antofagasta                 21 Antofagasta               2102
-#> 10             2 Antofagasta                 21 Antofagasta               2103
-#> # ℹ 336 more rows
-#> # ℹ 1 more variable: nombre_comuna <chr>
+  validar_comunas(nombre_comuna)
 ```

@@ -1,4 +1,4 @@
-# Introducción a `{territorial}`
+# Introducción al paquete
 
 ## Instalación
 
@@ -80,10 +80,9 @@ Para empezar a trabajar con estos datos, validamos su calidad primero:
 ``` r
 
 datos |> 
-  validar_comunas(nombre_comuna) |> 
-  invisible()
-#> ℹ Resumen: 7 casos de comunas que no conciden con comunas correctamente escritas (ver `territorial::comunas()`)
-#> ! Mayúsculas: 2 casos de comunas escritas en mayúsculas PIRQUE y CERRILLOS
+  validar_comunas(nombre_comuna)
+#> ℹ Resumen: 7 casos de comunas que no conciden con comunas correctamente escritas (ver `territorial::comunas()`): PIRQUE, Maipu, santiago, prohibidencia, CERRILLOS, San José De Maipo y OHiggins
+#> ! Mayúsculas: 2 casos de comunas escritas en mayúsculas: PIRQUE y CERRILLOS
 #> ! Minúsculas: 2 casos de comunas escritas en minúsculas: santiago y prohibidencia
 #> ! Mayúsculas: 1 caso de comunas con preposiciones ('de', 'del') escritas en mayúsculas: San José De Maipo
 #> ℹ Tildes: 1 caso de comunas que deberían tener tildes y no los tienen: Maipu
@@ -104,28 +103,19 @@ datos |>
 #> ℹ Limpiando 8 nombres de comunas (8 son distintas)
 #> 
 #> ── Paso 1: confirmar comunas correctas
-#> ℹ De las 8 comunas, 1 ya eran correctas: El Monte
+#> ℹ De las 8 comunas distintas, 1 ya eran correctas: El Monte
 #> 
 #> ── Paso 2: coincidencias por limpieza de texto
 #> ℹ A partir de la limpieza de texto, se limpiaron 7 de 8 comunas: Pirque, El Monte, Maipú, Santiago, Cerrillos, San José de Maipo y O'Higgins
 #> 
-#> ── Paso 3: coincidencias aproximadas de texto
+#> ── Paso 3: casos especiales
+#> ℹ Se encontraron 0 casos especiales:
+#> 
+#> ── Paso 4: coincidencias aproximadas de texto
 #> ℹ Se limpiaron 1 de 1 comunas por medio de coincidencias aproximadas de texto: Providencia
 #> 
 #> ── Conclusión de limpieza de comunas
-#> ✔ De las 8 comunas, se limpiaron 8 en total (100%)
-#> ℹ Mostrando proceso:
-#> # A tibble: 8 × 5
-#>   original          correctas limpieza          coincidencia resultado        
-#>   <chr>             <chr>     <chr>             <chr>        <chr>            
-#> 1 PIRQUE            <NA>      Pirque            <NA>         Pirque           
-#> 2 El Monte          El Monte  El Monte          <NA>         El Monte         
-#> 3 Maipu             <NA>      Maipú             <NA>         Maipú            
-#> 4 santiago          <NA>      Santiago          <NA>         Santiago         
-#> 5 prohibidencia     <NA>      <NA>              Providencia  Providencia      
-#> 6 CERRILLOS         <NA>      Cerrillos         <NA>         Cerrillos        
-#> 7 San José De Maipo <NA>      San José de Maipo <NA>         San José de Maipo
-#> 8 OHiggins          <NA>      O'Higgins         <NA>         O'Higgins
+#> ✔ De las 8 comunas distintas, se limpiaron 8 en total (100%)
 #> 
 #> # A tibble: 8 × 3
 #>   nombre_comuna     valores nombre_corregido 

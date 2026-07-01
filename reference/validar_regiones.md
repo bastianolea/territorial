@@ -11,7 +11,7 @@ los datos tal cual.
 ## Uso
 
 ``` r
-validar_regiones(datos, nombre_region = NULL)
+validar_regiones(datos, variable = NULL)
 ```
 
 ## Argumentos
@@ -21,9 +21,10 @@ validar_regiones(datos, nombre_region = NULL)
   Dataframe con una columna de nombre de regiones, o vector de nombres
   de regiones
 
-- nombre_region:
+- variable:
 
-  Columna de un dataframe con nombres de regiones
+  Columna del dataframe con los nombres de regiones (se pasa sin
+  comillas, p.ej. `region`)
 
 ## Valor
 
@@ -39,4 +40,22 @@ validar_regiones(c("los lagos", "nuble", "OHIGGINS"))
 #> ! ortografía: 1 caso de la Región de Ñuble escrita sin eñe
 #> ! ortografía: 1 caso de la Región de O'Higgins escrita sin su apóstrofo (')
 #> [1] "los lagos" "nuble"     "OHIGGINS" 
+
+territorial::territorios |>
+  validar_regiones(nombre_region)
+#> # A tibble: 346 × 6
+#>    codigo_region nombre_region codigo_provincia nombre_provincia codigo_comuna
+#>            <dbl> <chr>                    <dbl> <chr>                    <dbl>
+#>  1             1 Tarapacá                    11 Iquique                   1101
+#>  2             1 Tarapacá                    11 Iquique                   1107
+#>  3             1 Tarapacá                    14 Tamarugal                 1401
+#>  4             1 Tarapacá                    14 Tamarugal                 1402
+#>  5             1 Tarapacá                    14 Tamarugal                 1403
+#>  6             1 Tarapacá                    14 Tamarugal                 1404
+#>  7             1 Tarapacá                    14 Tamarugal                 1405
+#>  8             2 Antofagasta                 21 Antofagasta               2101
+#>  9             2 Antofagasta                 21 Antofagasta               2102
+#> 10             2 Antofagasta                 21 Antofagasta               2103
+#> # ℹ 336 more rows
+#> # ℹ 1 more variable: nombre_comuna <chr>
 ```

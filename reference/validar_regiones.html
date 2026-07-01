@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">territorial</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.8.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.8.2</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Cambiar la navegación">
@@ -19,8 +19,12 @@
 <li class="active nav-item"><a class="nav-link" href="../reference/index.html">Índice</a></li>
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-art-culos" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Artículos</button>
-  <ul class="dropdown-menu" aria-labelledby="dropdown-art-culos"><li><a class="dropdown-item" href="../articles/codigos_unicos_territoriales.html">Códigos Únicos Territoriales</a></li>
-    <li><a class="dropdown-item" href="../articles/localidades.html">Localidades</a></li>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-art-culos"><li><a class="dropdown-item" href="../articles/localidades.html">Localidades</a></li>
+    <li><a class="dropdown-item" href="../articles/codigos_unicos_territoriales.html">Códigos Únicos Territoriales</a></li>
+    <li><hr class="dropdown-divider"></li>
+    <li><h6 class="dropdown-header" data-toc-skip>Ejemplos</h6></li>
+    <li><a class="dropdown-item" href="../articles/ejemplo_servel.html">Ejemplo: datos electorales</a></li>
+    <li><a class="dropdown-item" href="../articles/ejemplo_bibliotecas.html">Ejemplo: préstamos bibliotecarios</a></li>
   </ul></li>
       </ul><ul class="navbar-nav"><li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Buscar en el sitio" placeholder="Buscar" data-search-index="../search.json"></form></li>
@@ -43,7 +47,7 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Uso<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">validar_regiones</span><span class="op">(</span><span class="va">datos</span>, nombre_region <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">validar_regiones</span><span class="op">(</span><span class="va">datos</span>, variable <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -54,8 +58,8 @@
 <dd><p>Dataframe con una columna de nombre de regiones, o vector de nombres de regiones</p></dd>
 
 
-<dt id="arg-nombre-region">nombre_region<a class="anchor" aria-label="anchor" href="#arg-nombre-region"></a></dt>
-<dd><p>Columna de un dataframe con nombres de regiones</p></dd>
+<dt id="arg-variable">variable<a class="anchor" aria-label="anchor" href="#arg-variable"></a></dt>
+<dd><p>Columna del dataframe con los nombres de regiones (se pasa sin comillas, p.ej. <code>region</code>)</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -72,6 +76,23 @@
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> ortografía: 1 caso de la Región de O'Higgins escrita sin su apóstrofo (')</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "los lagos" "nuble"     "OHIGGINS" </span>
 <span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">territorial</span><span class="fu">::</span><span class="va"><a href="territorios.html">territorios</a></span> <span class="op">|&gt;</span></span></span>
+<span class="r-in"><span>  <span class="fu">validar_regiones</span><span class="op">(</span><span class="va">nombre_region</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 346 × 6</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    codigo_region nombre_region codigo_provincia nombre_provincia codigo_comuna</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>             1 Tarapacá                    11 Iquique                   <span style="text-decoration: underline;">1</span>101</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>             1 Tarapacá                    11 Iquique                   <span style="text-decoration: underline;">1</span>107</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>             1 Tarapacá                    14 Tamarugal                 <span style="text-decoration: underline;">1</span>401</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>             1 Tarapacá                    14 Tamarugal                 <span style="text-decoration: underline;">1</span>402</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>             1 Tarapacá                    14 Tamarugal                 <span style="text-decoration: underline;">1</span>403</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>             1 Tarapacá                    14 Tamarugal                 <span style="text-decoration: underline;">1</span>404</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>             1 Tarapacá                    14 Tamarugal                 <span style="text-decoration: underline;">1</span>405</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>             2 Antofagasta                 21 Antofagasta               <span style="text-decoration: underline;">2</span>101</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>             2 Antofagasta                 21 Antofagasta               <span style="text-decoration: underline;">2</span>102</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>             2 Antofagasta                 21 Antofagasta               <span style="text-decoration: underline;">2</span>103</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 336 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 1 more variable: nombre_comuna &lt;chr&gt;</span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Índice de contenidos"><h2>En esta página</h2>

@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">territorial</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.8.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.8.2</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Cambiar la navegación">
@@ -19,8 +19,12 @@
 <li class="active nav-item"><a class="nav-link" href="../reference/index.html">Índice</a></li>
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-art-culos" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Artículos</button>
-  <ul class="dropdown-menu" aria-labelledby="dropdown-art-culos"><li><a class="dropdown-item" href="../articles/codigos_unicos_territoriales.html">Códigos Únicos Territoriales</a></li>
-    <li><a class="dropdown-item" href="../articles/localidades.html">Localidades</a></li>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-art-culos"><li><a class="dropdown-item" href="../articles/localidades.html">Localidades</a></li>
+    <li><a class="dropdown-item" href="../articles/codigos_unicos_territoriales.html">Códigos Únicos Territoriales</a></li>
+    <li><hr class="dropdown-divider"></li>
+    <li><h6 class="dropdown-header" data-toc-skip>Ejemplos</h6></li>
+    <li><a class="dropdown-item" href="../articles/ejemplo_servel.html">Ejemplo: datos electorales</a></li>
+    <li><a class="dropdown-item" href="../articles/ejemplo_bibliotecas.html">Ejemplo: préstamos bibliotecarios</a></li>
   </ul></li>
       </ul><ul class="navbar-nav"><li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Buscar en el sitio" placeholder="Buscar" data-search-index="../search.json"></form></li>
@@ -43,7 +47,7 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Uso<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">limpiar_comunas</span><span class="op">(</span><span class="va">nombre_comuna</span>, aproximar <span class="op">=</span> <span class="cn">TRUE</span>, mostrar_proceso <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">limpiar_comunas</span><span class="op">(</span><span class="va">nombre_comuna</span>, aproximar <span class="op">=</span> <span class="cn">TRUE</span>, mostrar_proceso <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -59,7 +63,7 @@
 
 
 <dt id="arg-mostrar-proceso">mostrar_proceso<a class="anchor" aria-label="anchor" href="#arg-mostrar-proceso"></a></dt>
-<dd><p>Por defecto, muestra una tabla con el resultado del proceso de limpieza. Cambiar a FALSE para ocultar.</p></dd>
+<dd><p>Mostrar una tabla con el resultado del proceso de limpieza. Elegir entre TRUE o FALSE.</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -68,9 +72,10 @@
     </div>
     <div class="section level2">
     <h2 id="detalles">Detalles<a class="anchor" aria-label="anchor" href="#detalles"></a></h2>
-    <p>Los nombres son limpiados en tres pasos:</p><ol><li><p>Contrastando los nombres entregados con los nombres correctos de las comunas (<code><a href="comunas.html">comunas()</a></code>), para ver si hay comunas bien escritas antes de proseguir con la limpieza de las demás.</p></li>
+    <p>Los nombres son limpiados en cuatro pasos:</p><ol><li><p>Contrastando los nombres entregados con los nombres correctos de las comunas (<code><a href="comunas.html">comunas()</a></code>), para ver si hay comunas bien escritas antes de proseguir con la limpieza de las demás.</p></li>
 <li><p>Se <em>limpian</em> los nombres de comunas entregados, transformándolos a minúsculas y eliminando todo tipo de símbolos posibles, para dejar las palabras en sus formas más básicas (por ejemplo, <code>Ñuñoa</code> se vuelve <code>nunoa</code>). Luego, se aplica el mismo proceso a los nombres de comunas correctos (<code><a href="comunas.html">comunas()</a></code>), y se hace un cruce entre ambos conjuntos de nombres: si los nombres coinciden, significa que se entregaron nombres de comunas escritos en mayúsculas o minúsculas, comunas sin tildes o con tildes extra, comunas sin símbolos especiales o si eñe, entre otras, y son reemplazadas con sus versiones correctas.</p></li>
-<li><p>Si en el paso anterior quedaron comunas que no coincidieron (es decir, que sus problemas van más allá de tildes, mayúsculas o símbolos), se realiza una coincidencia parcial de textos o <em>fuzzy matching</em> usando la función <code><a href="https://rdrr.io/r/base/agrep.html" class="external-link">base::agrepl()</a></code>, que utiliza el <a href="https://es.wikipedia.org/wiki/Distancia_de_Levenshtein" class="external-link">algoritmo de distancia de Levenshtein</a> para encontrar las comunas correctamente escritas que más se parecen a las comunas entregadas. Se esta forma, se pueden encontrar las comunas correctamente escritas para casos de comunas con faltas de ortografía (<code>Pobidencia</code> en vez de <code>Providencia</code>), comunas sin espacios entre sus palabras (<code>laflorida</code> en vez de <code>La Florida</code>), y formas alternativas de escribir las comunas (<code>llay-llay</code> en vez de <code>Llaillay</code>). En todos estos casos se emite una alerta que indica la coincidencia encontrada, ya que al ser una aproxmación, no se garantiza que la coincidencia sea correcta. Puedes desactivar este paso poniendo <code>aproximar = FALSE</code>.
+<li><p>Se buscan algunos casos especiales de comunas que son típicamente mal escritos, pero que son difíciles de identificar de manera automática, por ejemplo, cuando a la comuna de <em>Cabo de Hornos</em> le ponen "Ex-Navarino".</p></li>
+<li><p>Si en los pasos anteriores quedaron comunas que no coincidieron (es decir, que sus problemas van más allá de tildes, mayúsculas o símbolos), se realiza una coincidencia parcial de textos o <em>fuzzy matching</em> usando la función <code><a href="https://rdrr.io/r/base/agrep.html" class="external-link">base::agrepl()</a></code>, que utiliza el <a href="https://es.wikipedia.org/wiki/Distancia_de_Levenshtein" class="external-link">algoritmo de distancia de Levenshtein</a> para encontrar las comunas correctamente escritas que más se parecen a las comunas entregadas. Se esta forma, se pueden encontrar las comunas correctamente escritas para casos de comunas con faltas de ortografía (<code>Pobidencia</code> en vez de <code>Providencia</code>), comunas sin espacios entre sus palabras (<code>laflorida</code> en vez de <code>La Florida</code>), y formas alternativas de escribir las comunas (<code>llay-llay</code> en vez de <code>Llaillay</code>). En todos estos casos se emite una alerta que indica la coincidencia encontrada, ya que al ser una aproxmación, no se garantiza que la coincidencia sea correcta. Puedes desactivar este paso poniendo <code>aproximar = FALSE</code>.
 Finalmente, se muestra una tabla que describe el proceso de limpieza para su revisión (que puede ocultarse con <code>mostrar_proceso = FALSE</code>, y se retornan las comunas correctas.</p></li>
 </ol></div>
 
@@ -80,28 +85,20 @@ Finalmente, se muestra una tabla que describe el proceso de limpieza para su rev
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Limpiando 7 nombres de comunas (7 son distintas)</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── Paso 1: confirmar comunas correctas </span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> De las 7 comunas, ninguna tiene nombres 100% correctos. Los siguientes pasos intentarán la limpieza</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> De las 7 comunas distintas, ninguna tiene nombres 100% correctos. Los siguientes pasos intentarán la limpieza</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── Paso 2: coincidencias por limpieza de texto </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> A partir de la limpieza de texto, se limpiaron 2 de 7 comunas: Colchane y Huara</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Paso 3: coincidencias aproximadas de texto </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Paso 3: casos especiales </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Se encontraron 0 casos especiales: </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Paso 4: coincidencias aproximadas de texto </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> alerta, se encontraron más de una coincidencia para la comuna `laflorida`: la florida y florida</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Se limpiaron 5 de 5 comunas por medio de coincidencias aproximadas de texto: Alto Hospicio, Providencia, La Florida, Cerrillos y Llaillay</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── Conclusión de limpieza de comunas </span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> De las 7 comunas, se limpiaron 7 en total (100%)</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Mostrando proceso:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 7 × 5</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   original     correctas limpieza coincidencia  resultado    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> COLCHANE     <span style="color: #BB0000;">NA</span>        Colchane <span style="color: #BB0000;">NA</span>            Colchane     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> Alto Ospicio <span style="color: #BB0000;">NA</span>        <span style="color: #BB0000;">NA</span>       Alto Hospicio Alto Hospicio</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> probidencia  <span style="color: #BB0000;">NA</span>        <span style="color: #BB0000;">NA</span>       Providencia   Providencia  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> huara        <span style="color: #BB0000;">NA</span>        Huara    <span style="color: #BB0000;">NA</span>            Huara        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span> laflorida    <span style="color: #BB0000;">NA</span>        <span style="color: #BB0000;">NA</span>       La Florida    La Florida   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span> cerritos     <span style="color: #BB0000;">NA</span>        <span style="color: #BB0000;">NA</span>       Cerrillos     Cerrillos    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">7</span> llay-llay    <span style="color: #BB0000;">NA</span>        <span style="color: #BB0000;">NA</span>       Llaillay      Llaillay     </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> De las 7 comunas distintas, se limpiaron 7 en total (100%)</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Colchane"      "Alto Hospicio" "Providencia"   "Huara"        </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [5] "La Florida"    "Cerrillos"     "Llaillay"     </span>
@@ -116,28 +113,19 @@ Finalmente, se muestra una tabla que describe el proceso de limpieza para su rev
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Limpiando 8 nombres de comunas (8 son distintas)</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── Paso 1: confirmar comunas correctas </span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> De las 8 comunas, 1 ya eran correctas: El Monte</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> De las 8 comunas distintas, 1 ya eran correctas: El Monte</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── Paso 2: coincidencias por limpieza de texto </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> A partir de la limpieza de texto, se limpiaron 7 de 8 comunas: Pirque, El Monte, Maipú, Santiago, Cerrillos, San José de Maipo y O'Higgins</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Paso 3: coincidencias aproximadas de texto </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Paso 3: casos especiales </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Se encontraron 0 casos especiales: </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> ── Paso 4: coincidencias aproximadas de texto </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Se limpiaron 1 de 1 comunas por medio de coincidencias aproximadas de texto: Providencia</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> ── Conclusión de limpieza de comunas </span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> De las 8 comunas, se limpiaron 8 en total (100%)</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Mostrando proceso:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 8 × 5</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   original          correctas limpieza          coincidencia resultado        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> PIRQUE            <span style="color: #BB0000;">NA</span>        Pirque            <span style="color: #BB0000;">NA</span>           Pirque           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> El Monte          El Monte  El Monte          <span style="color: #BB0000;">NA</span>           El Monte         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> Maipu             <span style="color: #BB0000;">NA</span>        Maipú             <span style="color: #BB0000;">NA</span>           Maipú            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> santiago          <span style="color: #BB0000;">NA</span>        Santiago          <span style="color: #BB0000;">NA</span>           Santiago         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span> prohibidencia     <span style="color: #BB0000;">NA</span>        <span style="color: #BB0000;">NA</span>                Providencia  Providencia      </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span> CERRILLOS         <span style="color: #BB0000;">NA</span>        Cerrillos         <span style="color: #BB0000;">NA</span>           Cerrillos        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">7</span> San José De Maipo <span style="color: #BB0000;">NA</span>        San José de Maipo <span style="color: #BB0000;">NA</span>           San José de Maipo</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">8</span> OHiggins          <span style="color: #BB0000;">NA</span>        O'Higgins         <span style="color: #BB0000;">NA</span>           O'Higgins        </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BB00;">✔</span> De las 8 comunas distintas, se limpiaron 8 en total (100%)</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 8 × 3</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   nombre_comuna     valores nombre_corregido </span>

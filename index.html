@@ -28,7 +28,7 @@
 
     <a class="navbar-brand me-2" href="index.html">territorial</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.8.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.8.2</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Cambiar la navegación">
@@ -42,8 +42,12 @@
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-art-culos" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Artículos</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-art-culos">
-<li><a class="dropdown-item" href="articles/codigos_unicos_territoriales.html">Códigos Únicos Territoriales</a></li>
-    <li><a class="dropdown-item" href="articles/localidades.html">Localidades</a></li>
+<li><a class="dropdown-item" href="articles/localidades.html">Localidades</a></li>
+    <li><a class="dropdown-item" href="articles/codigos_unicos_territoriales.html">Códigos Únicos Territoriales</a></li>
+    <li><hr class="dropdown-divider"></li>
+    <li><h6 class="dropdown-header" data-toc-skip>Ejemplos</h6></li>
+    <li><a class="dropdown-item" href="articles/ejemplo_servel.html">Ejemplo: datos electorales</a></li>
+    <li><a class="dropdown-item" href="articles/ejemplo_bibliotecas.html">Ejemplo: préstamos bibliotecarios</a></li>
   </ul>
 </li>
       </ul>
@@ -102,15 +106,18 @@
 <p>Si tienes datos comunales de Chile, puedes revisar la calidad de sus comunas con <code><a href="reference/validar_comunas.html">validar_comunas()</a></code>, para detectar posibles problemas:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">datos</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu"><a href="reference/validar_comunas.html">validar_comunas</a></span><span class="op">(</span><span class="va">nombre_comuna</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/base/invisible.html" class="external-link">invisible</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb4"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="sc">!</span> mayúsculas<span class="sc">:</span> <span class="dv">2</span> casos de comunas escritas en mayúsculas</span>
+<span>  <span class="fu"><a href="reference/validar_comunas.html">validar_comunas</a></span><span class="op">(</span><span class="va">nombre_comuna</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a>ℹ Resumen<span class="sc">:</span> <span class="dv">7</span> casos de comunas que no conciden con comunas correctamente <span class="fu">escritas</span> (ver <span class="st">`</span><span class="at">territorial::comunas()</span><span class="st">`</span>)<span class="sc">:</span> PIRQUE, Maipu, santiago, prohibidencia, CERRILLOS, San José De Maipo y OHiggins</span>
 <span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="sc">!</span> mayúsculas<span class="sc">:</span> <span class="dv">2</span> casos de comunas escritas en minúsculas</span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="sc">!</span> Mayúsculas<span class="sc">:</span> <span class="dv">2</span> casos de comunas escritas en mayúsculas<span class="sc">:</span> PIRQUE y CERRILLOS</span>
 <span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a></span>
-<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a><span class="sc">!</span> mayúsculas<span class="sc">:</span> <span class="dv">1</span> caso de comunas con <span class="fu">preposiciones</span> (<span class="st">'de'</span>, <span class="st">'del'</span>) escritas en mayúsculas</span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a><span class="sc">!</span> Minúsculas<span class="sc">:</span> <span class="dv">2</span> casos de comunas escritas en minúsculas<span class="sc">:</span> santiago y prohibidencia</span>
 <span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a></span>
-<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a>ℹ resumen<span class="sc">:</span> <span class="dv">7</span> casos de comunas que no conciden con comunas correctamente <span class="fu">escritas</span> (ver <span class="st">`</span><span class="at">territorial::comunas()</span><span class="st">`</span>)</span></code></pre></div>
+<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a><span class="sc">!</span> Mayúsculas<span class="sc">:</span> <span class="dv">1</span> caso de comunas con <span class="fu">preposiciones</span> (<span class="st">'de'</span>, <span class="st">'del'</span>) escritas en mayúsculas<span class="sc">:</span> San José De Maipo</span>
+<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a>ℹ Tildes<span class="sc">:</span> <span class="dv">1</span> caso de comunas que deberían tener tildes y no los tienen<span class="sc">:</span> Maipu</span>
+<span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a>ℹ Problemas comunes<span class="sc">:</span> <span class="dv">1</span> caso de comunas popularmente mal escritas<span class="sc">:</span> OHiggins</span></code></pre></div>
 <p>También puedes limpiar automáticamente las comunas con <code><a href="reference/limpiar_comunas.html">limpiar_comunas()</a></code>, y obtener una columna con las comunas correctas (que salen de la tabla <code><a href="reference/territorios.html">territorial::territorios</a></code>), obtenidas por medio de varias técnicas de limpieza de datos:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span></code></pre></div>
@@ -121,45 +128,35 @@
 <span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a>── Paso <span class="dv">1</span><span class="sc">:</span> confirmar comunas correctas </span>
 <span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a></span>
-<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a>ℹ De las <span class="dv">8</span> comunas, <span class="dv">1</span> ya eran correctas<span class="sc">:</span> El Monte</span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a>ℹ De las <span class="dv">8</span> comunas distintas, <span class="dv">1</span> ya eran correctas<span class="sc">:</span> El Monte</span>
 <span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a></span>
 <span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a>── Paso <span class="dv">2</span><span class="sc">:</span> coincidencias por limpieza de texto </span>
 <span id="cb7-8"><a href="#cb7-8" tabindex="-1"></a></span>
 <span id="cb7-9"><a href="#cb7-9" tabindex="-1"></a>ℹ A partir de la limpieza de texto, se limpiaron <span class="dv">7</span> de <span class="dv">8</span> comunas<span class="sc">:</span> Pirque, El Monte, Maipú, Santiago, Cerrillos, San José de Maipo y O<span class="st">'Higgins</span></span>
 <span id="cb7-10"><a href="#cb7-10" tabindex="-1"></a></span>
-<span id="cb7-11"><a href="#cb7-11" tabindex="-1"></a><span class="st">── Paso 3: coincidencias aproximadas de texto </span></span>
+<span id="cb7-11"><a href="#cb7-11" tabindex="-1"></a><span class="st">── Paso 3: casos especiales </span></span>
 <span id="cb7-12"><a href="#cb7-12" tabindex="-1"></a></span>
-<span id="cb7-13"><a href="#cb7-13" tabindex="-1"></a><span class="st">ℹ Se limpiaron 1 de 1 comunas por medio de coincidencias aproximadas de texto: Providencia</span></span>
+<span id="cb7-13"><a href="#cb7-13" tabindex="-1"></a><span class="st">ℹ Se encontraron 0 casos especiales: </span></span>
 <span id="cb7-14"><a href="#cb7-14" tabindex="-1"></a></span>
-<span id="cb7-15"><a href="#cb7-15" tabindex="-1"></a><span class="st">── Conclusión de limpieza de comunas </span></span>
+<span id="cb7-15"><a href="#cb7-15" tabindex="-1"></a><span class="st">── Paso 4: coincidencias aproximadas de texto </span></span>
 <span id="cb7-16"><a href="#cb7-16" tabindex="-1"></a></span>
-<span id="cb7-17"><a href="#cb7-17" tabindex="-1"></a><span class="st">✔ De las 8 comunas, se limpiaron 8 en total (100%)</span></span>
+<span id="cb7-17"><a href="#cb7-17" tabindex="-1"></a><span class="st">ℹ Se limpiaron 1 de 1 comunas por medio de coincidencias aproximadas de texto: Providencia</span></span>
 <span id="cb7-18"><a href="#cb7-18" tabindex="-1"></a></span>
-<span id="cb7-19"><a href="#cb7-19" tabindex="-1"></a><span class="st">ℹ Mostrando proceso:</span></span>
+<span id="cb7-19"><a href="#cb7-19" tabindex="-1"></a><span class="st">── Conclusión de limpieza de comunas </span></span>
 <span id="cb7-20"><a href="#cb7-20" tabindex="-1"></a></span>
-<span id="cb7-21"><a href="#cb7-21" tabindex="-1"></a><span class="st"># A tibble: 8 × 5</span></span>
-<span id="cb7-22"><a href="#cb7-22" tabindex="-1"></a><span class="st">  original          correctas limpieza          coincidencia resultado        </span></span>
-<span id="cb7-23"><a href="#cb7-23" tabindex="-1"></a><span class="st">  &lt;chr&gt;             &lt;chr&gt;     &lt;chr&gt;             &lt;chr&gt;        &lt;chr&gt;            </span></span>
-<span id="cb7-24"><a href="#cb7-24" tabindex="-1"></a><span class="st">1 PIRQUE            &lt;NA&gt;      Pirque            &lt;NA&gt;         Pirque           </span></span>
-<span id="cb7-25"><a href="#cb7-25" tabindex="-1"></a><span class="st">2 El Monte          El Monte  El Monte          &lt;NA&gt;         El Monte         </span></span>
-<span id="cb7-26"><a href="#cb7-26" tabindex="-1"></a><span class="st">3 Maipu             &lt;NA&gt;      Maipú             &lt;NA&gt;         Maipú            </span></span>
-<span id="cb7-27"><a href="#cb7-27" tabindex="-1"></a><span class="st">4 santiago          &lt;NA&gt;      Santiago          &lt;NA&gt;         Santiago         </span></span>
-<span id="cb7-28"><a href="#cb7-28" tabindex="-1"></a><span class="st">5 prohibidencia     &lt;NA&gt;      &lt;NA&gt;              Providencia  Providencia      </span></span>
-<span id="cb7-29"><a href="#cb7-29" tabindex="-1"></a><span class="st">6 CERRILLOS         &lt;NA&gt;      Cerrillos         &lt;NA&gt;         Cerrillos        </span></span>
-<span id="cb7-30"><a href="#cb7-30" tabindex="-1"></a><span class="st">7 San José De Maipo &lt;NA&gt;      San José de Maipo &lt;NA&gt;         San José de Maipo</span></span>
-<span id="cb7-31"><a href="#cb7-31" tabindex="-1"></a><span class="st">8 OHiggins          &lt;NA&gt;      O'</span>Higgins         <span class="sc">&lt;</span><span class="cn">NA</span><span class="sc">&gt;</span>         O<span class="st">'Higgins        </span></span>
-<span id="cb7-32"><a href="#cb7-32" tabindex="-1"></a></span>
-<span id="cb7-33"><a href="#cb7-33" tabindex="-1"></a><span class="st"># A tibble: 8 × 2</span></span>
-<span id="cb7-34"><a href="#cb7-34" tabindex="-1"></a><span class="st">  nombre_comuna     nombre_corregido </span></span>
-<span id="cb7-35"><a href="#cb7-35" tabindex="-1"></a><span class="st">  &lt;chr&gt;             &lt;chr&gt;            </span></span>
-<span id="cb7-36"><a href="#cb7-36" tabindex="-1"></a><span class="st">1 PIRQUE            Pirque           </span></span>
-<span id="cb7-37"><a href="#cb7-37" tabindex="-1"></a><span class="st">2 El Monte          El Monte         </span></span>
-<span id="cb7-38"><a href="#cb7-38" tabindex="-1"></a><span class="st">3 Maipu             Maipú            </span></span>
-<span id="cb7-39"><a href="#cb7-39" tabindex="-1"></a><span class="st">4 santiago          Santiago         </span></span>
-<span id="cb7-40"><a href="#cb7-40" tabindex="-1"></a><span class="st">5 prohibidencia     Providencia      </span></span>
-<span id="cb7-41"><a href="#cb7-41" tabindex="-1"></a><span class="st">6 CERRILLOS         Cerrillos        </span></span>
-<span id="cb7-42"><a href="#cb7-42" tabindex="-1"></a><span class="st">7 San José De Maipo San José de Maipo</span></span>
-<span id="cb7-43"><a href="#cb7-43" tabindex="-1"></a><span class="st">8 OHiggins          O'</span>Higgins        </span></code></pre></div>
+<span id="cb7-21"><a href="#cb7-21" tabindex="-1"></a><span class="st">✔ De las 8 comunas distintas, se limpiaron 8 en total (100%)</span></span>
+<span id="cb7-22"><a href="#cb7-22" tabindex="-1"></a></span>
+<span id="cb7-23"><a href="#cb7-23" tabindex="-1"></a><span class="st"># A tibble: 8 × 2</span></span>
+<span id="cb7-24"><a href="#cb7-24" tabindex="-1"></a><span class="st">  nombre_comuna     nombre_corregido </span></span>
+<span id="cb7-25"><a href="#cb7-25" tabindex="-1"></a><span class="st">  &lt;chr&gt;             &lt;chr&gt;            </span></span>
+<span id="cb7-26"><a href="#cb7-26" tabindex="-1"></a><span class="st">1 PIRQUE            Pirque           </span></span>
+<span id="cb7-27"><a href="#cb7-27" tabindex="-1"></a><span class="st">2 El Monte          El Monte         </span></span>
+<span id="cb7-28"><a href="#cb7-28" tabindex="-1"></a><span class="st">3 Maipu             Maipú            </span></span>
+<span id="cb7-29"><a href="#cb7-29" tabindex="-1"></a><span class="st">4 santiago          Santiago         </span></span>
+<span id="cb7-30"><a href="#cb7-30" tabindex="-1"></a><span class="st">5 prohibidencia     Providencia      </span></span>
+<span id="cb7-31"><a href="#cb7-31" tabindex="-1"></a><span class="st">6 CERRILLOS         Cerrillos        </span></span>
+<span id="cb7-32"><a href="#cb7-32" tabindex="-1"></a><span class="st">7 San José De Maipo San José de Maipo</span></span>
+<span id="cb7-33"><a href="#cb7-33" tabindex="-1"></a><span class="st">8 OHiggins          O'</span>Higgins        </span></code></pre></div>
 <p>Si necesitamos agregar datos territoriales a una tabla de datos que solamente tiene las comunas o los códigos únicos territoriales de Chile (<code>vignette(codigos_unicos_territoriales)</code>), podemos usar <code><a href="reference/contextualizar.html">contextualizar()</a></code> para agregar rápidamente todas las columnas territoriales que falten.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">datos</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tribble.html" class="external-link">tribble</a></span><span class="op">(</span></span>

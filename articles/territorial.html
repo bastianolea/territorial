@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Introducción a {territorial} • territorial</title>
+<title>Introducción al paquete • territorial</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="96x96" href="../favicon-96x96.png">
 <link rel="icon" type="”image/svg+xml”" href="../favicon.svg">
 <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
@@ -17,7 +17,7 @@
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><script src="territorial_files/libs/quarto-html/popper.min.js"></script><script src="territorial_files/libs/quarto-html/tippy.umd.min.js"></script><link href="territorial_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="territorial_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Introducción a {territorial}">
+<!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Introducción al paquete">
 <meta property="og:image" content="https://bastianolea.github.io/territorial/logo.png">
 </head>
 <body>
@@ -28,7 +28,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">territorial</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.8.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.8.2</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Cambiar la navegación">
@@ -42,8 +42,12 @@
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-art-culos" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Artículos</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-art-culos">
-<li><a class="dropdown-item" href="../articles/codigos_unicos_territoriales.html">Códigos Únicos Territoriales</a></li>
-    <li><a class="dropdown-item" href="../articles/localidades.html">Localidades</a></li>
+<li><a class="dropdown-item" href="../articles/localidades.html">Localidades</a></li>
+    <li><a class="dropdown-item" href="../articles/codigos_unicos_territoriales.html">Códigos Únicos Territoriales</a></li>
+    <li><hr class="dropdown-divider"></li>
+    <li><h6 class="dropdown-header" data-toc-skip>Ejemplos</h6></li>
+    <li><a class="dropdown-item" href="../articles/ejemplo_servel.html">Ejemplo: datos electorales</a></li>
+    <li><a class="dropdown-item" href="../articles/ejemplo_bibliotecas.html">Ejemplo: préstamos bibliotecarios</a></li>
   </ul>
 </li>
       </ul>
@@ -60,8 +64,7 @@
 </nav><div class="container template-quarto">
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
-      <img src="../logo.png" class="logo" alt=""><h1>Introducción a <code>{territorial}</code>
-</h1>
+      <img src="../logo.png" class="logo" alt=""><h1>Introducción al paquete</h1>
 
 
 
@@ -132,10 +135,9 @@
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">datos</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu"><a href="../reference/validar_comunas.html">validar_comunas</a></span><span class="op">(</span><span class="va">nombre_comuna</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/base/invisible.html" class="external-link">invisible</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; ℹ Resumen: 7 casos de comunas que no conciden con comunas correctamente escritas (ver `territorial::comunas()`)</span></span>
-<span><span class="co">#&gt; ! Mayúsculas: 2 casos de comunas escritas en mayúsculas PIRQUE y CERRILLOS</span></span>
+<span>  <span class="fu"><a href="../reference/validar_comunas.html">validar_comunas</a></span><span class="op">(</span><span class="va">nombre_comuna</span><span class="op">)</span></span>
+<span><span class="co">#&gt; ℹ Resumen: 7 casos de comunas que no conciden con comunas correctamente escritas (ver `territorial::comunas()`): PIRQUE, Maipu, santiago, prohibidencia, CERRILLOS, San José De Maipo y OHiggins</span></span>
+<span><span class="co">#&gt; ! Mayúsculas: 2 casos de comunas escritas en mayúsculas: PIRQUE y CERRILLOS</span></span>
 <span><span class="co">#&gt; ! Minúsculas: 2 casos de comunas escritas en minúsculas: santiago y prohibidencia</span></span>
 <span><span class="co">#&gt; ! Mayúsculas: 1 caso de comunas con preposiciones ('de', 'del') escritas en mayúsculas: San José De Maipo</span></span>
 <span><span class="co">#&gt; ℹ Tildes: 1 caso de comunas que deberían tener tildes y no los tienen: Maipu</span></span>
@@ -151,28 +153,19 @@
 <span><span class="co">#&gt; ℹ Limpiando 8 nombres de comunas (8 son distintas)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; ── Paso 1: confirmar comunas correctas</span></span>
-<span><span class="co">#&gt; ℹ De las 8 comunas, 1 ya eran correctas: El Monte</span></span>
+<span><span class="co">#&gt; ℹ De las 8 comunas distintas, 1 ya eran correctas: El Monte</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; ── Paso 2: coincidencias por limpieza de texto</span></span>
 <span><span class="co">#&gt; ℹ A partir de la limpieza de texto, se limpiaron 7 de 8 comunas: Pirque, El Monte, Maipú, Santiago, Cerrillos, San José de Maipo y O'Higgins</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; ── Paso 3: coincidencias aproximadas de texto</span></span>
+<span><span class="co">#&gt; ── Paso 3: casos especiales</span></span>
+<span><span class="co">#&gt; ℹ Se encontraron 0 casos especiales:</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; ── Paso 4: coincidencias aproximadas de texto</span></span>
 <span><span class="co">#&gt; ℹ Se limpiaron 1 de 1 comunas por medio de coincidencias aproximadas de texto: Providencia</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; ── Conclusión de limpieza de comunas</span></span>
-<span><span class="co">#&gt; ✔ De las 8 comunas, se limpiaron 8 en total (100%)</span></span>
-<span><span class="co">#&gt; ℹ Mostrando proceso:</span></span>
-<span><span class="co">#&gt; # A tibble: 8 × 5</span></span>
-<span><span class="co">#&gt;   original          correctas limpieza          coincidencia resultado        </span></span>
-<span><span class="co">#&gt;   &lt;chr&gt;             &lt;chr&gt;     &lt;chr&gt;             &lt;chr&gt;        &lt;chr&gt;            </span></span>
-<span><span class="co">#&gt; 1 PIRQUE            &lt;NA&gt;      Pirque            &lt;NA&gt;         Pirque           </span></span>
-<span><span class="co">#&gt; 2 El Monte          El Monte  El Monte          &lt;NA&gt;         El Monte         </span></span>
-<span><span class="co">#&gt; 3 Maipu             &lt;NA&gt;      Maipú             &lt;NA&gt;         Maipú            </span></span>
-<span><span class="co">#&gt; 4 santiago          &lt;NA&gt;      Santiago          &lt;NA&gt;         Santiago         </span></span>
-<span><span class="co">#&gt; 5 prohibidencia     &lt;NA&gt;      &lt;NA&gt;              Providencia  Providencia      </span></span>
-<span><span class="co">#&gt; 6 CERRILLOS         &lt;NA&gt;      Cerrillos         &lt;NA&gt;         Cerrillos        </span></span>
-<span><span class="co">#&gt; 7 San José De Maipo &lt;NA&gt;      San José de Maipo &lt;NA&gt;         San José de Maipo</span></span>
-<span><span class="co">#&gt; 8 OHiggins          &lt;NA&gt;      O'Higgins         &lt;NA&gt;         O'Higgins</span></span>
+<span><span class="co">#&gt; ✔ De las 8 comunas distintas, se limpiaron 8 en total (100%)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; # A tibble: 8 × 3</span></span>
 <span><span class="co">#&gt;   nombre_comuna     valores nombre_corregido </span></span>

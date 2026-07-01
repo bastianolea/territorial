@@ -3,9 +3,11 @@ pkgdown: 2.2.0
 pkgdown_sha: ~
 articles:
   codigos_unicos_territoriales: codigos_unicos_territoriales.html
+  articles/ejemplo_bibliotecas: ejemplo_bibliotecas.html
+  articles/ejemplo_servel: ejemplo_servel.html
   localidades: localidades.html
   territorial: territorial.html
-last_built: 2026-06-30T19:55Z
+last_built: 2026-07-01T13:44Z
 urls:
   reference: https://bastianolea.github.io/territorial/reference
   article: https://bastianolea.github.io/territorial/articles
