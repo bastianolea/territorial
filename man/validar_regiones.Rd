@@ -12,7 +12,7 @@ validar_regiones(datos, variable = NULL)
 \item{variable}{Columna del dataframe con los nombres de regiones (se pasa sin comillas, p.ej. \code{region})}
 }
 \value{
-Dataframe o vector intacto, con mensajes de diagnóstico si se encuentran problemas de calidad
+Dataframe o vector intacto pero en modo invisible, con mensajes de diagnóstico si se encuentran problemas de calidad
 }
 \description{
 Esta función recibe la columna con nombres de regiones de un dataframe (idealmente \code{nombre_region}), y retorna una evaluación de posibles problemas con los nombres existentes. Funciona tanto con un dataframe con una columna \code{nombre_region}, o un vector que contenga los nombres de regiones a evaluar. La función solamente retorna avisos cuando existan problemas, por lo que si todos los datos son correctos, solo devolverá los datos tal cual.

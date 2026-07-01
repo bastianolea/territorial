@@ -1,5 +1,5 @@
 ---
-title: "Ejemplo: préstamos bibliotecarios"
+title: "Ejemplo: préstamos en bibliotecas"
 description: Limpieza de datos comunales de préstamos en bibliotecas públicas de Chile según género, obtenidos desde el Servicio Nacional del Patrimonio Cultural mediante solicitud de transparencia.
 knitr:
   opts_chunk:
