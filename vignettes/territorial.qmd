@@ -1,6 +1,6 @@
 ---
 title: "Introducción al paquete"
-description: Instalación y primeros pasos con el paquete `{territorial}`.
+description: "Instalación y primeros pasos con el paquete {territorial}."
 vignette: >
   %\VignetteIndexEntry{territorial}
   %\VignetteEngine{quarto::html}
@@ -23,6 +23,7 @@ pak::pak("bastianolea/territorial")
 
 ```{r}
 #| label: setup
+
 library(territorial)
 ```
 
@@ -38,6 +39,7 @@ El paquete ofrece una tabla de datos que contiene todas las comunas del país co
 ```{r tabla}
 #| message: false
 #| warning: false
+
 library(territorial)
 library(dplyr)
 

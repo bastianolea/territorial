@@ -19,3 +19,5 @@ _pendientes.md
 ^vignettes/articles/\.quarto$
 ^vignettes/articles/*_files$
 ^vignettes/articles$
+^doc$
+^Meta$
