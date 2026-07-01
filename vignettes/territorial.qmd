@@ -69,8 +69,7 @@ Para empezar a trabajar con estos datos, validamos su calidad primero:
 
 ```{r}
 datos |> 
-  validar_comunas(nombre_comuna) |> 
-  invisible()
+  validar_comunas(nombre_comuna)
 ```
 
 ### Limpieza de nombres de comunas de Chile

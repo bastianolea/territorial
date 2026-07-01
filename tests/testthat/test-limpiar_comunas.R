@@ -102,3 +102,15 @@ test_that("prueba de limpieza de comunas 5, cabo de hornos", {
   )
 }) |>
   suppressMessages()
+
+
+test_that("prueba de limpieza de comunas 6, casos especiales", {
+  expect_equal(
+    limpiar_comunas(
+      c("coihaique", "la calera", "aisén"),
+      mostrar_proceso = FALSE
+    ),
+    c("Coyhaique", "Calera", "Aysén")
+  )
+}) |>
+  suppressMessages()

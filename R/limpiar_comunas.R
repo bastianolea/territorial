@@ -10,7 +10,7 @@
 #' Finalmente, se muestra una tabla que describe el proceso de limpieza para su revisión (que puede ocultarse con `mostrar_proceso = FALSE`, y se retornan las comunas correctas.
 #'
 #' @param nombre_comuna Vector de nombres de comunas
-#' @param mostrar_proceso Por defecto, muestra una tabla con el resultado del proceso de limpieza. Cambiar a FALSE para ocultar.
+#' @param mostrar_proceso Mostrar una tabla con el resultado del proceso de limpieza. Elegir entre TRUE o FALSE.
 #' @param aproximar El paso de limpieza por aproximación y coincidencia de nombres puede entregar resultados inexactos. Cambiar a FALSE para omitir.
 #'
 #' @returns Vector de nombres de comunas con correcciones aplicadas.
@@ -29,7 +29,7 @@
 limpiar_comunas <- function(
   nombre_comuna,
   aproximar = TRUE,
-  mostrar_proceso = TRUE
+  mostrar_proceso = FALSE
 ) {
   # nombre_comuna <- c(territorial::comunas()[1:4], toupper(territorial::comunas()[5:8]), "coyiguay", "laflorida", "cerritos", "llay-llay", "asdf")
 
@@ -37,7 +37,7 @@ limpiar_comunas <- function(
 
   # nombre_comuna <- c("O´HIGGINS", "TREHUACO")
 
-  # nombre_comuna <- c("PORVENIR", "PORVENIR", "NATALES", "NATALES", "CABO DE HORNOS(EX-NAVARINO)")
+  # nombre_comuna <- c("PORVENIR", "PORVENIR", "NATALES", "NATALES", "CABO DE HORNOS(EX-NAVARINO)", "AISEN")
 
   # empezar a registrar resultados
   comunas_originales <- dplyr::tibble(nombre_comuna)
@@ -125,7 +125,10 @@ limpiar_comunas <- function(
     dplyr::mutate(
       especiales = dplyr::case_when(
         stringr::str_detect(comunas_limpias, "cabo.*hornos") ~ "Cabo de Hornos",
-        stringr::str_detect(comunas_limpias, "navarino") ~ "Cabo de Hornos"
+        stringr::str_detect(comunas_limpias, "navarino") ~ "Cabo de Hornos",
+        stringr::str_detect(comunas_limpias, "coihaique") ~ "Coyhaique",
+        stringr::str_detect(comunas_limpias, "ais(e|é)n") ~ "Aysén",
+        stringr::str_detect(comunas_limpias, "la calera") ~ "Calera",
       )
     )
 
@@ -136,8 +139,11 @@ limpiar_comunas <- function(
     dplyr::pull()
 
   # informar
+  mensaje <- cli::pluralize(
+    "Se encontr{?ó/aron} {length(comunas_especiales)} caso{?s} especial{?es}"
+  )
   cli::cli_alert_info(
-    "Se encontraron {length(comunas_especiales)} casos especiales: {redactar_comunas(comunas_especiales)}"
+    "{mensaje}: {redactar_comunas(comunas_especiales)}"
   )
   cli::cli_par()
 
@@ -258,6 +264,7 @@ limpiar_comunas <- function(
     cli::cli_alert_info("Mostrando proceso:")
     limpiado |>
       dplyr::distinct() |>
+      dplyr::select(-comunas_limpias) |>
       print(n = Inf)
   }
 

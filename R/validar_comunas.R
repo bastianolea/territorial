@@ -5,7 +5,7 @@
 #' @param datos Dataframe con una columna de nombre de comunas, o vector de nombres de comunas
 #' @param variable Columna del dataframe con los nombres de comunas (se pasa sin comillas, p.ej. `comuna`)
 #'
-#' @returns Dataframe o vector intacto, con mensajes de diagnóstico si se encuentran problemas de calidad
+#' @returns Dataframe o vector intacto pero en modo invisible, con mensajes de diagnóstico si se encuentran problemas de calidad
 #' @export
 #'
 #' @examples
@@ -47,7 +47,7 @@ validar_comunas <- function(
 
   if (any(revisar$comunas_correctas)) {
     cli::cli_alert_info(
-      "Resumen: {sum(revisar$comunas_correctas)} caso{?s} de comunas que no conciden con comunas correctamente escritas (ver {.fun territorial::comunas})"
+      "Resumen: {sum(revisar$comunas_correctas)} caso{?s} de comunas que no conciden con comunas correctamente escritas (ver {.fun territorial::comunas}): {redactar_comunas(nombre_comuna[revisar$comunas_correctas])}"
     )
   }
 
@@ -58,7 +58,7 @@ validar_comunas <- function(
 
   if (any(revisar$mayusculas)) {
     cli::cli_alert_warning(
-      "Mayúsculas: {sum(revisar$mayusculas)} caso{?s} de comunas escritas en mayúsculas {redactar_comunas(nombre_comuna[revisar$mayusculas])}"
+      "Mayúsculas: {sum(revisar$mayusculas)} caso{?s} de comunas escritas en mayúsculas: {redactar_comunas(nombre_comuna[revisar$mayusculas])}"
     )
   }
 
@@ -186,5 +186,5 @@ validar_comunas <- function(
   #   "Navarino",
   # )
 
-  return(datos)
+  return(invisible(datos))
 }

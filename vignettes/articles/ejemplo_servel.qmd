@@ -75,8 +75,7 @@ Ahora cargamos el paquete `{territorial}`, y la primera acción será validar la
 library(territorial)
 
 servel |> 
-  validar_comunas(comuna) |> 
-  invisible()
+  validar_comunas(comuna)
 ```
 
 Vemos que hay miles de comunas escritas en mayúsculas, más de 2 mil comunas sin tildes, 29 casos de comunas sin eñes, y formas incorrectas de escribir comunas.
