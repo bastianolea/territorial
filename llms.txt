@@ -289,8 +289,8 @@ que facilitan el trabajo con datos comunales y regionales de Chile:
 [revisa el
 índice](https://bastianolea.github.io/territorial/reference/index.html)
 para verlas todas, o [lee la
-viñeta](http://127.0.0.1:59562/articles/territorial.md) para una guía de
-uso más completa.
+viñeta](https://bastianolea.github.io/territorial/articles/territorial.html)
+para una guía de uso más completa.
 
 ------------------------------------------------------------------------
 

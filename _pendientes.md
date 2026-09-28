@@ -7,6 +7,9 @@ limpiar regiones
 revisar por qué en la viñeta de primeros pasos salen líneas vacías:
 <https://bastianolea.github.io/territorial/articles/territorial.html#limpieza-de-nombres-de-comunas-de-chile>
 
+acortar_regiones debería arrojar error con dataframe, o al menos aplicar
+igual si existe la columna
+
 ## Ideas
 
 `buscar_comunas()` con agrepl

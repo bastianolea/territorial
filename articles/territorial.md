@@ -27,9 +27,9 @@ library(territorial)
 sample(comunas(), 12)
 ```
 
-     [1] "Cabrero"    "Rancagua"   "Chanco"     "Combarbalá" "Futrono"
-     [6] "Arauco"     "Hualaihué"  "Navidad"    "Valparaíso" "Putre"
-    [11] "Portezuelo" "Trehuaco"  
+     [1] "Cauquenes"       "Puerto Octay"    "Canela"          "Teodoro Schmidt"
+     [5] "Victoria"        "Talagante"       "Quirihue"        "Ovalle"
+     [9] "Galvarino"       "Renca"           "Maipú"           "Litueche"       
 
 ### Tabla de comunas, provincias y regiones de Chile
 
@@ -328,18 +328,18 @@ base
 ```
 
     # A tibble: 972 × 4
-       nombre_comuna   codigo_comuna name    value
-       <chr>                   <dbl> <chr>   <dbl>
-     1 Molina                   7304 a     0.00119
-     2 Villa Alemana            5804 b     0.00295
-     3 Osorno                  10301 b     0.00399
-     4 Mariquina               14106 c     0.00441
-     5 Teodoro Schmidt          9117 a     0.00462
-     6 Purranque               10303 c     0.00578
-     7 Freirina                 3303 b     0.00712
-     8 Vallenar                 3301 c     0.00862
-     9 Linares                  7401 c     0.0102
-    10 La Cruz                  5504 b     0.0103
+       nombre_comuna    codigo_comuna name    value
+       <chr>                    <dbl> <chr>   <dbl>
+     1 Isla de Pascua            5201 b     0.00190
+     2 Iquique                   1101 c     0.00234
+     3 San Miguel               13130 b     0.00244
+     4 Torres del Paine         12402 b     0.00282
+     5 Yumbel                    8313 a     0.00286
+     6 Loncoche                  9109 c     0.00360
+     7 La Unión                 14201 b     0.00437
+     8 Machalí                   6108 a     0.00564
+     9 Cañete                    8203 c     0.00618
+    10 Combarbalá                4302 a     0.00744
     # ℹ 962 more rows
 
 Esta tabla tiene 972 filas, ¿cómo confirmar si existen datos para todas
@@ -356,7 +356,7 @@ base |>
 
     ! La cantidad de comunas es anómala: hay 324, pero deberían ser 346. Revísalas con `territorial::validar_comunas()`
 
-    → Las comunas faltantes son: Illapel, Monte Patria, Hijuelas, Santa María, Codegua, Coltauco, La Estrella, Chanco, Pelluhue, Cañete, Curanilahue, Vilcún, Collipulli, Renaico, Puqueldón, Futaleufú, Río Verde, El Bosque, Independencia, La Granja, Buin y San Nicolás
+    → Las comunas faltantes son: Huara, Diego de Almagro, Vicuña, Salamanca, La Ligua, Cabildo, Pichidegua, Talca, Hualañé, Rauco, Vichuquén, Mulchén, Collipulli, Lonquimay, Llanquihue, Puerto Octay, Cerrillos, Estación Central, Lampa, Panguipulli, Arica y Camarones
 
 La función
 [`contar_comunas()`](https://bastianolea.github.io/territorial/reference/contar_comunas.md)
@@ -376,17 +376,17 @@ base |>
 
     ! Se encontraron 30 resultados, mostrando sólo 6.
 
-    ℹ Los resultados más cercanos al término `Alto` son: Alto Hospicio, Puente Alto, Alto Biobío y Alto del Carmen
+    ℹ Los resultados más cercanos al término `Alto` son: Alto Biobío, Alto del Carmen y Puente Alto
 
     # A tibble: 6 × 5
-      nombre_comuna   codigo_comuna name  value puntaje
-      <chr>                   <dbl> <chr> <dbl>   <dbl>
-    1 Alto Hospicio            1107 b     0.390       1
-    2 Alto Hospicio            1107 c     0.454       1
-    3 Puente Alto             13201 b     0.513       1
-    4 Alto Biobío              8314 b     0.520       1
-    5 Alto Hospicio            1107 a     0.555       1
-    6 Alto del Carmen          3302 b     0.568       1
+      nombre_comuna   codigo_comuna name   value puntaje
+      <chr>                   <dbl> <chr>  <dbl>   <dbl>
+    1 Alto Biobío              8314 c     0.0639       1
+    2 Alto del Carmen          3302 c     0.167        1
+    3 Alto Biobío              8314 b     0.253        1
+    4 Puente Alto             13201 b     0.299        1
+    5 Alto del Carmen          3302 b     0.317        1
+    6 Alto Biobío              8314 a     0.357        1
 
 ### Crear nombres de comunas a partir de códigos únicos territoriales
 
