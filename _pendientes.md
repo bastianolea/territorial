@@ -1,13 +1,14 @@
 ## Pendientes
 - [x] limpiar regiones
 - [x] revisar por qué en la viñeta de primeros pasos salen líneas vacías: https://bastianolea.github.io/territorial/articles/territorial.html#limpieza-de-nombres-de-comunas-de-chile
-- [ ] acortar_regiones debería arrojar error con dataframe, o al menos aplicar igual si existe la columna
+- [x] acortar_regiones debería arrojar error con dataframe, o al menos aplicar igual si existe la columna
+- [ ] función para convertir códigos únicos territoriales antiguos a actuales (Ñuble, Marga Marga)
 
 
 ## Ideas
 - [x] `buscar_comunas()` con agrepl
   - [x] pero debería poder aplicar a otras tablas
-- [ ] `obtener_comunas()` obtener comunas de la región, entregar como vector o redactada 
+- [x] `obtener_comunas()` obtener comunas de la región, entregar como vector o redactada 
 - [x] clasificar regiones por zona (norte, centro, sur)
 - [ ] convertir códigos DEIS a comunas
 - [x] `contar_comunas()` = cuántas comunas únicas incluye, y si todas son válidas
