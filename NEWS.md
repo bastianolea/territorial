@@ -1,3 +1,7 @@
+# territorial 0.9.2 (2026/10/07)
+- Corrección de problema con `acortar_regiones()`: ahora funciona con tablas de datos asumiendo que existe la columna `nombre_region`, y mejoras en funcionalidad de acortar nombres.
+- Corrección de error en `acortar_regiones()`, `limpiar_comunas()` y `limpiar_regiones()` al recibir columnas o vectores de tipo factor (por ejemplo, tras usar `ordenar_regiones()`). Ahora se convierten correctamente a texto, advirtiendo que se perderá el orden de los niveles del factor.
+
 # territorial 0.9.1 (2026/08/18)
 - Nueva función `obtener_comunas()` para recibir las comunas que forman parte de una o más regiones
 - Mejoras en mensajes de algunas funciones

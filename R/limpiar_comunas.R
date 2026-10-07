@@ -68,13 +68,24 @@ limpiar_comunas <- function(
     # )
     # return(dplyr::mutate(datos, !!col_expr := resultado_vec))
     #
-  } else if (is.vector(datos) & !is.list(datos)) {
-    # si se entrega vector, continuar como vector
-    nombre_comuna <- as.character(datos)
+  } else if (!is.list(datos)) {
+    # si se entrega vector (incluye factores), continuar como vector
+    nombre_comuna <- datos
   } else {
     # error si no es dataframe ni vector
     cli::cli_abort("Datos de tipo incompatible, debe ser dataframe o vector")
   }
+
+  # si los datos vienen en formato factor, advertir que se perderá el orden
+  # de los niveles al convertirlos a texto
+  if (is.factor(nombre_comuna)) {
+    cli::cli_warn(
+      "Los datos están en formato factor: se perderá el orden de los niveles al convertirlos a texto"
+    )
+  }
+
+  # convertir a caracter antes de continuar con la limpieza
+  nombre_comuna <- as.character(nombre_comuna)
 
   # nombre_comuna <- c(territorial::comunas()[1:4], toupper(territorial::comunas()[5:8]), "coyiguay", "laflorida", "cerritos", "llay-llay", "asdf")
 

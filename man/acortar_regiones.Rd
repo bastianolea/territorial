@@ -4,13 +4,15 @@
 \alias{acortar_regiones}
 \title{Acortar nombres de las regiones de Chile}
 \usage{
-acortar_regiones(nombre_region)
+acortar_regiones(datos, variable = NULL)
 }
 \arguments{
-\item{nombre_region}{Nombres de regiones, como los que aparecen en \code{\link[=regiones]{regiones()}}}
+\item{datos}{Dataframe con una columna de nombres de regiones, o vector de nombres de regiones}
+
+\item{variable}{Columna del dataframe con los nombres de regiones (se pasa sin comillas, p.ej. \code{region}). Si no se especifica, se asume \code{nombre_region}. Si se aplica a un vector, omitir este argumento.}
 }
 \value{
-Vector de texto con nombres de regiones breves.
+Si la entrada es un dataframe, retorna el dataframe con la columna de regiones reemplazada por sus versiones breves. Si es un vector, retorna un vector de texto con nombres de regiones breves.
 }
 \description{
 Hay regiones de Chile con nombres extensos, y que en ciertos contextos requieren de una versión más breve. Esta función procesa el texto de los nombres de regiones para, por ejemplo, pasar desde "Aysén del General Carlos Ibáñez del Campo" a "Aysén".
@@ -22,4 +24,16 @@ territorios |>
   ordenar_regiones() |>
   dplyr::mutate(nombre_region_corto = acortar_regiones(nombre_region)) |>
   dplyr::select(nombre_region, nombre_region_corto)
+
+datos <- dplyr::tibble(
+  nombre_region = c(
+    "Libertador Gral. Bernardo O'Higgins",
+    "Aysén del General Carlos Ibáñez del Campo"
+  ),
+  valores = c(4, 6)
+)
+
+# si existe `nombre_region`, la función no requiere argumentos:
+datos |>
+  acortar_regiones()
 }

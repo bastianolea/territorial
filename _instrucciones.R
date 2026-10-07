@@ -129,3 +129,6 @@ pkgdown::build_site()
 # devtools::load_all()
 # territorial::is.comuna("Maipú")
 # devtools::test()
+
+# devtools::document()
+# devtools::run_examples(fresh = FALSE, run = TRUE)

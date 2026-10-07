@@ -59,13 +59,24 @@ limpiar_regiones <- function(
 
     # extraer columna como vector
     nombre_region <- dplyr::pull(datos, !!col_expr)
-  } else if (is.vector(datos) & !is.list(datos)) {
-    # si se entrega vector, continuar como vector
-    nombre_region <- as.character(datos)
+  } else if (!is.list(datos)) {
+    # si se entrega vector (incluye factores), continuar como vector
+    nombre_region <- datos
   } else {
     # error si no es dataframe ni vector
     cli::cli_abort("Datos de tipo incompatible, debe ser dataframe o vector")
   }
+
+  # si los datos vienen en formato factor, advertir que se perderá el orden
+  # de los niveles al convertirlos a texto
+  if (is.factor(nombre_region)) {
+    cli::cli_warn(
+      "Los datos están en formato factor: se perderá el orden de los niveles al convertirlos a texto"
+    )
+  }
+
+  # convertir a caracter antes de continuar con la limpieza
+  nombre_region <- as.character(nombre_region)
 
   # regiones oficiales, en su versión larga y corta
   regiones_oficiales <- territorial::regiones()

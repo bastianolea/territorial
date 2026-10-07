@@ -213,6 +213,29 @@ test_that("limpiar comunas desde dataframe con columna personalizada", {
   expect_equal(resultado$municipio, c("Cerrillos", "La Florida"))
 })
 
+# factores ----
+test_that("limpiar comunas funciona con vectores de tipo factor y advierte", {
+  nombres <- factor(c("CERRILLOS", "la florida"))
+
+  expect_warning(
+    resultado <- limpiar_comunas(nombres) |> suppressMessages(),
+    "formato factor"
+  )
+  expect_type(resultado, "character")
+  expect_equal(resultado, c("Cerrillos", "La Florida"))
+})
+
+test_that("limpiar comunas funciona con columnas factor en dataframes y advierte", {
+  datos <- dplyr::tibble(nombre_comuna = factor(c("CERRILLOS", "la florida")))
+
+  expect_warning(
+    resultado <- limpiar_comunas(datos) |> suppressMessages(),
+    "formato factor"
+  )
+  expect_type(resultado$nombre_comuna, "character")
+  expect_equal(resultado$nombre_comuna, c("Cerrillos", "La Florida"))
+})
+
 
 # calidad ----
 test_that("prueba calidad de limpieza de comunas: minúscula sin símbolos", {

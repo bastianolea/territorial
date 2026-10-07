@@ -1,6 +1,6 @@
 Package: territorial
 Title: Funciones para trabajar con datos comunales y regionales de Chile
-Version: 0.9.1.1
+Version: 0.9.2
 Authors@R: 
     person("Bastián", "Olea Herrera", , "bastianolea@gmail.com", role = c("aut", "cre"),
              comment = c(url = "https://bastianolea.rbind.io",
