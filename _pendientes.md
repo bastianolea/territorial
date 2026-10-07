@@ -10,6 +10,9 @@ revisar por qué en la viñeta de primeros pasos salen líneas vacías:
 acortar_regiones debería arrojar error con dataframe, o al menos aplicar
 igual si existe la columna
 
+función para convertir códigos únicos territoriales antiguos a actuales
+(Ñuble, Marga Marga)
+
 ## Ideas
 
 `buscar_comunas()` con agrepl

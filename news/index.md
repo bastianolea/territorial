@@ -1,5 +1,21 @@
 # Registro de cambios
 
+## territorial 0.9.2 (2026/10/07)
+
+- Corrección de problema con
+  [`acortar_regiones()`](https://bastianolea.github.io/territorial/reference/acortar_regiones.md):
+  ahora funciona con tablas de datos asumiendo que existe la columna
+  `nombre_region`, y mejoras en funcionalidad de acortar nombres.
+- Corrección de error en
+  [`acortar_regiones()`](https://bastianolea.github.io/territorial/reference/acortar_regiones.md),
+  [`limpiar_comunas()`](https://bastianolea.github.io/territorial/reference/limpiar_comunas.md)
+  y
+  [`limpiar_regiones()`](https://bastianolea.github.io/territorial/reference/limpiar_regiones.md)
+  al recibir columnas o vectores de tipo factor (por ejemplo, tras usar
+  [`ordenar_regiones()`](https://bastianolea.github.io/territorial/reference/ordenar_regiones.md)).
+  Ahora se convierten correctamente a texto, advirtiendo que se perderá
+  el orden de los niveles del factor.
+
 ## territorial 0.9.1 (2026/08/18)
 
 - Nueva función

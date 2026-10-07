@@ -27,9 +27,9 @@ library(territorial)
 sample(comunas(), 12)
 ```
 
-     [1] "Cauquenes"       "Puerto Octay"    "Canela"          "Teodoro Schmidt"
-     [5] "Victoria"        "Talagante"       "Quirihue"        "Ovalle"
-     [9] "Galvarino"       "Renca"           "Maipú"           "Litueche"       
+     [1] "Freirina"    "Renaico"     "Pelarco"     "Casablanca"  "Camiña"
+     [6] "Alhué"       "Los Muermos" "Río Ibáñez"  "Combarbalá"  "Valdivia"
+    [11] "Empedrado"   "Huara"      
 
 ### Tabla de comunas, provincias y regiones de Chile
 
@@ -328,18 +328,18 @@ base
 ```
 
     # A tibble: 972 × 4
-       nombre_comuna    codigo_comuna name    value
-       <chr>                    <dbl> <chr>   <dbl>
-     1 Isla de Pascua            5201 b     0.00190
-     2 Iquique                   1101 c     0.00234
-     3 San Miguel               13130 b     0.00244
-     4 Torres del Paine         12402 b     0.00282
-     5 Yumbel                    8313 a     0.00286
-     6 Loncoche                  9109 c     0.00360
-     7 La Unión                 14201 b     0.00437
-     8 Machalí                   6108 a     0.00564
-     9 Cañete                    8203 c     0.00618
-    10 Combarbalá                4302 a     0.00744
+       nombre_comuna codigo_comuna name     value
+       <chr>                 <dbl> <chr>    <dbl>
+     1 Pucón                  9115 a     0.000599
+     2 Chile Chico           11401 a     0.00207
+     3 San Fernando           6301 a     0.00334
+     4 Rauco                  7305 b     0.00352
+     5 San Pablo             10307 b     0.00489
+     6 Limache                5802 a     0.00496
+     7 Putaendo               5705 c     0.00508
+     8 Independencia         13108 a     0.00510
+     9 Antuco                 8302 b     0.00518
+    10 Temuco                 9101 a     0.00520
     # ℹ 962 more rows
 
 Esta tabla tiene 972 filas, ¿cómo confirmar si existen datos para todas
@@ -356,7 +356,7 @@ base |>
 
     ! La cantidad de comunas es anómala: hay 324, pero deberían ser 346. Revísalas con `territorial::validar_comunas()`
 
-    → Las comunas faltantes son: Huara, Diego de Almagro, Vicuña, Salamanca, La Ligua, Cabildo, Pichidegua, Talca, Hualañé, Rauco, Vichuquén, Mulchén, Collipulli, Lonquimay, Llanquihue, Puerto Octay, Cerrillos, Estación Central, Lampa, Panguipulli, Arica y Camarones
+    → Las comunas faltantes son: Iquique, Pozo Almonte, Diego de Almagro, Quintero, Hijuelas, Nancagua, Constitución, Pencahue, San Clemente, Licantén, Yerbas Buenas, Tomé, Quilleco, San Rosendo, Cunco, Collipulli, Timaukel, Huechuraba, Providencia, San Joaquín, San Bernardo y San Nicolás
 
 La función
 [`contar_comunas()`](https://bastianolea.github.io/territorial/reference/contar_comunas.md)
@@ -374,19 +374,19 @@ base |>
   buscar_comuna("Alto")
 ```
 
-    ! Se encontraron 30 resultados, mostrando sólo 6.
+    ! Se encontraron 27 resultados, mostrando sólo 6.
 
-    ℹ Los resultados más cercanos al término `Alto` son: Alto Biobío, Alto del Carmen y Puente Alto
+    ℹ Los resultados más cercanos al término `Alto` son: Puente Alto, Alto Biobío, Alto del Carmen y Alto Hospicio
 
     # A tibble: 6 × 5
       nombre_comuna   codigo_comuna name   value puntaje
       <chr>                   <dbl> <chr>  <dbl>   <dbl>
-    1 Alto Biobío              8314 c     0.0639       1
-    2 Alto del Carmen          3302 c     0.167        1
-    3 Alto Biobío              8314 b     0.253        1
-    4 Puente Alto             13201 b     0.299        1
-    5 Alto del Carmen          3302 b     0.317        1
-    6 Alto Biobío              8314 a     0.357        1
+    1 Puente Alto             13201 c     0.0535       1
+    2 Alto Biobío              8314 b     0.253        1
+    3 Alto del Carmen          3302 c     0.337        1
+    4 Alto Biobío              8314 c     0.349        1
+    5 Alto Hospicio            1107 c     0.390        1
+    6 Alto del Carmen          3302 b     0.505        1
 
 ### Crear nombres de comunas a partir de códigos únicos territoriales
 
@@ -749,6 +749,12 @@ regiones |>
   ordenar_regiones() |> 
   mutate(nombre_region_corto = acortar_regiones(nombre_region))
 ```
+
+    Warning: There was 1 warning in `mutate()`.
+    ℹ In argument: `nombre_region_corto = acortar_regiones(nombre_region)`.
+    Caused by warning:
+    ! Los datos están en formato factor: se perderá el orden de los niveles al
+    convertirlos a texto
 
     # A tibble: 16 × 3
        codigo_region nombre_region                             nombre_region_corto

@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">territorial</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.9.1.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.9.2</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Cambiar la navegación">
@@ -47,6 +47,11 @@
       <small>Código: <a href="https://github.com/bastianolea/territorial/blob/main/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
     </div>
 
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.9.2" id="territorial-092-20261007">territorial 0.9.2 (2026/10/07)<a class="anchor" aria-label="anchor" href="#territorial-092-20261007"></a></h2>
+<ul><li>Corrección de problema con <code><a href="../reference/acortar_regiones.html">acortar_regiones()</a></code>: ahora funciona con tablas de datos asumiendo que existe la columna <code>nombre_region</code>, y mejoras en funcionalidad de acortar nombres.</li>
+<li>Corrección de error en <code><a href="../reference/acortar_regiones.html">acortar_regiones()</a></code>, <code><a href="../reference/limpiar_comunas.html">limpiar_comunas()</a></code> y <code><a href="../reference/limpiar_regiones.html">limpiar_regiones()</a></code> al recibir columnas o vectores de tipo factor (por ejemplo, tras usar <code><a href="../reference/ordenar_regiones.html">ordenar_regiones()</a></code>). Ahora se convierten correctamente a texto, advirtiendo que se perderá el orden de los niveles del factor.</li>
+</ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.9.1" id="territorial-091-20260818">territorial 0.9.1 (2026/08/18)<a class="anchor" aria-label="anchor" href="#territorial-091-20260818"></a></h2>
 <ul><li>Nueva función <code><a href="../reference/obtener_comunas.html">obtener_comunas()</a></code> para recibir las comunas que forman parte de una o más regiones</li>

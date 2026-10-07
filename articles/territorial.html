@@ -29,7 +29,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">territorial</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.9.1.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.9.2</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Cambiar la navegación">
@@ -102,9 +102,9 @@
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span><span class="fu"><a href="../reference/comunas.html">comunas</a></span><span class="op">(</span><span class="op">)</span>, <span class="fl">12</span><span class="op">)</span></span></code></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] "Cauquenes"       "Puerto Octay"    "Canela"          "Teodoro Schmidt"
- [5] "Victoria"        "Talagante"       "Quirihue"        "Ovalle"
- [9] "Galvarino"       "Renca"           "Maipú"           "Litueche"       </code></pre>
+<pre><code> [1] "Freirina"    "Renaico"     "Pelarco"     "Casablanca"  "Camiña"
+ [6] "Alhué"       "Los Muermos" "Río Ibáñez"  "Combarbalá"  "Valdivia"
+[11] "Empedrado"   "Huara"      </code></pre>
 </div>
 </div>
 <section class="level3"><h3 id="tabla-de-comunas-provincias-y-regiones-de-chile">Tabla de comunas, provincias y regiones de Chile<a class="anchor" aria-label="anchor" href="#tabla-de-comunas-provincias-y-regiones-de-chile"></a>
@@ -382,18 +382,18 @@
 <span><span class="va">base</span></span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 972 × 4
-   nombre_comuna    codigo_comuna name    value
-   &lt;chr&gt;                    &lt;dbl&gt; &lt;chr&gt;   &lt;dbl&gt;
- 1 Isla de Pascua            5201 b     0.00190
- 2 Iquique                   1101 c     0.00234
- 3 San Miguel               13130 b     0.00244
- 4 Torres del Paine         12402 b     0.00282
- 5 Yumbel                    8313 a     0.00286
- 6 Loncoche                  9109 c     0.00360
- 7 La Unión                 14201 b     0.00437
- 8 Machalí                   6108 a     0.00564
- 9 Cañete                    8203 c     0.00618
-10 Combarbalá                4302 a     0.00744
+   nombre_comuna codigo_comuna name     value
+   &lt;chr&gt;                 &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt;
+ 1 Pucón                  9115 a     0.000599
+ 2 Chile Chico           11401 a     0.00207
+ 3 San Fernando           6301 a     0.00334
+ 4 Rauco                  7305 b     0.00352
+ 5 San Pablo             10307 b     0.00489
+ 6 Limache                5802 a     0.00496
+ 7 Putaendo               5705 c     0.00508
+ 8 Independencia         13108 a     0.00510
+ 9 Antuco                 8302 b     0.00518
+10 Temuco                 9101 a     0.00520
 # ℹ 962 more rows</code></pre>
 </div>
 </div>
@@ -409,7 +409,7 @@
 <pre><code>! La cantidad de comunas es anómala: hay 324, pero deberían ser 346. Revísalas con `territorial::validar_comunas()`</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>→ Las comunas faltantes son: Huara, Diego de Almagro, Vicuña, Salamanca, La Ligua, Cabildo, Pichidegua, Talca, Hualañé, Rauco, Vichuquén, Mulchén, Collipulli, Lonquimay, Llanquihue, Puerto Octay, Cerrillos, Estación Central, Lampa, Panguipulli, Arica y Camarones</code></pre>
+<pre><code>→ Las comunas faltantes son: Iquique, Pozo Almonte, Diego de Almagro, Quintero, Hijuelas, Nancagua, Constitución, Pencahue, San Clemente, Licantén, Yerbas Buenas, Tomé, Quilleco, San Rosendo, Cunco, Collipulli, Timaukel, Huechuraba, Providencia, San Joaquín, San Bernardo y San Nicolás</code></pre>
 </div>
 </div>
 <p>La función <code><a href="../reference/contar_comunas.html">contar_comunas()</a></code> nos indica cuántas comunas únicas hay, y las que faltan. Esto es útil porque muchas veces las bases de datos reales no tienen datos para todas las comunas, sobre todo las más pequeñas y remotas.</p>
@@ -419,21 +419,21 @@
 <code class="sourceCode R"><span><span class="va">base</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="../reference/buscar_comuna.html">buscar_comuna</a></span><span class="op">(</span><span class="st">"Alto"</span><span class="op">)</span></span></code></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>! Se encontraron 30 resultados, mostrando sólo 6.</code></pre>
+<pre><code>! Se encontraron 27 resultados, mostrando sólo 6.</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>ℹ Los resultados más cercanos al término `Alto` son: Alto Biobío, Alto del Carmen y Puente Alto</code></pre>
+<pre><code>ℹ Los resultados más cercanos al término `Alto` son: Puente Alto, Alto Biobío, Alto del Carmen y Alto Hospicio</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 5
   nombre_comuna   codigo_comuna name   value puntaje
   &lt;chr&gt;                   &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt;   &lt;dbl&gt;
-1 Alto Biobío              8314 c     0.0639       1
-2 Alto del Carmen          3302 c     0.167        1
-3 Alto Biobío              8314 b     0.253        1
-4 Puente Alto             13201 b     0.299        1
-5 Alto del Carmen          3302 b     0.317        1
-6 Alto Biobío              8314 a     0.357        1</code></pre>
+1 Puente Alto             13201 c     0.0535       1
+2 Alto Biobío              8314 b     0.253        1
+3 Alto del Carmen          3302 c     0.337        1
+4 Alto Biobío              8314 c     0.349        1
+5 Alto Hospicio            1107 c     0.390        1
+6 Alto del Carmen          3302 b     0.505        1</code></pre>
 </div>
 </div>
 </section><section class="level3"><h3 id="crear-nombres-de-comunas-a-partir-de-códigos-únicos-territoriales">Crear nombres de comunas a partir de códigos únicos territoriales<a class="anchor" aria-label="anchor" href="#crear-nombres-de-comunas-a-partir-de-c%C3%B3digos-%C3%BAnicos-territoriales"></a>
@@ -739,6 +739,13 @@ Levels: Rural Mixta Urbana</code></pre>
 <code class="sourceCode R"><span><span class="va">regiones</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="../reference/ordenar_regiones.html">ordenar_regiones</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>nombre_region_corto <span class="op">=</span> <span class="fu"><a href="../reference/acortar_regiones.html">acortar_regiones</a></span><span class="op">(</span><span class="va">nombre_region</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: There was 1 warning in `mutate()`.
+ℹ In argument: `nombre_region_corto = acortar_regiones(nombre_region)`.
+Caused by warning:
+! Los datos están en formato factor: se perderá el orden de los niveles al
+convertirlos a texto</code></pre>
+</div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 16 × 3
    codigo_region nombre_region                             nombre_region_corto
@@ -765,7 +772,7 @@ Levels: Rural Mixta Urbana</code></pre>
 </h3>
 <p>Algunos análisis requieren de agrupar las regiones de Chile en grupos, usualmente derivados de su posición geográfica. Con la función <code><a href="../reference/agregar_macrozona.html">agregar_macrozona()</a></code> se pueden clasificar las regiones del país en varios tipos de macrozona a partir de sus códigos regionales:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb94"><pre class="downlit sourceCode r">
+<div class="sourceCode cell-code" id="cb95"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">regiones</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="../reference/ordenar_regiones.html">ordenar_regiones</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span></span>
@@ -801,7 +808,7 @@ Levels: Rural Mixta Urbana</code></pre>
 </h3>
 <p>Otro problema que podemos tener son datos de regiones con los nombres mal escritos. Para eso tenemos la función <code><a href="../reference/validar_regiones.html">validar_regiones()</a></code>, que revisará los nombres de las regiones y reportará los problemas existentes:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb96"><pre class="downlit sourceCode r">
+<div class="sourceCode cell-code" id="cb97"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">regiones</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span>nombre_region <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"los lagos"</span>, <span class="st">"nuble"</span>, <span class="st">"OHIGGINS"</span>, <span class="st">"Araucania"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">regiones</span></span></code></pre></div>
@@ -816,7 +823,7 @@ Levels: Rural Mixta Urbana</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb98"><pre class="downlit sourceCode r">
+<div class="sourceCode cell-code" id="cb99"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">regiones</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="../reference/validar_regiones.html">validar_regiones</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -846,7 +853,7 @@ Levels: Rural Mixta Urbana</code></pre>
 <p>Al igual que con la función <code><a href="../reference/limpiar_comunas.html">limpiar_comunas()</a></code>, existe la función <code><a href="../reference/limpiar_regiones.html">limpiar_regiones()</a></code>, que aplica varios pasos de limpieza automatizada de textos para obtener nombres de regiones válidos.</p>
 <p>Veamos un ejemplo con una tabla de datos donde las regiones vienen mal escritas:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb106"><pre class="downlit sourceCode r">
+<div class="sourceCode cell-code" id="cb107"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">regiones</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span>nombre_region <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"NUBLE"</span>, <span class="st">"AISEN"</span>, <span class="st">"OHIGINS"</span>, <span class="st">"RM"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">regiones</span></span></code></pre></div>
@@ -862,7 +869,7 @@ Levels: Rural Mixta Urbana</code></pre>
 </div>
 <p>Usamos <code><a href="../reference/limpiar_regiones.html">limpiar_regiones()</a></code> para obtener versiones válidas de los nombres:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb108"><pre class="downlit sourceCode r">
+<div class="sourceCode cell-code" id="cb109"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">regiones</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="../reference/limpiar_regiones.html">limpiar_regiones</a></span><span class="op">(</span><span class="op">)</span> <span class="co"># asume que la columna es `nombre_region`</span></span></code></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -915,14 +922,14 @@ Levels: Rural Mixta Urbana</code></pre>
 </h3>
 <p>Para saber qué comunas forman parte de una región, usa <code><a href="../reference/obtener_comunas.html">obtener_comunas()</a></code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb122"><pre class="downlit sourceCode r">
+<div class="sourceCode cell-code" id="cb123"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">region</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/regiones.html">regiones</a></span><span class="op">(</span><span class="op">)</span><span class="op">[</span><span class="fl">4</span><span class="op">]</span></span>
 <span></span>
 <span><span class="va">region</span></span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Atacama"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb124"><pre class="downlit sourceCode r">
+<div class="sourceCode cell-code" id="cb125"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/obtener_comunas.html">obtener_comunas</a></span><span class="op">(</span><span class="va">region</span><span class="op">)</span></span></code></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>ℹ Comunas de la región: Copiapó, Caldera, Tierra Amarilla, Chañaral, Diego de Almagro, Vallenar, Alto del Carmen, Freirina y Huasco</code></pre>
@@ -937,7 +944,7 @@ Levels: Rural Mixta Urbana</code></pre>
 </h3>
 <p>Si tienes nombres de región y estás creando reportes o aplicaciones que usan las regiones dentro de párrafos, sabrás que hay regiones que se anteceden por preposiciones distintas (<em>Región “del” Maule, Región “de” O’Higgins</em>), e incluso sin preposiciones (no se escribe <em>Región “de” Metropolitana</em>). Para eso existe la función <code><a href="../reference/preposicion_region.html">preposicion_region()</a></code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb127"><pre class="downlit sourceCode r">
+<div class="sourceCode cell-code" id="cb128"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">region</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Maule"</span>, <span class="st">"O'Higgins"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="../reference/preposicion_region.html">preposicion_region</a></span><span class="op">(</span><span class="va">region</span><span class="op">)</span></span></code></pre></div>
@@ -947,7 +954,7 @@ Levels: Rural Mixta Urbana</code></pre>
 </div>
 <p>La mejor forma de obtener el nombre redactado de la región sería con, obviamente, <code><a href="../reference/redactar_region.html">redactar_region()</a></code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb129"><pre class="downlit sourceCode r">
+<div class="sourceCode cell-code" id="cb130"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/redactar_region.html">redactar_region</a></span><span class="op">(</span><span class="va">region</span><span class="op">)</span></span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Región del Maule"    "Región de O'Higgins"</code></pre>
@@ -957,7 +964,7 @@ Levels: Rural Mixta Urbana</code></pre>
 </h2>
 <p>El paquete también contiene datos a nivel sub-comunal de Chile, como son las localidades. Las localidades son asentamientos o áreas subcomunales que no son entidades administrativas. Puedes consultarlas en la tabla <code><a href="../reference/localidades.html">territorial::localidades</a></code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb131"><pre class="downlit sourceCode r">
+<div class="sourceCode cell-code" id="cb132"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">localidades</span></span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 29,256 × 6
@@ -981,7 +988,7 @@ Levels: Rural Mixta Urbana</code></pre>
 </h3>
 <p>Con la función <code><a href="../reference/ubicar_localidades.html">ubicar_localidades()</a></code>, podemos consultar nombres de localidades de Chile para ubicarlas geográficamente en la comuna donde se emplazan:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb133"><pre class="downlit sourceCode r">
+<div class="sourceCode cell-code" id="cb134"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/ubicar_localidades.html">ubicar_localidades</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Chada"</span>, <span class="st">"La Dormida"</span>, <span class="st">"Mallarauco"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>ℹ Buscando localidad 'Chada'</code></pre>

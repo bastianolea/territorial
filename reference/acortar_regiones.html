@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">territorial</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.9.1.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.9.2</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Cambiar la navegación">
@@ -54,20 +54,24 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Uso<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">acortar_regiones</span><span class="op">(</span><span class="va">nombre_region</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">acortar_regiones</span><span class="op">(</span><span class="va">datos</span>, variable <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
     <h2 id="argumentos">Argumentos<a class="anchor" aria-label="anchor" href="#argumentos"></a></h2>
 
 
-<dl><dt id="arg-nombre-region">nombre_region<a class="anchor" aria-label="anchor" href="#arg-nombre-region"></a></dt>
-<dd><p>Nombres de regiones, como los que aparecen en <code><a href="regiones.html">regiones()</a></code></p></dd>
+<dl><dt id="arg-datos">datos<a class="anchor" aria-label="anchor" href="#arg-datos"></a></dt>
+<dd><p>Dataframe con una columna de nombres de regiones, o vector de nombres de regiones</p></dd>
+
+
+<dt id="arg-variable">variable<a class="anchor" aria-label="anchor" href="#arg-variable"></a></dt>
+<dd><p>Columna del dataframe con los nombres de regiones (se pasa sin comillas, p.ej. <code>region</code>). Si no se especifica, se asume <code>nombre_region</code>. Si se aplica a un vector, omitir este argumento.</p></dd>
 
 </dl></div>
     <div class="section level2">
     <h2 id="valor">Valor<a class="anchor" aria-label="anchor" href="#valor"></a></h2>
-    <p>Vector de texto con nombres de regiones breves.</p>
+    <p>Si la entrada es un dataframe, retorna el dataframe con la columna de regiones reemplazada por sus versiones breves. Si es un vector, retorna un vector de texto con nombres de regiones breves.</p>
     </div>
 
     <div class="section level2">
@@ -79,6 +83,11 @@
 <span class="r-in"><span>  <span class="fu"><a href="ordenar_regiones.html">ordenar_regiones</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>nombre_region_corto <span class="op">=</span> <span class="fu">acortar_regiones</span><span class="op">(</span><span class="va">nombre_region</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">nombre_region</span>, <span class="va">nombre_region_corto</span><span class="op">)</span></span></span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>There was 1 warning in `dplyr::mutate()`.</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> In argument: `nombre_region_corto = acortar_regiones(nombre_region)`.</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> Caused by warning:</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> Los datos están en formato factor: se perderá el orden de los niveles al</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> convertirlos a texto</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 346 × 2</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    nombre_region      nombre_region_corto</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              </span>
@@ -93,6 +102,23 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> Tarapacá           Tarapacá           </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> Tarapacá           Tarapacá           </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 336 more rows</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">datos</span> <span class="op">&lt;-</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  nombre_region <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>    <span class="st">"Libertador Gral. Bernardo O'Higgins"</span>,</span></span>
+<span class="r-in"><span>    <span class="st">"Aysén del General Carlos Ibáñez del Campo"</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span>,</span></span>
+<span class="r-in"><span>  valores <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">4</span>, <span class="fl">6</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># si existe `nombre_region`, la función no requiere argumentos:</span></span></span>
+<span class="r-in"><span><span class="va">datos</span> <span class="op">|&gt;</span></span></span>
+<span class="r-in"><span>  <span class="fu">acortar_regiones</span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 2 × 2</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   nombre_region valores</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> O'Higgins           4</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> Aysén               6</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Índice de contenidos"><h2>En esta página</h2>
