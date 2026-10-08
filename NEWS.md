@@ -1,3 +1,9 @@
+# territorial 0.9.4 (2026/10/08)
+- Nueva tabla de datos, `cut_historicos`, que contiene la equivalencia de todos los [códigos únicos territoriales](https://bastianolea.github.io/territorial/articles/codigos_unicos_territoriales.html) con sus versiones antiguas y desactualizadas en 2017, 2010 y 2004.
+- Nueva función `actualizar_codigo_comuna()`, que recibe códigos territoriales desactualizados o antiguos, por ejemplo los de comunas que ahora forman parte de Ñuble (como Coihueco, que antes era CUT 8405 y parte de la región del Biobío), y entrega los códigos actuales y vigentes (que en el ejemplo de Coihueco sería 16302).
+- Nueva función `is_codigo_comuna_antiguo()` para confirmar si un CUT es antiguo y por consiguiente desactualizado.
+- Nueva función súper simple, `codigos_comunas()`, hermana de `comunas()` y `regiones()`.
+
 # territorial 0.9.3 (2026/10/08)
 - Mejora de tests para que sean más legibles, uso de `anyNA()` en lugar de `any(is.na())`, `&&` en lugar de `&`, y mejora en descripción del paquete (todas mejoras gracias a comentarios de [Maëlle Salmon](https://masalmon.eu)!)
 
