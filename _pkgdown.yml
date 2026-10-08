@@ -24,14 +24,16 @@ home:
 
 reference:
 - title: Datos territoriales
-  desc:  Funciones y tablas de datos que entregan datos de uso territorial
+  desc: Funciones y tablas de datos que entregan datos de uso territorial
   contents:
   - territorios
   - comunas
   - regiones
+  - codigos_comunas
   - clasificacion
   - contextualizar
   - localidades
+  - cut_historicos
 - title: Validación de datos territoriales
   desc: Funciones que permiten probar la calidad de los datos territoriales
   contents:
@@ -50,6 +52,7 @@ reference:
   - starts_with("ordenar_")
   - starts_with("ubicar_")
   - starts_with("limpiar_")
+  - starts_with("actualizar_")
 - title: Complementar nombres de territorios
   desc: Funciones que toman los nombres de territorios y hacen más cosas con ellos
   contents:
