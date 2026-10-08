@@ -1,5 +1,13 @@
 # Registro de cambios
 
+## territorial 0.9.3 (2026/10/08)
+
+- Mejora de tests para que sean más legibles, uso de
+  [`anyNA()`](https://rdrr.io/r/base/NA.html) en lugar de
+  `any(is.na())`, `&&` en lugar de `&`, y mejora en descripción del
+  paquete (todas mejoras gracias a comentarios de [Maëlle
+  Salmon](https://masalmon.eu)!)
+
 ## territorial 0.9.2 (2026/10/07)
 
 - Corrección de problema con

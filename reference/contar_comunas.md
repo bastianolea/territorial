@@ -44,7 +44,7 @@ territorios del país, o indicar si faltan algunos.
 ## Ejemplos
 
 ``` r
-territorial::territorios |>
+territorios |>
   dplyr::slice_sample(n = 300) |>
   contar_comunas()
 #> ℹ Cantidad de comunas únicas: 300

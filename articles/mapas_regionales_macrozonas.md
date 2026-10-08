@@ -124,7 +124,7 @@ apropiada para esta visualización, que vaya de un anaranjado nortino a
 un morado-azulado austral.
 
 Con la función
-[`sequential_hcl()`](https://colorspace.R-Forge.R-project.org/reference/hcl_palettes.html)
+[`sequential_hcl()`](https://zeileis.codeberg.page/colorspace/reference/hcl_palettes.html)
 creamos 4 colores que van desde el tono 50 al tono 270 (argumento `h`,
 en una escala de colores de 0° a 360°), con un leve cambio de brillo
 (`l`) entre ellos, y manteniendo la intensidad (`c`).

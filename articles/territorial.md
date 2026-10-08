@@ -27,9 +27,9 @@ library(territorial)
 sample(comunas(), 12)
 ```
 
-     [1] "Freirina"    "Renaico"     "Pelarco"     "Casablanca"  "Camiña"
-     [6] "Alhué"       "Los Muermos" "Río Ibáñez"  "Combarbalá"  "Valdivia"
-    [11] "Empedrado"   "Huara"      
+     [1] "Empedrado"   "Colbún"      "Lonquimay"   "Carahue"     "Lago Ranco"
+     [6] "Trehuaco"    "Santiago"    "Porvenir"    "Freirina"    "Panguipulli"
+    [11] "Ovalle"      "María Pinto"
 
 ### Tabla de comunas, provincias y regiones de Chile
 
@@ -330,16 +330,16 @@ base
     # A tibble: 972 × 4
        nombre_comuna codigo_comuna name     value
        <chr>                 <dbl> <chr>    <dbl>
-     1 Pucón                  9115 a     0.000599
-     2 Chile Chico           11401 a     0.00207
-     3 San Fernando           6301 a     0.00334
-     4 Rauco                  7305 b     0.00352
-     5 San Pablo             10307 b     0.00489
-     6 Limache                5802 a     0.00496
-     7 Putaendo               5705 c     0.00508
-     8 Independencia         13108 a     0.00510
-     9 Antuco                 8302 b     0.00518
-    10 Temuco                 9101 a     0.00520
+     1 Illapel                4201 c     0.000674
+     2 Cabildo                5402 a     0.00108
+     3 Puerto Octay          10302 a     0.00137
+     4 Maullín               10108 b     0.00160
+     5 Curepto                7103 a     0.00216
+     6 Pichidegua             6113 b     0.00312
+     7 Pucón                  9115 b     0.00352
+     8 Quintero               5107 b     0.00387
+     9 Cunco                  9103 b     0.00455
+    10 Copiapó                3101 c     0.00529
     # ℹ 962 more rows
 
 Esta tabla tiene 972 filas, ¿cómo confirmar si existen datos para todas
@@ -356,7 +356,7 @@ base |>
 
     ! La cantidad de comunas es anómala: hay 324, pero deberían ser 346. Revísalas con `territorial::validar_comunas()`
 
-    → Las comunas faltantes son: Iquique, Pozo Almonte, Diego de Almagro, Quintero, Hijuelas, Nancagua, Constitución, Pencahue, San Clemente, Licantén, Yerbas Buenas, Tomé, Quilleco, San Rosendo, Cunco, Collipulli, Timaukel, Huechuraba, Providencia, San Joaquín, San Bernardo y San Nicolás
+    → Las comunas faltantes son: Iquique, Ollagüe, Diego de Almagro, Andacollo, Paihuano, Juan Fernández, Papudo, Navidad, Hualpén, Yumbel, Alto Biobío, Ercilla, Ancud, Río Ibáñez, Curacaví, Lanco, Río Bueno, Chillán Viejo, Pinto, Yungay, Ninhue y Ranquil
 
 La función
 [`contar_comunas()`](https://bastianolea.github.io/territorial/reference/contar_comunas.md)
@@ -376,17 +376,17 @@ base |>
 
     ! Se encontraron 27 resultados, mostrando sólo 6.
 
-    ℹ Los resultados más cercanos al término `Alto` son: Puente Alto, Alto Biobío, Alto del Carmen y Alto Hospicio
+    ℹ Los resultados más cercanos al término `Alto` son: Alto Hospicio, Puente Alto y Alto del Carmen
 
     # A tibble: 6 × 5
       nombre_comuna   codigo_comuna name   value puntaje
       <chr>                   <dbl> <chr>  <dbl>   <dbl>
-    1 Puente Alto             13201 c     0.0535       1
-    2 Alto Biobío              8314 b     0.253        1
-    3 Alto del Carmen          3302 c     0.337        1
-    4 Alto Biobío              8314 c     0.349        1
-    5 Alto Hospicio            1107 c     0.390        1
-    6 Alto del Carmen          3302 b     0.505        1
+    1 Alto Hospicio            1107 a     0.0564       1
+    2 Alto Hospicio            1107 b     0.108        1
+    3 Puente Alto             13201 c     0.141        1
+    4 Puente Alto             13201 a     0.400        1
+    5 Alto del Carmen          3302 a     0.408        1
+    6 Alto del Carmen          3302 c     0.670        1
 
 ### Crear nombres de comunas a partir de códigos únicos territoriales
 

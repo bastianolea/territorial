@@ -67,7 +67,7 @@ agregar_macrozona(c(15, 13, 12), tipo = 1)
 #> [1] Norte   Centro  Austral
 #> Levels: Norte Centro Sur Austral
 
-territorial::territorios |>
+territorios |>
   dplyr::distinct(codigo_region, nombre_region) |>
   ordenar_regiones() |>
   dplyr::mutate(

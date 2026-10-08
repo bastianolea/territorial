@@ -99,7 +99,10 @@ Los nombres se limpian en cuatro pasos:
 ## Ejemplos
 
 ``` r
-limpiar_comunas(c("COLCHANE", "Alto Ospicio", "probidencia", "huara", "laflorida", "cerritos", "llay-llay"))
+limpiar_comunas(
+  c("COLCHANE", "Alto Ospicio", "probidencia",
+  "huara", "laflorida", "cerritos", "llay-llay")
+)
 #> ℹ Limpiando 7 nombres de comunas (7 son distintas)
 #> → Paso 1: confirmar comunas correctas
 #> ℹ De las 7 comunas distintas, ninguna tiene nombres 100% correctos. Los siguientes pasos intentarán la limpieza...
