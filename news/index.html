@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">territorial</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.9.3</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.9.4</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Cambiar la navegación">
@@ -47,6 +47,13 @@
       <small>Código: <a href="https://github.com/bastianolea/territorial/blob/main/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
     </div>
 
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.9.4" id="territorial-094-20261008">territorial 0.9.4 (2026/10/08)<a class="anchor" aria-label="anchor" href="#territorial-094-20261008"></a></h2>
+<ul><li>Nueva tabla de datos, <code>cut_historicos</code>, que contiene la equivalencia de todos los <a href="https://bastianolea.github.io/territorial/articles/codigos_unicos_territoriales.html">códigos únicos territoriales</a> con sus versiones antiguas y desactualizadas en 2017, 2010 y 2004.</li>
+<li>Nueva función <code><a href="../reference/actualizar_codigo_comuna.html">actualizar_codigo_comuna()</a></code>, que recibe códigos territoriales desactualizados o antiguos, por ejemplo los de comunas que ahora forman parte de Ñuble (como Coihueco, que antes era CUT 8405 y parte de la región del Biobío), y entrega los códigos actuales y vigentes (que en el ejemplo de Coihueco sería 16302).</li>
+<li>Nueva función <code><a href="../reference/is_codigo_comuna_antiguo.html">is_codigo_comuna_antiguo()</a></code> para confirmar si un CUT es antiguo y por consiguiente desactualizado.</li>
+<li>Nueva función súper simple, <code><a href="../reference/codigos_comunas.html">codigos_comunas()</a></code>, hermana de <code><a href="../reference/comunas.html">comunas()</a></code> y <code><a href="../reference/regiones.html">regiones()</a></code>.</li>
+</ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.9.3" id="territorial-093-20261008">territorial 0.9.3 (2026/10/08)<a class="anchor" aria-label="anchor" href="#territorial-093-20261008"></a></h2>
 <ul><li>Mejora de tests para que sean más legibles, uso de <code><a href="https://rdrr.io/r/base/NA.html" class="external-link">anyNA()</a></code> en lugar de <code>any(is.na())</code>, <code>&amp;&amp;</code> en lugar de <code>&amp;</code>, y mejora en descripción del paquete (todas mejoras gracias a comentarios de <a href="https://masalmon.eu" class="external-link">Maëlle Salmon</a>!)</li>

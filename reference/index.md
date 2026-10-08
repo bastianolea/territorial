@@ -10,12 +10,16 @@ Funciones y tablas de datos que entregan datos de uso territorial
   : Nombres de comunas de Chile
 - [`regiones()`](https://bastianolea.github.io/territorial/reference/regiones.md)
   : Nombres de regiones de Chile
+- [`codigos_comunas()`](https://bastianolea.github.io/territorial/reference/codigos_comunas.md)
+  : Códigos de comunas de Chile
 - [`clasificacion`](https://bastianolea.github.io/territorial/reference/clasificacion.md)
   : Tabla de clasificación comunal PNDR, Censo 2024
 - [`contextualizar()`](https://bastianolea.github.io/territorial/reference/contextualizar.md)
   : Contextualizar datos de nivel comunal con variables territoriales
 - [`localidades`](https://bastianolea.github.io/territorial/reference/localidades.md)
   : Tabla de localidades de Chile
+- [`cut_historicos`](https://bastianolea.github.io/territorial/reference/cut_historicos.md)
+  : Códigos únicos territoriales históricos
 
 ## Validación de datos territoriales
 
@@ -35,6 +39,9 @@ Funciones y utilidades para navegar datos territoriales
 - [`is_codigo_comuna()`](https://bastianolea.github.io/territorial/reference/is_codigo_comuna.md)
   : Evaluar si un dato corresponde a un código territorial válido de una
   comuna de Chile
+- [`is_codigo_comuna_antiguo()`](https://bastianolea.github.io/territorial/reference/is_codigo_comuna_antiguo.md)
+  : Evaluar si un código único territorial comunal es antiguo o
+  desactualizado
 - [`is_nombre_comuna()`](https://bastianolea.github.io/territorial/reference/is_nombre_comuna.md)
   : Evaluar si un texto corresponde al nombre válido de una comuna de
   Chile
@@ -71,6 +78,9 @@ ordenarlos, etc.
   : Limpieza de nombres de regiones de Chile a sus nombres oficiales
 - [`limpiar_texto()`](https://bastianolea.github.io/territorial/reference/limpiar_texto.md)
   : Eliminar puntuación, símbolos y números de textos
+- [`actualizar_codigo_comuna()`](https://bastianolea.github.io/territorial/reference/actualizar_codigo_comuna.md)
+  : Actualizar códigos únicos territoriales comunales antiguos o
+  desactualizados
 
 ## Complementar nombres de territorios
 

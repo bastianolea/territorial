@@ -29,7 +29,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">territorial</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.9.3</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.9.4</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Cambiar la navegación">
@@ -102,9 +102,9 @@
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span><span class="fu"><a href="../reference/comunas.html">comunas</a></span><span class="op">(</span><span class="op">)</span>, <span class="fl">12</span><span class="op">)</span></span></code></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] "Empedrado"   "Colbún"      "Lonquimay"   "Carahue"     "Lago Ranco"
- [6] "Trehuaco"    "Santiago"    "Porvenir"    "Freirina"    "Panguipulli"
-[11] "Ovalle"      "María Pinto"</code></pre>
+<pre><code> [1] "Santo Domingo" "Purén"         "Trehuaco"      "Quintero"
+ [5] "Curepto"       "Arica"         "Huasco"        "Nogales"
+ [9] "Vichuquén"     "Ñuñoa"         "Rancagua"      "San Ignacio"  </code></pre>
 </div>
 </div>
 <section class="level3"><h3 id="tabla-de-comunas-provincias-y-regiones-de-chile">Tabla de comunas, provincias y regiones de Chile<a class="anchor" aria-label="anchor" href="#tabla-de-comunas-provincias-y-regiones-de-chile"></a>
@@ -382,18 +382,18 @@
 <span><span class="va">base</span></span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 972 × 4
-   nombre_comuna codigo_comuna name     value
-   &lt;chr&gt;                 &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt;
- 1 Illapel                4201 c     0.000674
- 2 Cabildo                5402 a     0.00108
- 3 Puerto Octay          10302 a     0.00137
- 4 Maullín               10108 b     0.00160
- 5 Curepto                7103 a     0.00216
- 6 Pichidegua             6113 b     0.00312
- 7 Pucón                  9115 b     0.00352
- 8 Quintero               5107 b     0.00387
- 9 Cunco                  9103 b     0.00455
-10 Copiapó                3101 c     0.00529
+   nombre_comuna  codigo_comuna name     value
+   &lt;chr&gt;                  &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt;
+ 1 San Miguel             13130 b     0.000573
+ 2 Curepto                 7103 a     0.000884
+ 3 Coinco                  6103 a     0.00136
+ 4 Viña del Mar            5109 a     0.00193
+ 5 Rauco                   7305 c     0.00454
+ 6 Tirúa                   8207 c     0.00641
+ 7 San Bernardo           13401 a     0.00689
+ 8 Cabo de Hornos         12201 b     0.00918
+ 9 Cobquecura             16202 c     0.00956
+10 Nogales                 5506 b     0.0101
 # ℹ 962 more rows</code></pre>
 </div>
 </div>
@@ -409,7 +409,7 @@
 <pre><code>! La cantidad de comunas es anómala: hay 324, pero deberían ser 346. Revísalas con `territorial::validar_comunas()`</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>→ Las comunas faltantes son: Iquique, Ollagüe, Diego de Almagro, Andacollo, Paihuano, Juan Fernández, Papudo, Navidad, Hualpén, Yumbel, Alto Biobío, Ercilla, Ancud, Río Ibáñez, Curacaví, Lanco, Río Bueno, Chillán Viejo, Pinto, Yungay, Ninhue y Ranquil</code></pre>
+<pre><code>→ Las comunas faltantes son: El Tabo, Pichidegua, Quinta de Tilcoco, Requínoa, Chimbarongo, Maule, Coronel, Florida, San Pedro de la Paz, Curanilahue, Nacimiento, Pucón, Toltén, Purén, Calbuco, Futaleufú, Lo Barnechea, Curacaví, María Pinto, Paillaco, Coihueco y Ñiquén</code></pre>
 </div>
 </div>
 <p>La función <code><a href="../reference/contar_comunas.html">contar_comunas()</a></code> nos indica cuántas comunas únicas hay, y las que faltan. Esto es útil porque muchas veces las bases de datos reales no tienen datos para todas las comunas, sobre todo las más pequeñas y remotas.</p>
@@ -419,21 +419,21 @@
 <code class="sourceCode R"><span><span class="va">base</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="../reference/buscar_comuna.html">buscar_comuna</a></span><span class="op">(</span><span class="st">"Alto"</span><span class="op">)</span></span></code></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>! Se encontraron 27 resultados, mostrando sólo 6.</code></pre>
+<pre><code>! Se encontraron 30 resultados, mostrando sólo 6.</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>ℹ Los resultados más cercanos al término `Alto` son: Alto Hospicio, Puente Alto y Alto del Carmen</code></pre>
+<pre><code>ℹ Los resultados más cercanos al término `Alto` son: Alto del Carmen, Puente Alto, Alto Biobío y Alto Hospicio</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 5
   nombre_comuna   codigo_comuna name   value puntaje
   &lt;chr&gt;                   &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt;   &lt;dbl&gt;
-1 Alto Hospicio            1107 a     0.0564       1
-2 Alto Hospicio            1107 b     0.108        1
-3 Puente Alto             13201 c     0.141        1
-4 Puente Alto             13201 a     0.400        1
-5 Alto del Carmen          3302 a     0.408        1
-6 Alto del Carmen          3302 c     0.670        1</code></pre>
+1 Alto del Carmen          3302 b     0.0481       1
+2 Puente Alto             13201 c     0.0494       1
+3 Alto del Carmen          3302 a     0.0683       1
+4 Alto Biobío              8314 c     0.149        1
+5 Alto Hospicio            1107 c     0.154        1
+6 Alto Biobío              8314 a     0.191        1</code></pre>
 </div>
 </div>
 </section><section class="level3"><h3 id="crear-nombres-de-comunas-a-partir-de-códigos-únicos-territoriales">Crear nombres de comunas a partir de códigos únicos territoriales<a class="anchor" aria-label="anchor" href="#crear-nombres-de-comunas-a-partir-de-c%C3%B3digos-%C3%BAnicos-territoriales"></a>

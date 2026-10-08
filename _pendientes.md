@@ -34,9 +34,14 @@ con los nombres de comuna
 
 ## Cambios
 
-Al final las mismas funciones ahora aplican igual a columnas o
-vectores - \[-\] flexibilizar agregar_poblacion (sacar de aquí y pasar
-al otro paquete)
+Agregar ejemplos o viñeta sobre códigos únicos territoriales antiguos o
+desactualizados para cut_historicos, actualizar_codigo_comuna() y
+is_codigo_comuna_antiguo()
+
+Al final las mismas funciones ahora aplican igual a columnas o vectores
+
+\[-\] flexibilizar agregar_poblacion (sacar de aquí y pasar al otro
+paquete)
 
 crear un ejemplo de cómo aplicar funciones con mutate a un datafrme
 

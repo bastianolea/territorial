@@ -1,5 +1,28 @@
 # Registro de cambios
 
+## territorial 0.9.4 (2026/10/08)
+
+- Nueva tabla de datos, `cut_historicos`, que contiene la equivalencia
+  de todos los [códigos únicos
+  territoriales](https://bastianolea.github.io/territorial/articles/codigos_unicos_territoriales.html)
+  con sus versiones antiguas y desactualizadas en 2017, 2010 y 2004.
+- Nueva función
+  [`actualizar_codigo_comuna()`](https://bastianolea.github.io/territorial/reference/actualizar_codigo_comuna.md),
+  que recibe códigos territoriales desactualizados o antiguos, por
+  ejemplo los de comunas que ahora forman parte de Ñuble (como Coihueco,
+  que antes era CUT 8405 y parte de la región del Biobío), y entrega los
+  códigos actuales y vigentes (que en el ejemplo de Coihueco sería
+  16302).
+- Nueva función
+  [`is_codigo_comuna_antiguo()`](https://bastianolea.github.io/territorial/reference/is_codigo_comuna_antiguo.md)
+  para confirmar si un CUT es antiguo y por consiguiente desactualizado.
+- Nueva función súper simple,
+  [`codigos_comunas()`](https://bastianolea.github.io/territorial/reference/codigos_comunas.md),
+  hermana de
+  [`comunas()`](https://bastianolea.github.io/territorial/reference/comunas.md)
+  y
+  [`regiones()`](https://bastianolea.github.io/territorial/reference/regiones.md).
+
 ## territorial 0.9.3 (2026/10/08)
 
 - Mejora de tests para que sean más legibles, uso de
