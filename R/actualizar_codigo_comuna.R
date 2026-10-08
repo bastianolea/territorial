@@ -4,7 +4,7 @@
 #'
 #' @param codigo_comuna Códigos comunales en formato numérico
 #'
-#' @returns Códigos comunales actualizados correspondientes a los desactualizados entregados
+#' @returns Códigos comunales actualizados correspondientes a los desactualizados entregados. Si los códigos entregados no son antiguos, se mantienen sin cambios.
 #' @export
 #'
 #' @examples
@@ -13,7 +13,9 @@
 actualizar_codigo_comuna <- function(codigo_comuna) {
   # codigo_comuna <- sample(cut_historicos_l$codigo_comuna_historico, 4)
 
-  if (!any(is_codigo_comuna_antiguo(codigo_comuna))) {
+  # codigo_comuna <- c(sample(cut_historicos_l$codigo_comuna_historico, 4), codigos_comunas()[5:9])
+
+  if (!all(is_codigo_comuna_antiguo(codigo_comuna))) {
     cli::cli_alert_warning("Algunos códigos comunales no son antiguos!")
   }
 
@@ -25,6 +27,18 @@ actualizar_codigo_comuna <- function(codigo_comuna) {
 
   # extraer los valores de columna de códigos actuales a partir de las filas
   resultado <- cut_historicos_l$codigo_comuna_actual[filas]
+
+  # si no se coincidieron (NA), volver a ubicar los originales
+  originales <- codigo_comuna[which(is.na(resultado))]
+
+  if (length(originales) > 0) {
+    cli::cli_alert_info(
+      "Los códigos territoriales que no fueron actualizados se devolverán tal cual"
+    )
+
+    # rellenar el resultado con los códigos entregados que no se coincidieron
+    resultado[is.na(resultado)] <- originales
+  }
 
   return(resultado)
 }

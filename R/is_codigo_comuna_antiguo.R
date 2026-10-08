@@ -6,6 +6,8 @@
 #' @export
 #'
 #' @examples
+#' is_codigo_comuna_antiguo(8408)
+#'
 is_codigo_comuna_antiguo <- function(codigo_comuna) {
   # codigo_comuna <- 1102
 
