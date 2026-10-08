@@ -51,7 +51,7 @@ validar_comunas <- function(
     nombre_comuna <- dplyr::pull(dplyr::ungroup(datos), !!col_expr)
 
     # si es un vector, se toma el vector
-  } else if (is.vector(datos) & !is.list(datos)) {
+  } else if (is.vector(datos) && !is.list(datos)) {
     # cli::cli_alert_info("Validando calidad de nombres de comuna desde vector")
     nombre_comuna <- as.character(datos)
 
@@ -60,7 +60,7 @@ validar_comunas <- function(
     cli::cli_abort("Datos de tipo incompatible, debe ser dataframe o vector")
   }
 
-  # nombre_comuna <- territorial::comunas()
+  # nombre_comuna <- comunas()
 
   # excluir missings
   nombre_comuna <- nombre_comuna[!is.na(nombre_comuna)]
@@ -69,7 +69,7 @@ validar_comunas <- function(
 
   # comunas correctas ---
   # nombre_comuna <- c("Puente Alto", "Perrito", "Cerrillos")
-  revisar$comunas_correctas <- !nombre_comuna %in% territorial::comunas()
+  revisar$comunas_correctas <- !nombre_comuna %in% comunas()
 
   if (any(revisar$comunas_correctas)) {
     cli::cli_alert_warning(
@@ -78,8 +78,8 @@ validar_comunas <- function(
   }
 
   # mayúsculas ----
-  # nombre_comuna <- territorial::comunas()
-  # nombre_comuna <-  c(toupper(territorial::comunas()[1:4]), territorial::comunas()[5:16])
+  # nombre_comuna <- comunas()
+  # nombre_comuna <-  c(toupper(comunas()[1:4]), comunas()[5:16])
   revisar$mayusculas <- nombre_comuna == toupper(nombre_comuna)
 
   if (any(revisar$mayusculas)) {
@@ -89,8 +89,8 @@ validar_comunas <- function(
   }
 
   # minúsculas ----
-  # nombre_comuna <- territorial::comunas()
-  # nombre_comuna <-  c(tolower(territorial::comunas()[1:4]), territorial::comunas()[5:16])
+  # nombre_comuna <- comunas()
+  # nombre_comuna <-  c(tolower(comunas()[1:4]), comunas()[5:16])
   revisar$minusculas <- nombre_comuna == tolower(nombre_comuna)
 
   if (any(revisar$minusculas)) {
@@ -100,7 +100,7 @@ validar_comunas <- function(
   }
 
   # comunas con mayúsculas en las preposiciones ---
-  # nombre_comuna <- c(territorial::comunas(), "Región Del Maule")
+  # nombre_comuna <- c(comunas(), "Región Del Maule")
   revisar$mayusc_preposic <- stringr::str_detect(
     nombre_comuna,
     "\\bDe\\b|\\bDel"
@@ -113,9 +113,9 @@ validar_comunas <- function(
   }
 
   # # comunas sin tilde ----
-  # nombre_comuna <- territorial::comunas()
+  # nombre_comuna <- comunas()
   # nombre_comuna <- c("Maipu", "Alhue", "Peñalolén", "Nunoa", "vina del mar")
-  comunas_con_tilde <- territorial::comunas() |>
+  comunas_con_tilde <- comunas() |>
     stringr::str_subset("á|é|í|ó|ú|Á|É|Í|Ó|Ú")
 
   comunas_sin_tilde <- chartr(
@@ -133,7 +133,7 @@ validar_comunas <- function(
   }
 
   # comunas sin eñe ----
-  comunas_con_eñe <- territorial::comunas() |>
+  comunas_con_eñe <- comunas() |>
     stringr::str_subset("ñ|Ñ")
 
   comunas_sin_eñe <- chartr(
@@ -151,7 +151,7 @@ validar_comunas <- function(
   }
 
   # comunas sin diéresis ----
-  comunas_con_dieresis <- territorial::comunas() |>
+  comunas_con_dieresis <- comunas() |>
     stringr::str_subset("ä|ë|ï|ö|ü|Ä|Ë|Ï|Ö|Ü")
 
   comunas_sin_dieresis <- chartr(

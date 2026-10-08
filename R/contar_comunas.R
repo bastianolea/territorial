@@ -12,7 +12,7 @@
 #' @export
 #'
 #' @examples
-#' territorial::territorios |>
+#' territorios |>
 #'   dplyr::slice_sample(n = 300) |>
 #'   contar_comunas()
 contar_comunas <- function(
@@ -48,7 +48,7 @@ contar_comunas <- function(
     nombre_comuna <- dplyr::pull(dplyr::ungroup(datos), !!col_expr)
 
     # si es un vector, se toma el vector
-  } else if (is.vector(datos) & !is.list(datos)) {
+  } else if (is.vector(datos) && !is.list(datos)) {
     # cli::cli_alert_info("Validando calidad de nombres de comuna desde vector")
     nombre_comuna <- as.character(datos)
 

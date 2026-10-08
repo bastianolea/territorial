@@ -10,5 +10,5 @@
 #' comunas()
 #'
 comunas <- function() {
-  territorial::territorios$nombre_comuna
+  territorios$nombre_comuna
 }

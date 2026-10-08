@@ -19,7 +19,7 @@
 #' @examples
 #' agregar_macrozona(c(15, 13, 12), tipo = 1)
 #'
-#' territorial::territorios |>
+#' territorios |>
 #'   dplyr::distinct(codigo_region, nombre_region) |>
 #'   ordenar_regiones() |>
 #'   dplyr::mutate(
@@ -72,10 +72,10 @@ agregar_macrozona <- function(
     )
   }
 
-  # datos <- territorial::territorios |>
+  # datos <- territorios |>
   #   dplyr::select(dplyr::ends_with("region")) |>
   #   dplyr::distinct() |>
-  #   territorial::ordenar_regiones()
+  #   ordenar_regiones()
   #
   # datos$codigo_region |> dput()
 
@@ -108,7 +108,14 @@ agregar_macrozona <- function(
       macrozonas <- factor(macrozonas, levels = niveles)
     }
   } else if (tipo == 3) {
-    niveles <- c("Norte", "Centro", "Metropolitana", "Centro sur", "Sur", "Austral")
+    niveles <- c(
+      "Norte",
+      "Centro",
+      "Metropolitana",
+      "Centro sur",
+      "Sur",
+      "Austral"
+    )
 
     macrozonas <- dplyr::case_when(
       codigo_region %in% c(15, 1, 2, 3) ~ niveles[1],
@@ -123,7 +130,13 @@ agregar_macrozona <- function(
       macrozonas <- factor(macrozonas, levels = niveles)
     }
   } else if (tipo == 4) {
-    niveles <- c("Norte Grande", "Norte Chico", "Zona central", "Zona Sur", "Zona Austral")
+    niveles <- c(
+      "Norte Grande",
+      "Norte Chico",
+      "Zona central",
+      "Zona Sur",
+      "Zona Austral"
+    )
 
     macrozonas <- dplyr::case_when(
       codigo_region %in% c(15, 1, 2) ~ niveles[1],

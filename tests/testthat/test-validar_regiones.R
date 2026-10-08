@@ -1,6 +1,6 @@
 test_that("validar regiones correctas", {
   expect_condition(
-    validar_regiones(territorial::regiones()),
+    validar_regiones(regiones()),
     regexp = "correcta"
   )
 }) |>
@@ -9,8 +9,8 @@ test_that("validar regiones correctas", {
 test_that("validar regiones con mayúsculas", {
   expect_condition(
     validar_regiones(c(
-      toupper(territorial::regiones()[1:4]),
-      territorial::regiones()[5:16]
+      toupper(regiones()[1:4]),
+      regiones()[5:16]
     )),
     regexp = "problema"
   )
@@ -20,8 +20,8 @@ test_that("validar regiones con mayúsculas", {
 test_that("validar regiones con minúsculas", {
   expect_condition(
     validar_regiones(c(
-      tolower(territorial::regiones()[1:4]),
-      territorial::regiones()[5:16]
+      tolower(regiones()[1:4]),
+      regiones()[5:16]
     )),
     regexp = "problema"
   )
@@ -112,7 +112,7 @@ test_that("validar regiones sin sus preposiciones", {
 
 test_that("validar regiones desde dataframe", {
   expect_condition(
-    territorial::territorios |>
+    territorios |>
       validar_regiones(nombre_region),
     regexp = "correcta"
   )

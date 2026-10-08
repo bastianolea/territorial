@@ -1,6 +1,6 @@
 test_that("validar comunas correctas", {
   expect_condition(
-    validar_comunas(territorial::comunas()),
+    validar_comunas(comunas()),
     regexp = "correcta"
   )
 }) |>
@@ -9,8 +9,8 @@ test_that("validar comunas correctas", {
 test_that("validar comunas con mayúsculas", {
   expect_condition(
     validar_comunas(c(
-      toupper(territorial::comunas()[1:4]),
-      territorial::comunas()[5:16]
+      toupper(comunas()[1:4]),
+      comunas()[5:16]
     )),
     regexp = "problema"
   )
@@ -20,8 +20,8 @@ test_that("validar comunas con mayúsculas", {
 test_that("validar comunas con minúsculas", {
   expect_condition(
     validar_comunas(c(
-      tolower(territorial::comunas()[1:4]),
-      territorial::comunas()[5:16]
+      tolower(comunas()[1:4]),
+      comunas()[5:16]
     )),
     regexp = "problema"
   )
@@ -86,7 +86,7 @@ test_that("validar comuna Aysén con y griega", {
 
 test_that("validar comuna desde dataframe 1", {
   expect_condition(
-    territorial::territorios |>
+    territorios |>
       validar_comunas(nombre_comuna),
     regexp = "correcta"
   )

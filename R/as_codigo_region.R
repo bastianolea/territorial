@@ -56,7 +56,7 @@ as_codigo_region <- function(nombres_regiones) {
   )
 
   # si hay NA, advertir
-  if (any(is.na(codigos_encontrados))) {
+  if (anyNA(codigos_encontrados)) {
     cli::cli_alert_warning(
       "Algunos nombres de regiones no fueron reconocidos correctamente."
     )

@@ -37,7 +37,10 @@ Finalmente, se muestra una tabla que describe el proceso de limpieza para su rev
 }
 }
 \examples{
-limpiar_comunas(c("COLCHANE", "Alto Ospicio", "probidencia", "huara", "laflorida", "cerritos", "llay-llay"))
+limpiar_comunas(
+  c("COLCHANE", "Alto Ospicio", "probidencia",
+  "huara", "laflorida", "cerritos", "llay-llay")
+)
 
 datos <- dplyr::tibble(
   nombre_comuna = c("PIRQUE", "El Monte", "Maipu",

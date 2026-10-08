@@ -10,9 +10,9 @@
 #' regiones()
 #'
 regiones <- function() {
-  territorial::territorios |>
+  territorios |>
     dplyr::distinct(codigo_region, nombre_region) |>
-    territorial::ordenar_regiones() |>
+    ordenar_regiones() |>
     dplyr::pull(nombre_region) |>
     as.character()
 }

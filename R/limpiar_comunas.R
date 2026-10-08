@@ -18,7 +18,10 @@
 #' @export
 #'
 #' @examples
-#' limpiar_comunas(c("COLCHANE", "Alto Ospicio", "probidencia", "huara", "laflorida", "cerritos", "llay-llay"))
+#' limpiar_comunas(
+#'   c("COLCHANE", "Alto Ospicio", "probidencia",
+#'   "huara", "laflorida", "cerritos", "llay-llay")
+#' )
 #'
 #' datos <- dplyr::tibble(
 #'   nombre_comuna = c("PIRQUE", "El Monte", "Maipu",
@@ -168,7 +171,7 @@ limpiar_comunas <- function(
     dplyr::mutate(
       limpieza = dplyr::if_else(
         comunas_limpias %in% comunas_oficiales_limpias,
-        territorial::comunas()[match(
+        comunas()[match(
           comunas_limpias,
           comunas_oficiales_limpias
         )],
@@ -334,7 +337,7 @@ limpiar_comunas <- function(
   # agregar a resultados
   resultados <- resultados |>
     dplyr::mutate(
-      coincidencia = territorial::comunas()[coincidencias_proximidad]
+      coincidencia = comunas()[coincidencias_proximidad]
     )
 
   # resultados |>

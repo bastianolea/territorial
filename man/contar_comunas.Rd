@@ -23,7 +23,7 @@ Revisa un vector o una tabla de datos (asumiendo la columna \code{nombre_comuna}
 Sirve para revisar rápidamente que los datos abarquen todos los territorios del país, o indicar si faltan algunos.
 }
 \examples{
-territorial::territorios |>
+territorios |>
   dplyr::slice_sample(n = 300) |>
   contar_comunas()
 }

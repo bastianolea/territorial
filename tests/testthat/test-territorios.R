@@ -1,6 +1,6 @@
 test_that("cantidad de filas de dataframe territorios", {
   expect_equal(
-    nrow(territorial::territorios),
+    nrow(territorios),
     346
   )
 })
@@ -9,10 +9,10 @@ test_that("cantidad de filas de dataframe territorios", {
 test_that("columnas de dataframe territorios", {
   expect_equal(
     # solamente pueden haber comunas con "nombre" y "codigo"
-    territorial::territorios |>
+    territorios |>
       dplyr::select(
-        -starts_with("codigo"),
-        -starts_with("nombre")
+        -dplyr::starts_with("codigo"),
+        -dplyr::starts_with("nombre")
       ) |>
       length(),
     0

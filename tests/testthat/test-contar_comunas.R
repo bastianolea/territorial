@@ -1,6 +1,6 @@
 test_that("revisar comunas completas (346) desde dataframe", {
   expect_condition(
-    territorial::territorios |>
+    territorios |>
       contar_comunas(),
     regexp = "correcta"
   )
@@ -10,7 +10,7 @@ test_that("revisar comunas completas (346) desde dataframe", {
 
 test_that("revisar comunas desde vector no da error", {
   expect_no_error(
-    territorial::territorios$nombre_comuna |>
+    territorios$nombre_comuna |>
       contar_comunas()
   )
 }) |>
@@ -18,7 +18,7 @@ test_that("revisar comunas desde vector no da error", {
 
 test_that("revisar comunas desde lista da error", {
   expect_error(
-    list(territorial::territorios$nombre_comuna) |>
+    list(territorios$nombre_comuna) |>
       contar_comunas()
   )
 }) |>
@@ -26,7 +26,7 @@ test_that("revisar comunas desde lista da error", {
 
 test_that("revisar comunas con columna que no existe da error", {
   expect_error(
-    territorial::territorios |> contar_comunas(nombre_mapache)
+    territorios |> contar_comunas(nombre_mapache)
   )
 }) |>
   suppressMessages()
@@ -34,7 +34,7 @@ test_that("revisar comunas con columna que no existe da error", {
 test_that(
   "revisar comunas sin especificar columna, y no existe nombre_comuna, da error",
   expect_error(
-    territorial::territorios |>
+    territorios |>
       dplyr::rename(nombres = nombre_comuna) |>
       contar_comunas()
   )
@@ -43,7 +43,7 @@ test_that(
 
 test_that("revisar comunas desde dataframe especificando columna", {
   expect_condition(
-    territorial::territorios |>
+    territorios |>
       dplyr::rename(nombres = nombre_comuna) |>
       dplyr::slice_sample(n = 20) |>
       contar_comunas(nombres),
@@ -64,7 +64,7 @@ test_that("revisar comunas completas menos Antártica desde vector", {
 
 test_that("revisar comunas con muestra pequeña (menos de 345)", {
   expect_condition(
-    territorial::territorios |>
+    territorios |>
       dplyr::slice_sample(n = 10) |>
       contar_comunas(),
     regexp = "anómala"
@@ -74,7 +74,7 @@ test_that("revisar comunas con muestra pequeña (menos de 345)", {
 
 test_that("revisar comunas con muestra intermedia (310)", {
   expect_condition(
-    territorial::territorios |>
+    territorios |>
       dplyr::slice_sample(n = 310) |>
       contar_comunas(),
     regexp = "anómala"
@@ -84,7 +84,7 @@ test_that("revisar comunas con muestra intermedia (310)", {
 
 test_that("revisar comunas sin datos (0 filas)", {
   expect_condition(
-    territorial::territorios |>
+    territorios |>
       dplyr::slice_sample(n = 0) |>
       contar_comunas(),
     regexp = "anómala"
@@ -103,7 +103,7 @@ test_that("revisar comunas con más de 346 comunas únicas", {
 
 test_that("revisar comunas indicando cuáles faltan", {
   expect_condition(
-    territorial::territorios |>
+    territorios |>
       dplyr::slice_sample(n = 10) |>
       contar_comunas(),
     regexp = "faltantes"
@@ -111,7 +111,6 @@ test_that("revisar comunas indicando cuáles faltan", {
 }) |>
   suppressMessages()
 
-
-#' territorial::territorios |>
+#' territorios |>
 #'   dplyr::slice_sample(300) |>
 #'   contar_comunas()

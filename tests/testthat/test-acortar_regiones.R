@@ -161,5 +161,5 @@ test_that("acortar_regiones funciona tras ordenar_regiones() (columna factor)", 
   )
 
   expect_true(is.character(resultado$nombre_region_corto))
-  expect_false(any(is.na(resultado$nombre_region_corto)))
+  expect_false(anyNA(resultado$nombre_region_corto))
 })

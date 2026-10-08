@@ -45,20 +45,20 @@ validar_regiones <- function(
     nombre_region <- dplyr::pull(dplyr::ungroup(datos), !!col_expr)
 
     # si es un vector, se toma el vector
-  } else if (is.vector(datos) & !is.list(datos)) {
+  } else if (is.vector(datos) && !is.list(datos)) {
     # cli::cli_alert_info("Validando calidad de nombres de región desde vector")
     nombre_region <- as.character(datos)
   } else {
     cli::cli_abort("Datos de tipo incompatible, debe ser dataframe o vector")
   }
-  # nombre_region <- territorial::regiones()
-  # nombre_region <-  c(toupper(territorial::regiones()[1:4]), territorial::regiones()[5:16])
-  # nombre_region <-  c(tolower(territorial::regiones()[1:4]), territorial::regiones()[5:16])
-  # nombre_region <- c(territorial::regiones(), "Región Del Maule")
-  # nombre_region <- c(territorial::regiones(), "Nuble")
-  # nombre_region <- c(territorial::regiones(), "OHiggins")
-  # nombre_region <- c(territorial::regiones(), "O´Higgins", "o`higgins", "o.higgins", "ohiggins")
-  # nombre_region <- c(territorial::regiones(), "Aisén")
+  # nombre_region <- regiones()
+  # nombre_region <-  c(toupper(regiones()[1:4]), regiones()[5:16])
+  # nombre_region <-  c(tolower(regiones()[1:4]), regiones()[5:16])
+  # nombre_region <- c(regiones(), "Región Del Maule")
+  # nombre_region <- c(regiones(), "Nuble")
+  # nombre_region <- c(regiones(), "OHiggins")
+  # nombre_region <- c(regiones(), "O´Higgins", "o`higgins", "o.higgins", "ohiggins")
+  # nombre_region <- c(regiones(), "Aisén")
   # nombre_region <- c("hola", "araucanía", "Lagos", "Los Lagos")
 
   # excluir missings
@@ -67,7 +67,7 @@ validar_regiones <- function(
   revisar <- list()
 
   # mayúsculas ----
-  # nombre_region <- territorial::regiones() |> toupper()
+  # nombre_region <- regiones() |> toupper()
   # nombre_region <-  c(toupper(nombre_region[1:4]), nombre_region[5:16])
   revisar$mayusculas <- nombre_region == toupper(nombre_region)
 
@@ -78,7 +78,7 @@ validar_regiones <- function(
   }
 
   # minúsculas ----
-  # nombre_region <- territorial::regiones() |> tolower()
+  # nombre_region <- regiones() |> tolower()
   # nombre_region <-  c(tolower(nombre_region[1:4]), nombre_region[5:16])
   revisar$minusculas <- nombre_region == tolower(nombre_region)
 
@@ -89,7 +89,7 @@ validar_regiones <- function(
   }
 
   # regiones con mayúsculas en las preposiciones ---
-  # nombre_region <- c(territorial::regiones(), "Región Del Maule")
+  # nombre_region <- c(regiones(), "Región Del Maule")
   revisar$mayusc_preposic <- stringr::str_detect(
     nombre_region,
     "\\bDe\\b|\\bDel"
@@ -102,7 +102,7 @@ validar_regiones <- function(
   }
 
   # Ñuble sin ñ ---
-  # nombre_region <- c(territorial::regiones(), "Nuble")
+  # nombre_region <- c(regiones(), "Nuble")
   revisar$nuble <- stringr::str_detect(tolower(nombre_region), "nuble")
 
   if (any(revisar$nuble)) {
@@ -112,7 +112,7 @@ validar_regiones <- function(
   }
 
   # O'Higgins sin apóstrofo ----
-  # nombre_region <- c(territorial::regiones(), "OHiggins")
+  # nombre_region <- c(regiones(), "OHiggins")
   revisar$ohiggins_1 <- stringr::str_detect(tolower(nombre_region), "ohiggin")
 
   if (any(revisar$ohiggins_1)) {
@@ -122,7 +122,7 @@ validar_regiones <- function(
   }
 
   # O'Higgins con apóstrofo incorrecto ----
-  # nombre_region <- c(territorial::regiones(), "O´Higgins", "o`higgins", "o.higgins", "ohiggins")
+  # nombre_region <- c(regiones(), "O´Higgins", "o`higgins", "o.higgins", "ohiggins")
   revisar$ohiggins_2 <- stringr::str_detect(
     tolower(nombre_region),
     "o[^']higgin"
@@ -135,7 +135,7 @@ validar_regiones <- function(
   }
 
   # Aysén es con Y ----
-  # nombre_region <- c(territorial::regiones(), "Aisén")
+  # nombre_region <- c(regiones(), "Aisén")
   revisar$aysen <- stringr::str_detect(tolower(nombre_region), "ais(e|é)n")
 
   if (any(revisar$aysen)) {

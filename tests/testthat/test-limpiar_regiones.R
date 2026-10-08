@@ -304,7 +304,7 @@ test_that("prueba calidad de limpieza de regiones: caracteres faltantes", {
   expect_message(
     regiones() |>
       eliminar_texto(porcentaje = 0.1) |>
-      limpiar_regiones(procedimiento = F),
+      limpiar_regiones(procedimiento = FALSE),
     regexp = "100%"
   )
 }) |>
@@ -314,7 +314,7 @@ test_that("prueba calidad de limpieza de regiones: caracteres faltantes, nivel 2
   expect_message(
     regiones() |>
       eliminar_texto(porcentaje = 0.2) |>
-      limpiar_regiones(procedimiento = F),
+      limpiar_regiones(procedimiento = FALSE),
     regexp = "[95-99].[1-9]%|100%"
   )
 }) |>
@@ -324,7 +324,7 @@ test_that("prueba calidad de limpieza de regiones: caracteres reemplazados", {
   expect_message(
     regiones() |>
       reemplazar_texto(porcentaje = 0.1) |>
-      limpiar_regiones(procedimiento = F),
+      limpiar_regiones(procedimiento = FALSE),
     regexp = "100%"
   )
 }) |>
@@ -334,7 +334,7 @@ test_that("prueba calidad de limpieza de regiones: caracteres reemplazados, nive
   expect_message(
     regiones() |>
       reemplazar_texto(porcentaje = 0.2) |>
-      limpiar_regiones(procedimiento = F),
+      limpiar_regiones(procedimiento = FALSE),
     regexp = "[95-99].[1-9]%|100%"
   )
 }) |>

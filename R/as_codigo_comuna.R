@@ -19,13 +19,13 @@ as_codigo_comuna <- function(nombres_comunas) {
     cli::cli_abort("Nombres de comuna deben ser de tipo caracter (texto)")
   }
 
-  codigos_encontrados <- territorial::territorios$codigo_comuna[match(
+  codigos_encontrados <- territorios$codigo_comuna[match(
     nombres_comunas,
-    territorial::territorios$nombre_comuna
+    territorios$nombre_comuna
   )]
 
   # si hay NA, recomendar limpieza
-  if (any(is.na(codigos_encontrados))) {
+  if (anyNA(codigos_encontrados)) {
     cli::cli_alert_warning(
       "Algunos nombres de comunas no fueron reconocidos correctamente. Considera aplicar {.fun territorial::limpiar_comunas} antes."
     )

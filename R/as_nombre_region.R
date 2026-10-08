@@ -16,9 +16,9 @@ as_nombre_region <- function(codigos_regiones) {
     cli::cli_abort("Códigos regionales deben estar en formato numérico")
   }
 
-  nombres_encontrados <- territorial::territorios$nombre_region[match(
+  nombres_encontrados <- territorios$nombre_region[match(
     codigos_regiones,
-    territorial::territorios$codigo_region
+    territorios$codigo_region
   )]
 
   return(nombres_encontrados)

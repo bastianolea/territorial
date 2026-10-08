@@ -19,17 +19,17 @@ ubicar_comunas <- function(
     # nombre_comuna = c("Cerrillos", "Navidad")
     # stopifnot("comuna inválida" = territorial::is_nombre_comuna(nombre_comuna))
 
-    nombre_region <- territorial::territorios$nombre_region[match(
+    nombre_region <- territorios$nombre_region[match(
       nombre_comuna,
-      territorial::territorios$nombre_comuna
+      territorios$nombre_comuna
     )]
   } else if (!is.null(codigo_comuna)) {
     # codigo_comuna = 1101
     # stopifnot("comuna inválida" = territorial::is_codigo_comuna(codigo_comuna))
 
-    nombre_region <- territorial::territorios$nombre_region[match(
+    nombre_region <- territorios$nombre_region[match(
       codigo_comuna,
-      territorial::territorios$codigo_comuna
+      territorios$codigo_comuna
     )]
   } else {
     cli::cli_abort("especificar nombre o código de la comuna")

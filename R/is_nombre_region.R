@@ -11,5 +11,5 @@
 #' is_nombre_region("Maule")
 is_nombre_region <- function(nombre_region) {
   stopifnot("debe ser caracter" = is.character(nombre_region))
-  nombre_region %in% territorial::regiones()
+  nombre_region %in% regiones()
 }

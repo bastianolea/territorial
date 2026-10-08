@@ -52,11 +52,11 @@ test_that("prueba de limpieza de comunas 3, antes no se la podía", {
     limpiar_comunas(
       c("La Florida", "Quirigue"),
       procedimiento = FALSE
-    ) |>
-      suppressMessages(),
+    ),
     c("La Florida", "Quirihue")
   )
-})
+}) |>
+  suppressMessages()
 
 
 test_that("prueba de limpieza de comunas 4, antes no se la podía", {
@@ -64,11 +64,11 @@ test_that("prueba de limpieza de comunas 4, antes no se la podía", {
     limpiar_comunas(
       c("O´HIGGINS", "TREGUACO"),
       procedimiento = FALSE
-    ) |>
-      suppressMessages(),
+    ),
     c("O'Higgins", "Trehuaco")
   )
-})
+}) |>
+  suppressMessages()
 
 test_that("prueba de limpieza de comunas desde datos de prueba 1", {
   expect_all_false(
@@ -132,19 +132,19 @@ test_that("limpiar comunas sin especificar columna retorna dataframe", {
 
 test_that("limpiar comunas desde dataframe especificando columna retorna dataframe", {
   resultado <- territorios |>
-    limpiar_comunas(nombre_comuna) |>
-    suppressMessages()
+    limpiar_comunas(nombre_comuna)
 
   expect_s3_class(resultado, "data.frame")
-})
+}) |>
+  suppressMessages()
 
 test_that("limpiar comunas desde vector retorna vector", {
   resultado <- territorios$nombre_comuna |>
-    limpiar_comunas() |>
-    suppressMessages()
+    limpiar_comunas()
 
   expect_true(is.vector(resultado))
-})
+}) |>
+  suppressMessages()
 
 
 test_that("limpiar comunas no aplica a listas", {
@@ -176,18 +176,18 @@ test_that(
 test_that("limpiar comunas con aproximar = FALSE no rescata por fuzzy matching", {
   # "cerritos" solo coincide con "Cerrillos" vía fuzzy; sin aproximar debe quedar NA
   expect_equal(
-    limpiar_comunas(c("Cerrillos", "cerritos"), aproximar = FALSE) |>
-      suppressMessages(),
+    limpiar_comunas(c("Cerrillos", "cerritos"), aproximar = FALSE),
     c("Cerrillos", NA_character_)
   )
-})
+}) |>
+  suppressMessages()
 
 test_that("limpiar comunas con input todo-NA no falla", {
   expect_no_error(
-    limpiar_comunas(c(NA, NA)) |>
-      suppressMessages()
+    limpiar_comunas(c(NA, NA))
   )
-})
+}) |>
+  suppressMessages()
 
 test_that("limpiar comunas desde dataframe limpia efectivamente el contenido", {
   datos_sucios <- dplyr::tibble(
@@ -195,11 +195,11 @@ test_that("limpiar comunas desde dataframe limpia efectivamente el contenido", {
     valor = c(1, 2)
   )
   resultado <- datos_sucios |>
-    limpiar_comunas() |>
-    suppressMessages()
+    limpiar_comunas()
 
   expect_equal(resultado$nombre_comuna, c("Cerrillos", "La Florida"))
-})
+}) |>
+  suppressMessages()
 
 test_that("limpiar comunas desde dataframe con columna personalizada", {
   datos_sucios <- dplyr::tibble(
@@ -207,34 +207,36 @@ test_that("limpiar comunas desde dataframe con columna personalizada", {
     valor = c(1, 2)
   )
   resultado <- datos_sucios |>
-    limpiar_comunas(municipio) |>
-    suppressMessages()
+    limpiar_comunas(municipio)
 
   expect_equal(resultado$municipio, c("Cerrillos", "La Florida"))
-})
+}) |>
+  suppressMessages()
 
 # factores ----
 test_that("limpiar comunas funciona con vectores de tipo factor y advierte", {
   nombres <- factor(c("CERRILLOS", "la florida"))
 
   expect_warning(
-    resultado <- limpiar_comunas(nombres) |> suppressMessages(),
+    resultado <- limpiar_comunas(nombres),
     "formato factor"
   )
   expect_type(resultado, "character")
   expect_equal(resultado, c("Cerrillos", "La Florida"))
-})
+}) |>
+  suppressMessages()
 
 test_that("limpiar comunas funciona con columnas factor en dataframes y advierte", {
   datos <- dplyr::tibble(nombre_comuna = factor(c("CERRILLOS", "la florida")))
 
   expect_warning(
-    resultado <- limpiar_comunas(datos) |> suppressMessages(),
+    resultado <- limpiar_comunas(datos),
     "formato factor"
   )
   expect_type(resultado$nombre_comuna, "character")
   expect_equal(resultado$nombre_comuna, c("Cerrillos", "La Florida"))
-})
+}) |>
+  suppressMessages()
 
 
 # calidad ----

@@ -19,7 +19,7 @@ redactar_region <- function(nombre_region) {
     cli::cli_abort("nombres de regiones deben venir en texto")
   }
 
-  articulos <- territorial::preposicion_region(nombre_region)
+  articulos <- preposicion_region(nombre_region)
 
   redaccion <- paste("Región", articulos, nombre_region) |>
     stringr::str_squish() # por la RM, que no tiene artículo

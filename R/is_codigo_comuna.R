@@ -21,7 +21,7 @@ is_codigo_comuna <- function(codigo_comuna) {
     codigo_comuna <- as.numeric(codigo_comuna)
   }
 
-  resultado <- codigo_comuna %in% territorial::territorios$codigo_comuna
+  resultado <- codigo_comuna %in% territorios$codigo_comuna
 
   return(resultado)
 }

@@ -79,8 +79,8 @@ limpiar_regiones <- function(
   nombre_region <- as.character(nombre_region)
 
   # regiones oficiales, en su versión larga y corta
-  regiones_oficiales <- territorial::regiones()
-  regiones_cortas <- territorial::acortar_regiones(regiones_oficiales)
+  regiones_oficiales <- regiones()
+  regiones_cortas <- acortar_regiones(regiones_oficiales)
   # a las versiones cortas se les asocia su versión larga correspondiente
   regiones_validas <- c(regiones_oficiales, regiones_cortas)
   regiones_resultado <- c(regiones_oficiales, regiones_oficiales)

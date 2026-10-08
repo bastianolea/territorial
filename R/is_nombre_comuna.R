@@ -21,11 +21,11 @@ is_nombre_comuna <- function(
 
   stopifnot("El nombre debe ser tipo caracter" = is.character(nombre_comuna))
 
-  resultado <- nombre_comuna %in% territorial::comunas()
+  resultado <- nombre_comuna %in% comunas()
 
   if (intentar) {
     if (!resultado) {
-      limpiado <- territorial::limpiar_comunas(nombre_comuna) |>
+      limpiado <- limpiar_comunas(nombre_comuna) |>
         suppressMessages()
 
       if (!is.na(limpiado)) {

@@ -25,8 +25,8 @@ ubicar_localidades <- function(
   nombre_region = NULL,
   procedimiento = TRUE
 ) {
-  localidades <- territorial::localidades |>
-    territorial::contextualizar(codigo_comuna) |>
+  localidades <- localidades |>
+    contextualizar(codigo_comuna) |>
     suppressMessages() |>
     dplyr::select(-dplyr::ends_with("provincia"))
 
