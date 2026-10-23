@@ -48,6 +48,7 @@ territorios |>
   dplyr::slice_sample(n = 300) |>
   contar_comunas()
 #> ℹ Cantidad de comunas únicas: 300
-#> ! La cantidad de comunas es anómala: hay 300, pero deberían ser 346. Revísalas con `territorial::validar_comunas()`
+#> Warning: La cantidad de comunas es anómala: hay 300, pero deberían ser 346. Revísalas
+#> con `territorial::validar_comunas()`
 #> → Las comunas faltantes son: Iquique, Alto Hospicio, Mejillones, Paihuano, Ovalle, Monte Patria, Santo Domingo, Codegua, Coinco, Machalí, Marchihue, Chépica, Empedrado, San Rafael, Cauquenes, Chanco, Molina, Rauco, Longaví, Parral, Yerbas Buenas, Penco, Tomé, Contulmo, Gorbea, Toltén, Los Muermos, Quellón, Chaitén, Hualaihué y 16 comunas más
 ```

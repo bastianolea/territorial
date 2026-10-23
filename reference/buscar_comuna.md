@@ -99,7 +99,7 @@ territorios |>
  buscar_comuna("perro") |>
  dplyr::select(nombre_comuna, puntaje)
 #> ℹ Se encontraron 4 comunas similares.
-#> ! No hay comunas de alta similaridad al término `perro`
+#> Warning: No hay comunas de alta similaridad al término `perro`
 #> # A tibble: 4 × 2
 #>   nombre_comuna        puntaje
 #>   <chr>                  <dbl>

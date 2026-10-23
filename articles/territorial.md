@@ -27,9 +27,10 @@ library(territorial)
 sample(comunas(), 12)
 ```
 
-     [1] "Santo Domingo" "Purén"         "Trehuaco"      "Quintero"
-     [5] "Curepto"       "Arica"         "Huasco"        "Nogales"
-     [9] "Vichuquén"     "Ñuñoa"         "Rancagua"      "San Ignacio"  
+     [1] "Vicuña"              "Machalí"             "Cauquenes"
+     [4] "San Antonio"         "Maullín"             "Hualañé"
+     [7] "Padre Hurtado"       "Curacautín"          "Porvenir"
+    [10] "Puente Alto"         "Buin"                "Pedro Aguirre Cerda"
 
 ### Tabla de comunas, provincias y regiones de Chile
 
@@ -328,18 +329,18 @@ base
 ```
 
     # A tibble: 972 × 4
-       nombre_comuna  codigo_comuna name     value
-       <chr>                  <dbl> <chr>    <dbl>
-     1 San Miguel             13130 b     0.000573
-     2 Curepto                 7103 a     0.000884
-     3 Coinco                  6103 a     0.00136
-     4 Viña del Mar            5109 a     0.00193
-     5 Rauco                   7305 c     0.00454
-     6 Tirúa                   8207 c     0.00641
-     7 San Bernardo           13401 a     0.00689
-     8 Cabo de Hornos         12201 b     0.00918
-     9 Cobquecura             16202 c     0.00956
-    10 Nogales                 5506 b     0.0101
+       nombre_comuna codigo_comuna name     value
+       <chr>                 <dbl> <chr>    <dbl>
+     1 Chimbarongo            6303 b     0.000913
+     2 Canela                 4202 c     0.00449
+     3 Casablanca             5102 c     0.00450
+     4 Quilpué                5801 c     0.00505
+     5 Santa Cruz             6310 a     0.00574
+     6 Cañete                 8203 b     0.00785
+     7 Providencia           13123 c     0.00833
+     8 La Reina              13113 c     0.00872
+     9 San Felipe             5701 b     0.00924
+    10 Padre Hurtado         13604 a     0.0101
     # ℹ 962 more rows
 
 Esta tabla tiene 972 filas, ¿cómo confirmar si existen datos para todas
@@ -354,9 +355,10 @@ base |>
 
     ℹ Cantidad de comunas únicas: 324
 
-    ! La cantidad de comunas es anómala: hay 324, pero deberían ser 346. Revísalas con `territorial::validar_comunas()`
+    Warning: La cantidad de comunas es anómala: hay 324, pero deberían ser 346. Revísalas
+    con `territorial::validar_comunas()`
 
-    → Las comunas faltantes son: El Tabo, Pichidegua, Quinta de Tilcoco, Requínoa, Chimbarongo, Maule, Coronel, Florida, San Pedro de la Paz, Curanilahue, Nacimiento, Pucón, Toltén, Purén, Calbuco, Futaleufú, Lo Barnechea, Curacaví, María Pinto, Paillaco, Coihueco y Ñiquén
+    → Las comunas faltantes son: Colchane, Las Cabras, Quinta de Tilcoco, La Estrella, Licantén, Retiro, Villa Alegre, Florida, Penco, Cunco, Galvarino, Padre Las Casas, Toltén, Los Muermos, Chonchi, Chaitén, Natales, San Miguel, Vitacura, El Monte, Isla de Maipo y Camarones
 
 La función
 [`contar_comunas()`](https://bastianolea.github.io/territorial/reference/contar_comunas.md)
@@ -376,17 +378,17 @@ base |>
 
     ! Se encontraron 30 resultados, mostrando sólo 6.
 
-    ℹ Los resultados más cercanos al término `Alto` son: Alto del Carmen, Puente Alto, Alto Biobío y Alto Hospicio
+    ℹ Los resultados más cercanos al término `Alto` son: Alto Biobío, Alto del Carmen y Puente Alto
 
     # A tibble: 6 × 5
       nombre_comuna   codigo_comuna name   value puntaje
       <chr>                   <dbl> <chr>  <dbl>   <dbl>
-    1 Alto del Carmen          3302 b     0.0481       1
-    2 Puente Alto             13201 c     0.0494       1
-    3 Alto del Carmen          3302 a     0.0683       1
-    4 Alto Biobío              8314 c     0.149        1
-    5 Alto Hospicio            1107 c     0.154        1
-    6 Alto Biobío              8314 a     0.191        1
+    1 Alto Biobío              8314 a     0.0462       1
+    2 Alto del Carmen          3302 a     0.112        1
+    3 Puente Alto             13201 a     0.252        1
+    4 Alto del Carmen          3302 c     0.294        1
+    5 Puente Alto             13201 c     0.524        1
+    6 Alto Biobío              8314 b     0.660        1
 
 ### Crear nombres de comunas a partir de códigos únicos territoriales
 
@@ -850,15 +852,16 @@ regiones |>
 
     ℹ No se especificó la variable: asumiendo columna `nombre_region`
 
-    ! Mayúsculas: 1 caso de regiones escritas en mayúsculas
+    Warning: Mayúsculas: 1 caso de regiones escritas en mayúsculas
 
-    ! Mayúsculas: 2 casos de regiones escritas en minúsculas
+    Warning: Mayúsculas: 2 casos de regiones escritas en minúsculas
 
-    ! Ortografía: 1 caso de la Región de Ñuble escrita sin eñe
+    Warning: Ortografía: 1 caso de la Región de Ñuble escrita sin eñe
 
-    ! Ortografía: 1 caso de la Región de O'Higgins escrita sin su apóstrofo (')
+    Warning: Ortografía: 1 caso de la Región de O'Higgins escrita sin su apóstrofo
+    (')
 
-    ! Ortografía: 1 caso de regiones escritas sin tilde
+    Warning: Ortografía: 1 caso de regiones escritas sin tilde
 
     ✖ Validación de regiones: se encontraron 6 problemas con las regiones!
 

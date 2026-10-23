@@ -111,7 +111,7 @@ limpiar_regiones(c("MAULE", "biobio", "la araucania", "Los rios", "RM", "aisen")
 #> → Paso 3: casos especiales
 #> ℹ Se encontraron 3 casos especiales: Biobío, Metropolitana de Santiago y Aysén del General Carlos Ibáñez del Campo
 #> → Paso 4: coincidencias aproximadas de texto
-#> ! No se limpiaron regiones como parte de este paso
+#> ℹ No se limpiaron regiones como parte de este paso
 #> → Conclusión de limpieza de regiones
 #> ✔ De las 6 regiones distintas, se limpiaron 6 en total (100%)
 #> [1] "Maule"                                    
@@ -138,7 +138,7 @@ datos |>
 #> → Paso 3: casos especiales
 #> ℹ Se encontró 1 caso especial: Metropolitana de Santiago
 #> → Paso 4: coincidencias aproximadas de texto
-#> ! No se limpiaron regiones como parte de este paso
+#> ℹ No se limpiaron regiones como parte de este paso
 #> → Conclusión de limpieza de regiones
 #> ✔ De las 6 regiones distintas, se limpiaron 6 en total (100%)
 #> # A tibble: 6 × 2
@@ -162,7 +162,7 @@ datos |>
 #> → Paso 3: casos especiales
 #> ℹ Se encontró 1 caso especial: Metropolitana de Santiago
 #> → Paso 4: coincidencias aproximadas de texto
-#> ! No se limpiaron regiones como parte de este paso
+#> ℹ No se limpiaron regiones como parte de este paso
 #> → Conclusión de limpieza de regiones
 #> ✔ De las 6 regiones distintas, se limpiaron 6 en total (100%)
 #> # A tibble: 6 × 3

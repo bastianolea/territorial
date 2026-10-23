@@ -148,7 +148,7 @@ datos_2 <- datos |>
 
     → Paso 4: coincidencias aproximadas de texto
 
-    ! No se limpiaron comunas como parte de este paso
+    ℹ No se limpiaron comunas como parte de este paso
 
     → Conclusión de limpieza de comunas
 

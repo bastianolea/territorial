@@ -164,15 +164,18 @@ sercotec_limpio <- sercotec |>
 
     → Paso 4: coincidencias aproximadas de texto
 
-    ! No se encontró ninguna coincidencia para la comuna "no informada"
-
-    ! No se encontró ninguna coincidencia para la comuna "otro lugar"
-
     ℹ Se limpió la comuna por medio de coincidencia aproximada de texto: Trehuaco
 
     → Conclusión de limpieza de comunas
 
     ✔ De las 346 comunas distintas, se limpiaron 344 en total (99.4%)
+
+    Warning: There were 2 warnings in `mutate()`.
+    The first warning was:
+    ℹ In argument: `nombre_comuna = limpiar_comunas(comuna_beneficiario)`.
+    Caused by warning:
+    ! No se encontró ninguna coincidencia para la comuna "no informada"
+    ℹ Run `dplyr::last_dplyr_warnings()` to see the 1 remaining warning.
 
 La función limpia automáticamente los tildes faltantes, las escrituras
 alternativas (como *Aisén* por *Aysén* y *Treguaco* por *Trehuaco*), y
@@ -261,7 +264,8 @@ sercotec_limpio |>
   contextualizar(nombre_comuna)
 ```
 
-    ! Más de una variable territorial detectada en los datos! descartando todas excepto `nombre_comuna`.
+    Warning: Más de una variable territorial detectada en los datos! descartando todas
+    excepto `nombre_comuna`.
 
     ℹ Columnas agregadas: codigo_region, nombre_region, codigo_provincia, nombre_provincia y codigo_comuna
 

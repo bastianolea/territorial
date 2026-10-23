@@ -29,7 +29,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">territorial</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.9.4</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.9.5</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Cambiar la navegación">
@@ -228,12 +228,6 @@
 <pre><code>→ Paso 4: coincidencias aproximadas de texto</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>! No se encontró ninguna coincidencia para la comuna "no informada"</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>! No se encontró ninguna coincidencia para la comuna "otro lugar"</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
 <pre><code>ℹ Se limpió la comuna por medio de coincidencia aproximada de texto: Trehuaco</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
@@ -242,11 +236,19 @@
 <div class="cell-output cell-output-stderr">
 <pre><code>✔ De las 346 comunas distintas, se limpiaron 344 en total (99.4%)</code></pre>
 </div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: There were 2 warnings in `mutate()`.
+The first warning was:
+ℹ In argument: `nombre_comuna = limpiar_comunas(comuna_beneficiario)`.
+Caused by warning:
+! No se encontró ninguna coincidencia para la comuna "no informada"
+ℹ Run `dplyr::last_dplyr_warnings()` to see the 1 remaining warning.</code></pre>
+</div>
 </div>
 <p>La función limpia automáticamente los tildes faltantes, las escrituras alternativas (como <em>Aisén</em> por <em>Aysén</em> y <em>Treguaco</em> por <em>Trehuaco</em>), y los casos especiales como <em>Puerto Saavedra</em> (que se estandariza como <em>Saavedra</em>) y <em>Cabo de Hornos</em> (que se le suele añadir el texto “Ex Navarino” o similar). También detecta que <em>No Informada</em> y <em>Otro lugar</em> no son comunas reales, dejándolas como <code>NA</code>.</p>
 <p>Filtramos las filas sin comuna identificada, eliminamos la columna de nombres de comunas originales, y verificamos el resultado:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="downlit sourceCode r">
+<div class="sourceCode cell-code" id="cb27"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">sercotec_limpio</span> <span class="op">&lt;-</span> <span class="va">sercotec_limpio</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">nombre_comuna</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">comuna_beneficiario</span><span class="op">)</span></span>
@@ -271,7 +273,7 @@
 </div>
 <p>Opcionalmente, confirmamos que los datos están limpios:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="downlit sourceCode r">
+<div class="sourceCode cell-code" id="cb29"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">sercotec_limpio</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="../reference/validar_comunas.html">validar_comunas</a></span><span class="op">(</span><span class="va">nombre_comuna</span><span class="op">)</span></span></code></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -280,7 +282,7 @@
 </div>
 <p>Finalmente, podemos usar <code><a href="../reference/ubicar_comunas.html">ubicar_comunas()</a></code> para agregar la región correspondiente a cada comuna, y <code><a href="../reference/as_codigo_comuna.html">as_codigo_comuna()</a></code> para transformar el nombre de la comuna en código único territorial (ver <code><a href="../articles/codigos_unicos_territoriales.html">vignette("codigos_unicos_territoriales")</a></code>):</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="downlit sourceCode r">
+<div class="sourceCode cell-code" id="cb31"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">sercotec_limpio</span> <span class="op">&lt;-</span> <span class="va">sercotec_limpio</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>nombre_region <span class="op">=</span> <span class="fu"><a href="../reference/ubicar_comunas.html">ubicar_comunas</a></span><span class="op">(</span><span class="va">nombre_comuna</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>codigo_comuna <span class="op">=</span> <span class="fu"><a href="../reference/as_codigo_comuna.html">as_codigo_comuna</a></span><span class="op">(</span><span class="va">nombre_comuna</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
@@ -306,11 +308,12 @@
 </div>
 <p>O bien, usamos <code><a href="../reference/contextualizar.html">territorial::contextualizar()</a></code> para agregar todas las columnas de identificación territorial a partir del nombre de comuna:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="downlit sourceCode r">
+<div class="sourceCode cell-code" id="cb33"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">sercotec_limpio</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="../reference/contextualizar.html">contextualizar</a></span><span class="op">(</span><span class="va">nombre_comuna</span><span class="op">)</span></span></code></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>! Más de una variable territorial detectada en los datos! descartando todas excepto `nombre_comuna`.</code></pre>
+<pre><code>Warning: Más de una variable territorial detectada en los datos! descartando todas
+excepto `nombre_comuna`.</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>ℹ Columnas agregadas: codigo_region, nombre_region, codigo_provincia, nombre_provincia y codigo_comuna</code></pre>

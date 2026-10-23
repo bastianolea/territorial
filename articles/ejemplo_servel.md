@@ -183,13 +183,17 @@ servel_limpio <- servel |>
 
     ! Se encontraron 2 coincidencias para la comuna "marchigue": la higuera y marchihue
 
-    ! No se encontró ninguna coincidencia para la comuna "fuera del pais"
-
     ℹ Se limpiaron 2 de 3 comunas por medio de coincidencias aproximadas de texto: Paihuano y Marchihue
 
     → Conclusión de limpieza de comunas
 
     ✔ De las 347 comunas distintas, se limpiaron 346 en total (99.7%)
+
+    Warning: There was 1 warning in `mutate()`.
+    ℹ In argument: `nombre_comuna = limpiar_comunas(comuna, procedimiento =
+      FALSE)`.
+    Caused by warning:
+    ! No se encontró ninguna coincidencia para la comuna "fuera del pais"
 
 La función nos informa que, de las 347 comunas distintas presentes en la
 tabla de datos, se limpiaron 346 en total (99.7%).
@@ -235,9 +239,9 @@ servel_limpio |>
   validar_regiones(region)
 ```
 
-    ! Mayúsculas: 12091 casos de regiones escritas en mayúsculas
+    Warning: Mayúsculas: 12091 casos de regiones escritas en mayúsculas
 
-    ! Ortografía: 3205 casos de regiones escritas sin tilde
+    Warning: Ortografía: 3205 casos de regiones escritas sin tilde
 
     ✖ Validación de regiones: se encontraron 15296 problemas con las regiones!
 
@@ -254,7 +258,8 @@ servel_limpio <- servel_limpio |>
   select(-region, -comuna) # remover columnas originales
 ```
 
-    ! 46 filas no coincidieron con `territorial::territorios` y quedarán con NA
+    Warning: 46 filas no coincidieron con `territorial::territorios` y quedarán con
+    NA
 
     ℹ Columnas agregadas: codigo_region, nombre_region, codigo_provincia, nombre_provincia y codigo_comuna
 

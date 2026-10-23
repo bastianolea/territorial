@@ -1,5 +1,13 @@
 # Registro de cambios
 
+## territorial 0.9.5 (2026/10/23)
+
+- [`redactar_region()`](https://bastianolea.github.io/territorial/reference/redactar_region.md)
+  ahora funciona con columnas vector, como las generadas por
+  [`ordenar_regiones()`](https://bastianolea.github.io/territorial/reference/ordenar_regiones.md)
+- Modificados los mensajes a lo largo de todo el paquete para entregar
+  *warnings* cuando corresponda, y alertas cuando no sea tan relevante.
+
 ## territorial 0.9.4 (2026/10/08)
 
 - Nueva tabla de datos, `cut_historicos`, que contiene la equivalencia

@@ -35,10 +35,10 @@ diagnóstico si se encuentran problemas de calidad
 
 ``` r
 validar_regiones(c("los lagos", "nuble", "OHIGGINS"))
-#> ! Mayúsculas: 1 caso de regiones escritas en mayúsculas
-#> ! Mayúsculas: 2 casos de regiones escritas en minúsculas
-#> ! Ortografía: 1 caso de la Región de Ñuble escrita sin eñe
-#> ! Ortografía: 1 caso de la Región de O'Higgins escrita sin su apóstrofo (')
+#> Warning: Mayúsculas: 1 caso de regiones escritas en mayúsculas
+#> Warning: Mayúsculas: 2 casos de regiones escritas en minúsculas
+#> Warning: Ortografía: 1 caso de la Región de Ñuble escrita sin eñe
+#> Warning: Ortografía: 1 caso de la Región de O'Higgins escrita sin su apóstrofo (')
 #> ✖ Validación de regiones: se encontraron 5 problemas con las regiones!
 
 territorial::territorios |>

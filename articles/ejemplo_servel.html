@@ -29,7 +29,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">territorial</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.9.4</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.9.5</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Cambiar la navegación">
@@ -250,9 +250,6 @@
 <pre><code>! Se encontraron 2 coincidencias para la comuna "marchigue": la higuera y marchihue</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>! No se encontró ninguna coincidencia para la comuna "fuera del pais"</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
 <pre><code>ℹ Se limpiaron 2 de 3 comunas por medio de coincidencias aproximadas de texto: Paihuano y Marchihue</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
@@ -260,6 +257,13 @@
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>✔ De las 347 comunas distintas, se limpiaron 346 en total (99.7%)</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: There was 1 warning in `mutate()`.
+ℹ In argument: `nombre_comuna = limpiar_comunas(comuna, procedimiento =
+  FALSE)`.
+Caused by warning:
+! No se encontró ninguna coincidencia para la comuna "fuera del pais"</code></pre>
 </div>
 </div>
 <p>La función nos informa que, de las 347 comunas distintas presentes en la tabla de datos, se limpiaron 346 en total (99.7%).</p>
@@ -296,10 +300,10 @@
 <code class="sourceCode R"><span><span class="va">servel_limpio</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="../reference/validar_regiones.html">validar_regiones</a></span><span class="op">(</span><span class="va">region</span><span class="op">)</span></span></code></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>! Mayúsculas: 12091 casos de regiones escritas en mayúsculas</code></pre>
+<pre><code>Warning: Mayúsculas: 12091 casos de regiones escritas en mayúsculas</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>! Ortografía: 3205 casos de regiones escritas sin tilde</code></pre>
+<pre><code>Warning: Ortografía: 3205 casos de regiones escritas sin tilde</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>✖ Validación de regiones: se encontraron 15296 problemas con las regiones!</code></pre>
@@ -312,7 +316,8 @@
 <span>  <span class="fu"><a href="../reference/contextualizar.html">contextualizar</a></span><span class="op">(</span><span class="va">nombre_comuna</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="co"># agregar columnas territoriales nuevas</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">region</span>, <span class="op">-</span><span class="va">comuna</span><span class="op">)</span> <span class="co"># remover columnas originales</span></span></code></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>! 46 filas no coincidieron con `territorial::territorios` y quedarán con NA</code></pre>
+<pre><code>Warning: 46 filas no coincidieron con `territorial::territorios` y quedarán con
+NA</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>ℹ Columnas agregadas: codigo_region, nombre_region, codigo_provincia, nombre_provincia y codigo_comuna</code></pre>
