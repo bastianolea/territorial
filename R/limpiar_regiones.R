@@ -70,7 +70,7 @@ limpiar_regiones <- function(
   # si los datos vienen en formato factor, advertir que se perderá el orden
   # de los niveles al convertirlos a texto
   if (is.factor(nombre_region)) {
-    cli::cli_warn(
+    cli::cli_alert_warning(
       "Los datos están en formato factor: se perderá el orden de los niveles al convertirlos a texto"
     )
   }
@@ -266,7 +266,7 @@ limpiar_regiones <- function(
         rev()
 
       if (length(resultado) == 0) {
-        cli::cli_alert_warning(
+        cli::cli_warn(
           "No se encontró ninguna coincidencia para la región `{region_faltante}`"
         )
       }
@@ -321,7 +321,7 @@ limpiar_regiones <- function(
       "Se limpiaron {length(regiones_coincididas)} de {length(regiones_coincidir)} regiones por medio de coincidencias aproximadas de texto: {redactar_comunas(regiones_coincididas, largo = 0)}"
     )
   } else {
-    cli::cli_alert_warning(
+    cli::cli_alert_info(
       "No se limpiaron regiones como parte de este paso"
     )
   }

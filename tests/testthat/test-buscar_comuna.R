@@ -7,7 +7,7 @@ test_that("buscar_comuna encuentra una coincidencia exacta por defecto", {
   suppressMessages()
 
 test_that("buscar_comuna no retorna filas cuando nada cumple el umbral", {
-  resultados <- territorios |> buscar_comuna("xyzxyzxyz", similitud = 0.9)
+  resultados <- territorios |> buscar_comuna("xyzxyzxyz", similitud = 0.9) |> suppressWarnings()
 
   expect_equal(nrow(resultados), 0)
 }) |>

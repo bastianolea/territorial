@@ -70,14 +70,14 @@ contar_comunas <- function(
   } else if (n_comunas == 346) {
     cli::cli_alert_success("La cantidad de comunas es correcta!")
   } else if (n_comunas > 346) {
-    cli::cli_alert_warning(
+    cli::cli_warn(
       "La cantidad de comunas es anómala, revísalas con {.fn territorial::validar_comunas}"
     )
   } else if (n_comunas < 345) {
     faltantes <- comunas()[!comunas() %in% presentes]
     n_faltantes <- length(faltantes)
 
-    cli::cli_alert_warning(
+    cli::cli_warn(
       "La cantidad de comunas es anómala: hay {n_comunas}, pero deberían ser 346. Revísalas con {.fn territorial::validar_comunas}"
     )
 
@@ -85,7 +85,7 @@ contar_comunas <- function(
       "Las comunas faltantes son: {redactar_comunas(faltantes, largo = largo)}"
     )
   } else {
-    cli::cli_alert_warning(
+    cli::cli_warn(
       "La cantidad de comunas es menor a la esperable (345 o 346)"
     )
   }

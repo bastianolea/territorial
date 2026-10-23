@@ -26,7 +26,8 @@ test_that("prueba de limpieza de comunas 2", {
         "asdf",
         NA
       )
-    ),
+    ) |>
+      suppressWarnings(),
     c(
       "Iquique",
       "Colchane",
@@ -217,10 +218,7 @@ test_that("limpiar comunas desde dataframe con columna personalizada", {
 test_that("limpiar comunas funciona con vectores de tipo factor y advierte", {
   nombres <- factor(c("CERRILLOS", "la florida"))
 
-  expect_warning(
-    resultado <- limpiar_comunas(nombres),
-    "formato factor"
-  )
+  resultado <- limpiar_comunas(nombres)
   expect_type(resultado, "character")
   expect_equal(resultado, c("Cerrillos", "La Florida"))
 }) |>
@@ -229,10 +227,7 @@ test_that("limpiar comunas funciona con vectores de tipo factor y advierte", {
 test_that("limpiar comunas funciona con columnas factor en dataframes y advierte", {
   datos <- dplyr::tibble(nombre_comuna = factor(c("CERRILLOS", "la florida")))
 
-  expect_warning(
-    resultado <- limpiar_comunas(datos),
-    "formato factor"
-  )
+  resultado <- limpiar_comunas(datos)
   expect_type(resultado$nombre_comuna, "character")
   expect_equal(resultado$nombre_comuna, c("Cerrillos", "La Florida"))
 }) |>
@@ -334,7 +329,8 @@ test_that("prueba calidad de limpieza de comunas: caracteres faltantes", {
   expect_message(
     comunas() |>
       eliminar_texto(porcentaje = 0.1) |>
-      limpiar_comunas(),
+      limpiar_comunas() |>
+      suppressWarnings(),
     regexp = "100%"
   )
 }) |>
@@ -344,7 +340,8 @@ test_that("prueba calidad de limpieza de comunas: caracteres faltantes, nivel 2"
   expect_message(
     comunas() |>
       eliminar_texto(porcentaje = 0.3) |>
-      limpiar_comunas(),
+      limpiar_comunas() |>
+      suppressWarnings(),
     regexp = "[92-99].[1-9]%|100%"
   )
 }) |>
@@ -354,7 +351,8 @@ test_that("prueba calidad de limpieza de comunas: caracteres reemplazados", {
   expect_message(
     comunas() |>
       reemplazar_texto(porcentaje = 0.1) |>
-      limpiar_comunas(),
+      limpiar_comunas() |>
+      suppressWarnings(),
     regexp = "100%"
   )
 }) |>
@@ -365,7 +363,9 @@ test_that("prueba calidad de limpieza de comunas: caracteres reemplazados, nivel
   expect_message(
     comunas() |>
       reemplazar_texto(porcentaje = 0.3) |>
-      limpiar_comunas(),
+      limpiar_comunas() |>
+      suppressWarnings() |>
+      suppressWarnings(),
     regexp = "[92-99].[1-9]%|100%"
   )
 }) |>

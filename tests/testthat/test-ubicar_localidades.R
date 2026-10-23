@@ -58,15 +58,19 @@ test_that("ubicar localidades filtra por región cuando se especifica nombre_reg
     "Alfalfal",
     nombre_region = "Metropolitana de Santiago",
     procedimiento = FALSE
-  )
+  ) |>
+    suppressWarnings()
   expect_equal(resultado, "San José de Maipo")
 }) |>
   suppressMessages()
 
 test_that("ubicar localidades lanza un error si no se encuentra ninguna localidad", {
-  expect_error(ubicar_localidades(
-    "xyzlocalidadinexistente123",
-    procedimiento = FALSE
-  ))
+  expect_error(
+    ubicar_localidades(
+      "xyzlocalidadinexistente123",
+      procedimiento = FALSE
+    ) |>
+      suppressWarnings()
+  )
 }) |>
   suppressMessages()

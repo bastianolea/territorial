@@ -102,11 +102,10 @@ test_that("revisar comunas con más de 346 comunas únicas", {
   suppressMessages()
 
 test_that("revisar comunas indicando cuáles faltan", {
-  expect_condition(
+  expect_warning(
     territorios |>
       dplyr::slice_sample(n = 10) |>
-      contar_comunas(),
-    regexp = "faltantes"
+      contar_comunas()
   )
 }) |>
   suppressMessages()

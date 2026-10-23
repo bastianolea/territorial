@@ -7,32 +7,35 @@ test_that("validar regiones correctas", {
   suppressMessages()
 
 test_that("validar regiones con mayúsculas", {
-  expect_condition(
+  expect_warning(
     validar_regiones(c(
       toupper(regiones()[1:4]),
       regiones()[5:16]
     )),
-    regexp = "problema"
-  )
+    regexp = "escritas en mayúsculas"
+  ) |>
+    suppressWarnings()
 }) |>
   suppressMessages()
 
 test_that("validar regiones con minúsculas", {
-  expect_condition(
+  expect_warning(
     validar_regiones(c(
       tolower(regiones()[1:4]),
       regiones()[5:16]
     )),
-    regexp = "problema"
-  )
+    regexp = "escritas en minúsculas"
+  ) |>
+    suppressWarnings()
 }) |>
   suppressMessages()
 
 test_that("validar regiones con preposiciones en mayúsculas", {
-  expect_condition(
+  expect_warning(
     validar_regiones(c("Región Del Maule")),
-    regexp = "problema"
-  )
+    regexp = "preposiciones.*mayúsculas"
+  ) |>
+    suppressWarnings()
 }) |>
   suppressMessages()
 
@@ -45,10 +48,11 @@ test_that("validar región con preposiciones bien escritas", {
   suppressMessages()
 
 test_that("validar región Ñuble sin eñe", {
-  expect_condition(
+  expect_warning(
     validar_regiones(c("Nuble")),
-    regexp = "problema"
-  )
+    regexp = "sin eñe"
+  ) |>
+    suppressWarnings()
 }) |>
   suppressMessages()
 
@@ -61,10 +65,11 @@ test_that("validar región Ñuble con eñe", {
   suppressMessages()
 
 test_that("validar región O'Higgins sin apóstrofo", {
-  expect_condition(
+  expect_warning(
     validar_regiones(c("OHiggins")),
-    regexp = "problema"
-  )
+    regexp = "sin su apóstrofo"
+  ) |>
+    suppressWarnings()
 }) |>
   suppressMessages()
 
@@ -77,19 +82,21 @@ test_that("validar región O'Higgins con apóstrofo", {
   suppressMessages()
 
 test_that("validar región O'Higgins con apóstrofo incorrecto", {
-  expect_condition(
+  expect_warning(
     validar_regiones(c("O´Higgins", "o`higgins", "o.higgins", "ohiggins")),
-    regexp = "problema"
-  )
+    regexp = "apóstrofo \\('\\) incorrecto"
+  ) |>
+    suppressWarnings()
 }) |>
   suppressMessages()
 
 
 test_that("validar región Aysén con i latina", {
-  expect_condition(
+  expect_warning(
     validar_regiones(c("Aisén")),
-    regexp = "problema"
-  )
+    regexp = "'i' latina"
+  ) |>
+    suppressWarnings()
 }) |>
   suppressMessages()
 
@@ -102,10 +109,11 @@ test_that("validar región Aysén con y griega", {
   suppressMessages()
 
 test_that("validar regiones sin sus preposiciones", {
-  expect_condition(
+  expect_warning(
     validar_regiones(c("hola", "araucanía", "Lagos", "Los Lagos")),
-    regexp = "problema"
-  )
+    regexp = "sin sus preposiciones"
+  ) |>
+    suppressWarnings()
 }) |>
   suppressMessages()
 

@@ -72,7 +72,7 @@ validar_regiones <- function(
   revisar$mayusculas <- nombre_region == toupper(nombre_region)
 
   if (any(revisar$mayusculas)) {
-    cli::cli_alert_warning(
+    cli::cli_warn(
       "Mayúsculas: {sum(revisar$mayusculas)} caso{?s} de regiones escritas en mayúsculas"
     )
   }
@@ -83,7 +83,7 @@ validar_regiones <- function(
   revisar$minusculas <- nombre_region == tolower(nombre_region)
 
   if (any(revisar$minusculas)) {
-    cli::cli_alert_warning(
+    cli::cli_warn(
       "Mayúsculas: {sum(revisar$minusculas)} caso{?s} de regiones escritas en minúsculas"
     )
   }
@@ -96,7 +96,7 @@ validar_regiones <- function(
   )
 
   if (any(revisar$mayusc_preposic)) {
-    cli::cli_alert_warning(
+    cli::cli_warn(
       "Mayúsculas: {sum(revisar$mayusc_preposic)} caso{?s} de regiones con preposiciones ('de', 'del') escritas en mayúsculas"
     )
   }
@@ -106,7 +106,7 @@ validar_regiones <- function(
   revisar$nuble <- stringr::str_detect(tolower(nombre_region), "nuble")
 
   if (any(revisar$nuble)) {
-    cli::cli_alert_warning(
+    cli::cli_warn(
       "Ortografía: {sum(revisar$nuble)} caso{?s} de la Región de Ñuble escrita sin eñe"
     )
   }
@@ -116,7 +116,7 @@ validar_regiones <- function(
   revisar$ohiggins_1 <- stringr::str_detect(tolower(nombre_region), "ohiggin")
 
   if (any(revisar$ohiggins_1)) {
-    cli::cli_alert_warning(
+    cli::cli_warn(
       "Ortografía: {sum(revisar$ohiggins_1)} caso{?s} de la Región de O'Higgins escrita sin su apóstrofo (')"
     )
   }
@@ -129,7 +129,7 @@ validar_regiones <- function(
   )
 
   if (any(revisar$ohiggins_2)) {
-    cli::cli_alert_warning(
+    cli::cli_warn(
       "Ortografía: {sum(revisar$ohiggins_2)} caso{?s} de la Región de O'Higgins escrita con un apóstrofo (') incorrecto"
     )
   }
@@ -139,7 +139,7 @@ validar_regiones <- function(
   revisar$aysen <- stringr::str_detect(tolower(nombre_region), "ais(e|é)n")
 
   if (any(revisar$aysen)) {
-    cli::cli_alert_warning(
+    cli::cli_warn(
       "Ortografía: {sum(revisar$aysen)} caso{?s} de la Región de Aysén escrita con 'i' latina (no es incorrecto, pero es más usado con 'y' griega)"
     )
   }
@@ -151,7 +151,7 @@ validar_regiones <- function(
   )
 
   if (any(revisar$tildes)) {
-    cli::cli_alert_warning(
+    cli::cli_warn(
       "Ortografía: {sum(revisar$tildes)} caso{?s} de regiones escritas sin tilde"
     )
   }
@@ -164,7 +164,7 @@ validar_regiones <- function(
   )
 
   if (any(revisar$preposiciones)) {
-    cli::cli_alert_warning(
+    cli::cli_warn(
       "Redacción: {sum(revisar$preposiciones)} caso{?s} de regiones sin sus preposiciones ('la', 'los')"
     )
   }

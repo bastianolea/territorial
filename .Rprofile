@@ -3,5 +3,5 @@ if (interactive()) {
   library(usethis)
   library(testthat)
 
-  options(.gander_chat = ellmer::chat_deepseek())
+  options(.gander_chat = ellmer::chat_anthropic()) |> suppressMessages()
 }

@@ -130,8 +130,12 @@ test_that("agregar_macrozona usa el tipo 1 por defecto", {
 })
 
 test_that("agregar_macrozona convierte códigos en caracter, con alerta", {
-  expect_message(
-    resultado <- agregar_macrozona(c("15", "13", "12"), tipo = 1, ordenar = FALSE)
+  expect_warning(
+    resultado <- agregar_macrozona(
+      c("15", "13", "12"),
+      tipo = 1,
+      ordenar = FALSE
+    )
   )
   expect_equal(resultado, c("Norte", "Centro", "Austral"))
 })

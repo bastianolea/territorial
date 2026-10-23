@@ -56,11 +56,11 @@ test_that("contextualizar datos de nivel territorial con una variable territoria
       )
 
       datos |>
-        contextualizar(nombre_comuna)
+        contextualizar(nombre_comuna) |>
+        suppressWarnings()
     }
   )
 }) |>
-  suppressWarnings() |>
   suppressMessages()
 
 
@@ -198,7 +198,7 @@ test_that("contextualizar con múltiples variables arroja error claro", {
 
 
 test_that("contextualizar avisa cuando hay filas sin match en el catálogo", {
-  expect_message(
+  expect_warning(
     dplyr::tibble(
       nombre_comuna = c("Cerrillos", "Perrito"),
       valor = c(1, 2)

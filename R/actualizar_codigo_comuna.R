@@ -16,7 +16,7 @@ actualizar_codigo_comuna <- function(codigo_comuna) {
   # codigo_comuna <- c(sample(cut_historicos_l$codigo_comuna_historico, 4), codigos_comunas()[5:9])
 
   if (!all(is_codigo_comuna_antiguo(codigo_comuna))) {
-    cli::cli_alert_warning("Algunos códigos comunales no son antiguos!")
+    cli::cli_warn("Algunos códigos comunales no son antiguos!")
   }
 
   # identificar filas donde las comunas coinciden con códigos en tabla

@@ -75,7 +75,7 @@ contextualizar <- function(
   ))
 
   if (variables_territoriales_presentes > 1) {
-    cli::cli_alert_warning(
+    cli::cli_warn(
       "Más de una variable territorial detectada en los datos! descartando todas excepto `{variable}`."
     )
 
@@ -100,7 +100,7 @@ contextualizar <- function(
   # caso 1: filas sin match en el catálogo territorial
   filas_sin_match <- sum(is.na(datos_a$codigo_region))
   if (filas_sin_match > 0) {
-    cli::cli_alert_warning(
+    cli::cli_warn(
       "{filas_sin_match} fila{?s} no coincidi{?ó/eron} con {.code territorial::territorios} y quedar{?á/án} con NA"
     )
   }
@@ -115,14 +115,14 @@ contextualizar <- function(
   # revisiones de resultado
   # confirmar que tengan las mismas filas
   if (!nrow(datos_b) == nrow(datos)) {
-    cli::cli_alert_warning(
+    cli::cli_warn(
       "Problemas con el {.code left_join()}: cambió el número de filas"
     )
   }
 
   # confirmar que tenga más columnas
   if (!length(datos_b) > length(datos)) {
-    cli::cli_alert_warning(
+    cli::cli_warn(
       "Problemas con el {.code left_join()}: no aumentó el número de columnas"
     )
   }

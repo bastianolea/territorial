@@ -19,14 +19,12 @@ test_that("probar error al confirmar nombre de comuna", {
 
 test_that("confirmar si un nombre de comuna mal escrito es válido", {
   expect_false(
-    is_nombre_comuna("Panguipully", intentar = TRUE)
+    is_nombre_comuna("Panguipully", intentar = TRUE) |> suppressWarnings()
   )
-}) |>
-  suppressMessages()
+})
 
 test_that("confirmar si un nombre de comuna muy mal escrito es válido", {
   expect_false(
-    is_nombre_comuna("Mapachape", intentar = TRUE)
+    is_nombre_comuna("Mapachape", intentar = TRUE) |> suppressWarnings()
   )
-}) |>
-  suppressMessages()
+})

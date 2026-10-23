@@ -29,12 +29,12 @@ is_nombre_comuna <- function(
         suppressMessages()
 
       if (!is.na(limpiado)) {
-        cli::cli_alert_warning(
+        cli::cli_warn(
           'La comuna "{nombre_comuna}" no es válida, pero puede limpiarse con {.fun territorial::limpiar_comunas} para obtener el nombre válido "{limpiado}"'
         )
         return(FALSE)
       } else if (is.na(limpiado)) {
-        cli::cli_alert_warning(
+        cli::cli_warn(
           'La comuna "{nombre_comuna}" no es válida, y no se pudo interpretar con {.fun territorial::limpiar_comunas}'
         )
         return(FALSE)

@@ -90,7 +90,7 @@ buscar_comuna <- function(
       "Los resultados más cercanos al término {.code {texto}} son: {redactar_comunas(dplyr::pull(similares, !!columna))}"
     )
   } else {
-    cli::cli_alert_warning(
+    cli::cli_warn(
       "No hay comunas de alta similaridad al término {.code {texto}}"
     )
   }

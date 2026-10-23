@@ -82,7 +82,7 @@ limpiar_comunas <- function(
   # si los datos vienen en formato factor, advertir que se perderá el orden
   # de los niveles al convertirlos a texto
   if (is.factor(nombre_comuna)) {
-    cli::cli_warn(
+    cli::cli_alert_warning(
       "Los datos están en formato factor: se perderá el orden de los niveles al convertirlos a texto"
     )
   }
@@ -295,7 +295,7 @@ limpiar_comunas <- function(
 
       # si no hay coincidencias, avisar
       if (length(resultado) == 0) {
-        cli::cli_alert_warning(
+        cli::cli_warn(
           'No se encontró ninguna coincidencia para la comuna "{comuna_faltante}"'
         )
         return(NA)
@@ -359,7 +359,7 @@ limpiar_comunas <- function(
       "Se limpiaron {length(comunas_coincididas)} de {length(comunas_coincidir)} comunas por medio de coincidencias aproximadas de texto: {redactar_comunas(comunas_coincididas)}"
     )
   } else {
-    cli::cli_alert_warning(
+    cli::cli_alert_info(
       "No se limpiaron comunas como parte de este paso"
     )
   }

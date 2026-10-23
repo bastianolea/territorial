@@ -49,7 +49,7 @@ agregar_macrozona <- function(
 
   # revisar tipo
   if (is.character(codigo_region)) {
-    cli::cli_alert_warning(
+    cli::cli_warn(
       "Se entregaron códigos regionales en formato caracter. Se recomienda convertir a numérico."
     )
     codigo_region <- as.numeric(codigo_region)

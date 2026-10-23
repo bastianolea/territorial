@@ -26,7 +26,7 @@ as_codigo_comuna <- function(nombres_comunas) {
 
   # si hay NA, recomendar limpieza
   if (anyNA(codigos_encontrados)) {
-    cli::cli_alert_warning(
+    cli::cli_warn(
       "Algunos nombres de comunas no fueron reconocidos correctamente. Considera aplicar {.fun territorial::limpiar_comunas} antes."
     )
   }

@@ -9,13 +9,14 @@ test_that("actualizar código comunal con NA", {
   expect_equal(
     actualizar_codigo_comuna(c(1102, NA)),
     c(1402, NA)
-  )
+  ) |>
+    suppressWarnings()
 }) |>
   suppressMessages()
 
 
 test_that("actualizar código comunal que no es antiguo", {
-  expect_message(
+  expect_warning(
     actualizar_codigo_comuna(1101),
     "no son antiguos"
   )
@@ -41,7 +42,8 @@ test_that("actualizar código comunal, caso mezclando con válidos", {
     codigos_comunas()[5:9]
   )
 
-  resultados <- actualizar_codigo_comuna(codigo_comuna)
+  resultados <- actualizar_codigo_comuna(codigo_comuna) |>
+    suppressWarnings()
 
   expect_equal(
     resultados,

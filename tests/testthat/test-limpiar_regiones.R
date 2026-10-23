@@ -24,7 +24,8 @@ test_that("prueba de limpieza de regiones 2", {
       ),
       procedimiento = F
     ) |>
-      suppressMessages(),
+      suppressMessages() |>
+      suppressWarnings(),
     c(
       "Tarapacá",
       "Coquimbo",
@@ -189,24 +190,26 @@ test_that("limpiar regiones desde dataframe con columna personalizada", {
 test_that("limpiar regiones funciona con vectores de tipo factor y advierte", {
   nombres <- factor(c("MAULE", "la araucania"))
 
-  expect_warning(
-    resultado <- limpiar_regiones(nombres) |> suppressMessages(),
+  expect_message(
+    resultado <- limpiar_regiones(nombres),
     "formato factor"
   )
   expect_type(resultado, "character")
   expect_equal(resultado, c("Maule", "La Araucanía"))
-})
+}) |>
+  suppressMessages()
 
 test_that("limpiar regiones funciona con columnas factor en dataframes y advierte", {
   datos <- dplyr::tibble(nombre_region = factor(c("MAULE", "la araucania")))
 
-  expect_warning(
-    resultado <- limpiar_regiones(datos) |> suppressMessages(),
+  expect_message(
+    resultado <- limpiar_regiones(datos),
     "formato factor"
   )
   expect_type(resultado$nombre_region, "character")
   expect_equal(resultado$nombre_region, c("Maule", "La Araucanía"))
-})
+}) |>
+  suppressMessages()
 
 
 # calidad ----

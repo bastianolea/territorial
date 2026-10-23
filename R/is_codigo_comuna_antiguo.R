@@ -12,7 +12,7 @@ is_codigo_comuna_antiguo <- function(codigo_comuna) {
   # codigo_comuna <- 1102
 
   if (is.character(codigo_comuna)) {
-    cli::cli_alert_warning(
+    cli::cli_warn(
       "El código comunal {codigo_comuna} no es de tipo numérico. Se recomienda convertir con {.fun base::as.numeric}"
     )
     codigo_comuna <- as.numeric(codigo_comuna)
