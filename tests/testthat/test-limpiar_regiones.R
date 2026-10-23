@@ -217,7 +217,8 @@ test_that("prueba calidad de limpieza de regiones: minúscula sin símbolos", {
   expect_message(
     regiones() |>
       limpiar_texto() |>
-      limpiar_regiones(),
+      limpiar_regiones() |>
+      suppressWarnings(),
     regexp = "100%"
   )
 }) |>
@@ -228,7 +229,8 @@ test_that("prueba calidad de limpieza de regiones: mayúsculas sin símbolos", {
     regiones() |>
       limpiar_texto() |>
       toupper() |>
-      limpiar_regiones(),
+      limpiar_regiones() |>
+      suppressWarnings(),
     regexp = "100%"
   )
 }) |>
@@ -239,7 +241,8 @@ test_that("prueba calidad de limpieza de regiones: guiones bajo en vez de espaci
     regiones() |>
       limpiar_texto() |>
       stringr::str_replace_all(" ", "_") |>
-      limpiar_regiones(),
+      limpiar_regiones() |>
+      suppressWarnings(),
     regexp = "100%"
   )
 }) |>
@@ -250,7 +253,8 @@ test_that("prueba calidad de limpieza de regiones: espaciados extra", {
     territorios |>
       dplyr::distinct(nombre_region) |>
       messy::add_whitespace() |>
-      limpiar_regiones(),
+      limpiar_regiones() |>
+      suppressWarnings(),
     regexp = "100%"
   )
 }) |>
@@ -261,7 +265,8 @@ test_that("prueba calidad de limpieza de regiones: caracteres especiales, nivel 
     territorios |>
       dplyr::distinct(nombre_region) |>
       messy::add_special_chars(messiness = 0.1) |>
-      limpiar_regiones(),
+      limpiar_regiones() |>
+      suppressWarnings(),
     regexp = "100%"
   )
 }) |>
@@ -272,7 +277,8 @@ test_that("prueba calidad de limpieza de regiones: caracteres especiales, nivel 
     territorios |>
       dplyr::distinct(nombre_region) |>
       messy::add_special_chars(messiness = 0.3) |>
-      limpiar_regiones(),
+      limpiar_regiones() |>
+      suppressWarnings(),
     regexp = "[95-99].[1-9]%|100%"
   )
 }) |>
@@ -284,7 +290,8 @@ test_that("prueba calidad de limpieza de regiones: mayúsculas y símbolos", {
       dplyr::distinct(nombre_region) |>
       messy::change_case() |>
       messy::add_special_chars() |>
-      limpiar_regiones(),
+      limpiar_regiones() |>
+      suppressWarnings(),
     regexp = "100%"
   )
 }) |>
@@ -297,7 +304,8 @@ test_that("prueba calidad de limpieza de regiones: mayúsculas, espacios y símb
       messy::change_case() |>
       messy::add_whitespace() |>
       messy::add_special_chars() |>
-      limpiar_regiones(),
+      limpiar_regiones() |>
+      suppressWarnings(),
     regexp = "[95-99].[1-9]%|100%"
   )
 }) |>
@@ -307,7 +315,8 @@ test_that("prueba calidad de limpieza de regiones: caracteres faltantes", {
   expect_message(
     regiones() |>
       eliminar_texto(porcentaje = 0.1) |>
-      limpiar_regiones(procedimiento = FALSE),
+      limpiar_regiones(procedimiento = FALSE) |>
+      suppressWarnings(),
     regexp = "100%"
   )
 }) |>
@@ -317,7 +326,8 @@ test_that("prueba calidad de limpieza de regiones: caracteres faltantes, nivel 2
   expect_message(
     regiones() |>
       eliminar_texto(porcentaje = 0.2) |>
-      limpiar_regiones(procedimiento = FALSE),
+      limpiar_regiones(procedimiento = FALSE) |>
+      suppressWarnings(),
     regexp = "[95-99].[1-9]%|100%"
   )
 }) |>
@@ -327,7 +337,8 @@ test_that("prueba calidad de limpieza de regiones: caracteres reemplazados", {
   expect_message(
     regiones() |>
       reemplazar_texto(porcentaje = 0.1) |>
-      limpiar_regiones(procedimiento = FALSE),
+      limpiar_regiones(procedimiento = FALSE) |>
+      suppressWarnings(),
     regexp = "100%"
   )
 }) |>
@@ -337,7 +348,8 @@ test_that("prueba calidad de limpieza de regiones: caracteres reemplazados, nive
   expect_message(
     regiones() |>
       reemplazar_texto(porcentaje = 0.2) |>
-      limpiar_regiones(procedimiento = FALSE),
+      limpiar_regiones(procedimiento = FALSE) |>
+      suppressWarnings(),
     regexp = "[95-99].[1-9]%|100%"
   )
 }) |>

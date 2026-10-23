@@ -2,7 +2,6 @@
 - `redactar_region()` ahora funciona con columnas vector, como las generadas por `ordenar_regiones()`
 - Modificados los mensajes a lo largo de todo el paquete para entregar _warnings_ cuando corresponda, y alertas cuando no sea tan relevante.
 
-
 # territorial 0.9.4 (2026/10/08)
 - Nueva tabla de datos, `cut_historicos`, que contiene la equivalencia de todos los [códigos únicos territoriales](https://bastianolea.github.io/territorial/articles/codigos_unicos_territoriales.html) con sus versiones antiguas y desactualizadas en 2017, 2010 y 2004.
 - Nueva función `actualizar_codigo_comuna()`, que recibe códigos territoriales desactualizados o antiguos, por ejemplo los de comunas que ahora forman parte de Ñuble (como Coihueco, que antes era CUT 8405 y parte de la región del Biobío), y entrega los códigos actuales y vigentes (que en el ejemplo de Coihueco sería 16302).

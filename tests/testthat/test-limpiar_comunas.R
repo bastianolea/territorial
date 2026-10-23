@@ -239,7 +239,8 @@ test_that("prueba calidad de limpieza de comunas: minúscula sin símbolos", {
   expect_message(
     comunas() |>
       limpiar_texto() |>
-      limpiar_comunas(),
+      limpiar_comunas() |>
+      suppressWarnings(),
     regexp = "100%"
   )
 }) |>
@@ -250,7 +251,8 @@ test_that("prueba calidad de limpieza de comunas: mayúsculas sin símbolos", {
     comunas() |>
       limpiar_texto() |>
       toupper() |>
-      limpiar_comunas(),
+      limpiar_comunas() |>
+      suppressWarnings(),
     regexp = "100%"
   )
 }) |>
@@ -261,7 +263,8 @@ test_that("prueba calidad de limpieza de comunas: guiones bajo en vez de espacio
     comunas() |>
       limpiar_texto() |>
       stringr::str_replace_all(" ", "_") |>
-      limpiar_comunas(),
+      limpiar_comunas() |>
+      suppressWarnings(),
     regexp = "100%"
   )
 }) |>
@@ -272,7 +275,8 @@ test_that("prueba calidad de limpieza de comunas: espaciados extra", {
     territorios |>
       dplyr::select(nombre_comuna) |>
       messy::add_whitespace() |>
-      limpiar_comunas(),
+      limpiar_comunas() |>
+      suppressWarnings(),
     regexp = "100%"
   )
 }) |>
@@ -283,7 +287,8 @@ test_that("prueba calidad de limpieza de comunas: caracteres especiales, nivel 1
     territorios |>
       dplyr::select(nombre_comuna) |>
       messy::add_special_chars(messiness = 0.1) |>
-      limpiar_comunas(),
+      limpiar_comunas() |>
+      suppressWarnings(),
     regexp = "100%"
   )
 }) |>
@@ -294,7 +299,8 @@ test_that("prueba calidad de limpieza de comunas: caracteres especiales, nivel 2
     territorios |>
       dplyr::select(nombre_comuna) |>
       messy::add_special_chars(messiness = 0.3) |>
-      limpiar_comunas(),
+      limpiar_comunas() |>
+      suppressWarnings(),
     regexp = "[95-99].[1-9]%|100%"
   )
 }) |>
@@ -306,7 +312,8 @@ test_that("prueba calidad de limpieza de comunas: mayúsculas y símbolos", {
       dplyr::select(nombre_comuna) |>
       messy::change_case() |>
       messy::add_special_chars() |>
-      limpiar_comunas(),
+      limpiar_comunas() |>
+      suppressWarnings(),
     regexp = "100%"
   )
 }) |>
@@ -319,7 +326,8 @@ test_that("prueba calidad de limpieza de comunas: mayúsculas, espacios y símbo
       messy::change_case() |>
       messy::add_whitespace() |>
       messy::add_special_chars() |>
-      limpiar_comunas(),
+      limpiar_comunas() |>
+      suppressWarnings(),
     regexp = "[95-99].[1-9]%|100%"
   )
 }) |>
