@@ -15,6 +15,21 @@ redactar_region <- function(nombre_region) {
   # revisar si ya vienen, pero conflictúa con Aysén, O'Higgins, y Magallanes
   # if (any(stringr::str_detect(nombre_region, "\\bde\\b|\\bdel\\b")))
 
+  if (is.data.frame(nombre_region)) {
+    cli::cli_abort(c(
+      "{.fn redactar_region} se aplica sólo a vectores o columnas",
+      "i" = "Si se necesita aplicar a una columna de una tabla, usa {.code dplyr::mutate(texto = redactar_region(nombre_region))}"
+    ))
+  }
+
+  if (is.factor(nombre_region)) {
+    cli::cli_warn(
+      "los nombres de regiones vienen como factor, se convertirán a caracter"
+    )
+
+    nombre_region <- as.character(nombre_region)
+  }
+
   if (!is.character(nombre_region)) {
     cli::cli_abort("nombres de regiones deben venir en texto")
   }
