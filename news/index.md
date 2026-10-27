@@ -1,5 +1,14 @@
 # Registro de cambios
 
+## territorial 0.9.6 (2026/10/27)
+
+- Funciones para convertir nombres a códigos y viceversa
+  ([`as_codigo_comuna()`](https://bastianolea.github.io/territorial/reference/as_codigo_comuna.md),
+  [`as_nombre_region()`](https://bastianolea.github.io/territorial/reference/as_nombre_region.md),
+  etc.) ahora arrojan *warnings* cuando existan valores que no puedan
+  ser convertidos (antes simplemente entregaban los NA de manera
+  silenciosa)
+
 ## territorial 0.9.5 (2026/10/23)
 
 - [`redactar_region()`](https://bastianolea.github.io/territorial/reference/redactar_region.md)

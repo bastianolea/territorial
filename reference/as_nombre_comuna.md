@@ -28,5 +28,6 @@ as_nombre_comuna(1101)
 #> [1] "Iquique"
 
 as_nombre_comuna(c(1401, 1403, 9999, 1404))
+#> Warning: Algunos códigos comunales no pudieron convertirse a nombres de comunas: 9999
 #> [1] "Pozo Almonte" "Colchane"     NA             "Huara"       
 ```

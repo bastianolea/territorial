@@ -28,6 +28,7 @@ as_nombre_region(16)
 #> [1] "Ñuble"
 
 as_nombre_region(c(15, 4, 10, 99))
+#> Warning: Algunos códigos regionales no pudieron convertirse a nombres de regiones: 99
 #> [1] "Arica y Parinacota" "Coquimbo"           "Los Lagos"         
 #> [4] NA                  
 ```

@@ -27,10 +27,9 @@ library(territorial)
 sample(comunas(), 12)
 ```
 
-     [1] "Vicuña"              "Machalí"             "Cauquenes"
-     [4] "San Antonio"         "Maullín"             "Hualañé"
-     [7] "Padre Hurtado"       "Curacautín"          "Porvenir"
-    [10] "Puente Alto"         "Buin"                "Pedro Aguirre Cerda"
+     [1] "Los Lagos"   "La Florida"  "Panguipulli" "Limache"     "Hualaihué"
+     [6] "Quillón"     "Teno"        "Panquehue"   "Gorbea"      "Marchihue"
+    [11] "Santa María" "Quilleco"   
 
 ### Tabla de comunas, provincias y regiones de Chile
 
@@ -331,16 +330,16 @@ base
     # A tibble: 972 × 4
        nombre_comuna codigo_comuna name     value
        <chr>                 <dbl> <chr>    <dbl>
-     1 Chimbarongo            6303 b     0.000913
-     2 Canela                 4202 c     0.00449
-     3 Casablanca             5102 c     0.00450
-     4 Quilpué                5801 c     0.00505
-     5 Santa Cruz             6310 a     0.00574
-     6 Cañete                 8203 b     0.00785
-     7 Providencia           13123 c     0.00833
-     8 La Reina              13113 c     0.00872
-     9 San Felipe             5701 b     0.00924
-    10 Padre Hurtado         13604 a     0.0101
+     1 Chañaral               3201 c     0.000276
+     2 San Rafael             7110 b     0.000454
+     3 Ancud                 10202 b     0.00195
+     4 Chanco                 7202 c     0.00572
+     5 Río Verde             12103 c     0.00580
+     6 La Estrella            6202 b     0.00793
+     7 Coltauco               6104 a     0.00872
+     8 San Vicente            6117 b     0.0112
+     9 Petorca                5404 c     0.0118
+    10 Bulnes                16102 c     0.0119
     # ℹ 962 more rows
 
 Esta tabla tiene 972 filas, ¿cómo confirmar si existen datos para todas
@@ -358,7 +357,7 @@ base |>
     Warning: La cantidad de comunas es anómala: hay 324, pero deberían ser 346. Revísalas
     con `territorial::validar_comunas()`
 
-    → Las comunas faltantes son: Colchane, Las Cabras, Quinta de Tilcoco, La Estrella, Licantén, Retiro, Villa Alegre, Florida, Penco, Cunco, Galvarino, Padre Las Casas, Toltén, Los Muermos, Chonchi, Chaitén, Natales, San Miguel, Vitacura, El Monte, Isla de Maipo y Camarones
+    → Las comunas faltantes son: Colchane, Pica, Coquimbo, Zapallar, Codegua, Lota, Curanilahue, Cabrero, Pitrufquén, Calbuco, Fresia, Castro, Puyehue, Río Negro, San Juan de la Costa, Futaleufú, Primavera, Cerro Navia, La Reina, Puente Alto, Isla de Maipo y Pinto
 
 La función
 [`contar_comunas()`](https://bastianolea.github.io/territorial/reference/contar_comunas.md)
@@ -376,19 +375,19 @@ base |>
   buscar_comuna("Alto")
 ```
 
-    ! Se encontraron 30 resultados, mostrando sólo 6.
+    ! Se encontraron 24 resultados, mostrando sólo 6.
 
-    ℹ Los resultados más cercanos al término `Alto` son: Alto Biobío, Alto del Carmen y Puente Alto
+    ℹ Los resultados más cercanos al término `Alto` son: Alto del Carmen, Alto Biobío y Alto Hospicio
 
     # A tibble: 6 × 5
-      nombre_comuna   codigo_comuna name   value puntaje
-      <chr>                   <dbl> <chr>  <dbl>   <dbl>
-    1 Alto Biobío              8314 a     0.0462       1
-    2 Alto del Carmen          3302 a     0.112        1
-    3 Puente Alto             13201 a     0.252        1
-    4 Alto del Carmen          3302 c     0.294        1
-    5 Puente Alto             13201 c     0.524        1
-    6 Alto Biobío              8314 b     0.660        1
+      nombre_comuna   codigo_comuna name  value puntaje
+      <chr>                   <dbl> <chr> <dbl>   <dbl>
+    1 Alto del Carmen          3302 a     0.199       1
+    2 Alto del Carmen          3302 c     0.258       1
+    3 Alto Biobío              8314 a     0.309       1
+    4 Alto Hospicio            1107 a     0.405       1
+    5 Alto Biobío              8314 b     0.421       1
+    6 Alto Biobío              8314 c     0.615       1
 
 ### Crear nombres de comunas a partir de códigos únicos territoriales
 
