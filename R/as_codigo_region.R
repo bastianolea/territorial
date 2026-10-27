@@ -23,6 +23,9 @@ as_codigo_region <- function(nombres_regiones) {
 
   # nombres_regiones <- c("Atacama", "TARAPACÁ", "Maule", "O'Higgins")
 
+  # conservar nombres originales para los mensajes
+  nombres_originales <- nombres_regiones
+
   nombres_regiones <- limpiar_texto(nombres_regiones)
 
   codigos_encontrados <- dplyr::recode_values(
@@ -55,11 +58,28 @@ as_codigo_region <- function(nombres_regiones) {
     "nuble" ~ 16
   )
 
-  # si hay NA, advertir
+  # si hay NA en resultados
   if (anyNA(codigos_encontrados)) {
-    cli::cli_warn(
-      "Algunos nombres de regiones no fueron reconocidos correctamente."
-    )
+    # n_perdidos <- sum(is.na(codigos_encontrados))
+    # cli::cli_alert_warning(
+    #   "Se obtu{?vo/vieron} {n_perdidos} valor{?es} perdido{?s} (NA) de la conversión a códigos regionales"
+    # )
+
+    # si los NA resultantes son distintos a los que vienen
+    if (any(is.na(nombres_originales) != is.na(codigos_encontrados))) {
+      nombres_no_convertidos <- nombres_originales[which(
+        is.na(codigos_encontrados) & !is.na(nombres_originales)
+      )]
+      texto <- glue::glue_collapse(
+        unique(nombres_no_convertidos),
+        sep = ", ",
+        last = " y "
+      )
+
+      cli::cli_warn(
+        "Algunos nombres de regiones no fueron reconocidos correctamente: {texto}"
+      )
+    }
   }
   return(codigos_encontrados)
 }

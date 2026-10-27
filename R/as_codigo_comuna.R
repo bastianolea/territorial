@@ -24,11 +24,28 @@ as_codigo_comuna <- function(nombres_comunas) {
     territorios$nombre_comuna
   )]
 
-  # si hay NA, recomendar limpieza
+  # si hay NA en resultados
   if (anyNA(codigos_encontrados)) {
-    cli::cli_warn(
-      "Algunos nombres de comunas no fueron reconocidos correctamente. Considera aplicar {.fun territorial::limpiar_comunas} antes."
-    )
+    # n_perdidos <- sum(is.na(codigos_encontrados))
+    # cli::cli_alert_warning(
+    #   "Se obtu{?vo/vieron} {n_perdidos} valor{?es} perdido{?s} (NA) de la conversión a códigos comunales"
+    # )
+
+    # si los NA resultantes son distintos a los que vienen, recomendar limpieza
+    if (any(is.na(nombres_comunas) != is.na(codigos_encontrados))) {
+      nombres_no_convertidos <- nombres_comunas[which(
+        is.na(codigos_encontrados) & !is.na(nombres_comunas)
+      )]
+      texto <- glue::glue_collapse(
+        unique(nombres_no_convertidos),
+        sep = ", ",
+        last = " y "
+      )
+
+      cli::cli_warn(
+        "Algunos nombres de comunas no fueron reconocidos correctamente: {texto}. Considera aplicar {.fun territorial::limpiar_comunas} antes."
+      )
+    }
   }
   return(codigos_encontrados)
 }
