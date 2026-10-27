@@ -1,3 +1,6 @@
+# territorial 0.9.6 (2026/10/27)
+- Funciones para convertir nombres a códigos y viceversa (`as_codigo_comuna()`, `as_nombre_region()`, etc.) ahora arrojan _warnings_ cuando existan valores que no puedan ser convertidos (antes simplemente entregaban los NA de manera silenciosa)
+
 # territorial 0.9.5 (2026/10/23)
 - `redactar_region()` ahora funciona con columnas vector, como las generadas por `ordenar_regiones()`
 - Modificados los mensajes a lo largo de todo el paquete para entregar _warnings_ cuando corresponda, y alertas cuando no sea tan relevante.
