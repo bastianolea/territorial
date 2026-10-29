@@ -208,3 +208,41 @@ test_that("contextualizar avisa cuando hay filas sin match en el catálogo", {
   )
 }) |>
   suppressMessages()
+
+test_that("pedir columnas específicas si se entrega otra columna", {
+  datos <- dplyr::tibble(
+    id_comuna = 1:4,
+    id_region = 11:14,
+    descripcion = c(
+      "Purranque",
+      "San Juan de la Costa",
+      "Puerto Montt",
+      "Puerto Varas"
+    )
+  )
+
+  expect_error(
+    datos |>
+      contextualizar(descripcion)
+  )
+})
+
+
+test_that("hay una columna pero no tiene el nombre correcto", {
+  datos <- dplyr::tibble(
+    id_comuna = 1:4,
+    id_region = 11:14,
+    nombres_comunas = c(
+      "Purranque",
+      "San Juan de la Costa",
+      "Puerto Montt",
+      "Puerto Varas"
+    )
+  )
+
+  expect_error(
+    datos |>
+      contextualizar()
+  )
+}) |>
+  suppressMessages()

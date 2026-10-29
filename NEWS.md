@@ -1,5 +1,7 @@
 # territorial 0.9.6 (2026/10/27)
 - Funciones para convertir nombres a códigos y viceversa (`as_codigo_comuna()`, `as_nombre_region()`, etc.) ahora arrojan _warnings_ cuando existan valores que no puedan ser convertidos (antes simplemente entregaban los NA de manera silenciosa)
+- `limpiar_comunas()` reconoce "Santiago Centro" como la comuna de Santiago.
+- Mejores errores en `contextualizar()` cuando los datos vienen con columnas distintas o insuficientes.
 
 # territorial 0.9.5 (2026/10/23)
 - `redactar_region()` ahora funciona con columnas vector, como las generadas por `ordenar_regiones()`
@@ -9,7 +11,7 @@
 - Nueva tabla de datos, `cut_historicos`, que contiene la equivalencia de todos los [códigos únicos territoriales](https://bastianolea.github.io/territorial/articles/codigos_unicos_territoriales.html) con sus versiones antiguas y desactualizadas en 2017, 2010 y 2004.
 - Nueva función `actualizar_codigo_comuna()`, que recibe códigos territoriales desactualizados o antiguos, por ejemplo los de comunas que ahora forman parte de Ñuble (como Coihueco, que antes era CUT 8405 y parte de la región del Biobío), y entrega los códigos actuales y vigentes (que en el ejemplo de Coihueco sería 16302).
 - Nueva función `is_codigo_comuna_antiguo()` para confirmar si un CUT es antiguo y por consiguiente desactualizado.
-- Nueva función súper simple, `codigos_comunas()`, hermana de `comunas()` y `regiones()`.
+- Nueva función súper simple, `codigos_comunas()`, hermana de `comunas()` y `regiones()`, que es un vector con todos los códigos de comunas válidos.
 
 # territorial 0.9.3 (2026/10/08)
 - Mejora de tests para que sean más legibles, uso de `anyNA()` en lugar de `any(is.na())`, `&&` en lugar de `&`, y mejora en descripción del paquete (todas mejoras gracias a comentarios de [Maëlle Salmon](https://masalmon.eu)!)

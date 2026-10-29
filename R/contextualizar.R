@@ -46,19 +46,34 @@ contextualizar <- function(
     )
   }
 
-  # si no se especificó la columna, asumir que es nombre_comuna
+  # caso 2: si no se especificó la columna, asumir que es nombre_comuna
   if (rlang::quo_is_null(col_expr)) {
     cli::cli_alert_info(
       "No se especificó la variable: asumiendo columna {.var nombre_comuna}"
     )
+
+    # revisar si está nombre_comuna
+    if (!"nombre_comuna" %in% names(datos)) {
+      cli::cli_abort(
+        "No se encontró la columna {.var nombre_comuna}, especifica otra columna con nombres de comuna o códigos comunales en el argumento {.var variable}!"
+      )
+    }
+
     col_expr <- rlang::sym("nombre_comuna")
   }
 
   variable <- rlang::as_name(col_expr)
 
+  # caso 0: debe ser nombre o código
+  if (!variable %in% c("nombre_comuna", "codigo_comuna")) {
+    cli::cli_abort(
+      "La variable territorial debe llamarse {.var nombre_comuna} o {.var codigo_comuna}"
+    )
+  }
+
   # chequear si existe la variable
   if (!variable %in% names(datos)) {
-    cli::cli_abort("Los datos no contienen la columna {.var {variable}}")
+    cli::cli_abort("Los datos no contienen la columna {.var {variable}}!")
   }
 
   # caso 3: codigo_comuna entregado como character en vez de numérico
