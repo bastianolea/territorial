@@ -27,3 +27,6 @@ territorios |>
   dplyr::slice_sample(n = 300) |>
   contar_comunas()
 }
+\seealso{
+\code{\link[=validar_comunas]{validar_comunas()}} y \code{\link[=limpiar_comunas]{limpiar_comunas()}} para revisar y corregir los nombres de comunas, y \code{\link[=obtener_comunas]{obtener_comunas()}} para obtener las comunas de una región.
+}

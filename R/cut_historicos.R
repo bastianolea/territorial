@@ -13,5 +13,6 @@
 #'   \item{codigo_comuna_2004}{Código único territorial histórico (desactualizado y no vigente) de las comunas de Chile en el año 2004}
 
 #' }
+#' @seealso [is_codigo_comuna_antiguo()] y [actualizar_codigo_comuna()] para detectar y actualizar códigos antiguos.
 #' @source <https://www.subdere.gov.cl>
 "cut_historicos"

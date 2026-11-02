@@ -36,3 +36,6 @@ ubicar_localidades("Alfalfal")
 # cuando se conoce el nombre de la región, se pueden mejorar los resultados:
 ubicar_localidades("Alfalfal", nombre_region = "Metropolitana de Santiago")
 }
+\seealso{
+\link{localidades} para la tabla completa de localidades, \code{\link[=ubicar_comunas]{ubicar_comunas()}} para obtener la región de una comuna, y \code{\link[=buscar_comuna]{buscar_comuna()}} para buscar comunas por similitud.
+}

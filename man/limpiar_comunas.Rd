@@ -57,3 +57,6 @@ datos |>
 datos |>
   dplyr::mutate(nombre_corregido = limpiar_comunas(nombre_comuna))
 }
+\seealso{
+\code{\link[=validar_comunas]{validar_comunas()}} para revisar el estado de los nombres de comunas antes de limpiarlos, \code{\link[=comunas]{comunas()}} para un vector con las comunas de Chile, \code{\link[=codigos_comunas]{codigos_comunas()}}  para un vector de códigos únicos territoriales de comunas. También revisa \code{\link[=contextualizar]{contextualizar()}} para complementar tablas de datos con otras variables territoriales a partir de los nombres de comunas. También puedes usar \code{\link[=as_codigo_comuna]{as_codigo_comuna()}} para obtener códigos únicos territoriales (CUT) a partir de los nombres de comunas.
+}

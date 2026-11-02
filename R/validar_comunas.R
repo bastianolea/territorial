@@ -8,6 +8,7 @@
 #' @param variable Columna del dataframe con los nombres de comunas (se pasa sin comillas, p.ej. `comuna`)
 #'
 #' @returns Dataframe o vector intacto pero en modo invisible, con mensajes de diagnóstico si se encuentran problemas de calidad
+#' @seealso [limpiar_comunas()] para corregir automáticamente los problemas detectados, y [contar_comunas()] para revisar si faltan comunas en los datos. Para regiones, usa [validar_regiones()].
 #' @export
 #'
 #' @examples

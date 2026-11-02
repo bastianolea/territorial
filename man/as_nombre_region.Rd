@@ -21,3 +21,6 @@ as_nombre_region(16)
 as_nombre_region(c(15, 4, 10, 99))
 
 }
+\seealso{
+\code{\link[=as_codigo_region]{as_codigo_region()}} para la conversión inversa, y \code{\link[=redactar_region]{redactar_region()}} o \code{\link[=acortar_regiones]{acortar_regiones()}} para cambiar cómo se escriben los nombres resultantes.
+}

@@ -53,3 +53,6 @@ datos |>
 datos |>
   dplyr::mutate(nombre_corregido = limpiar_regiones(nombre_region))
 }
+\seealso{
+\code{\link[=validar_regiones]{validar_regiones()}} para revisar los nombres de regiones antes de limpiarlos, \code{\link[=regiones]{regiones()}} para un vector con las regiones de Chile, y \code{\link[=acortar_regiones]{acortar_regiones()}} o \code{\link[=redactar_region]{redactar_region()}} para cambiar cómo se escriben sus nombres. Para comunas, usa \code{\link[=limpiar_comunas]{limpiar_comunas()}}.
+}

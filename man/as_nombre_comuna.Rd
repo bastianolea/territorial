@@ -21,3 +21,6 @@ as_nombre_comuna(1101)
 as_nombre_comuna(c(1401, 1403, 9999, 1404))
 
 }
+\seealso{
+\code{\link[=as_codigo_comuna]{as_codigo_comuna()}} para la conversión inversa, e \code{\link[=is_codigo_comuna]{is_codigo_comuna()}} para verificar que los códigos sean válidos. Si tus códigos son anteriores a 2018, revisa \code{\link[=actualizar_codigo_comuna]{actualizar_codigo_comuna()}}.
+}

@@ -6,6 +6,7 @@
 #' @param nombre_region Uno o más nombres de región, como aparecen en [territorial::regiones()]
 #'
 #' @returns Vector de comunas de la región o regiones
+#' @seealso [ubicar_comunas()] para hacer lo inverso (obtener la región de una comuna), y [comunas()] o [regiones()] para vectores con todas las comunas o regiones del país.
 #' @export
 #'
 #' @examples

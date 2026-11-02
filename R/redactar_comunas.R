@@ -6,6 +6,7 @@
 #' @param largo Por defecto, si son demasiadas comunas, trunca el largo a 10 comunas e indica "y `x` comunas más". Cambiar al número máximo de comunas, o 0 para que muestre todas las comunas.
 #'
 #' @returns Texto con comunas separadas por comas
+#' @seealso [abreviar_comunas()] para siglas de comunas, y [redactar_region()] para redactar nombres de regiones.
 #' @export
 #'
 #' @examples

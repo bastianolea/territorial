@@ -19,3 +19,6 @@ Función que recibe códigos únicos territoriales desactualizados (confirmar co
 actualizar_codigo_comuna(8408)
 
 }
+\seealso{
+\code{\link[=is_codigo_comuna_antiguo]{is_codigo_comuna_antiguo()}} para detectar códigos desactualizados, y \link{cut_historicos} para la tabla de códigos históricos. Luego puedes usar \code{\link[=contextualizar]{contextualizar()}} para agregar las demás variables territoriales.
+}

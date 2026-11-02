@@ -16,3 +16,6 @@ Vector numérico que contiene los códigos únicos territoriales de las 346 comu
 codigos_comunas()
 
 }
+\seealso{
+\code{\link[=comunas]{comunas()}}, \code{\link[=regiones]{regiones()}}
+}

@@ -5,6 +5,7 @@
 #' @param nombre_region Nombres de región, como aparecen en [territorial::regiones()]
 #'
 #' @returns Vector de preposiciones para cada nombre de región. Retorna NA si no se detecta la región.
+#' @seealso [redactar_region()] para redactar el nombre completo de la región ("Región del Maule").
 #' @export
 #'
 #' @examples

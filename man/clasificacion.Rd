@@ -28,4 +28,7 @@ Como resultado de esta actualización, ocho comunas del país modifican su categ
 De acuerdo con esta actualización, 84 comunas del país se clasifican como predominantemente urbanas, 76 como mixtas y 185 como predominantemente rurales. En términos de población, el 25,1\% de las personas reside en comunas mixtas y rurales, proporción que se mantiene en línea con la medición realizada a partir del Censo 2017.
 Los criterios técnicos y metodológicos utilizados para esta actualización, junto con el detalle completo de los resultados, se encuentran disponibles en la Minuta Técnica y en la planilla de clasificación comunal elaboradas por Odepa, \href{https://bibliotecadigital.odepa.gob.cl/items/ce846880-f010-4868-a5d9-18c80f7ceabd}{disponibles en su Biblioteca Digital.}
 }
+\seealso{
+\code{\link[=agregar_clasificacion]{agregar_clasificacion()}} para agregar esta clasificación a un vector de códigos comunales.
+}
 \keyword{datasets}

@@ -20,3 +20,6 @@ Para un vector de nombres de comuna o códigos comunales, retorna las regiones d
 \examples{
 ubicar_comunas(c("Cerrillos", "Navidad"))
 }
+\seealso{
+\code{\link[=obtener_comunas]{obtener_comunas()}} para hacer lo inverso, \code{\link[=contextualizar]{contextualizar()}} para agregar región, provincia y códigos a una tabla, y \code{\link[=ubicar_localidades]{ubicar_localidades()}} para territorios más pequeños que una comuna.
+}

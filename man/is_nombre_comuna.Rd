@@ -21,3 +21,6 @@ Dado un vector de cualquier largo, retorna TRUE o FALSE para cada elemento de ac
 is_nombre_comuna("Panguipulli")
 
 }
+\seealso{
+\code{\link[=validar_comunas]{validar_comunas()}} para un diagnóstico detallado de los problemas, y \code{\link[=limpiar_comunas]{limpiar_comunas()}} para corregirlos. Para regiones, usa \code{\link[=is_nombre_region]{is_nombre_region()}}.
+}

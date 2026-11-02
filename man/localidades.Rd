@@ -24,4 +24,7 @@ localidades
 \description{
 Tabla de datos que contiene todas las localidades de Chile, asentamientos o áreas subcomunales que no son entidades administrativas. Según la definición del INE, una localidad es un "Área geográfica con nombre propio de conocimiento generalizado por la población. Puede estar poblada o no, aunque debe contener, a lo menos, una vivienda susceptible de ser habitada. Generalmente, se circunscribe dentro de un distrito censal; no obstante, puede rebasar a éste.” Esta tabla de localidades proviene del estudio de \strong{Identificación de localidades en condición de aislamiento}, realizado por la Subsecretaría de Desarrollo Regional y Administrativo y publicado el año 2021.
 }
+\seealso{
+\code{\link[=ubicar_localidades]{ubicar_localidades()}} para encontrar la comuna de una localidad.
+}
 \keyword{datasets}

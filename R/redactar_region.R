@@ -5,6 +5,7 @@
 #' @param nombre_region Nombres de región, como aparecen en [territorial::regiones()]
 #'
 #' @returns Vector de nombres de región redactados, incluyendo la palabra "Región", y la preposición apropiada ('de' o 'del', según [territorial::preposicion_region()]) para cada nombre de región.
+#' @seealso [preposicion_region()] para obtener solo la preposición, y [acortar_regiones()] para versiones breves de los nombres de regiones.
 #' @export
 #'
 #' @examples

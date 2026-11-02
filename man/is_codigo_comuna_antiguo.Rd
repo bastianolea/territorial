@@ -19,3 +19,6 @@ Evaluar si un código único territorial comunal es antiguo o desactualizado
 is_codigo_comuna_antiguo(8408)
 
 }
+\seealso{
+\code{\link[=actualizar_codigo_comuna]{actualizar_codigo_comuna()}} para convertir códigos antiguos a los vigentes, e \code{\link[=is_codigo_comuna]{is_codigo_comuna()}} para verificar si un código es válido.
+}

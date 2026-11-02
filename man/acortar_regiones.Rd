@@ -37,3 +37,6 @@ datos <- dplyr::tibble(
 datos |>
   acortar_regiones()
 }
+\seealso{
+\code{\link[=redactar_region]{redactar_region()}} para redactar nombres como "Región del Maule", y \code{\link[=abreviar_comunas]{abreviar_comunas()}} para abreviar nombres de comunas.
+}

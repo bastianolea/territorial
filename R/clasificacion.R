@@ -15,5 +15,6 @@
 #'   \item{nombre_comuna}{Nombre de las comunas de Chile}
 #'   \item{clasificacion}{Clasificación comunal PNDR: Rural, Mixta o Urbana}
 #' }
+#' @seealso [agregar_clasificacion()] para agregar esta clasificación a un vector de códigos comunales.
 #' @source <https://bibliotecadigital.odepa.gob.cl/items/ce846880-f010-4868-a5d9-18c80f7ceabd>
 "clasificacion"

@@ -3,6 +3,7 @@
 #' @param codigo_comuna Códigos comunales en formato numérico
 #'
 #' @returns Retorna TRUE o FALSE si es o no es un código único territorial antiguo (ver [territorial::cut_historicos])
+#' @seealso [actualizar_codigo_comuna()] para convertir códigos antiguos a los vigentes, e [is_codigo_comuna()] para verificar si un código es válido.
 #' @export
 #'
 #' @examples

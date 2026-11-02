@@ -20,3 +20,6 @@ redactar_region("Maule")
 
 redactar_region("Aysén")
 }
+\seealso{
+\code{\link[=preposicion_region]{preposicion_region()}} para obtener solo la preposición, y \code{\link[=acortar_regiones]{acortar_regiones()}} para versiones breves de los nombres de regiones.
+}

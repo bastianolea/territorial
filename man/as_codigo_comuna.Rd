@@ -22,3 +22,6 @@ Para más información sobre los códigos únicos territoriales, revisa la viñe
 as_codigo_comuna("La Florida")
 
 }
+\seealso{
+\code{\link[=as_nombre_comuna]{as_nombre_comuna()}} para la conversión inversa, y \code{\link[=limpiar_comunas]{limpiar_comunas()}} para corregir los nombres antes de convertirlos. Para regiones, usa \code{\link[=as_codigo_region]{as_codigo_region()}}.
+}

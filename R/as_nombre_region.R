@@ -10,6 +10,7 @@
 #'
 #' as_nombre_region(c(15, 4, 10, 99))
 #'
+#' @seealso [as_codigo_region()] para la conversión inversa, y [redactar_region()] o [acortar_regiones()] para cambiar cómo se escriben los nombres resultantes.
 #' @export
 as_nombre_region <- function(codigos_regiones) {
   if (!is.numeric(codigos_regiones)) {

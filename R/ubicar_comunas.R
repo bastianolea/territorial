@@ -6,6 +6,7 @@
 #' @param codigo_comuna Códigos comunales, como aparecen en [territorial::territorios]
 #'
 #' @returns Vector con nombres de regiones correspondientes
+#' @seealso [obtener_comunas()] para hacer lo inverso, [contextualizar()] para agregar región, provincia y códigos a una tabla, y [ubicar_localidades()] para territorios más pequeños que una comuna.
 #' @export
 #'
 #' @examples

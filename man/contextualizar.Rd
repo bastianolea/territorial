@@ -18,7 +18,7 @@ El mismo dataframe con las columnas \code{codigo_region}, \code{nombre_region}, 
 Para cualquier tabla de datos de nivel comunal que tenga al menos una variable territorial (\code{codigo_comuna} o \code{nombre_comuna}), indicar esta variable para agregar todo el resto de variables territoriales. De esta manera, se contextualizan territorialmente los datos al agregar todas las variables territoriales faltantes.
 }
 \details{
-Se usa, por ejemplo, cuando tienes una tabla de datos que tienen solamente los nombres de las comunas (primero valída con \code{\link[=validar_comunas]{validar_comunas()}} y/o limpia con \code{\link[=validar_comunas]{validar_comunas()}}), y quieres agregarle más variables territoriales como los códigos únicos territoriales, las provincias, regiones, etc.
+Se usa, por ejemplo, cuando tienes una tabla de datos que tienen solamente los nombres de las comunas (primero valída con \code{\link[=validar_comunas]{validar_comunas()}} y/o limpia con \code{\link[=limpiar_comunas]{limpiar_comunas()}}), y quieres agregarle más variables territoriales como los códigos únicos territoriales, las provincias, regiones, etc.
 }
 \examples{
 datos <- dplyr::tribble(
@@ -33,4 +33,7 @@ datos |>
 # si ya existe una columna `nombre_comuna`, puede omitirse el argumento
 datos |>
   contextualizar()
+}
+\seealso{
+\code{\link[=validar_comunas]{validar_comunas()}} para revisar el estado de calidad de los nombres de comunas de Chile, \code{\link[=limpiar_comunas]{limpiar_comunas()}} para corregir los nombres de comunas existentes y así poder usar \code{\link[=contextualizar]{contextualizar()}} o \code{\link[=as_codigo_comuna]{as_codigo_comuna()}}.
 }

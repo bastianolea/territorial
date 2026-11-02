@@ -20,3 +20,6 @@ preposicion_region("Ñuble")
 
 preposicion_region("O'Higgins")
 }
+\seealso{
+\code{\link[=redactar_region]{redactar_region()}} para redactar el nombre completo de la región ("Región del Maule").
+}

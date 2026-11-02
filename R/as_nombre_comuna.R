@@ -10,6 +10,7 @@
 #'
 #' as_nombre_comuna(c(1401, 1403, 9999, 1404))
 #'
+#' @seealso [as_codigo_comuna()] para la conversión inversa, e [is_codigo_comuna()] para verificar que los códigos sean válidos. Si tus códigos son anteriores a 2018, revisa [actualizar_codigo_comuna()].
 #' @export
 as_nombre_comuna <- function(codigos_comunas) {
   # codigos_comunas <- c(1401, 1403, 9999, 1404)

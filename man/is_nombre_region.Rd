@@ -18,3 +18,6 @@ Dado un vector de cualquier largo, retorna TRUE o FALSE para cada elemento de ac
 \examples{
 is_nombre_region("Maule")
 }
+\seealso{
+\code{\link[=validar_regiones]{validar_regiones()}} para un diagnóstico detallado de los problemas, y \code{\link[=limpiar_regiones]{limpiar_regiones()}} para corregirlos. Para comunas, usa \code{\link[=is_nombre_comuna]{is_nombre_comuna()}}.
+}

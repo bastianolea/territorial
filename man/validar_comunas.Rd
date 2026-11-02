@@ -30,3 +30,6 @@ territorios |>
 territorios |>
   validar_comunas()
 }
+\seealso{
+\code{\link[=limpiar_comunas]{limpiar_comunas()}} para corregir automáticamente los problemas detectados, y \code{\link[=contar_comunas]{contar_comunas()}} para revisar si faltan comunas en los datos. Para regiones, usa \code{\link[=validar_regiones]{validar_regiones()}}.
+}

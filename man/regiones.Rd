@@ -16,3 +16,6 @@ Vector de texto que contiene el nombre de las 15 regiones de Chile, ordenadas de
 regiones()
 
 }
+\seealso{
+\code{\link[=comunas]{comunas()}}, \code{\link[=codigos_comunas]{codigos_comunas()}}
+}

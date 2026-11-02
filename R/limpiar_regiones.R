@@ -15,6 +15,7 @@
 #' @param aproximar El paso de limpieza por aproximación y coincidencia de nombres puede entregar resultados inexactos. Cambiar a FALSE para omitir.
 #'
 #' @returns Si la entrada es un dataframe, retorna el dataframe con la columna de regiones reemplazada. Si es un vector, retorna un vector de nombres de regiones oficiales (en su versión larga) con correcciones aplicadas.
+#' @seealso [validar_regiones()] para revisar los nombres de regiones antes de limpiarlos, [regiones()] para un vector con las regiones de Chile, y [acortar_regiones()] o [redactar_region()] para cambiar cómo se escriben sus nombres. Para comunas, usa [limpiar_comunas()].
 #' @export
 #'
 #' @examples

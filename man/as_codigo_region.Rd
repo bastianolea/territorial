@@ -22,3 +22,6 @@ Para más información sobre los códigos únicos territoriales, revisa la viñe
 as_codigo_region("Metropolitana de Santiago")
 
 }
+\seealso{
+\code{\link[=as_nombre_region]{as_nombre_region()}} para la conversión inversa, y \code{\link[=limpiar_regiones]{limpiar_regiones()}} para corregir los nombres antes de convertirlos. Para comunas, usa \code{\link[=as_codigo_comuna]{as_codigo_comuna()}}.
+}

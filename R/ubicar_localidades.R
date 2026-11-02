@@ -9,6 +9,7 @@
 #' @param procedimiento Por defecto, muestra una tabla con el resultado del proceso de limpieza. Cambiar a FALSE para ocultar.
 #'
 #' @returns Vector con nombres de comunas correspondientes
+#' @seealso [localidades] para la tabla completa de localidades, [ubicar_comunas()] para obtener la región de una comuna, y [buscar_comuna()] para buscar comunas por similitud.
 #' @export
 #'
 #' @examples

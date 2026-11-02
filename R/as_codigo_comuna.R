@@ -7,6 +7,7 @@
 #' @param nombres_comunas Nombres de comuna (como los que aparecen en [territorial::comunas()]) en formato caracter.
 #'
 #' @returns Vector numérico con códigos de comuna.
+#' @seealso [as_nombre_comuna()] para la conversión inversa, y [limpiar_comunas()] para corregir los nombres antes de convertirlos. Para regiones, usa [as_codigo_region()].
 #' @export
 #'
 #' @examples

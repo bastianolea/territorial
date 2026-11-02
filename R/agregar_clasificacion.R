@@ -6,6 +6,7 @@
 #' @param ordenar Entregar resultados como un factor ordenado (Rural, Mixta, Urbana), o como textos sin orden. Por defecto entrega factor.
 #'
 #' @returns Factor con clasificación comunal (Rural, Mixta o Urbana)
+#' @seealso [clasificacion] para la tabla completa de clasificación comunal, y [agregar_macrozona()] para agrupar regiones en macrozonas. Si no tienes códigos comunales, usa [as_codigo_comuna()] o [contextualizar()].
 #' @export
 #'
 #' @examples

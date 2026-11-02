@@ -26,6 +26,7 @@
 #'  buscar_comuna("perro") |>
 #'  dplyr::select(nombre_comuna, puntaje)
 #'
+#' @seealso [limpiar_comunas()] para corregir automáticamente nombres de comunas mal escritos, e [is_nombre_comuna()] para verificar si un nombre es válido. Para ubicar localidades más pequeñas que una comuna, usa [ubicar_localidades()].
 #' @export
 buscar_comuna <- function(
   datos,

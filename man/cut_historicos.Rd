@@ -26,4 +26,7 @@ Esta tabla contiene los códigos únicos territoriales de las comunas de Chile j
 \details{
 Cada vez que se ha creado una nueva provincia o región de Chile, las comunas que las componen cambian sus códigos únicos territoriales para coincidir con la cifra de la unidad mayor que las contienen. Esta tabla permite identificar qué código único territorial vigente tienen hoy las comunas a partir de sus códigos antiguos o históricos (no vigentes).
 }
+\seealso{
+\code{\link[=is_codigo_comuna_antiguo]{is_codigo_comuna_antiguo()}} y \code{\link[=actualizar_codigo_comuna]{actualizar_codigo_comuna()}} para detectar y actualizar códigos antiguos.
+}
 \keyword{datasets}

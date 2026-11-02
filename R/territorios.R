@@ -13,5 +13,6 @@
 #'   \item{codigo_comuna}{Código único territorial de las comunas de Chile}
 #'   \item{nombre_comuna}{Nombre de las comunas de Chile}
 #' }
+#' @seealso [comunas()], [regiones()] y [codigos_comunas()] para vectores derivados de esta tabla, y [contextualizar()] para agregar sus columnas a tus datos.
 #' @source <https://www.subdere.gov.cl/documentacion/códigos-únicos-territoriales-actualizados-al-06-de-septiembre-2018>
 "territorios"

@@ -21,3 +21,6 @@ Para más información sobre los códigos únicos territoriales, revisa la viñe
 \examples{
 is_codigo_comuna(1101)
 }
+\seealso{
+\code{\link[=is_codigo_comuna_antiguo]{is_codigo_comuna_antiguo()}} y \code{\link[=actualizar_codigo_comuna]{actualizar_codigo_comuna()}} para detectar y corregir códigos desactualizados, y \code{\link[=as_nombre_comuna]{as_nombre_comuna()}} para convertir códigos a nombres.
+}

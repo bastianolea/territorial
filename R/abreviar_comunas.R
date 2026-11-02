@@ -7,6 +7,7 @@
 #' @param nombre_comuna Vector de nombres de comunas, como [territorial::comunas()]
 #'
 #' @returns Vector con siglas de comunas de tres o cuatro caracteres
+#' @seealso [acortar_regiones()] para acortar nombres de regiones, y [redactar_comunas()] para redactar listas de comunas en una oración.
 #' @export
 #'
 #' @examples

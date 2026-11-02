@@ -7,6 +7,7 @@
 #' @param nombres_regiones Nombres de región (como los que aparecen en [territorial::territorios]) en formato caracter.
 #'
 #' @returns Vector numérico con códigos de región.
+#' @seealso [as_nombre_region()] para la conversión inversa, y [limpiar_regiones()] para corregir los nombres antes de convertirlos. Para comunas, usa [as_codigo_comuna()].
 #' @export
 #'
 #' @examples

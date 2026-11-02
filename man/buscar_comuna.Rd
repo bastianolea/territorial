@@ -47,3 +47,6 @@ territorios |>
  dplyr::select(nombre_comuna, puntaje)
 
 }
+\seealso{
+\code{\link[=limpiar_comunas]{limpiar_comunas()}} para corregir automáticamente nombres de comunas mal escritos, e \code{\link[=is_nombre_comuna]{is_nombre_comuna()}} para verificar si un nombre es válido. Para ubicar localidades más pequeñas que una comuna, usa \code{\link[=ubicar_localidades]{ubicar_localidades()}}.
+}

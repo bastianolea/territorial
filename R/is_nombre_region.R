@@ -5,6 +5,7 @@
 #' @param nombre_region Elemento/s a evaluar
 #'
 #' @returns TRUE o FALSE si es o no es un código único territorial válido
+#' @seealso [validar_regiones()] para un diagnóstico detallado de los problemas, y [limpiar_regiones()] para corregirlos. Para comunas, usa [is_nombre_comuna()].
 #' @export
 #'
 #' @examples

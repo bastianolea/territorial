@@ -23,3 +23,6 @@ validar_regiones(c("los lagos", "nuble", "OHIGGINS"))
 territorial::territorios |>
   validar_regiones(nombre_region)
 }
+\seealso{
+\code{\link[=limpiar_regiones]{limpiar_regiones()}} para corregir automáticamente los problemas detectados. Para comunas, usa \code{\link[=validar_comunas]{validar_comunas()}}.
+}

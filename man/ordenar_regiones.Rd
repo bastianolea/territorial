@@ -45,3 +45,6 @@ regiones <- dplyr::tribble(
 regiones |>
   ordenar_regiones()
 }
+\seealso{
+\code{\link[=agregar_orden_region]{agregar_orden_region()}} para obtener solo la posición de norte a sur, y \code{\link[=agregar_macrozona]{agregar_macrozona()}} para agrupar regiones en macrozonas. Si falta \code{codigo_region}, usa \code{\link[=contextualizar]{contextualizar()}} o \code{\link[=as_codigo_region]{as_codigo_region()}}.
+}

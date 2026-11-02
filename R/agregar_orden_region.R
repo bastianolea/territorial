@@ -5,6 +5,7 @@
 #' @param codigo_region Vector de códigos únicos de región (entre 1 y 16)
 #'
 #' @returns Vector con la posición de norte a sur de la región respectiva
+#' @seealso [ordenar_regiones()] para ordenar directamente una tabla de datos de norte a sur, y [agregar_macrozona()] para agrupar regiones en macrozonas.
 #' @export
 #'
 #' @examples

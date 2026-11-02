@@ -6,6 +6,7 @@
 #' @param variable Columna del dataframe con los nombres de regiones (se pasa sin comillas, p.ej. `region`)
 #'
 #' @returns Dataframe o vector intacto pero en modo invisible, con mensajes de diagnóstico si se encuentran problemas de calidad
+#' @seealso [limpiar_regiones()] para corregir automáticamente los problemas detectados. Para comunas, usa [validar_comunas()].
 #' @export
 #'
 #' @examples

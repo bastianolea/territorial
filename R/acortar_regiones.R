@@ -6,6 +6,7 @@
 #' @param variable Columna del dataframe con los nombres de regiones (se pasa sin comillas, p.ej. `region`). Si no se especifica, se asume `nombre_region`. Si se aplica a un vector, omitir este argumento.
 #'
 #' @returns Si la entrada es un dataframe, retorna el dataframe con la columna de regiones reemplazada por sus versiones breves. Si es un vector, retorna un vector de texto con nombres de regiones breves.
+#' @seealso [redactar_region()] para redactar nombres como "Región del Maule", y [abreviar_comunas()] para abreviar nombres de comunas.
 #' @export
 #'
 #' @examples

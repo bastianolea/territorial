@@ -20,3 +20,6 @@ Para un vector de comunas, entrega la clasificación comunal PNDR correspondient
 \examples{
 agregar_clasificacion(8107)
 }
+\seealso{
+\link{clasificacion} para la tabla completa de clasificación comunal, y \code{\link[=agregar_macrozona]{agregar_macrozona()}} para agrupar regiones en macrozonas. Si no tienes códigos comunales, usa \code{\link[=as_codigo_comuna]{as_codigo_comuna()}} o \code{\link[=contextualizar]{contextualizar()}}.
+}

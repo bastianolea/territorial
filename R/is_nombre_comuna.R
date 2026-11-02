@@ -6,6 +6,7 @@
 #' @param intentar Si la comuna no es válida, tratar de interpretarla con [territorial::limpiar_comunas()]
 #'
 #' @returns TRUE o FALSE si es o no es una comuna válida
+#' @seealso [validar_comunas()] para un diagnóstico detallado de los problemas, y [limpiar_comunas()] para corregirlos. Para regiones, usa [is_nombre_region()].
 #' @export
 #'
 #' @examples

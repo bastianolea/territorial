@@ -42,3 +42,6 @@ territorios |>
     macrozona_4 = agregar_macrozona(codigo_region, tipo = 4)
  )
 }
+\seealso{
+\code{\link[=ordenar_regiones]{ordenar_regiones()}} para ordenar regiones de norte a sur, y \code{\link[=agregar_clasificacion]{agregar_clasificacion()}} para clasificar comunas en urbanas, mixtas o rurales. Si no tienes códigos de región, usa \code{\link[=as_codigo_region]{as_codigo_region()}} o \code{\link[=contextualizar]{contextualizar()}}.
+}

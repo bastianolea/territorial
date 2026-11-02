@@ -18,3 +18,6 @@ Función usada internamente para \code{\link[=ordenar_regiones]{ordenar_regiones
 \examples{
 agregar_orden_region(15) # Arica
 }
+\seealso{
+\code{\link[=ordenar_regiones]{ordenar_regiones()}} para ordenar directamente una tabla de datos de norte a sur, y \code{\link[=agregar_macrozona]{agregar_macrozona()}} para agrupar regiones en macrozonas.
+}

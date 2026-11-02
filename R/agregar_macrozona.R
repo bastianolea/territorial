@@ -14,6 +14,7 @@
 #' @param ordenar Entregar resultados como un factor ordenado (de norte a sur), o como textos sin orden. Por defecto entrega factor.
 #'
 #' @returns Factor con macrozonas regionales, de acuerdo al tipo de clasificación de regiones elegido.
+#' @seealso [ordenar_regiones()] para ordenar regiones de norte a sur, y [agregar_clasificacion()] para clasificar comunas en urbanas, mixtas o rurales. Si no tienes códigos de región, usa [as_codigo_region()] o [contextualizar()].
 #' @export
 #'
 #' @examples

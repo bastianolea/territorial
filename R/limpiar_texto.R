@@ -3,6 +3,7 @@
 #' @param texto Vector de texto
 #'
 #' @returns Vector de texto sin puntuación, símbolos y números, en minúsculas y sin acentos
+#' @seealso [limpiar_comunas()] y [limpiar_regiones()], que usan este tipo de limpieza para corregir nombres de comunas y regiones.
 #' @export
 #'
 #' @examples

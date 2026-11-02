@@ -7,6 +7,7 @@
 #' @param codigo_comuna Códigos territoriales a evaluar, en formato numérico. Si vienen en formato caracter, se convierten.
 #'
 #' @returns Retorna TRUE o FALSE si es o no es un código único territorial válido (ver [territorial::territorios])
+#' @seealso [is_codigo_comuna_antiguo()] y [actualizar_codigo_comuna()] para detectar y corregir códigos desactualizados, y [as_nombre_comuna()] para convertir códigos a nombres.
 #' @export
 #'
 #' @examples

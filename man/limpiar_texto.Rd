@@ -18,3 +18,6 @@ Eliminar puntuación, símbolos y números de textos
 \examples{
 limpiar_texto("Ñuñoa")
 }
+\seealso{
+\code{\link[=limpiar_comunas]{limpiar_comunas()}} y \code{\link[=limpiar_regiones]{limpiar_regiones()}}, que usan este tipo de limpieza para corregir nombres de comunas y regiones.
+}

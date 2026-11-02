@@ -20,3 +20,6 @@ Para un vector de nombres de comuna, retorna un texto con las comunas redactadas
 \examples{
 redactar_comunas(c("Paine", "Isla de Maipo", "Pirque"))
 }
+\seealso{
+\code{\link[=abreviar_comunas]{abreviar_comunas()}} para siglas de comunas, y \code{\link[=redactar_region]{redactar_region()}} para redactar nombres de regiones.
+}

@@ -27,4 +27,7 @@ Tabla de datos que contiene todas las comunas del país con sus nombres oficiale
 \details{
 Las modificaciones realizadas a los datos son: formas alternativas de escribir las comunas de Treguaco (Trehuaco) y Paiguano (Paihuano), optando por las formas que son usadas por sus municipios (Trehuaco y Paihuano, respectivamente), y comunas que deberían tener tilde (Los Ángeles, entre otras).
 }
+\seealso{
+\code{\link[=comunas]{comunas()}}, \code{\link[=regiones]{regiones()}} y \code{\link[=codigos_comunas]{codigos_comunas()}} para vectores derivados de esta tabla, y \code{\link[=contextualizar]{contextualizar()}} para agregar sus columnas a tus datos.
+}
 \keyword{datasets}

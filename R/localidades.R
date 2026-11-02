@@ -11,5 +11,6 @@
 #'   \item{habitantes}{Habitantes de la localidad}
 #'   \item{viviendas}{Viviendas de la localidad}
 #' }
+#' @seealso [ubicar_localidades()] para encontrar la comuna de una localidad.
 #' @source <https://ide.subdere.gov.cl/estudio-actualizacion-de-base-censal-identificacion-de-localidades-en-condicion-de-aislamiento/>
 "localidades"

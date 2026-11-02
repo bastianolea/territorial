@@ -20,3 +20,6 @@ Entregando un nombre de región o un código de región, retorna un vector con l
 \examples{
 obtener_comunas("Tarapacá")
 }
+\seealso{
+\code{\link[=ubicar_comunas]{ubicar_comunas()}} para hacer lo inverso (obtener la región de una comuna), y \code{\link[=comunas]{comunas()}} o \code{\link[=regiones]{regiones()}} para vectores con todas las comunas o regiones del país.
+}

@@ -5,6 +5,7 @@
 #' @param codigo_comuna Códigos comunales en formato numérico
 #'
 #' @returns Códigos comunales actualizados correspondientes a los desactualizados entregados. Si los códigos entregados no son antiguos, se mantienen sin cambios.
+#' @seealso [is_codigo_comuna_antiguo()] para detectar códigos desactualizados, y [cut_historicos] para la tabla de códigos históricos. Luego puedes usar [contextualizar()] para agregar las demás variables territoriales.
 #' @export
 #'
 #' @examples

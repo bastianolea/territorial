@@ -4,6 +4,7 @@
 #' @param porcentaje Porcentaje de caracteres a eliminar
 #'
 #' @returns Vector de texto con caracteres eliminados al azar
+#' @seealso [insertar_texto()] y [reemplazar_texto()] para otras formas de ensuciar texto, útiles para probar [limpiar_comunas()].
 #' @export
 #'
 #' @examples

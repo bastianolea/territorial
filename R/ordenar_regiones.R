@@ -8,6 +8,7 @@
 #' @param invertir Ordenar las regiones al revés, útil para visualizaciones de datos (para que al usar las regiones en el eje vertical de un gráfico, las regiones del norte aparezcan primero)
 #'
 #' @returns Tabla de datos con la variable `nombre_region` en formato factor, ordenado geogr\\u00e1ficamente (de norte a sur)
+#' @seealso [agregar_orden_region()] para obtener solo la posición de norte a sur, y [agregar_macrozona()] para agrupar regiones en macrozonas. Si falta `codigo_region`, usa [contextualizar()] o [as_codigo_region()].
 #' @export
 #'
 #' @examples

@@ -1,5 +1,6 @@
 # territorial 0.9.7 (2026/11/02)
 - Nueva función `capitales_regionales()`, que contiene una tabla filtrada de `territorial::territorios` con las 16 comunas que son capital regional en Chile.
+- Documentación: se agregaron funciones relacionadas y recomendadas a la documentación de cada función del paquete, para ayudar a que encuentres lo que necesitas!
 
 # territorial 0.9.6 (2026/10/27)
 - Funciones para convertir nombres a códigos y viceversa (`as_codigo_comuna()`, `as_nombre_region()`, etc.) ahora arrojan _warnings_ cuando existan valores que no puedan ser convertidos (antes simplemente entregaban los NA de manera silenciosa)

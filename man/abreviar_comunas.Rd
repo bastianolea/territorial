@@ -21,3 +21,6 @@ Las siglas se construyen con las tres primeras letras de las comunas con nombres
 \examples{
 abreviar_comunas(c("Cerrillos", "La Florida", "Quellón"))
 }
+\seealso{
+\code{\link[=acortar_regiones]{acortar_regiones()}} para acortar nombres de regiones, y \code{\link[=redactar_comunas]{redactar_comunas()}} para redactar listas de comunas en una oración.
+}

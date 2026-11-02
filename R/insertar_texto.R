@@ -5,6 +5,7 @@
 #' @param caracteres Vector de caracteres para insertar
 #'
 #' @returns Vector de texto con caracteres insertados al azar
+#' @seealso [eliminar_texto()] y [reemplazar_texto()] para otras formas de ensuciar texto, útiles para probar [limpiar_comunas()].
 #' @export
 #'
 #' @examples
