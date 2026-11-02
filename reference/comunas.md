@@ -14,6 +14,16 @@ comunas()
 
 Vector de nombres de comunas de Chile
 
+## Ver también
+
+[`codigos_comunas()`](https://bastianolea.github.io/territorial/reference/codigos_comunas.md)
+para un vector de códigos únicos territoriales de comunas,
+[`regiones()`](https://bastianolea.github.io/territorial/reference/regiones.md)
+para un vector de regiones de Chile. Puedes usar
+[`as_codigo_comuna()`](https://bastianolea.github.io/territorial/reference/as_codigo_comuna.md)
+para obtener códigos únicos territoriales (CUT) a partir de los nombres
+de comunas.
+
 ## Ejemplos
 
 ``` r

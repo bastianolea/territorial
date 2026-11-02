@@ -69,3 +69,8 @@ Data frame con 345 filas y 7 columnas:
 ## Fuente
 
 <https://bibliotecadigital.odepa.gob.cl/items/ce846880-f010-4868-a5d9-18c80f7ceabd>
+
+## Ver también
+
+[`agregar_clasificacion()`](https://bastianolea.github.io/territorial/reference/agregar_clasificacion.md)
+para agregar esta clasificación a un vector de códigos comunales.

@@ -21,6 +21,13 @@ Retorna TRUE o FALSE si es o no es un código único territorial antiguo
 (ver
 [cut_historicos](https://bastianolea.github.io/territorial/reference/cut_historicos.md))
 
+## Ver también
+
+[`actualizar_codigo_comuna()`](https://bastianolea.github.io/territorial/reference/actualizar_codigo_comuna.md)
+para convertir códigos antiguos a los vigentes, e
+[`is_codigo_comuna()`](https://bastianolea.github.io/territorial/reference/is_codigo_comuna.md)
+para verificar si un código es válido.
+
 ## Ejemplos
 
 ``` r

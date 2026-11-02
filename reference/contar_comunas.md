@@ -41,6 +41,15 @@ conteo de comunas
 Sirve para revisar rápidamente que los datos abarquen todos los
 territorios del país, o indicar si faltan algunos.
 
+## Ver también
+
+[`validar_comunas()`](https://bastianolea.github.io/territorial/reference/validar_comunas.md)
+y
+[`limpiar_comunas()`](https://bastianolea.github.io/territorial/reference/limpiar_comunas.md)
+para revisar y corregir los nombres de comunas, y
+[`obtener_comunas()`](https://bastianolea.github.io/territorial/reference/obtener_comunas.md)
+para obtener las comunas de una región.
+
 ## Ejemplos
 
 ``` r

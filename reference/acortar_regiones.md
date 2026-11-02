@@ -30,6 +30,13 @@ Si la entrada es un dataframe, retorna el dataframe con la columna de
 regiones reemplazada por sus versiones breves. Si es un vector, retorna
 un vector de texto con nombres de regiones breves.
 
+## Ver también
+
+[`redactar_region()`](https://bastianolea.github.io/territorial/reference/redactar_region.md)
+para redactar nombres como "Región del Maule", y
+[`abreviar_comunas()`](https://bastianolea.github.io/territorial/reference/abreviar_comunas.md)
+para abreviar nombres de comunas.
+
 ## Ejemplos
 
 ``` r

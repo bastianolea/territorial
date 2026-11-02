@@ -22,6 +22,11 @@ preposicion_region(nombre_region)
 Vector de preposiciones para cada nombre de región. Retorna NA si no se
 detecta la región.
 
+## Ver también
+
+[`redactar_region()`](https://bastianolea.github.io/territorial/reference/redactar_region.md)
+para redactar el nombre completo de la región ("Región del Maule").
+
 ## Ejemplos
 
 ``` r

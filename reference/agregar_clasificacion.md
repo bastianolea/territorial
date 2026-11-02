@@ -25,6 +25,16 @@ agregar_clasificacion(codigo_comuna, ordenar = TRUE)
 
 Factor con clasificación comunal (Rural, Mixta o Urbana)
 
+## Ver también
+
+[clasificacion](https://bastianolea.github.io/territorial/reference/clasificacion.md)
+para la tabla completa de clasificación comunal, y
+[`agregar_macrozona()`](https://bastianolea.github.io/territorial/reference/agregar_macrozona.md)
+para agrupar regiones en macrozonas. Si no tienes códigos comunales, usa
+[`as_codigo_comuna()`](https://bastianolea.github.io/territorial/reference/as_codigo_comuna.md)
+o
+[`contextualizar()`](https://bastianolea.github.io/territorial/reference/contextualizar.md).
+
 ## Ejemplos
 
 ``` r

@@ -22,6 +22,14 @@ eliminar_texto(texto, porcentaje = 0.1)
 
 Vector de texto con caracteres eliminados al azar
 
+## Ver también
+
+[`insertar_texto()`](https://bastianolea.github.io/territorial/reference/insertar_texto.md)
+y
+[`reemplazar_texto()`](https://bastianolea.github.io/territorial/reference/reemplazar_texto.md)
+para otras formas de ensuciar texto, útiles para probar
+[`limpiar_comunas()`](https://bastianolea.github.io/territorial/reference/limpiar_comunas.md).
+
 ## Ejemplos
 
 ``` r

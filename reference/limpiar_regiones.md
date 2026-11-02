@@ -99,6 +99,18 @@ Los nombres se limpian en cuatro pasos:
     y se retornan los nombres de regiones oficiales (en su versión
     larga).
 
+## Ver también
+
+[`validar_regiones()`](https://bastianolea.github.io/territorial/reference/validar_regiones.md)
+para revisar los nombres de regiones antes de limpiarlos,
+[`regiones()`](https://bastianolea.github.io/territorial/reference/regiones.md)
+para un vector con las regiones de Chile, y
+[`acortar_regiones()`](https://bastianolea.github.io/territorial/reference/acortar_regiones.md)
+o
+[`redactar_region()`](https://bastianolea.github.io/territorial/reference/redactar_region.md)
+para cambiar cómo se escriben sus nombres. Para comunas, usa
+[`limpiar_comunas()`](https://bastianolea.github.io/territorial/reference/limpiar_comunas.md).
+
 ## Ejemplos
 
 ``` r

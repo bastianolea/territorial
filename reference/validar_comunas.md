@@ -34,6 +34,14 @@ no es necesario especificarla), o un vector que contenga los nombres de
 comunas a evaluar. La función solamente retorna avisos cuando existan
 problemas, y retorna los datos de manera invisible.
 
+## Ver también
+
+[`limpiar_comunas()`](https://bastianolea.github.io/territorial/reference/limpiar_comunas.md)
+para corregir automáticamente los problemas detectados, y
+[`contar_comunas()`](https://bastianolea.github.io/territorial/reference/contar_comunas.md)
+para revisar si faltan comunas en los datos. Para regiones, usa
+[`validar_regiones()`](https://bastianolea.github.io/territorial/reference/validar_regiones.md).
+
 ## Ejemplos
 
 ``` r

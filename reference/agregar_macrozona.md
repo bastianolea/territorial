@@ -60,6 +60,17 @@ alternativas para elegir:
   las agrupaciones del estudio Identificación de Localidades en
   Condición de Aislamiento 2012, de Subdere.
 
+## Ver también
+
+[`ordenar_regiones()`](https://bastianolea.github.io/territorial/reference/ordenar_regiones.md)
+para ordenar regiones de norte a sur, y
+[`agregar_clasificacion()`](https://bastianolea.github.io/territorial/reference/agregar_clasificacion.md)
+para clasificar comunas en urbanas, mixtas o rurales. Si no tienes
+códigos de región, usa
+[`as_codigo_region()`](https://bastianolea.github.io/territorial/reference/as_codigo_region.md)
+o
+[`contextualizar()`](https://bastianolea.github.io/territorial/reference/contextualizar.md).
+
 ## Ejemplos
 
 ``` r

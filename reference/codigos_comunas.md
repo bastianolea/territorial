@@ -14,6 +14,11 @@ codigos_comunas()
 
 Vector de códigos de comunas de Chile
 
+## Ver también
+
+[`comunas()`](https://bastianolea.github.io/territorial/reference/comunas.md),
+[`regiones()`](https://bastianolea.github.io/territorial/reference/regiones.md)
+
 ## Ejemplos
 
 ``` r

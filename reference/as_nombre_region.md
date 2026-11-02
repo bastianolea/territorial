@@ -21,6 +21,15 @@ as_nombre_region(codigos_regiones)
 
 Vector con nombres de región
 
+## Ver también
+
+[`as_codigo_region()`](https://bastianolea.github.io/territorial/reference/as_codigo_region.md)
+para la conversión inversa, y
+[`redactar_region()`](https://bastianolea.github.io/territorial/reference/redactar_region.md)
+o
+[`acortar_regiones()`](https://bastianolea.github.io/territorial/reference/acortar_regiones.md)
+para cambiar cómo se escriben los nombres resultantes.
+
 ## Ejemplos
 
 ``` r

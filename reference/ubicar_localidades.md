@@ -48,6 +48,15 @@ localidad con mayor población (según el estudio de Localidades Aisladas
 2021 de Subdere). Si no se encuentra una localidad exacta, se buscan por
 coincidencia inexacta.
 
+## Ver también
+
+[localidades](https://bastianolea.github.io/territorial/reference/localidades.md)
+para la tabla completa de localidades,
+[`ubicar_comunas()`](https://bastianolea.github.io/territorial/reference/ubicar_comunas.md)
+para obtener la región de una comuna, y
+[`buscar_comuna()`](https://bastianolea.github.io/territorial/reference/buscar_comuna.md)
+para buscar comunas por similitud.
+
 ## Ejemplos
 
 ``` r

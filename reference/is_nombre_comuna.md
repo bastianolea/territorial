@@ -26,6 +26,14 @@ is_nombre_comuna(nombre_comuna, intentar = FALSE)
 
 TRUE o FALSE si es o no es una comuna válida
 
+## Ver también
+
+[`validar_comunas()`](https://bastianolea.github.io/territorial/reference/validar_comunas.md)
+para un diagnóstico detallado de los problemas, y
+[`limpiar_comunas()`](https://bastianolea.github.io/territorial/reference/limpiar_comunas.md)
+para corregirlos. Para regiones, usa
+[`is_nombre_region()`](https://bastianolea.github.io/territorial/reference/is_nombre_region.md).
+
 ## Ejemplos
 
 ``` r

@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">territorial</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.9.6</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.9.7</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Cambiar la navegación">
@@ -94,6 +94,10 @@
 <li><p>Si en los pasos anteriores quedaron regiones que no coincidieron (es decir, que sus problemas van más allá de tildes, mayúsculas o símbolos), se realiza una coincidencia parcial de textos o <em>fuzzy matching</em> usando la función <code><a href="https://rdrr.io/r/base/agrep.html" class="external-link">base::agrepl()</a></code>, que utiliza el <a href="https://es.wikipedia.org/wiki/Distancia_de_Levenshtein" class="external-link">algoritmo de distancia de Levenshtein</a> para encontrar las regiones correctamente escritas que más se parecen a las regiones entregadas. En todos estos casos se emite una alerta que indica la coincidencia encontrada, ya que al ser una aproximación, no se garantiza que la coincidencia sea correcta. Puedes desactivar este paso poniendo <code>aproximar = FALSE</code>.
 Finalmente, se muestra una tabla que describe el proceso de limpieza para su revisión (que puede ocultarse con <code>procedimiento = FALSE</code>), y se retornan los nombres de regiones oficiales (en su versión larga).</p></li>
 </ol></div>
+    <div class="section level2">
+    <h2 id="ver-tambi-n">Ver también<a class="anchor" aria-label="anchor" href="#ver-tambi-n"></a></h2>
+    <div class="dont-index"><p><code><a href="validar_regiones.html">validar_regiones()</a></code> para revisar los nombres de regiones antes de limpiarlos, <code><a href="regiones.html">regiones()</a></code> para un vector con las regiones de Chile, y <code><a href="acortar_regiones.html">acortar_regiones()</a></code> o <code><a href="redactar_region.html">redactar_region()</a></code> para cambiar cómo se escriben sus nombres. Para comunas, usa <code><a href="limpiar_comunas.html">limpiar_comunas()</a></code>.</p></div>
+    </div>
 
     <div class="section level2">
     <h2 id="ref-examples">Ejemplos<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>

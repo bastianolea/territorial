@@ -55,6 +55,15 @@ Mensajes respecto de la búsqueda, y el dataframe entregado en el
 argumento `datos` filtrado según comunas que cumplan con el criterio de
 `similitud` de la búsqueda.
 
+## Ver también
+
+[`limpiar_comunas()`](https://bastianolea.github.io/territorial/reference/limpiar_comunas.md)
+para corregir automáticamente nombres de comunas mal escritos, e
+[`is_nombre_comuna()`](https://bastianolea.github.io/territorial/reference/is_nombre_comuna.md)
+para verificar si un nombre es válido. Para ubicar localidades más
+pequeñas que una comuna, usa
+[`ubicar_localidades()`](https://bastianolea.github.io/territorial/reference/ubicar_localidades.md).
+
 ## Ejemplos
 
 ``` r

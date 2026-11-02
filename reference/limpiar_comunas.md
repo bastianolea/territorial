@@ -96,6 +96,22 @@ Los nombres se limpian en cuatro pasos:
     ocultarse con `procedimiento = FALSE`, y se retornan las comunas
     correctas.
 
+## Ver también
+
+[`validar_comunas()`](https://bastianolea.github.io/territorial/reference/validar_comunas.md)
+para revisar el estado de los nombres de comunas antes de limpiarlos,
+[`comunas()`](https://bastianolea.github.io/territorial/reference/comunas.md)
+para un vector con las comunas de Chile,
+[`codigos_comunas()`](https://bastianolea.github.io/territorial/reference/codigos_comunas.md)
+para un vector de códigos únicos territoriales de comunas. También
+revisa
+[`contextualizar()`](https://bastianolea.github.io/territorial/reference/contextualizar.md)
+para complementar tablas de datos con otras variables territoriales a
+partir de los nombres de comunas. También puedes usar
+[`as_codigo_comuna()`](https://bastianolea.github.io/territorial/reference/as_codigo_comuna.md)
+para obtener códigos únicos territoriales (CUT) a partir de los nombres
+de comunas.
+
 ## Ejemplos
 
 ``` r

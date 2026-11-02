@@ -49,3 +49,10 @@ comunas que las componen cambian sus códigos únicos territoriales para
 coincidir con la cifra de la unidad mayor que las contienen. Esta tabla
 permite identificar qué código único territorial vigente tienen hoy las
 comunas a partir de sus códigos antiguos o históricos (no vigentes).
+
+## Ver también
+
+[`is_codigo_comuna_antiguo()`](https://bastianolea.github.io/territorial/reference/is_codigo_comuna_antiguo.md)
+y
+[`actualizar_codigo_comuna()`](https://bastianolea.github.io/territorial/reference/actualizar_codigo_comuna.md)
+para detectar y actualizar códigos antiguos.

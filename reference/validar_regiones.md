@@ -31,6 +31,13 @@ validar_regiones(datos, variable = NULL)
 Dataframe o vector intacto pero en modo invisible, con mensajes de
 diagnóstico si se encuentran problemas de calidad
 
+## Ver también
+
+[`limpiar_regiones()`](https://bastianolea.github.io/territorial/reference/limpiar_regiones.md)
+para corregir automáticamente los problemas detectados. Para comunas,
+usa
+[`validar_comunas()`](https://bastianolea.github.io/territorial/reference/validar_comunas.md).
+
 ## Ejemplos
 
 ``` r

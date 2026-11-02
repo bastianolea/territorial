@@ -54,3 +54,13 @@ escribir las comunas de Treguaco (Trehuaco) y Paiguano (Paihuano),
 optando por las formas que son usadas por sus municipios (Trehuaco y
 Paihuano, respectivamente), y comunas que deberían tener tilde (Los
 Ángeles, entre otras).
+
+## Ver también
+
+[`comunas()`](https://bastianolea.github.io/territorial/reference/comunas.md),
+[`regiones()`](https://bastianolea.github.io/territorial/reference/regiones.md)
+y
+[`codigos_comunas()`](https://bastianolea.github.io/territorial/reference/codigos_comunas.md)
+para vectores derivados de esta tabla, y
+[`contextualizar()`](https://bastianolea.github.io/territorial/reference/contextualizar.md)
+para agregar sus columnas a tus datos.

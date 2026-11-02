@@ -1,5 +1,16 @@
 # Registro de cambios
 
+## territorial 0.9.7 (2026/11/02)
+
+- Nueva función
+  [`capitales_regionales()`](https://bastianolea.github.io/territorial/reference/capitales_regionales.md),
+  que contiene una tabla filtrada de
+  [`territorial::territorios`](https://bastianolea.github.io/territorial/reference/territorios.md)
+  con las 16 comunas que son capital regional en Chile.
+- Documentación: se agregaron funciones relacionadas y recomendadas a la
+  documentación de cada función del paquete, para ayudar a que
+  encuentres lo que necesitas!
+
 ## territorial 0.9.6 (2026/10/27)
 
 - Funciones para convertir nombres a códigos y viceversa
@@ -8,6 +19,11 @@
   etc.) ahora arrojan *warnings* cuando existan valores que no puedan
   ser convertidos (antes simplemente entregaban los NA de manera
   silenciosa)
+- [`limpiar_comunas()`](https://bastianolea.github.io/territorial/reference/limpiar_comunas.md)
+  reconoce “Santiago Centro” como la comuna de Santiago.
+- Mejores errores en
+  [`contextualizar()`](https://bastianolea.github.io/territorial/reference/contextualizar.md)
+  cuando los datos vienen con columnas distintas o insuficientes.
 
 ## territorial 0.9.5 (2026/10/23)
 
@@ -38,7 +54,8 @@
   hermana de
   [`comunas()`](https://bastianolea.github.io/territorial/reference/comunas.md)
   y
-  [`regiones()`](https://bastianolea.github.io/territorial/reference/regiones.md).
+  [`regiones()`](https://bastianolea.github.io/territorial/reference/regiones.md),
+  que es un vector con todos los códigos de comunas válidos.
 
 ## territorial 0.9.3 (2026/10/08)
 

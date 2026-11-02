@@ -21,6 +21,15 @@ as_nombre_comuna(codigos_comunas)
 
 Vector con nombres de comuna
 
+## Ver también
+
+[`as_codigo_comuna()`](https://bastianolea.github.io/territorial/reference/as_codigo_comuna.md)
+para la conversión inversa, e
+[`is_codigo_comuna()`](https://bastianolea.github.io/territorial/reference/is_codigo_comuna.md)
+para verificar que los códigos sean válidos. Si tus códigos son
+anteriores a 2018, revisa
+[`actualizar_codigo_comuna()`](https://bastianolea.github.io/territorial/reference/actualizar_codigo_comuna.md).
+
 ## Ejemplos
 
 ``` r

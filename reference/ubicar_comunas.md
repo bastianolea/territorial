@@ -25,6 +25,15 @@ ubicar_comunas(nombre_comuna = NULL, codigo_comuna = NULL)
 
 Vector con nombres de regiones correspondientes
 
+## Ver también
+
+[`obtener_comunas()`](https://bastianolea.github.io/territorial/reference/obtener_comunas.md)
+para hacer lo inverso,
+[`contextualizar()`](https://bastianolea.github.io/territorial/reference/contextualizar.md)
+para agregar región, provincia y códigos a una tabla, y
+[`ubicar_localidades()`](https://bastianolea.github.io/territorial/reference/ubicar_localidades.md)
+para territorios más pequeños que una comuna.
+
 ## Ejemplos
 
 ``` r

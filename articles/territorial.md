@@ -27,9 +27,9 @@ library(territorial)
 sample(comunas(), 12)
 ```
 
-     [1] "Los Lagos"   "La Florida"  "Panguipulli" "Limache"     "Hualaihué"
-     [6] "Quillón"     "Teno"        "Panquehue"   "Gorbea"      "Marchihue"
-    [11] "Santa María" "Quilleco"   
+     [1] "Macul"          "El Quisco"      "Copiapó"        "Yungay"
+     [5] "Litueche"       "Cobquecura"     "Villa Alemana"  "San Carlos"
+     [9] "Papudo"         "Lebu"           "Nueva Imperial" "Tiltil"        
 
 ### Tabla de comunas, provincias y regiones de Chile
 
@@ -328,18 +328,18 @@ base
 ```
 
     # A tibble: 972 × 4
-       nombre_comuna codigo_comuna name     value
-       <chr>                 <dbl> <chr>    <dbl>
-     1 Chañaral               3201 c     0.000276
-     2 San Rafael             7110 b     0.000454
-     3 Ancud                 10202 b     0.00195
-     4 Chanco                 7202 c     0.00572
-     5 Río Verde             12103 c     0.00580
-     6 La Estrella            6202 b     0.00793
-     7 Coltauco               6104 a     0.00872
-     8 San Vicente            6117 b     0.0112
-     9 Petorca                5404 c     0.0118
-    10 Bulnes                16102 c     0.0119
+       nombre_comuna codigo_comuna name    value
+       <chr>                 <dbl> <chr>   <dbl>
+     1 Graneros               6106 a     0.00168
+     2 Chanco                 7202 a     0.00449
+     3 Nacimiento             8306 c     0.00673
+     4 Paine                 13404 b     0.00919
+     5 Freire                 9105 c     0.00941
+     6 Lo Espejo             13116 c     0.0110
+     7 Empedrado              7104 c     0.0111
+     8 El Tabo                5605 b     0.0112
+     9 San Antonio            5601 c     0.0114
+    10 Mulchén                8305 a     0.0115
     # ℹ 962 more rows
 
 Esta tabla tiene 972 filas, ¿cómo confirmar si existen datos para todas
@@ -357,7 +357,7 @@ base |>
     Warning: La cantidad de comunas es anómala: hay 324, pero deberían ser 346. Revísalas
     con `territorial::validar_comunas()`
 
-    → Las comunas faltantes son: Colchane, Pica, Coquimbo, Zapallar, Codegua, Lota, Curanilahue, Cabrero, Pitrufquén, Calbuco, Fresia, Castro, Puyehue, Río Negro, San Juan de la Costa, Futaleufú, Primavera, Cerro Navia, La Reina, Puente Alto, Isla de Maipo y Pinto
+    → Las comunas faltantes son: Camiña, Pica, Huasco, Pencahue, Arauco, Antuco, Santa Bárbara, Temuco, Saavedra, Cholchol, Los Muermos, Ancud, Puqueldón, Osorno, Puerto Octay, San Juan de la Costa, Chile Chico, Huechuraba, Tiltil, Lanco, Los Lagos y Lago Ranco
 
 La función
 [`contar_comunas()`](https://bastianolea.github.io/territorial/reference/contar_comunas.md)
@@ -375,19 +375,19 @@ base |>
   buscar_comuna("Alto")
 ```
 
-    ! Se encontraron 24 resultados, mostrando sólo 6.
+    ! Se encontraron 27 resultados, mostrando sólo 6.
 
-    ℹ Los resultados más cercanos al término `Alto` son: Alto del Carmen, Alto Biobío y Alto Hospicio
+    ℹ Los resultados más cercanos al término `Alto` son: Puente Alto, Alto Biobío, Alto del Carmen y Alto Hospicio
 
     # A tibble: 6 × 5
-      nombre_comuna   codigo_comuna name  value puntaje
-      <chr>                   <dbl> <chr> <dbl>   <dbl>
-    1 Alto del Carmen          3302 a     0.199       1
-    2 Alto del Carmen          3302 c     0.258       1
-    3 Alto Biobío              8314 a     0.309       1
-    4 Alto Hospicio            1107 a     0.405       1
-    5 Alto Biobío              8314 b     0.421       1
-    6 Alto Biobío              8314 c     0.615       1
+      nombre_comuna   codigo_comuna name   value puntaje
+      <chr>                   <dbl> <chr>  <dbl>   <dbl>
+    1 Puente Alto             13201 a     0.0120       1
+    2 Alto Biobío              8314 c     0.0957       1
+    3 Alto Biobío              8314 b     0.124        1
+    4 Alto del Carmen          3302 b     0.131        1
+    5 Alto Hospicio            1107 b     0.255        1
+    6 Alto del Carmen          3302 c     0.543        1
 
 ### Crear nombres de comunas a partir de códigos únicos territoriales
 

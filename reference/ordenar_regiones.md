@@ -38,6 +38,16 @@ ordenar_regiones(datos, limpiar = TRUE, ordenar = TRUE, invertir = FALSE)
 Tabla de datos con la variable `nombre_region` en formato factor,
 ordenado geogr\u00e1ficamente (de norte a sur)
 
+## Ver también
+
+[`agregar_orden_region()`](https://bastianolea.github.io/territorial/reference/agregar_orden_region.md)
+para obtener solo la posición de norte a sur, y
+[`agregar_macrozona()`](https://bastianolea.github.io/territorial/reference/agregar_macrozona.md)
+para agrupar regiones en macrozonas. Si falta `codigo_region`, usa
+[`contextualizar()`](https://bastianolea.github.io/territorial/reference/contextualizar.md)
+o
+[`as_codigo_region()`](https://bastianolea.github.io/territorial/reference/as_codigo_region.md).
+
 ## Ejemplos
 
 ``` r

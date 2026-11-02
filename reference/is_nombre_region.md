@@ -21,6 +21,14 @@ is_nombre_region(nombre_region)
 
 TRUE o FALSE si es o no es un código único territorial válido
 
+## Ver también
+
+[`validar_regiones()`](https://bastianolea.github.io/territorial/reference/validar_regiones.md)
+para un diagnóstico detallado de los problemas, y
+[`limpiar_regiones()`](https://bastianolea.github.io/territorial/reference/limpiar_regiones.md)
+para corregirlos. Para comunas, usa
+[`is_nombre_comuna()`](https://bastianolea.github.io/territorial/reference/is_nombre_comuna.md).
+
 ## Ejemplos
 
 ``` r

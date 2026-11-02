@@ -22,6 +22,13 @@ agregar_orden_region(codigo_region)
 
 Vector con la posición de norte a sur de la región respectiva
 
+## Ver también
+
+[`ordenar_regiones()`](https://bastianolea.github.io/territorial/reference/ordenar_regiones.md)
+para ordenar directamente una tabla de datos de norte a sur, y
+[`agregar_macrozona()`](https://bastianolea.github.io/territorial/reference/agregar_macrozona.md)
+para agrupar regiones en macrozonas.
+
 ## Ejemplos
 
 ``` r

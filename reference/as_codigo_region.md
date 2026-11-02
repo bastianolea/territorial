@@ -29,6 +29,14 @@ Para más información sobre los códigos únicos territoriales, revisa la
 viñeta
 [`vignette("codigos_unicos_territoriales")`](https://bastianolea.github.io/territorial/articles/codigos_unicos_territoriales.md)
 
+## Ver también
+
+[`as_nombre_region()`](https://bastianolea.github.io/territorial/reference/as_nombre_region.md)
+para la conversión inversa, y
+[`limpiar_regiones()`](https://bastianolea.github.io/territorial/reference/limpiar_regiones.md)
+para corregir los nombres antes de convertirlos. Para comunas, usa
+[`as_codigo_comuna()`](https://bastianolea.github.io/territorial/reference/as_codigo_comuna.md).
+
 ## Ejemplos
 
 ``` r

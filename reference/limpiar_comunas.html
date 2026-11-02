@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">territorial</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.9.6</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.9.7</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Cambiar la navegación">
@@ -94,6 +94,10 @@
 <li><p>Si en los pasos anteriores quedaron comunas que no coincidieron (es decir, que sus problemas van más allá de tildes, mayúsculas o símbolos), se realiza una coincidencia parcial de textos o <em>fuzzy matching</em> usando la función <code><a href="https://rdrr.io/r/base/agrep.html" class="external-link">base::agrepl()</a></code>, que utiliza el <a href="https://es.wikipedia.org/wiki/Distancia_de_Levenshtein" class="external-link">algoritmo de distancia de Levenshtein</a> para encontrar las comunas correctamente escritas que más se parecen a las comunas entregadas. Se esta forma, se pueden encontrar las comunas correctamente escritas para casos de comunas con faltas de ortografía (<code>Pobidencia</code> en vez de <code>Providencia</code>), comunas sin espacios entre sus palabras (<code>laflorida</code> en vez de <code>La Florida</code>), y formas alternativas de escribir las comunas (<code>llay-llay</code> en vez de <code>Llaillay</code>). En todos estos casos se emite una alerta que indica la coincidencia encontrada, ya que al ser una aproxmación, no se garantiza que la coincidencia sea correcta. Puedes desactivar este paso poniendo <code>aproximar = FALSE</code>.
 Finalmente, se muestra una tabla que describe el proceso de limpieza para su revisión (que puede ocultarse con <code>procedimiento = FALSE</code>, y se retornan las comunas correctas.</p></li>
 </ol></div>
+    <div class="section level2">
+    <h2 id="ver-tambi-n">Ver también<a class="anchor" aria-label="anchor" href="#ver-tambi-n"></a></h2>
+    <div class="dont-index"><p><code><a href="validar_comunas.html">validar_comunas()</a></code> para revisar el estado de los nombres de comunas antes de limpiarlos, <code><a href="comunas.html">comunas()</a></code> para un vector con las comunas de Chile, <code><a href="codigos_comunas.html">codigos_comunas()</a></code>  para un vector de códigos únicos territoriales de comunas. También revisa <code><a href="contextualizar.html">contextualizar()</a></code> para complementar tablas de datos con otras variables territoriales a partir de los nombres de comunas. También puedes usar <code><a href="as_codigo_comuna.html">as_codigo_comuna()</a></code> para obtener códigos únicos territoriales (CUT) a partir de los nombres de comunas.</p></div>
+    </div>
 
     <div class="section level2">
     <h2 id="ref-examples">Ejemplos<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>

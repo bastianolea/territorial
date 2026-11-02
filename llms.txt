@@ -323,6 +323,8 @@ Funciones y tablas de datos que entregan datos de uso territorial
   : Tabla de clasificación comunal PNDR, Censo 2024
 - [`contextualizar()`](https://bastianolea.github.io/territorial/reference/contextualizar.md)
   : Contextualizar datos de nivel comunal con variables territoriales
+- [`capitales_regionales()`](https://bastianolea.github.io/territorial/reference/capitales_regionales.md)
+  : Capitales regionales de Chile
 - [`localidades`](https://bastianolea.github.io/territorial/reference/localidades.md)
   : Tabla de localidades de Chile
 - [`cut_historicos`](https://bastianolea.github.io/territorial/reference/cut_historicos.md)

@@ -36,9 +36,18 @@ Se usa, por ejemplo, cuando tienes una tabla de datos que tienen
 solamente los nombres de las comunas (primero valída con
 [`validar_comunas()`](https://bastianolea.github.io/territorial/reference/validar_comunas.md)
 y/o limpia con
-[`validar_comunas()`](https://bastianolea.github.io/territorial/reference/validar_comunas.md)),
+[`limpiar_comunas()`](https://bastianolea.github.io/territorial/reference/limpiar_comunas.md)),
 y quieres agregarle más variables territoriales como los códigos únicos
 territoriales, las provincias, regiones, etc.
+
+## Ver también
+
+[`validar_comunas()`](https://bastianolea.github.io/territorial/reference/validar_comunas.md)
+para revisar el estado de calidad de los nombres de comunas de Chile,
+[`limpiar_comunas()`](https://bastianolea.github.io/territorial/reference/limpiar_comunas.md)
+para corregir los nombres de comunas existentes y así poder usar
+`contextualizar()` o
+[`as_codigo_comuna()`](https://bastianolea.github.io/territorial/reference/as_codigo_comuna.md).
 
 ## Ejemplos
 

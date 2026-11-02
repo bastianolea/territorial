@@ -33,6 +33,13 @@ segunda palabra. Se ajustan algunos casos, como eliminar símbolos (como
 en O'Higgins), y sacar la "u" de las comunas que empiezan con "Que" para
 reducir coincidencias de abreviaciones.
 
+## Ver también
+
+[`acortar_regiones()`](https://bastianolea.github.io/territorial/reference/acortar_regiones.md)
+para acortar nombres de regiones, y
+[`redactar_comunas()`](https://bastianolea.github.io/territorial/reference/redactar_comunas.md)
+para redactar listas de comunas en una oración.
+
 ## Ejemplos
 
 ``` r

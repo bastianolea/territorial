@@ -48,3 +48,8 @@ Un data frame con 29.256 filas y 6 columnas:
 ## Fuente
 
 <https://ide.subdere.gov.cl/estudio-actualizacion-de-base-censal-identificacion-de-localidades-en-condicion-de-aislamiento/>
+
+## Ver también
+
+[`ubicar_localidades()`](https://bastianolea.github.io/territorial/reference/ubicar_localidades.md)
+para encontrar la comuna de una localidad.

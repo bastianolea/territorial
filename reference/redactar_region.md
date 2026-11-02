@@ -25,6 +25,13 @@ y la preposición apropiada ('de' o 'del', según
 [`preposicion_region()`](https://bastianolea.github.io/territorial/reference/preposicion_region.md))
 para cada nombre de región.
 
+## Ver también
+
+[`preposicion_region()`](https://bastianolea.github.io/territorial/reference/preposicion_region.md)
+para obtener solo la preposición, y
+[`acortar_regiones()`](https://bastianolea.github.io/territorial/reference/acortar_regiones.md)
+para versiones breves de los nombres de regiones.
+
 ## Ejemplos
 
 ``` r

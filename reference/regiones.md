@@ -14,6 +14,11 @@ regiones()
 
 Vector de nombres de regiones de Chile
 
+## Ver también
+
+[`comunas()`](https://bastianolea.github.io/territorial/reference/comunas.md),
+[`codigos_comunas()`](https://bastianolea.github.io/territorial/reference/codigos_comunas.md)
+
 ## Ejemplos
 
 ``` r

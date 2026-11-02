@@ -25,6 +25,15 @@ obtener_comunas(nombre_region = NULL, codigo_region = NULL)
 
 Vector de comunas de la región o regiones
 
+## Ver también
+
+[`ubicar_comunas()`](https://bastianolea.github.io/territorial/reference/ubicar_comunas.md)
+para hacer lo inverso (obtener la región de una comuna), y
+[`comunas()`](https://bastianolea.github.io/territorial/reference/comunas.md)
+o
+[`regiones()`](https://bastianolea.github.io/territorial/reference/regiones.md)
+para vectores con todas las comunas o regiones del país.
+
 ## Ejemplos
 
 ``` r

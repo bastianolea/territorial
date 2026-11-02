@@ -26,6 +26,13 @@ redactar_comunas(nombre_comuna, largo = 10)
 
 Texto con comunas separadas por comas
 
+## Ver también
+
+[`abreviar_comunas()`](https://bastianolea.github.io/territorial/reference/abreviar_comunas.md)
+para siglas de comunas, y
+[`redactar_region()`](https://bastianolea.github.io/territorial/reference/redactar_region.md)
+para redactar nombres de regiones.
+
 ## Ejemplos
 
 ``` r
