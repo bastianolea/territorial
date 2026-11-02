@@ -2,12 +2,13 @@
 #'
 #' Para cualquier tabla de datos de nivel comunal que tenga al menos una variable territorial (`codigo_comuna` o `nombre_comuna`), indicar esta variable para agregar todo el resto de variables territoriales. De esta manera, se contextualizan territorialmente los datos al agregar todas las variables territoriales faltantes.
 #'
-#' Se usa, por ejemplo, cuando tienes una tabla de datos que tienen solamente los nombres de las comunas (primero valída con [territorial::validar_comunas()] y/o limpia con [territorial::validar_comunas()]), y quieres agregarle más variables territoriales como los códigos únicos territoriales, las provincias, regiones, etc.
+#' Se usa, por ejemplo, cuando tienes una tabla de datos que tienen solamente los nombres de las comunas (primero valída con [territorial::validar_comunas()] y/o limpia con [territorial::limpiar_comunas()]), y quieres agregarle más variables territoriales como los códigos únicos territoriales, las provincias, regiones, etc.
 #'
 #' @param datos Dataframe de datos comunales al que se quieren agregar columnas con variables territoriales
 #' @param variable Variable territorial ya existente en el dataframe (`codigo_comuna` o `nombre_comuna`). Si se omite, se asume `nombre_comuna`.
 #'
 #' @returns El mismo dataframe con las columnas `codigo_region`, `nombre_region`, `codigo_provincia`, `nombre_provincia`, `codigo_comuna` y `nombre_comuna` agregadas al inicio.
+#' @seealso [validar_comunas()] para revisar el estado de calidad de los nombres de comunas de Chile, [limpiar_comunas()] para corregir los nombres de comunas existentes y así poder usar [contextualizar()] o [as_codigo_comuna()].
 #' @export
 #'
 #' @examples

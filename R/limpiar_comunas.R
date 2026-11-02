@@ -15,6 +15,7 @@
 #' @param aproximar El paso de limpieza por aproximación y coincidencia de nombres puede entregar resultados inexactos. Cambiar a FALSE para omitir.
 #'
 #' @returns Si la entrada es un dataframe, retorna el dataframe con la columna de comunas reemplazada. Si es un vector, retorna un vector de nombres de comunas con correcciones aplicadas.
+#' @seealso [validar_comunas()] para revisar el estado de los nombres de comunas antes de limpiarlos, [comunas()] para un vector con las comunas de Chile, [codigos_comunas()]  para un vector de códigos únicos territoriales de comunas. También revisa [contextualizar()] para complementar tablas de datos con otras variables territoriales a partir de los nombres de comunas. También puedes usar [as_codigo_comuna()] para obtener códigos únicos territoriales (CUT) a partir de los nombres de comunas.
 #' @export
 #'
 #' @examples

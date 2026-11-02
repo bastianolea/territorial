@@ -3,7 +3,7 @@
 #' Vector de texto que contiene el nombre de las 15 regiones de Chile, ordenadas de norte a sur, tal como aparecen en la tabla [territorial::territorios].
 #'
 #' @returns Vector de nombres de regiones de Chile
-#'
+#' @seealso [comunas()], [codigos_comunas()]
 #' @export
 #'
 #' @examples
