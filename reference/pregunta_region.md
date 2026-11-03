@@ -1,6 +1,6 @@
-# Pregunta de trivia: ¿en qué región está las comuna?
+# Pregunta de trivia: ¿qué comuna está en la región equis?
 
-Pregunta de trivia: ¿en qué región está las comuna?
+Pregunta de trivia: ¿qué comuna está en la región equis?
 
 ## Uso
 

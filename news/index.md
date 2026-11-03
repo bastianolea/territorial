@@ -1,5 +1,21 @@
 # Registro de cambios
 
+## territorial 0.9.9 (2026/11/03)
+
+- Nuevas funciones
+  [`as_capital_regional()`](https://bastianolea.github.io/territorial/reference/as_capital_regional.md)
+  e
+  [`is_capital_regional()`](https://bastianolea.github.io/territorial/reference/is_capital_regional.md).
+  Como sus nombres indican, la primera convierte regiones a las comunas
+  que son su capital regional, y la segunda confirma si comunas
+  corresponden a capitales regionales. Ambas funcionan tanto con códigos
+  como con nombres.
+- [`ubicar_comunas()`](https://bastianolea.github.io/territorial/reference/ubicar_comunas.md)
+  y
+  [`obtener_comunas()`](https://bastianolea.github.io/territorial/reference/obtener_comunas.md)
+  ahora reciben también nombres de comunas y de regiones,
+  respectivamente, además de códigos numéricos.
+
 ## territorial 0.9.8 (2026/11/03)
 
 - Pone a prueba tus conocimientos territoriales con un juego de

@@ -32,12 +32,12 @@ viñeta
 
 ## Ver también
 
+[`as_nombre_comuna()`](https://bastianolea.github.io/territorial/reference/as_nombre_comuna.md)
+para convertir códigos de comunas a nombres de comunas,
 [`is_codigo_comuna_antiguo()`](https://bastianolea.github.io/territorial/reference/is_codigo_comuna_antiguo.md)
 y
 [`actualizar_codigo_comuna()`](https://bastianolea.github.io/territorial/reference/actualizar_codigo_comuna.md)
-para detectar y corregir códigos desactualizados, y
-[`as_nombre_comuna()`](https://bastianolea.github.io/territorial/reference/as_nombre_comuna.md)
-para convertir códigos a nombres.
+para detectar y corregir códigos desactualizados.
 
 ## Ejemplos
 

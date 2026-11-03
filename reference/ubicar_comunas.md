@@ -1,25 +1,22 @@
 # Ubicar comunas en la región que les corresponde
 
-Para un vector de nombres de comuna o códigos comunales, retorna las
-regiones donde se ubican dichas regiones.
+Entregando códigos comunales (como los que aparecen en
+[territorios](https://bastianolea.github.io/territorial/reference/territorios.md))
+o nombres de comunas, retorna los nombres de las regiones donde se
+ubican dichas comunas. Retorna NA si no corresponde con ninguna.
 
 ## Uso
 
 ``` r
-ubicar_comunas(nombre_comuna = NULL, codigo_comuna = NULL)
+ubicar_comunas(codigo_comuna)
 ```
 
 ## Argumentos
 
-- nombre_comuna:
-
-  Nombres de comunas, como aparecen en
-  [`comunas()`](https://bastianolea.github.io/territorial/reference/comunas.md)
-
 - codigo_comuna:
 
-  Códigos comunales, como aparecen en
-  [territorios](https://bastianolea.github.io/territorial/reference/territorios.md)
+  Códigos comunales en formato numérico, o nombres de comunas (como en
+  [`comunas()`](https://bastianolea.github.io/territorial/reference/comunas.md))
 
 ## Valor
 
@@ -40,4 +37,7 @@ para territorios más pequeños que una comuna.
 ubicar_comunas(c("Cerrillos", "Navidad"))
 #> [1] "Metropolitana de Santiago"            
 #> [2] "Libertador General Bernardo O'Higgins"
+
+ubicar_comunas(c(1101, 13103))
+#> [1] "Tarapacá"                  "Metropolitana de Santiago"
 ```

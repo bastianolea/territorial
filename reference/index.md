@@ -2,7 +2,7 @@
 
 ## Datos territoriales
 
-Funciones y tablas de datos que entregan datos de uso territorial
+Funciones y tablas que entregan datos de uso territorial
 
 - [`territorios`](https://bastianolea.github.io/territorial/reference/territorios.md)
   : Tabla de comunas, provincias y regiones de Chile
@@ -22,6 +22,8 @@ Funciones y tablas de datos que entregan datos de uso territorial
   : Tabla de localidades de Chile
 - [`cut_historicos`](https://bastianolea.github.io/territorial/reference/cut_historicos.md)
   : Códigos únicos territoriales históricos
+- [`trivia()`](https://bastianolea.github.io/territorial/reference/trivia.md)
+  : Jugar a una trivia de comunas y regiones de Chile
 
 ## Validación de datos territoriales
 
@@ -38,6 +40,8 @@ Funciones que permiten probar la calidad de los datos territoriales
 
 Funciones y utilidades para navegar datos territoriales
 
+- [`is_capital_regional()`](https://bastianolea.github.io/territorial/reference/is_capital_regional.md)
+  : Evaluar si una comuna corresponde a una capital regional
 - [`is_codigo_comuna()`](https://bastianolea.github.io/territorial/reference/is_codigo_comuna.md)
   : Evaluar si un dato corresponde a un código territorial válido de una
   comuna de Chile
@@ -62,6 +66,8 @@ Funciones y utilidades para navegar datos territoriales
 Funciones para transformar datos de identificación de territorios,
 ordenarlos, etc.
 
+- [`as_capital_regional()`](https://bastianolea.github.io/territorial/reference/as_capital_regional.md)
+  : Convertir regiones a capitales regionales
 - [`as_codigo_comuna()`](https://bastianolea.github.io/territorial/reference/as_codigo_comuna.md)
   : Convertir nombres de comunas a códigos comunales
 - [`as_codigo_region()`](https://bastianolea.github.io/territorial/reference/as_codigo_region.md)
@@ -126,5 +132,3 @@ Otras funciones usadas a lo largo del paquete
   : Eliminar puntuación, símbolos y números de textos
 - [`reemplazar_texto()`](https://bastianolea.github.io/territorial/reference/reemplazar_texto.md)
   : Reemplazar caracteres al azar para ensuciar texto
-- [`trivia()`](https://bastianolea.github.io/territorial/reference/trivia.md)
-  : Jugar a una trivia de comunas y regiones de Chile
