@@ -15,6 +15,14 @@ authors:
   "Bastián Olea Herrera":
     href: "https://bastianolea.rbind.io"
 
+navbar:
+  structure:
+    left: [intro, reference, articles, tutorials, news, trivia]
+  components:
+    trivia:
+      text: Trivia
+      href: https://bastianolea.github.io/territorial/trivia/
+
 home:
   links:
   - text: Blog sobre análisis de datos con R

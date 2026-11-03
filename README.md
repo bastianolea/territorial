@@ -50,7 +50,15 @@ viñeta](https://bastianolea.github.io/territorial/articles/territorial.html)
 
 ## Instalación
 
-Puedes instalar la versión de desarrollo este paquete desde GitHub:
+Puedes instalar el paquete desde
+[R-Universe](https://bastianolea.r-universe.dev/territorial):
+
+``` r
+install.packages("territorial", repos = "https://bastianolea.r-universe.dev")
+```
+
+También puedes instalar la versión de desarrollo desde
+[GitHub](https://github.com/bastianolea/territorial):
 
 ``` r
 # install.packages("pak")
@@ -265,6 +273,13 @@ que facilitan el trabajo con datos comunales y regionales de Chile:
 para verlas todas, o [lee la
 viñeta](https://bastianolea.github.io/territorial/articles/territorial.html)
 para una guía de uso más completa.
+
+## Trivia territorial
+
+¿Cuánto sabes de las comunas y regiones de Chile? Ejecuta `trivia()`
+para jugar un juego de preguntas en la consola, o [**juega directamente
+en tu navegador**](https://bastianolea.github.io/territorial/trivia/),
+sin instalar nada.
 
 ------------------------------------------------------------------------
 
