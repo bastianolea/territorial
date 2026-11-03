@@ -27,9 +27,9 @@ library(territorial)
 sample(comunas(), 12)
 ```
 
-     [1] "Taltal"          "Freire"          "Loncoche"        "Macul"
-     [5] "Concepción"      "Tortel"          "Río Ibáñez"      "Dalcahue"
-     [9] "Lolol"           "Sagrada Familia" "Calera de Tango" "Santa Cruz"     
+     [1] "Quemchi"         "Cochamó"         "Angol"           "Padre Las Casas"
+     [5] "San Pedro"       "Zapallar"        "Chépica"         "Hualañé"
+     [9] "Corral"          "Licantén"        "Viña del Mar"    "Combarbalá"     
 
 ### Tabla de comunas, provincias y regiones de Chile
 
@@ -328,18 +328,18 @@ base
 ```
 
     # A tibble: 972 × 4
-       nombre_comuna  codigo_comuna name     value
-       <chr>                  <dbl> <chr>    <dbl>
-     1 Portezuelo             16205 c     0.000880
-     2 Conchalí               13104 a     0.00125
-     3 Coquimbo                4102 c     0.00161
-     4 San Vicente             6117 a     0.00381
-     5 Cabo de Hornos         12201 c     0.00455
-     6 Curicó                  7301 a     0.00568
-     7 Pirque                 13202 b     0.00870
-     8 Hijuelas                5503 a     0.00880
-     9 Los Sauces              9206 c     0.00904
-    10 Alto Hospicio           1107 a     0.00940
+       nombre_comuna   codigo_comuna name     value
+       <chr>                   <dbl> <chr>    <dbl>
+     1 Pica                     1405 b     0.000318
+     2 Teodoro Schmidt          9117 b     0.00208
+     3 Freirina                 3303 a     0.00270
+     4 Los Vilos                4203 b     0.00280
+     5 Quilleco                 8309 b     0.00433
+     6 Algarrobo                5602 b     0.00439
+     7 Quillota                 5501 c     0.00620
+     8 San Carlos              16301 c     0.00709
+     9 Pirque                  13202 c     0.0133
+    10 Timaukel                12303 a     0.0138
     # ℹ 962 more rows
 
 Esta tabla tiene 972 filas, ¿cómo confirmar si existen datos para todas
@@ -357,7 +357,7 @@ base |>
     Warning: La cantidad de comunas es anómala: hay 324, pero deberían ser 346. Revísalas
     con `territorial::validar_comunas()`
 
-    → Las comunas faltantes son: Camiña, Huara, Pica, San Pedro de Atacama, Tocopilla, Los Andes, Petorca, Cartagena, El Quisco, Lota, Contulmo, Quilleco, Pucón, Renaico, San Juan de la Costa, O'Higgins, El Monte, Corral, Los Lagos, Putre, General Lagos y San Fabián
+    → Las comunas faltantes son: Copiapó, Quintero, Nogales, El Tabo, Codegua, Paredones, Nancagua, Palmilla, San Rafael, Chiguayante, Cañete, Curanilahue, San Rosendo, Cunco, Saavedra, Ercilla, Cerrillos, Lo Espejo, Lo Prado, El Monte, Pinto y Quillón
 
 La función
 [`contar_comunas()`](https://bastianolea.github.io/territorial/reference/contar_comunas.md)
@@ -375,19 +375,19 @@ base |>
   buscar_comuna("Alto")
 ```
 
-    ! Se encontraron 24 resultados, mostrando sólo 6.
+    ! Se encontraron 30 resultados, mostrando sólo 6.
 
-    ℹ Los resultados más cercanos al término `Alto` son: Alto Hospicio, Puente Alto y Alto del Carmen
+    ℹ Los resultados más cercanos al término `Alto` son: Alto Hospicio, Alto Biobío y Alto del Carmen
 
     # A tibble: 6 × 5
-      nombre_comuna   codigo_comuna name    value puntaje
-      <chr>                   <dbl> <chr>   <dbl>   <dbl>
-    1 Alto Hospicio            1107 a     0.00940       1
-    2 Puente Alto             13201 b     0.282         1
-    3 Alto Hospicio            1107 b     0.346         1
-    4 Puente Alto             13201 c     0.385         1
-    5 Alto del Carmen          3302 c     0.401         1
-    6 Alto Hospicio            1107 c     0.414         1
+      nombre_comuna   codigo_comuna name   value puntaje
+      <chr>                   <dbl> <chr>  <dbl>   <dbl>
+    1 Alto Hospicio            1107 b     0.0536       1
+    2 Alto Biobío              8314 b     0.159        1
+    3 Alto Biobío              8314 c     0.303        1
+    4 Alto Hospicio            1107 c     0.392        1
+    5 Alto del Carmen          3302 c     0.396        1
+    6 Alto Hospicio            1107 a     0.454        1
 
 ### Crear nombres de comunas a partir de códigos únicos territoriales
 

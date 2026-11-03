@@ -2,16 +2,27 @@
 
 ## territorial 0.9.8 (2026/11/03)
 
+- Pone a prueba tus conocimientos territoriales con un juego de
+  preguntas! 🎉 Ejecuta la función
+  [`trivia()`](https://bastianolea.github.io/territorial/reference/trivia.md)
+  para iniciar una trivia interactiva sobre comunas y regiones de Chile,
+  o [juega en el navegador
+  aquí!](https://bastianolea.github.io/territorial/articles/trivia.html).
+  Son 4 tipos de preguntas, y las alternativas se crean al azar con
+  respuestas que buscan engañarte. A ver si logras sacar el puntaje
+  máximo!
 - [`agregar_macrozona()`](https://bastianolea.github.io/territorial/reference/agregar_macrozona.md)
   ahora también funciona con nombres de región (son convertidos a
   códigos de región con
   [`as_codigo_region()`](https://bastianolea.github.io/territorial/reference/as_codigo_region.md))
   y con *data frames* asumiendo la columna `codigo_region`.
+- [`agregar_clasificacion()`](https://bastianolea.github.io/territorial/reference/agregar_clasificacion.md)
+  ahora también funciona con *data frames* asumiendo la columna
+  `codigo_comuna`.
 - Nueva función
   [`is_codigo_region()`](https://bastianolea.github.io/territorial/reference/is_codigo_region.md),
   súper básica pero es para mantener concordancia con su hermana mayor
   [`is_codigo_comuna()`](https://bastianolea.github.io/territorial/reference/is_codigo_comuna.md).
-- *Se vienen cositas*
 
 ## territorial 0.9.7 (2026/11/02)
 

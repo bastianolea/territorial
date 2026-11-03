@@ -126,3 +126,5 @@ Otras funciones usadas a lo largo del paquete
   : Eliminar puntuación, símbolos y números de textos
 - [`reemplazar_texto()`](https://bastianolea.github.io/territorial/reference/reemplazar_texto.md)
   : Reemplazar caracteres al azar para ensuciar texto
+- [`trivia()`](https://bastianolea.github.io/territorial/reference/trivia.md)
+  : Jugar a una trivia de comunas y regiones de Chile

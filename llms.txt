@@ -50,7 +50,16 @@ para una introducción al paquete!
 
 ## Instalación
 
-Puedes instalar la versión de desarrollo este paquete desde GitHub:
+Puedes instalar el paquete desde
+[R-Universe](https://bastianolea.r-universe.dev/territorial):
+
+``` r
+
+install.packages("territorial", repos = "https://bastianolea.r-universe.dev")
+```
+
+También puedes instalar la versión de desarrollo desde
+[GitHub](https://github.com/bastianolea/territorial):
 
 ``` r
 
@@ -292,6 +301,15 @@ para verlas todas, o [lee la
 viñeta](https://bastianolea.github.io/territorial/articles/territorial.html)
 para una guía de uso más completa.
 
+## Trivia territorial
+
+¿Cuánto sabes de las comunas y regiones de Chile? Ejecuta
+[`trivia()`](https://bastianolea.github.io/territorial/reference/trivia.md)
+para jugar un juego de preguntas en la consola, o [**juega directamente
+en tu
+navegador**](https://bastianolea.github.io/territorial/articles/trivia.html),
+sin instalar nada.
+
 ------------------------------------------------------------------------
 
 Paquete desarrollado bajo el [programa de Campeones de
@@ -433,6 +451,8 @@ Otras funciones usadas a lo largo del paquete
   : Eliminar puntuación, símbolos y números de textos
 - [`reemplazar_texto()`](https://bastianolea.github.io/territorial/reference/reemplazar_texto.md)
   : Reemplazar caracteres al azar para ensuciar texto
+- [`trivia()`](https://bastianolea.github.io/territorial/reference/trivia.md)
+  : Jugar a una trivia de comunas y regiones de Chile
 
 # Artículos
 
@@ -455,6 +475,16 @@ Información general sobre el paquete
 
   Información sobre la tabla de códigos únicos territoriales (CUT) de
   comunas, provincias y regiones.
+
+### Juegos
+
+Pon a prueba tus conocimientos territoriales
+
+- [Trivia de comunas, provincias y regiones de
+  Chile](https://bastianolea.github.io/territorial/articles/trivia.md):
+
+  Pon a prueba tus conocimientos sobre las comunas, provincias y
+  regiones de Chile, directamente en tu navegador.
 
 ### Tutoriales
 

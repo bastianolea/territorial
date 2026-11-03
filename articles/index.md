@@ -20,6 +20,16 @@ Información general sobre el paquete
   Información sobre la tabla de códigos únicos territoriales (CUT) de
   comunas, provincias y regiones.
 
+### Juegos
+
+Pon a prueba tus conocimientos territoriales
+
+- [Trivia de comunas, provincias y regiones de
+  Chile](https://bastianolea.github.io/territorial/articles/trivia.md):
+
+  Pon a prueba tus conocimientos sobre las comunas, provincias y
+  regiones de Chile, directamente en tu navegador.
+
 ### Tutoriales
 
 Guías explicativas para usar el paquete

@@ -15,7 +15,11 @@ agregar_macrozona(codigo_region, tipo = 1, ordenar = TRUE)
 
 - codigo_region:
 
-  Vector de códigos de región (del 1 al 16)
+  Vector de códigos de región (del 1 al 16) o de nombres de región (ver
+  [`as_codigo_region()`](https://bastianolea.github.io/territorial/reference/as_codigo_region.md)),
+  que se convierten automáticamente a códigos. También puede ser un data
+  frame con la columna `codigo_region`, en cuyo caso se retorna el data
+  frame con la columna nueva `macrozona`.
 
 - tipo:
 
@@ -30,7 +34,8 @@ agregar_macrozona(codigo_region, tipo = 1, ordenar = TRUE)
 ## Valor
 
 Factor con macrozonas regionales, de acuerdo al tipo de clasificación de
-regiones elegido.
+regiones elegido. Si la entrada es un data frame, retorna el data frame
+con la columna `macrozona` agregada.
 
 ## Detalles
 
@@ -77,6 +82,25 @@ o
 agregar_macrozona(c(15, 13, 12), tipo = 1)
 #> [1] Norte   Centro  Austral
 #> Levels: Norte Centro Sur Austral
+
+# con un data frame, usa `codigo_region` o `codigo_comuna`
+territorios |>
+  agregar_macrozona(tipo = 2)
+#> # A tibble: 346 × 7
+#>    codigo_region nombre_region codigo_provincia nombre_provincia codigo_comuna
+#>            <dbl> <chr>                    <dbl> <chr>                    <dbl>
+#>  1             1 Tarapacá                    11 Iquique                   1101
+#>  2             1 Tarapacá                    11 Iquique                   1107
+#>  3             1 Tarapacá                    14 Tamarugal                 1401
+#>  4             1 Tarapacá                    14 Tamarugal                 1402
+#>  5             1 Tarapacá                    14 Tamarugal                 1403
+#>  6             1 Tarapacá                    14 Tamarugal                 1404
+#>  7             1 Tarapacá                    14 Tamarugal                 1405
+#>  8             2 Antofagasta                 21 Antofagasta               2101
+#>  9             2 Antofagasta                 21 Antofagasta               2102
+#> 10             2 Antofagasta                 21 Antofagasta               2103
+#> # ℹ 336 more rows
+#> # ℹ 2 more variables: nombre_comuna <chr>, macrozona <fct>
 
 territorios |>
   dplyr::distinct(codigo_region, nombre_region) |>
