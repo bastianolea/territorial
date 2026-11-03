@@ -34,12 +34,19 @@ Por ejemplo:
 
 ## Instalación
 
-Puedes instalar la versión de desarrollo este paquete desde GitHub:
+Puedes instalar el paquete desde [R-Universe](https://bastianolea.r-universe.dev/territorial):
+
+```r
+install.packages("territorial", repos = "https://bastianolea.r-universe.dev")
+```
+
+También puedes instalar la versión de desarrollo desde [GitHub](https://github.com/bastianolea/territorial):
 
 ```r
 # install.packages("pak")
 pak::pak("bastianolea/territorial")
 ```
+
 
 
 ## Usando `{territorial}`
