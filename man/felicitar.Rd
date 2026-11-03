@@ -13,10 +13,5 @@ felicitar(tipo)
 Mensaje de respuesta
 }
 \description{
-Felicitar
-}
-\examples{
-felicitar(TRUE)
-felicitar(FALSE)
-
+Entrega mensajes de felicitación o fracaso al azar, con un emoji
 }

@@ -19,7 +19,7 @@ as_nombre_region <- function(codigos_regiones) {
 
   nombres_encontrados <- territorios$nombre_region[match(
     codigos_regiones,
-    territorios$codigo_region
+    territorial::territorios$codigo_region
   )]
 
   # si hay NA en resultados

@@ -2,10 +2,10 @@
 % Please edit documentation in R/pregunta_comuna.R
 \name{pregunta_comuna}
 \alias{pregunta_comuna}
-\title{Juego: ¿en qué comuna está la región?}
+\title{Pregunta de trivia: ¿en qué región está la comuna?}
 \usage{
 pregunta_comuna()
 }
 \description{
-Juego: ¿en qué comuna está la región?
+Pregunta de trivia: ¿en qué región está la comuna?
 }

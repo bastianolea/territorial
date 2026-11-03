@@ -69,6 +69,7 @@ reference:
   desc: Otras funciones usadas a lo largo del paquete
   contents:
   - contains("texto")
+  - trivia
 
 articles:
 - title: Viñetas

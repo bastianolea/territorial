@@ -1,8 +1,8 @@
-#' Juego: ¿cuál de estas comunas es rural?
+#' Pregunta de trivia: ¿cuál de estas comunas es rural?
 #'
 pregunta_rural <- function() {
   # tabla de comunas
-  tabla_comunas <- territorios |>
+  tabla_comunas <- territorial::territorios |>
     agregar_macrozona(tipo = 5) |>
     agregar_clasificacion()
 

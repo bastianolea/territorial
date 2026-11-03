@@ -87,7 +87,7 @@ contextualizar <- function(
   # revisar si existen otras variables territoriales aparte de la definida
   variables_territoriales_presentes <- length(intersect(
     names(datos),
-    names(territorios)
+    names(territorial::territorios)
   ))
 
   if (variables_territoriales_presentes > 1) {
@@ -97,7 +97,7 @@ contextualizar <- function(
 
     # todas las otras
     otras_variables_territoriales <- setdiff(
-      names(territorios),
+      names(territorial::territorios),
       variable
     )
 
@@ -109,7 +109,7 @@ contextualizar <- function(
   # unir datos
   datos_a <- datos |>
     dplyr::left_join(
-      territorios,
+      territorial::territorios,
       by = variable
     )
 
@@ -124,7 +124,7 @@ contextualizar <- function(
   # ordenar datos
   datos_b <- datos_a |>
     dplyr::relocate(
-      names(territorios),
+      names(territorial::territorios),
       .before = 1
     )
 

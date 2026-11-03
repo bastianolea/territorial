@@ -22,7 +22,7 @@ as_codigo_comuna <- function(nombres_comunas) {
 
   codigos_encontrados <- territorios$codigo_comuna[match(
     nombres_comunas,
-    territorios$nombre_comuna
+    territorial::territorios$nombre_comuna
   )]
 
   # si hay NA en resultados

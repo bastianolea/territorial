@@ -30,6 +30,6 @@ capitales_regionales <- function() {
     "Coyhaique"
   )
 
-  territorios |>
+  territorial::territorios |>
     dplyr::filter(nombre_comuna %in% capitales)
 }

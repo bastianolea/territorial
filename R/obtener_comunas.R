@@ -15,7 +15,7 @@ obtener_comunas <- function(
   nombre_region = NULL,
   codigo_region = NULL
 ) {
-  tabla_regiones <- territorios |>
+  tabla_regiones <- territorial::territorios |>
     dplyr::select(dplyr::ends_with("region"), dplyr::ends_with("comuna"))
 
   # si no rellenó nada

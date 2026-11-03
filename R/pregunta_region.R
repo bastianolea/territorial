@@ -1,4 +1,4 @@
-#' Juego: ¿en qué región están las comunas?
+#' Pregunta de trivia: ¿en qué región está las comuna?
 #'
 pregunta_region <- function() {
   # elegir region al azar
@@ -17,7 +17,7 @@ pregunta_region <- function() {
 
   # alternativas posibles
   # obtener comunas de la misma macrozona
-  comunas_macrozona <- territorios |>
+  comunas_macrozona <- territorial::territorios |>
     agregar_macrozona(tipo = 5) |>
     # sacar respuesta correcta
     dplyr::filter_out(nombre_comuna %in% comunas_region) |>
@@ -27,7 +27,7 @@ pregunta_region <- function() {
 
   alternativas_posibles <- sample(comunas_macrozona, 3)
 
-  comunas_otras <- territorios |>
+  comunas_otras <- territorial::territorios |>
     dplyr::filter_out(nombre_comuna %in% comunas_region) |>
     dplyr::filter_out(nombre_comuna %in% alternativas_posibles) |>
     dplyr::pull(nombre_comuna)

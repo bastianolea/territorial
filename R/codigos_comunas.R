@@ -10,5 +10,5 @@
 #' codigos_comunas()
 #'
 codigos_comunas <- function() {
-  territorios$codigo_comuna
+  territorial::territorios$codigo_comuna
 }

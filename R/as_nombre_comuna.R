@@ -25,7 +25,7 @@ as_nombre_comuna <- function(codigos_comunas) {
   # del vector de nombres, extraer las posiciones que corresponden con códigos comunales
   nombres_encontrados <- territorios$nombre_comuna[match(
     codigos_comunas,
-    territorios$codigo_comuna
+    territorial::territorios$codigo_comuna
   )]
 
   # si hay NA en resultados

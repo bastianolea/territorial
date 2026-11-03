@@ -2,10 +2,10 @@
 % Please edit documentation in R/pregunta_rural.R
 \name{pregunta_rural}
 \alias{pregunta_rural}
-\title{Juego: ¿cuál de estas comunas es rural?}
+\title{Pregunta de trivia: ¿cuál de estas comunas es rural?}
 \usage{
 pregunta_rural()
 }
 \description{
-Juego: ¿cuál de estas comunas es rural?
+Pregunta de trivia: ¿cuál de estas comunas es rural?
 }
