@@ -4,21 +4,21 @@
 \alias{obtener_comunas}
 \title{Obtener las comunas de una región de Chile}
 \usage{
-obtener_comunas(nombre_region = NULL, codigo_region = NULL)
+obtener_comunas(codigo_region)
 }
 \arguments{
-\item{nombre_region}{Uno o más nombres de región, como aparecen en \code{\link[=regiones]{regiones()}}}
-
-\item{codigo_region}{Uno o más códigos de región, como aparecen en \link{territorios}}
+\item{codigo_region}{Uno o más códigos de región en formato numérico (como aparecen en \link{territorios}), o nombres de región (como en \code{\link[=regiones]{regiones()}}) en formato caracter o factor.}
 }
 \value{
 Vector de comunas de la región o regiones
 }
 \description{
-Entregando un nombre de región o un código de región, retorna un vector con los nombres de las comunas correspondientes.
+Entregando uno o más códigos de región o nombres de región, retorna un vector con los nombres de las comunas correspondientes.
 }
 \examples{
 obtener_comunas("Tarapacá")
+
+obtener_comunas(c(15, 1))
 }
 \seealso{
 \code{\link[=ubicar_comunas]{ubicar_comunas()}} para hacer lo inverso (obtener la región de una comuna), y \code{\link[=comunas]{comunas()}} o \code{\link[=regiones]{regiones()}} para vectores con todas las comunas o regiones del país.

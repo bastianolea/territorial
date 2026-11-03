@@ -4,21 +4,21 @@
 \alias{ubicar_comunas}
 \title{Ubicar comunas en la región que les corresponde}
 \usage{
-ubicar_comunas(nombre_comuna = NULL, codigo_comuna = NULL)
+ubicar_comunas(codigo_comuna)
 }
 \arguments{
-\item{nombre_comuna}{Nombres de comunas, como aparecen en \code{\link[=comunas]{comunas()}}}
-
-\item{codigo_comuna}{Códigos comunales, como aparecen en \link{territorios}}
+\item{codigo_comuna}{Códigos comunales en formato numérico, o nombres de comunas (como en \code{\link[=comunas]{comunas()}})}
 }
 \value{
 Vector con nombres de regiones correspondientes
 }
 \description{
-Para un vector de nombres de comuna o códigos comunales, retorna las regiones donde se ubican dichas regiones.
+Entregando códigos comunales (como los que aparecen en \link{territorios}) o nombres de comunas, retorna los nombres de las regiones donde se ubican dichas comunas. Retorna NA si no corresponde con ninguna.
 }
 \examples{
 ubicar_comunas(c("Cerrillos", "Navidad"))
+
+ubicar_comunas(c(1101, 13103))
 }
 \seealso{
 \code{\link[=obtener_comunas]{obtener_comunas()}} para hacer lo inverso, \code{\link[=contextualizar]{contextualizar()}} para agregar región, provincia y códigos a una tabla, y \code{\link[=ubicar_localidades]{ubicar_localidades()}} para territorios más pequeños que una comuna.

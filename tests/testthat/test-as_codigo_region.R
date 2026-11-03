@@ -70,9 +70,9 @@ test_that("convertir nombres de región no existentes arroja warning", {
 test_that("warning de nombres de región no existentes tiene sentido", {
   expect_warning(
     as_codigo_region(
-      c("Atacama", "Mordor", "Maule", "Narnia")
+      c("Atacama", "Calibán", "Maule", "Titirilquén")
     ),
-    regexp = "Mordor y Narnia"
+    regexp = "Calibán y Titirilquén"
   )
 }) |>
   suppressMessages()

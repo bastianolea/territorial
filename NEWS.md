@@ -1,5 +1,6 @@
 # territorial 0.9.9 (2026/11/03)
-- Nuevas funciones `as_capital_regional()` e `is_capital_regional()`. Como sus nombres indican, convierte regiones a las comunas que son sus capitales regionales, y confirman si comunas corresponde a una capital regional. Ambas funcionan tanto con códigos como con nombres.
+- Nuevas funciones `as_capital_regional()` e `is_capital_regional()`. Como sus nombres indican, la primera convierte regiones a las comunas que son su capital regional, y la segunda confirma si comunas corresponden a capitales regionales. Ambas funcionan tanto con códigos como con nombres.
+- `ubicar_comunas()` y `obtener_comunas()` ahora reciben también nombres de comunas y de regiones, respectivamente, además de códigos numéricos.
 
 # territorial 0.9.8 (2026/11/03)
 - Pone a prueba tus conocimientos territoriales con un juego de preguntas! 🎉 Ejecuta la función `trivia()` para iniciar una trivia interactiva sobre comunas y regiones de Chile, o [juega en el navegador aquí!](https://bastianolea.github.io/territorial/articles/trivia.html). Son 4 tipos de preguntas, y las alternativas se crean al azar con respuestas que buscan engañarte. A ver si logras sacar el puntaje máximo!

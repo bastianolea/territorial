@@ -1,9 +1,8 @@
 #' Obtener las comunas de una región de Chile
 #'
-#' Entregando un nombre de región o un código de región, retorna un vector con los nombres de las comunas correspondientes.
+#' Entregando uno o más códigos de región o nombres de región, retorna un vector con los nombres de las comunas correspondientes.
 #'
-#' @param codigo_region Uno o más códigos de región, como aparecen en [territorial::territorios]
-#' @param nombre_region Uno o más nombres de región, como aparecen en [territorial::regiones()]
+#' @param codigo_region Uno o más códigos de región en formato numérico (como aparecen en [territorial::territorios]), o nombres de región (como en [territorial::regiones()]) en formato caracter o factor.
 #'
 #' @returns Vector de comunas de la región o regiones
 #' @seealso [ubicar_comunas()] para hacer lo inverso (obtener la región de una comuna), y [comunas()] o [regiones()] para vectores con todas las comunas o regiones del país.
@@ -11,50 +10,33 @@
 #'
 #' @examples
 #' obtener_comunas("Tarapacá")
-obtener_comunas <- function(
-  nombre_region = NULL,
-  codigo_region = NULL
-) {
-  tabla_regiones <- territorial::territorios |>
-    dplyr::select(dplyr::ends_with("region"), dplyr::ends_with("comuna"))
-
-  # si no rellenó nada
-  if (is.null(codigo_region) & is.null(nombre_region)) {
+#'
+#' obtener_comunas(c(15, 1))
+obtener_comunas <- function(codigo_region) {
+  if (missing(codigo_region)) {
     cli::cli_abort(
-      "Debes introducir un código o nombre de región, revisa {.fn territorial::territorios}"
+      "Debes introducir un código o nombre de región, revisa {.fn territorial::regiones}"
     )
   }
 
-  # si introdujo ambos
-  if (!is.null(codigo_region) & !is.null(nombre_region)) {
-    cli::cli_abort(
-      "Introduce un código {.strong o} un nombre de región, no ambos!"
-    )
+  if (is.factor(codigo_region)) {
+    codigo_region <- as.character(codigo_region)
+  }
+
+  if (!is.numeric(codigo_region)) {
+    codigo_region <- as_codigo_region(codigo_region)
   }
 
   .codigo <- codigo_region
-  .region <- nombre_region
 
-  # filtrar por código
-  if (!is.null(codigo_region)) {
-    resultado <- tabla_regiones |>
-      dplyr::filter(codigo_region %in% .codigo)
-  }
-
-  # filtrar por nombre
-  if (!is.null(nombre_region)) {
-    resultado <- tabla_regiones |>
-      dplyr::filter(nombre_region %in% .region)
-  }
+  comunas_region <- territorial::territorios |>
+    dplyr::filter(codigo_region %in% .codigo) |>
+    dplyr::pull(nombre_comuna)
 
   # si no hay resultados
-  if (nrow(resultado) == 0) {
+  if (length(comunas_region) == 0) {
     cli::cli_abort("Región no encontrada, revisa {.fn territorial::regiones}")
   }
-
-  # informar resultado
-  comunas_region <- resultado |>
-    dplyr::pull(nombre_comuna)
 
   cli::cli_alert_info(
     "Comunas de la región: {territorial::redactar_comunas(comunas_region, largo = 0)}"

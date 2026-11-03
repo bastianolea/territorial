@@ -1,80 +1,85 @@
-test_that(
-  "obtener comunas con resultado correcto",
-  expect_equal(
-    obtener_comunas(nombre_region = "Tarapacá"),
-    c(
-      "Iquique",
-      "Alto Hospicio",
-      "Pozo Almonte",
-      "Camiña",
-      "Colchane",
-      "Huara",
-      "Pica"
-    )
-  )
-) |>
-  suppressMessages()
+comunas_tarapaca <- c(
+  "Iquique",
+  "Alto Hospicio",
+  "Pozo Almonte",
+  "Camiña",
+  "Colchane",
+  "Huara",
+  "Pica"
+)
+
+comunas_arica <- c("Arica", "Camarones", "Putre", "General Lagos")
 
 test_that(
-  "obtener comunas con resultado correcto, sin nombrar argumento",
+  "obtener comunas por nombre de región",
   expect_equal(
     obtener_comunas("Tarapacá"),
-    c(
-      "Iquique",
-      "Alto Hospicio",
-      "Pozo Almonte",
-      "Camiña",
-      "Colchane",
-      "Huara",
-      "Pica"
-    )
+    comunas_tarapaca
   )
 ) |>
   suppressMessages()
 
 test_that(
-  "obtener comunas con resultado correcto por código",
+  "obtener comunas por nombre de región, nombrando argumento",
   expect_equal(
-    obtener_comunas(codigo_region = 15),
-    c("Arica", "Camarones", "Putre", "General Lagos")
+    obtener_comunas(codigo_region = "Tarapacá"),
+    comunas_tarapaca
   )
 ) |>
   suppressMessages()
 
 test_that(
-  "obtener comunas con resultado correcto con más de un código",
+  "obtener comunas por nombre de región como factor",
   expect_equal(
-    obtener_comunas(codigo_region = c(15, 1)),
-    c(
-      "Iquique",
-      "Alto Hospicio",
-      "Pozo Almonte",
-      "Camiña",
-      "Colchane",
-      "Huara",
-      "Pica",
-      "Arica",
-      "Camarones",
-      "Putre",
-      "General Lagos"
-    )
+    obtener_comunas(factor("Tarapacá")),
+    comunas_tarapaca
   )
 ) |>
   suppressMessages()
 
 test_that(
-  "obtener comunas tira error si se piden ambos",
-  expect_error(
-    obtener_comunas(nombre_region = "Arica y Parinacota", codigo_region = 15)
+  "obtener comunas por código de región",
+  expect_equal(
+    obtener_comunas(15),
+    comunas_arica
   )
-)
+) |>
+  suppressMessages()
 
 test_that(
-  "obtener comunas tira error para región incorrecta",
-  expect_error(
-    obtener_comunas(nombre_region = "Arica")
+  "obtener comunas con más de un código",
+  expect_equal(
+    obtener_comunas(c(15, 1)),
+    c(comunas_tarapaca, comunas_arica)
   )
-)
+) |>
+  suppressMessages()
+
+test_that(
+  "nombres y códigos de las mismas regiones dan el mismo resultado",
+  expect_equal(
+    obtener_comunas(c("Arica y Parinacota", "Tarapacá")),
+    obtener_comunas(c(15, 1))
+  )
+) |>
+  suppressMessages()
+
+test_that("nombre de región incorrecto arroja warning y error", {
+  expect_error(
+    expect_warning(
+      obtener_comunas("Titirilquén"),
+      regexp = "Titirilquén"
+    ),
+    regexp = "no encontrada"
+  )
+})
+
+test_that("código de región inexistente arroja error", {
+  expect_error(
+    obtener_comunas(99),
+    regexp = "no encontrada"
+  )
+})
 
 test_that(
   "obtener comunas tira error si está vacía",
