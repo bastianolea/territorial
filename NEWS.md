@@ -1,3 +1,8 @@
+# territorial 0.9.8 (2026/11/03)
+- `agregar_macrozona()` ahora también funciona con nombres de región (son convertidos a códigos de región con `as_codigo_region()`) y con _data frames_ asumiendo la columna `codigo_region`.
+- Nueva función `is_codigo_region()`, súper básica pero es para mantener concordancia con su hermana mayor `is_codigo_comuna()`.
+- _Se vienen cositas_
+
 # territorial 0.9.7 (2026/11/02)
 - Nueva función `capitales_regionales()`, que contiene una tabla filtrada de `territorial::territorios` con las 16 comunas que son capital regional en Chile.
 - Documentación: se agregaron funciones relacionadas y recomendadas a la documentación de cada función del paquete, para ayudar a que encuentres lo que necesitas!

@@ -140,6 +140,81 @@ test_that("agregar_macrozona convierte códigos en caracter, con alerta", {
   expect_equal(resultado, c("Norte", "Centro", "Austral"))
 })
 
+test_that("agregar_macrozona convierte nombres de región", {
+  expect_identical(
+    agregar_macrozona(
+      c("Arica y Parinacota", "Metropolitana de Santiago", "Magallanes"),
+      ordenar = FALSE
+    ),
+    c("Norte", "Centro", "Austral")
+  )
+
+  # insensible a mayúsculas y tildes, y acepta factores
+  expect_identical(
+    agregar_macrozona(c("BIOBÍO", "Ñuble"), tipo = 2, ordenar = FALSE),
+    c("Centro/sur", "Centro/sur")
+  )
+  expect_identical(
+    agregar_macrozona(factor(c("Maule", "Los Lagos")), ordenar = FALSE),
+    c("Centro", "Sur")
+  )
+
+  # resultado igual al de los códigos equivalentes
+  expect_identical(
+    agregar_macrozona(c("Tarapacá", "Maule"), tipo = 3),
+    agregar_macrozona(c(1, 7), tipo = 3)
+  )
+})
+
+test_that("agregar_macrozona conserva NA y acepta valores mixtos", {
+  expect_identical(
+    agregar_macrozona(c("Maule", NA), ordenar = FALSE),
+    c("Centro", NA)
+  )
+
+  expect_warning(
+    resultado <- agregar_macrozona(c("1", "Biobío", "13"), ordenar = FALSE),
+    "formato caracter"
+  )
+  expect_identical(resultado, c("Norte", "Sur", "Centro"))
+})
+
+test_that("agregar_macrozona maneja nombres no reconocidos", {
+  # algunos reconocidos: advierte y entrega NA
+  expect_warning(
+    resultado <- agregar_macrozona(c("Maule", "Narnia"), ordenar = FALSE),
+    "no fueron reconocidos"
+  )
+  expect_identical(resultado, c("Centro", NA))
+
+  # ninguno reconocido: error
+  expect_error(
+    suppressWarnings(agregar_macrozona(c("xx", "yy"))),
+    "No se pudo interpretar"
+  )
+})
+
+test_that("agregar_macrozona funciona con data frames", {
+  datos <- dplyr::tibble(codigo_region = c(15, 13, 12), x = 1:3)
+
+  resultado <- agregar_macrozona(datos, ordenar = FALSE)
+  expect_s3_class(resultado, "data.frame")
+  expect_identical(names(resultado), c("codigo_region", "x", "macrozona"))
+  expect_identical(resultado$macrozona, c("Norte", "Centro", "Austral"))
+
+  # con territorios
+  expect_identical(
+    agregar_macrozona(territorios, tipo = 2)$macrozona,
+    agregar_macrozona(territorios$codigo_region, tipo = 2)
+  )
+
+  # sin columnas válidas
+  expect_error(
+    agregar_macrozona(dplyr::tibble(a = 1)),
+    "codigo_region"
+  )
+})
+
 test_that("agregar_macrozona valida sus argumentos", {
   # tipo inválido
   for (tipo_invalido in list(6, 0, -1, 1.5, NA_real_)) {

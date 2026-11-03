@@ -9,16 +9,20 @@
 #' * Macrozonas tipo 4: basadas en el \href{https://es.wikipedia.org/wiki/Regiones_naturales_de_Chile}{programa curricular de educación básica} del Ministerio de Educación de Chile, existirían _Norte grande, Norte chico, Zona central, Zona sur_ y _Zona austral_.
 #' * Macrozonas tipo 5: dividen al país en _norte, centro_ y _sur_ según las agrupaciones del estudio Identificación de Localidades en Condición de Aislamiento 2012, de Subdere.
 #'
-#' @param codigo_region Vector de códigos de región (del 1 al 16)
+#' @param codigo_region Vector de códigos de región (del 1 al 16) o de nombres de región (ver [as_codigo_region()]), que se convierten automáticamente a códigos. También puede ser un data frame con la columna `codigo_region`, en cuyo caso se retorna el data frame con la columna nueva `macrozona`.
 #' @param tipo Tipo de macrozonas a aplicar. Por defecto se usa el tipo 1. Ver la documentación más arriba.
 #' @param ordenar Entregar resultados como un factor ordenado (de norte a sur), o como textos sin orden. Por defecto entrega factor.
 #'
-#' @returns Factor con macrozonas regionales, de acuerdo al tipo de clasificación de regiones elegido.
+#' @returns Factor con macrozonas regionales, de acuerdo al tipo de clasificación de regiones elegido. Si la entrada es un data frame, retorna el data frame con la columna `macrozona` agregada.
 #' @seealso [ordenar_regiones()] para ordenar regiones de norte a sur, y [agregar_clasificacion()] para clasificar comunas en urbanas, mixtas o rurales. Si no tienes códigos de región, usa [as_codigo_region()] o [contextualizar()].
 #' @export
 #'
 #' @examples
 #' agregar_macrozona(c(15, 13, 12), tipo = 1)
+#'
+#' # con un data frame, usa `codigo_region` o `codigo_comuna`
+#' territorios |>
+#'   agregar_macrozona(tipo = 2)
 #'
 #' territorios |>
 #'   dplyr::distinct(codigo_region, nombre_region) |>
@@ -41,7 +45,29 @@ agregar_macrozona <- function(
     )
   }
 
-  # revisar que sea un vector atómico (rechazar listas, data frames, etc.)
+  # si es data frame, buscar codigo_region (o codigo_comuna) y agregar columna
+  if (is.data.frame(codigo_region)) {
+    datos <- codigo_region
+
+    if ("codigo_region" %in% names(datos)) {
+      codigos <- datos[["codigo_region"]]
+    } else {
+      cli::cli_abort(
+        "La tabla debe tener la columna {.var codigo_region}"
+      )
+    }
+
+    datos <- dplyr::ungroup(datos)
+    datos[["macrozona"]] <- agregar_macrozona(
+      codigos,
+      tipo = tipo,
+      ordenar = ordenar
+    )
+
+    return(datos)
+  }
+
+  # revisar que sea un vector atómico (rechazar listas, etc.)
   if (!is.atomic(codigo_region) || is.null(codigo_region)) {
     cli::cli_abort(
       "Se necesita un vector de códigos de región, no una {.cls {class(codigo_region)}}"
@@ -49,11 +75,35 @@ agregar_macrozona <- function(
   }
 
   # revisar tipo
+  if (is.factor(codigo_region)) {
+    codigo_region <- as.character(codigo_region)
+  }
+
   if (is.character(codigo_region)) {
-    cli::cli_warn(
-      "Se entregaron códigos regionales en formato caracter. Se recomienda convertir a numérico."
-    )
-    codigo_region <- as.numeric(codigo_region)
+    # texto: cada elemento puede ser un número ("13") o un nombre ("Maule")
+    como_numero <- suppressWarnings(as.numeric(codigo_region))
+    es_numero <- !is.na(como_numero)
+    es_nombre <- !es_numero & !is.na(codigo_region)
+
+    if (any(es_numero)) {
+      cli::cli_warn(
+        "Se entregaron códigos regionales en formato caracter. Se recomienda convertir a numérico."
+      )
+    }
+
+    convertido <- como_numero
+
+    if (any(es_nombre)) {
+      convertido[es_nombre] <- as_codigo_region(codigo_region[es_nombre])
+
+      if (!any(!is.na(convertido[es_nombre]))) {
+        cli::cli_abort(
+          "No se pudo interpretar los valores como códigos o nombres de región"
+        )
+      }
+    }
+
+    codigo_region <- convertido
   }
 
   # revisar si es código comunal
