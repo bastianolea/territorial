@@ -1,5 +1,18 @@
 # Registro de cambios
 
+## territorial 0.9.8 (2026/11/03)
+
+- [`agregar_macrozona()`](https://bastianolea.github.io/territorial/reference/agregar_macrozona.md)
+  ahora también funciona con nombres de región (son convertidos a
+  códigos de región con
+  [`as_codigo_region()`](https://bastianolea.github.io/territorial/reference/as_codigo_region.md))
+  y con *data frames* asumiendo la columna `codigo_region`.
+- Nueva función
+  [`is_codigo_region()`](https://bastianolea.github.io/territorial/reference/is_codigo_region.md),
+  súper básica pero es para mantener concordancia con su hermana mayor
+  [`is_codigo_comuna()`](https://bastianolea.github.io/territorial/reference/is_codigo_comuna.md).
+- *Se vienen cositas*
+
 ## territorial 0.9.7 (2026/11/02)
 
 - Nueva función

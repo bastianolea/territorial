@@ -351,6 +351,8 @@ Funciones y utilidades para navegar datos territoriales
 - [`is_codigo_comuna_antiguo()`](https://bastianolea.github.io/territorial/reference/is_codigo_comuna_antiguo.md)
   : Evaluar si un código único territorial comunal es antiguo o
   desactualizado
+- [`is_codigo_region()`](https://bastianolea.github.io/territorial/reference/is_codigo_region.md)
+  : Evaluar si un dato corresponde a un código de región de Chile válido
 - [`is_nombre_comuna()`](https://bastianolea.github.io/territorial/reference/is_nombre_comuna.md)
   : Evaluar si un texto corresponde al nombre válido de una comuna de
   Chile
