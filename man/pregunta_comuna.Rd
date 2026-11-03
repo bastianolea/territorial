@@ -9,3 +9,4 @@ pregunta_comuna()
 \description{
 Pregunta de trivia: ¿en qué región está la comuna?
 }
+\keyword{internal}

@@ -1,5 +1,7 @@
 #' Pregunta de trivia: ¿cuál de estas comunas es rural?
 #'
+#' @keywords internal
+#'
 pregunta_rural <- function() {
   # tabla de comunas
   tabla_comunas <- territorial::territorios |>

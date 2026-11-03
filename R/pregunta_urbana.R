@@ -1,5 +1,7 @@
 #' Pregunta de trivia: ¿cuál de estas comunas es urbana?
 #'
+#' @keywords internal
+#'
 pregunta_urbana <- function() {
   # tabla de comunas
   tabla_comunas <- territorial::territorios |>

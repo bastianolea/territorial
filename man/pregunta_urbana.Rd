@@ -9,3 +9,4 @@ pregunta_urbana()
 \description{
 Pregunta de trivia: ¿cuál de estas comunas es urbana?
 }
+\keyword{internal}

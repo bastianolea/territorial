@@ -9,3 +9,4 @@ pregunta_rural()
 \description{
 Pregunta de trivia: ¿cuál de estas comunas es rural?
 }
+\keyword{internal}

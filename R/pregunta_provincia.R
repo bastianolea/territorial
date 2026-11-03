@@ -1,5 +1,7 @@
 #' Juego: ¿en qué provincia está la comuna?
 #'
+#' @keywords internal
+#'
 pregunta_provincia <- function() {
   # comunas que no se llaman igual a su provincia
   comunas_posibles <- territorial::territorios |>

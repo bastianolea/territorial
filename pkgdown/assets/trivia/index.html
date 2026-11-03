@@ -40,6 +40,7 @@
       <a href="https://bastianolea.github.io/territorial/">{territorial}</a></h1>
   </header>
   <main>
+    <p id="aviso" class="err" hidden></p>
     <pre id="out" aria-live="polite">Cargando R en tu navegador (puede tardar unos segundos)...
 </pre>
     <form id="form" autocomplete="off">
@@ -49,7 +50,7 @@
     </form>
   </main>
   <footer>
-    R corre en tu navegador gracias a <a href="https://docs.r-wasm.org/webr/latest/">webR</a>.
+    R funciona en tu navegador gracias a <a href="https://docs.r-wasm.org/webr/latest/">webR</a>.<br>
     Instala el paquete: <code>install.packages("territorial", repos = "https://bastianolea.r-universe.dev")</code>
   </footer>
 
@@ -73,8 +74,14 @@
     };
 
     if (!window.crossOriginIsolated) {
-      write("\nAviso: la página no está aislada (cross-origin isolation). " +
-            "Si las preguntas no aceptan respuestas, recarga la página.\n", "err");
+      // en la primera visita coi-serviceworker recarga la página para activar el
+      // aislamiento: esperar antes de avisar o de iniciar webR
+      await new Promise((resolve) => setTimeout(resolve, 4000));
+      const aviso = document.getElementById("aviso");
+      aviso.textContent = "Aviso: la página no está aislada (cross-origin isolation), " +
+        "así que las preguntas podrían no aceptar respuestas. Prueba recargando la página " +
+        "o usando otro navegador (no funciona en ventanas privadas de algunos navegadores).";
+      aviso.hidden = false;
     }
 
     const con = new Console({

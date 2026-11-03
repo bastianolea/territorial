@@ -9,3 +9,4 @@ pregunta_provincia()
 \description{
 Juego: ¿en qué provincia está la comuna?
 }
+\keyword{internal}

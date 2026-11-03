@@ -1,5 +1,7 @@
 #' Pregunta de trivia: ¿en qué región está las comuna?
 #'
+#' @keywords internal
+#'
 pregunta_region <- function() {
   # elegir region al azar
   region <- sample(regiones(), 1)

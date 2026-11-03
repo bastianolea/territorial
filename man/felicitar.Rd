@@ -15,3 +15,4 @@ Mensaje de respuesta
 \description{
 Entrega mensajes de felicitación o fracaso al azar, con un emoji
 }
+\keyword{internal}

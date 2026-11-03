@@ -1,4 +1,5 @@
 #' Pregunta de trivia: ¿en qué región está la comuna?
+#' @keywords internal
 #'
 pregunta_comuna <- function() {
   # elegir comuna al azar
