@@ -1,5 +1,5 @@
 # territorial 0.9.8 (2026/11/03)
-- Pone a prueba tus conocimientos territoriales con un juego de preguntas! 🎉 Ejecuta la función `trivia()` para iniciar una trivia interactiva sobre comunas y regiones de Chile. Son 4 tipos de preguntas, y las alternativas se crean al azar con respuestas que buscan engañarte. A ver si logras sacar el puntaje máximo!
+- Pone a prueba tus conocimientos territoriales con un juego de preguntas! 🎉 Ejecuta la función `trivia()` para iniciar una trivia interactiva sobre comunas y regiones de Chile, o [juega en el navegador aquí!](https://bastianolea.github.io/territorial/articles/trivia.html). Son 4 tipos de preguntas, y las alternativas se crean al azar con respuestas que buscan engañarte. A ver si logras sacar el puntaje máximo!
 - `agregar_macrozona()` ahora también funciona con nombres de región (son convertidos a códigos de región con `as_codigo_region()`) y con _data frames_ asumiendo la columna `codigo_region`.
 - `agregar_clasificacion()` ahora también funciona con _data frames_ asumiendo la columna `codigo_comuna`.
 - Nueva función `is_codigo_region()`, súper básica pero es para mantener concordancia con su hermana mayor `is_codigo_comuna()`.

@@ -278,7 +278,7 @@ para una guía de uso más completa.
 
 ¿Cuánto sabes de las comunas y regiones de Chile? Ejecuta `trivia()`
 para jugar un juego de preguntas en la consola, o [**juega directamente
-en tu navegador**](https://bastianolea.github.io/territorial/trivia/),
+en tu navegador**](https://bastianolea.github.io/territorial/articles/trivia.html),
 sin instalar nada.
 
 ------------------------------------------------------------------------

@@ -1,0 +1,145 @@
+---
+title: "Trivia de comunas, provincias y regiones de Chile"
+subtitle: "Juego interactivo de R en tu navegador"
+description: Pon a prueba tus conocimientos sobre las comunas, provincias y regiones de Chile, directamente en tu navegador.
+---
+
+¿Cuánto sabes de los territorios de Chile? La función `trivia()` del paquete `{territorial}` inicia un juego de preguntas interactivo directo en tu consola de R, pero en esta página puedes probarlo en tu navegador!
+
+Son 5 tipos de preguntas distintos, y las alternativas se crean al azar con respuestas que buscan engañarte. ¡A ver si logras sacar el puntaje máximo! 🤓
+
+
+```{=html}
+<!-- menu() en webR necesita cross-origin isolation; GitHub Pages no envía los
+     headers COOP/COEP, así que este service worker los agrega solo para esta página -->
+<script>window.coi = { scope: "./trivia.html" };</script>
+<script src="coi-serviceworker.js"></script>
+
+<style>
+  #trivia-out {
+    min-height: 26rem; max-height: 70vh; overflow-y: auto; margin: 0; padding: 1rem;
+    background: #fffaf2; border: 2px solid #E1B280; border-radius: 8px;
+    white-space: pre-wrap; word-wrap: break-word; font-size: 0.95rem; line-height: 1.4;
+  }
+  #trivia-out .err, #trivia-aviso { color: #b3423a; }
+</style>
+
+<p id="trivia-aviso" hidden></p>
+<pre id="trivia-out" aria-live="polite">Cargando R en tu navegador (puede tardar unos segundos)...
+</pre>
+<form id="trivia-form" class="d-flex gap-2 mt-2 mb-4" autocomplete="off">
+  <input id="trivia-input" class="form-control" placeholder="Escribe el número de tu respuesta y presiona Enter" aria-label="Respuesta" disabled>
+  <button type="submit" id="trivia-send" class="btn btn-primary" disabled>Enviar</button>
+  <button type="button" id="trivia-again" class="btn btn-outline-primary text-nowrap" disabled>Jugar de nuevo</button>
+</form>
+
+<script type="module">
+  import { Console } from "https://webr.r-wasm.org/latest/webr.mjs";
+
+  const out = document.getElementById("trivia-out");
+  const input = document.getElementById("trivia-input");
+  const send = document.getElementById("trivia-send");
+  const again = document.getElementById("trivia-again");
+  const ansi = /\x1b\[[0-9;]*[A-Za-z]/g;
+  let started = false;
+  let ready = false;
+
+  const write = (text, cls) => {
+    const span = document.createElement("span");
+    if (cls) span.className = cls;
+    span.textContent = text.replace(ansi, "");
+    out.append(span);
+    out.scrollTop = out.scrollHeight;
+  };
+
+  if (window.crossOriginIsolated) {
+    sessionStorage.removeItem("trivia-recargada");
+  } else {
+    // en la primera visita coi-serviceworker recarga la página para activar el
+    // aislamiento: esperar antes de avisar o de iniciar webR
+    await new Promise((resolve) => setTimeout(resolve, 4000));
+    // si la recarga ocurrió antes de que el service worker tomara control,
+    // recargar una vez más
+    const reg = await navigator.serviceWorker?.getRegistration("./trivia.html");
+    if (reg?.active && !sessionStorage.getItem("trivia-recargada")) {
+      sessionStorage.setItem("trivia-recargada", "1");
+      location.reload();
+      await new Promise(() => {});
+    }
+    const aviso = document.getElementById("trivia-aviso");
+    aviso.textContent = "Aviso: la página no está aislada (cross-origin isolation), " +
+      "así que las preguntas podrían no aceptar respuestas. Prueba recargando la página " +
+      "o usando otro navegador (no funciona en ventanas privadas de algunos navegadores).";
+    aviso.hidden = false;
+  }
+
+  const con = new Console({
+    stdout: (line) => {
+      // ocultar el mensaje de bienvenida de R hasta que el paquete esté cargado
+      if (!ready) {
+        if (line === "__TRIVIA_LISTA__") { ready = true; out.textContent = ""; }
+        return;
+      }
+      write(line + "\n");
+    },
+    stderr: (line) => write(line + "\n", "err"),
+    prompt: (p) => {
+      const rPrompt = p === "> " || p === "+ ";
+      if (rPrompt) {
+        // R volvió al prompt normal: la trivia terminó (o aún está cargando)
+        input.disabled = send.disabled = true;
+        again.disabled = !started;
+      } else {
+        // prompt de menu() ("Selection: "): esperar la respuesta
+        started = true;
+        write(p);
+        input.disabled = send.disabled = false;
+        again.disabled = true;
+        input.focus({ preventScroll: true });
+      }
+    },
+  });
+  con.run();
+
+  const sendLine = (text, echo = true) => {
+    if (echo) write(text + "\n");
+    con.stdin(text);
+  };
+
+  document.getElementById("trivia-form").addEventListener("submit", (e) => {
+    e.preventDefault();
+    sendLine(input.value);
+    input.value = "";
+  });
+
+  again.addEventListener("click", () => {
+    out.textContent = "";
+    again.disabled = true;
+    sendLine("territorial::trivia()", false);
+  });
+
+  sendLine(
+    'invisible({' +
+    'options(cli.num_colors = 1); ' +
+    'webr::install("territorial", repos = c("https://bastianolea.r-universe.dev", "https://repo.r-wasm.org"), quiet = TRUE); ' +
+    'suppressPackageStartupMessages(library(territorial)); ' +
+    'cat("__TRIVIA_LISTA__\\n"); ' +
+    'trivia()' +
+    '})',
+    false
+  );
+</script>
+```
+
+La consola de R que ves arriba es interactiva. Se ejecuta `trivia()` automáticamente, para que empiece el cuestionario. Responde cada pregunta con el número de la alternativa y presiona _enter_.
+
+R funciona en tu navegador gracias a [webR](https://docs.r-wasm.org/webr/latest/).
+
+Si tienes R instalado, también puedes jugar en tu consola:
+
+```r
+install.packages("territorial", repos = "https://bastianolea.r-universe.dev")
+
+territorial::trivia()
+```
+

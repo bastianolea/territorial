@@ -21,7 +21,7 @@ navbar:
   components:
     trivia:
       text: Trivia
-      href: https://bastianolea.github.io/territorial/trivia/
+      href: articles/trivia.html
 
 home:
   links:
@@ -87,6 +87,11 @@ articles:
   - territorial
   - localidades
   - codigos_unicos_territoriales
+- title: Juegos
+  navbar: ~
+  desc: Pon a prueba tus conocimientos territoriales
+  contents:
+  - articles/trivia
 - title: Tutoriales
   navbar: Tutoriales
   desc: Guías explicativas para usar el paquete

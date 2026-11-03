@@ -12,7 +12,7 @@ Inicia una trivia interactiva en la consola para probar tu conocimientos sobre l
 \details{
 Las preguntas son: ¿En qué región está la comuna? ¿En qué región está las comuna? ¿Cuál de estas comunas es urbana/rural? ¿En qué provincia está la comuna?
 
-También puedes \href{https://bastianolea.github.io/territorial/trivia/}{jugar la trivia en tu navegador}, sin instalar R.
+También puedes \href{https://bastianolea.github.io/territorial/articles/trivia.html}{jugar la trivia en tu navegador}, sin instalar R.
 }
 \examples{
 \dontshow{if (interactive()) withAutoprint(\{ # examplesIf}

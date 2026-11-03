@@ -62,7 +62,6 @@ devtools::load_all()
 
 # territorial::territorios
 
-
 # pruebas ----
 
 # revisar que todo esté bien
@@ -93,7 +92,6 @@ devtools::test()
 
 # y repetir
 
-
 # documentación ----
 # escribir documentación
 devtools::document()
@@ -116,6 +114,7 @@ pkgdown::build_site()
 # usethis::use_github_action("pkgdown")
 # cuando se haga push se construirá el sitio
 
+servr::httr("docs")
 
 # —----
 

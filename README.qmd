@@ -140,7 +140,7 @@ Estas son algunas de las funciones principales, pero existen muchas más que fac
 
 ## Trivia territorial
 
-¿Cuánto sabes de las comunas y regiones de Chile? Ejecuta `trivia()` para jugar un juego de preguntas en la consola, o [**juega directamente en tu navegador**](https://bastianolea.github.io/territorial/trivia/), sin instalar nada.
+¿Cuánto sabes de las comunas y regiones de Chile? Ejecuta `trivia()` para jugar un juego de preguntas en la consola, o [**juega directamente en tu navegador**](https://bastianolea.github.io/territorial/articles/trivia.html), sin instalar nada.
 
 ----
 

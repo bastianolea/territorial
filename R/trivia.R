@@ -4,7 +4,7 @@
 #'
 #' Las preguntas son: ¿En qué región está la comuna? ¿En qué región está las comuna? ¿Cuál de estas comunas es urbana/rural? ¿En qué provincia está la comuna?
 #'
-#' También puedes [jugar la trivia en tu navegador](https://bastianolea.github.io/territorial/trivia/), sin instalar R.
+#' También puedes [jugar la trivia en tu navegador](https://bastianolea.github.io/territorial/articles/trivia.html), sin instalar R.
 #'
 #' @export
 #' @examplesIf interactive()
