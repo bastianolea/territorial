@@ -2,7 +2,7 @@
 #'
 #' Inicia una trivia interactiva en la consola para probar tu conocimientos sobre los territorios de Chile! Aparecerán 7 preguntas en la consola, una por una, y debes responder con el número de la alternativa correspondiente. Al final aparecerá tu puntaje! Son 5 tipos de preguntas distintas, y los territorios que aparecen son aleatorios, mientras que las alternativas están diseñadas para confundirte!
 #'
-#' Las preguntas son: ¿En qué región está la comuna? ¿En qué región está las comuna? ¿Cuál de estas comunas es urbana/rural? ¿En qué provincia está la comuna?
+#' Las preguntas son: _¿En qué región está la comuna? ¿qué comuna está en la región? ¿Cuál de estas comunas es urbana/rural? ¿En qué provincia está la comuna?_
 #'
 #' También puedes [jugar la trivia en tu navegador](https://bastianolea.github.io/territorial/articles/trivia.html), sin instalar R.
 #'

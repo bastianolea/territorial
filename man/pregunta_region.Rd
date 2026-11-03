@@ -2,11 +2,11 @@
 % Please edit documentation in R/pregunta_region.R
 \name{pregunta_region}
 \alias{pregunta_region}
-\title{Pregunta de trivia: ¿en qué región está las comuna?}
+\title{Pregunta de trivia: ¿qué comuna está en la región equis?}
 \usage{
 pregunta_region()
 }
 \description{
-Pregunta de trivia: ¿en qué región está las comuna?
+Pregunta de trivia: ¿qué comuna está en la región equis?
 }
 \keyword{internal}

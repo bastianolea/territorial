@@ -32,7 +32,7 @@ home:
 
 reference:
 - title: Datos territoriales
-  desc: Funciones y tablas de datos que entregan datos de uso territorial
+  desc: Funciones y tablas que entregan datos de uso territorial
   contents:
   - territorios
   - comunas
@@ -43,6 +43,7 @@ reference:
   - capitales_regionales
   - localidades
   - cut_historicos
+  - trivia
 - title: Validación de datos territoriales
   desc: Funciones que permiten probar la calidad de los datos territoriales
   contents:
@@ -77,7 +78,6 @@ reference:
   desc: Otras funciones usadas a lo largo del paquete
   contents:
   - contains("texto")
-  - trivia
 
 articles:
 - title: Viñetas

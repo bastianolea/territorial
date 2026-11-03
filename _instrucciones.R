@@ -109,11 +109,20 @@ knitr::knit("README.Rmd")
 
 # reconstruir sitio
 pkgdown::build_site()
+pkgdown::build_home() # solo parcialmente
 # usethis::use_github_pages()
 # poner enlace en _pkdown.yml y description
 # usethis::use_github_action("pkgdown")
 # cuando se haga push se construirá el sitio
 
+pkgdown::build_site(
+  devel = TRUE, # usa load_all() en vez de instalar el paquete, y no abre un proceso nuevo
+  lazy = TRUE, # solo reconstruye artículos y referencias cuyo código fuente cambió
+  examples = FALSE, # no ejecuta los @examples de la referencia
+  preview = FALSE
+)
+
+pkgdown::init_site()
 servr::httr("docs")
 
 # —----
