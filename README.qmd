@@ -11,6 +11,7 @@ Herramientas para facilitar el trabajo con datos de comunas y regiones de Chile 
 
 <!-- badges: start -->
 [![Codecov test coverage](https://codecov.io/gh/bastianolea/territorial/graph/badge.svg)](https://app.codecov.io/gh/bastianolea/territorial)
+[![R-universe version](https://bastianolea.r-universe.dev/territorial/badges/version)](https://bastianolea.r-universe.dev/territorial)
 <!-- badges: end -->
 
 Los datos sobre temáticas sociales suelen venir en dudosa calidad, sobre todo cuando se desagregan a nivel comunal: nombres mal escritos, en mayúsculas, sin eñes, sin tildes, etc. Así que creé `{territorial}` para facilitar este tipo de tareas!

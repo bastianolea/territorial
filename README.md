@@ -9,6 +9,8 @@ de Chile en R.
 
 [![Codecov test
 coverage](https://codecov.io/gh/bastianolea/territorial/graph/badge.svg)](https://app.codecov.io/gh/bastianolea/territorial)
+[![R-universe
+version](https://bastianolea.r-universe.dev/territorial/badges/version.png)](https://bastianolea.r-universe.dev/territorial)
 <!-- badges: end -->
 
 Los datos sobre temáticas sociales suelen venir en dudosa calidad, sobre
@@ -278,7 +280,8 @@ para una guía de uso más completa.
 
 ¿Cuánto sabes de las comunas y regiones de Chile? Ejecuta `trivia()`
 para jugar un juego de preguntas en la consola, o [**juega directamente
-en tu navegador**](https://bastianolea.github.io/territorial/articles/trivia.html),
+en tu
+navegador**](https://bastianolea.github.io/territorial/articles/trivia.html),
 sin instalar nada.
 
 ------------------------------------------------------------------------
