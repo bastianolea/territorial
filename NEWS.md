@@ -1,7 +1,8 @@
 # territorial 0.9.8 (2026/11/03)
+- Pone a prueba tus conocimientos territoriales! Ejecuta la función `jugar()` para iniciar una trivia interactiva sobre comunas y regiones de Chile. Son tres tipos de preguntas, y las alternativas se crean al azar con respuestas que buscan engañarte. A ver si logras sacar el puntaje máximo!
 - `agregar_macrozona()` ahora también funciona con nombres de región (son convertidos a códigos de región con `as_codigo_region()`) y con _data frames_ asumiendo la columna `codigo_region`.
+- `agregar_clasificacion()` ahora también funciona con _data frames_ asumiendo la columna `codigo_comuna`.
 - Nueva función `is_codigo_region()`, súper básica pero es para mantener concordancia con su hermana mayor `is_codigo_comuna()`.
-- _Se vienen cositas_
 
 # territorial 0.9.7 (2026/11/02)
 - Nueva función `capitales_regionales()`, que contiene una tabla filtrada de `territorial::territorios` con las 16 comunas que son capital regional en Chile.

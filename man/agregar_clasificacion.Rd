@@ -7,18 +7,22 @@
 agregar_clasificacion(codigo_comuna, ordenar = TRUE)
 }
 \arguments{
-\item{codigo_comuna}{Vector de códigos de comuna, idealmente \code{codigo_comuna}}
+\item{codigo_comuna}{Vector de códigos de comuna, idealmente \code{codigo_comuna}. También puede ser un data frame con la columna \code{codigo_comuna}, en cuyo caso se retorna el data frame con la columna nueva \code{clasificacion}.}
 
 \item{ordenar}{Entregar resultados como un factor ordenado (Rural, Mixta, Urbana), o como textos sin orden. Por defecto entrega factor.}
 }
 \value{
-Factor con clasificación comunal (Rural, Mixta o Urbana)
+Factor con clasificación comunal (Rural, Mixta o Urbana). Si la entrada es un data frame, retorna el data frame con la columna \code{clasificacion} agregada.
 }
 \description{
 Para un vector de comunas, entrega la clasificación comunal PNDR correspondiente (Rural, Mixta o Urbana), tal como aparecen en \link{clasificacion}.
 }
 \examples{
 agregar_clasificacion(8107)
+
+# con un data frame, usa la columna `codigo_comuna`
+territorios |>
+  agregar_clasificacion()
 }
 \seealso{
 \link{clasificacion} para la tabla completa de clasificación comunal, y \code{\link[=agregar_macrozona]{agregar_macrozona()}} para agrupar regiones en macrozonas. Si no tienes códigos comunales, usa \code{\link[=as_codigo_comuna]{as_codigo_comuna()}} o \code{\link[=contextualizar]{contextualizar()}}.

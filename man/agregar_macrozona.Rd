@@ -7,14 +7,14 @@
 agregar_macrozona(codigo_region, tipo = 1, ordenar = TRUE)
 }
 \arguments{
-\item{codigo_region}{Vector de códigos de región (del 1 al 16)}
+\item{codigo_region}{Vector de códigos de región (del 1 al 16) o de nombres de región (ver \code{\link[=as_codigo_region]{as_codigo_region()}}), que se convierten automáticamente a códigos. También puede ser un data frame con la columna \code{codigo_region}, en cuyo caso se retorna el data frame con la columna nueva \code{macrozona}.}
 
 \item{tipo}{Tipo de macrozonas a aplicar. Por defecto se usa el tipo 1. Ver la documentación más arriba.}
 
 \item{ordenar}{Entregar resultados como un factor ordenado (de norte a sur), o como textos sin orden. Por defecto entrega factor.}
 }
 \value{
-Factor con macrozonas regionales, de acuerdo al tipo de clasificación de regiones elegido.
+Factor con macrozonas regionales, de acuerdo al tipo de clasificación de regiones elegido. Si la entrada es un data frame, retorna el data frame con la columna \code{macrozona} agregada.
 }
 \description{
 Las macrozonas son agrupaciones de regiones de Chile que permiten entender el territorio en base a grupos geográficos. Para un vector de códigos de regiones (del 1 al 16), entrega las macrozonas correspondientes a cada región.
@@ -31,6 +31,10 @@ Como no existe una clasificación fija de macrozonas, existen varias alternativa
 }
 \examples{
 agregar_macrozona(c(15, 13, 12), tipo = 1)
+
+# con un data frame, usa `codigo_region` o `codigo_comuna`
+territorios |>
+  agregar_macrozona(tipo = 2)
 
 territorios |>
   dplyr::distinct(codigo_region, nombre_region) |>

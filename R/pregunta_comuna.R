@@ -66,5 +66,7 @@ pregunta_comuna <- function() {
     cli::cli_alert_info("La respuesta era {respuesta}")
   }
 
-  return(invisible(1))
+  # devolver puntaje
+  puntaje <- sum(evaluacion)
+  return(invisible(puntaje))
 }
