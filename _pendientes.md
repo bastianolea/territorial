@@ -1,4 +1,9 @@
 
+
+Trivia:
+- [x] mensaje de bienvenida
+- [x] números de pregunta
+
 Agregar funciones nuevas a readme y primeros pasos:
 _ [ ] capitales_regionales
 _ [ ] as_capital_regional
@@ -6,11 +11,14 @@ _ [ ] is_capital_regional
 _ [ ] trivia
 _ [ ] is_codigo_region
 
+
+- [ ] ubicar_comunas con argumento provincias
+
 ## Pendientes
 - [x] limpiar regiones
 - [x] revisar por qué en la viñeta de primeros pasos salen líneas vacías: https://bastianolea.github.io/territorial/articles/territorial.html#limpieza-de-nombres-de-comunas-de-chile
 - [x] acortar_regiones debería arrojar error con dataframe, o al menos aplicar igual si existe la columna
-- [ ] función para convertir códigos únicos territoriales antiguos a actuales (Ñuble, Marga Marga)
+- [x] función para convertir códigos únicos territoriales antiguos a actuales (Ñuble, Marga Marga)
 
 ## Ideas
 - [x] `buscar_comunas()` con agrepl
