@@ -27,9 +27,10 @@ library(territorial)
 sample(comunas(), 12)
 ```
 
-     [1] "Viña del Mar"  "Florida"       "Santa Cruz"    "Taltal"
-     [5] "Punta Arenas"  "Chonchi"       "Puerto Montt"  "Quinta Normal"
-     [9] "Ñiquén"        "Valdivia"      "Trehuaco"      "Tucapel"      
+     [1] "San Juan de la Costa" "Villa Alegre"         "Lago Ranco"
+     [4] "Palmilla"             "Pica"                 "Punta Arenas"
+     [7] "Putaendo"             "Cabildo"              "Ranquil"
+    [10] "La Florida"           "Curaco de Vélez"      "Santa Bárbara"       
 
 ### Tabla de comunas, provincias y regiones de Chile
 
@@ -328,18 +329,18 @@ base
 ```
 
     # A tibble: 972 × 4
-       nombre_comuna codigo_comuna name     value
-       <chr>                 <dbl> <chr>    <dbl>
-     1 Calle Larga            5302 a     0.000568
-     2 San Miguel            13130 b     0.00122
-     3 Nancagua               6305 c     0.00181
-     4 Ercilla                9204 c     0.00221
-     5 San Pedro             13505 a     0.00228
-     6 Vallenar               3301 c     0.00304
-     7 Lautaro                9108 a     0.00536
-     8 María Elena            2302 a     0.00776
-     9 Palena                10404 b     0.00877
-    10 Constitución           7102 c     0.00943
+       nombre_comuna  codigo_comuna name     value
+       <chr>                  <dbl> <chr>    <dbl>
+     1 Illapel                 4201 a     0.000978
+     2 Cunco                   9103 b     0.00323
+     3 Alto Biobío             8314 c     0.00381
+     4 Timaukel               12303 b     0.00384
+     5 Coinco                  6103 a     0.00519
+     6 Ninhue                 16204 b     0.00939
+     7 Isla de Pascua          5201 b     0.0106
+     8 Juan Fernández          5104 c     0.0107
+     9 Peñalolén              13122 a     0.0113
+    10 Renaico                 9209 a     0.0115
     # ℹ 962 more rows
 
 Esta tabla tiene 972 filas, ¿cómo confirmar si existen datos para todas
@@ -357,7 +358,7 @@ base |>
     Warning: La cantidad de comunas es anómala: hay 324, pero deberían ser 346. Revísalas
     con `territorial::validar_comunas()`
 
-    → Las comunas faltantes son: Valparaíso, Cabildo, La Cruz, Pelluhue, Villa Alegre, Chiguayante, Penco, San Pedro de la Paz, Cabrero, Santa Bárbara, Temuco, Villarrica, Quinchao, Osorno, Cisnes, Guaitecas, Primavera, Las Condes, Recoleta, Puente Alto, Quillón y Ninhue
+    → Las comunas faltantes son: San Pedro de Atacama, Freirina, Puchuncaví, Quintero, Calle Larga, Quilpué, Chépica, Pencahue, Colbún, Retiro, Arauco, Tirúa, Temuco, Collipulli, Laguna Blanca, Cabo de Hornos, Natales, Estación Central, La Pintana, Putre, Chillán y San Carlos
 
 La función
 [`contar_comunas()`](https://bastianolea.github.io/territorial/reference/contar_comunas.md)
@@ -377,17 +378,17 @@ base |>
 
     ! Se encontraron 27 resultados, mostrando sólo 6.
 
-    ℹ Los resultados más cercanos al término `Alto` son: Alto Biobío, Alto del Carmen y Alto Hospicio
+    ℹ Los resultados más cercanos al término `Alto` son: Alto Biobío, Alto del Carmen, Alto Hospicio y Puente Alto
 
     # A tibble: 6 × 5
-      nombre_comuna   codigo_comuna name   value puntaje
-      <chr>                   <dbl> <chr>  <dbl>   <dbl>
-    1 Alto Biobío              8314 b     0.0675       1
-    2 Alto del Carmen          3302 b     0.293        1
-    3 Alto Biobío              8314 c     0.374        1
-    4 Alto del Carmen          3302 c     0.551        1
-    5 Alto Hospicio            1107 b     0.646        1
-    6 Alto Hospicio            1107 c     0.692        1
+      nombre_comuna   codigo_comuna name    value puntaje
+      <chr>                   <dbl> <chr>   <dbl>   <dbl>
+    1 Alto Biobío              8314 c     0.00381       1
+    2 Alto Biobío              8314 a     0.0629        1
+    3 Alto del Carmen          3302 c     0.203         1
+    4 Alto Hospicio            1107 c     0.226         1
+    5 Alto Hospicio            1107 a     0.372         1
+    6 Puente Alto             13201 b     0.407         1
 
 ### Crear nombres de comunas a partir de códigos únicos territoriales
 

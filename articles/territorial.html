@@ -29,7 +29,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">territorial</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.9.9</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.9.91</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Cambiar la navegación">
@@ -104,9 +104,10 @@
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span><span class="fu"><a href="../reference/comunas.html">comunas</a></span><span class="op">(</span><span class="op">)</span>, <span class="fl">12</span><span class="op">)</span></span></code></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] "Viña del Mar"  "Florida"       "Santa Cruz"    "Taltal"
- [5] "Punta Arenas"  "Chonchi"       "Puerto Montt"  "Quinta Normal"
- [9] "Ñiquén"        "Valdivia"      "Trehuaco"      "Tucapel"      </code></pre>
+<pre><code> [1] "San Juan de la Costa" "Villa Alegre"         "Lago Ranco"
+ [4] "Palmilla"             "Pica"                 "Punta Arenas"
+ [7] "Putaendo"             "Cabildo"              "Ranquil"
+[10] "La Florida"           "Curaco de Vélez"      "Santa Bárbara"       </code></pre>
 </div>
 </div>
 <section class="level3"><h3 id="tabla-de-comunas-provincias-y-regiones-de-chile">Tabla de comunas, provincias y regiones de Chile<a class="anchor" aria-label="anchor" href="#tabla-de-comunas-provincias-y-regiones-de-chile"></a>
@@ -384,18 +385,18 @@
 <span><span class="va">base</span></span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 972 × 4
-   nombre_comuna codigo_comuna name     value
-   &lt;chr&gt;                 &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt;
- 1 Calle Larga            5302 a     0.000568
- 2 San Miguel            13130 b     0.00122
- 3 Nancagua               6305 c     0.00181
- 4 Ercilla                9204 c     0.00221
- 5 San Pedro             13505 a     0.00228
- 6 Vallenar               3301 c     0.00304
- 7 Lautaro                9108 a     0.00536
- 8 María Elena            2302 a     0.00776
- 9 Palena                10404 b     0.00877
-10 Constitución           7102 c     0.00943
+   nombre_comuna  codigo_comuna name     value
+   &lt;chr&gt;                  &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt;
+ 1 Illapel                 4201 a     0.000978
+ 2 Cunco                   9103 b     0.00323
+ 3 Alto Biobío             8314 c     0.00381
+ 4 Timaukel               12303 b     0.00384
+ 5 Coinco                  6103 a     0.00519
+ 6 Ninhue                 16204 b     0.00939
+ 7 Isla de Pascua          5201 b     0.0106
+ 8 Juan Fernández          5104 c     0.0107
+ 9 Peñalolén              13122 a     0.0113
+10 Renaico                 9209 a     0.0115
 # ℹ 962 more rows</code></pre>
 </div>
 </div>
@@ -412,7 +413,7 @@
 con `territorial::validar_comunas()`</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>→ Las comunas faltantes son: Valparaíso, Cabildo, La Cruz, Pelluhue, Villa Alegre, Chiguayante, Penco, San Pedro de la Paz, Cabrero, Santa Bárbara, Temuco, Villarrica, Quinchao, Osorno, Cisnes, Guaitecas, Primavera, Las Condes, Recoleta, Puente Alto, Quillón y Ninhue</code></pre>
+<pre><code>→ Las comunas faltantes son: San Pedro de Atacama, Freirina, Puchuncaví, Quintero, Calle Larga, Quilpué, Chépica, Pencahue, Colbún, Retiro, Arauco, Tirúa, Temuco, Collipulli, Laguna Blanca, Cabo de Hornos, Natales, Estación Central, La Pintana, Putre, Chillán y San Carlos</code></pre>
 </div>
 </div>
 <p>La función <code><a href="../reference/contar_comunas.html">contar_comunas()</a></code> nos indica cuántas comunas únicas hay, y las que faltan. Esto es útil porque muchas veces las bases de datos reales no tienen datos para todas las comunas, sobre todo las más pequeñas y remotas.</p>
@@ -425,18 +426,18 @@ con `territorial::validar_comunas()`</code></pre>
 <pre><code>! Se encontraron 27 resultados, mostrando sólo 6.</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>ℹ Los resultados más cercanos al término `Alto` son: Alto Biobío, Alto del Carmen y Alto Hospicio</code></pre>
+<pre><code>ℹ Los resultados más cercanos al término `Alto` son: Alto Biobío, Alto del Carmen, Alto Hospicio y Puente Alto</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 5
-  nombre_comuna   codigo_comuna name   value puntaje
-  &lt;chr&gt;                   &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt;   &lt;dbl&gt;
-1 Alto Biobío              8314 b     0.0675       1
-2 Alto del Carmen          3302 b     0.293        1
-3 Alto Biobío              8314 c     0.374        1
-4 Alto del Carmen          3302 c     0.551        1
-5 Alto Hospicio            1107 b     0.646        1
-6 Alto Hospicio            1107 c     0.692        1</code></pre>
+  nombre_comuna   codigo_comuna name    value puntaje
+  &lt;chr&gt;                   &lt;dbl&gt; &lt;chr&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+1 Alto Biobío              8314 c     0.00381       1
+2 Alto Biobío              8314 a     0.0629        1
+3 Alto del Carmen          3302 c     0.203         1
+4 Alto Hospicio            1107 c     0.226         1
+5 Alto Hospicio            1107 a     0.372         1
+6 Puente Alto             13201 b     0.407         1</code></pre>
 </div>
 </div>
 </section><section class="level3"><h3 id="crear-nombres-de-comunas-a-partir-de-códigos-únicos-territoriales">Crear nombres de comunas a partir de códigos únicos territoriales<a class="anchor" aria-label="anchor" href="#crear-nombres-de-comunas-a-partir-de-c%C3%B3digos-%C3%BAnicos-territoriales"></a>
