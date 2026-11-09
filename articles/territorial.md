@@ -2,8 +2,16 @@
 
 ## Instalación
 
-Puedes instalar este paquete de R desde GitHub usando [el paquete
-`{pak}`](https://pak.r-lib.org):
+Puedes instalar el paquete desde
+[R-Universe](https://bastianolea.r-universe.dev/territorial):
+
+``` r
+
+install.packages("territorial", repos = "https://bastianolea.r-universe.dev")
+```
+
+También puedes instalar la versión de desarrollo desde
+[GitHub](https://github.com/bastianolea/territorial):
 
 ``` r
 
@@ -11,8 +19,8 @@ Puedes instalar este paquete de R desde GitHub usando [el paquete
 pak::pak("bastianolea/territorial")
 ```
 
-Los siguientes ejemplos te ayudarán a familiarizarte con algunas de las
-funciones de [territorial](https://bastianolea.github.io/territorial).
+Los siguientes ejemplos te ayudarán a conocer algunas de las funciones
+de [territorial](https://bastianolea.github.io/territorial).
 
 ## Datos comunales
 
@@ -27,10 +35,9 @@ library(territorial)
 sample(comunas(), 12)
 ```
 
-     [1] "San Juan de la Costa" "Villa Alegre"         "Lago Ranco"
-     [4] "Palmilla"             "Pica"                 "Punta Arenas"
-     [7] "Putaendo"             "Cabildo"              "Ranquil"
-    [10] "La Florida"           "Curaco de Vélez"      "Santa Bárbara"       
+     [1] "San Nicolás"   "La Florida"    "Placilla"      "Santo Domingo"
+     [5] "Valdivia"      "Puerto Varas"  "Nacimiento"    "Chile Chico"
+     [9] "Collipulli"    "Padre Hurtado" "Santa María"   "Conchalí"     
 
 ### Tabla de comunas, provincias y regiones de Chile
 
@@ -331,16 +338,16 @@ base
     # A tibble: 972 × 4
        nombre_comuna  codigo_comuna name     value
        <chr>                  <dbl> <chr>    <dbl>
-     1 Illapel                 4201 a     0.000978
-     2 Cunco                   9103 b     0.00323
-     3 Alto Biobío             8314 c     0.00381
-     4 Timaukel               12303 b     0.00384
-     5 Coinco                  6103 a     0.00519
-     6 Ninhue                 16204 b     0.00939
-     7 Isla de Pascua          5201 b     0.0106
-     8 Juan Fernández          5104 c     0.0107
-     9 Peñalolén              13122 a     0.0113
-    10 Renaico                 9209 a     0.0115
+     1 Zapallar                5405 c     0.000463
+     2 Porvenir               12301 c     0.00107
+     3 Puerto Octay           10302 b     0.00212
+     4 Las Condes             13114 a     0.00221
+     5 Puyehue                10304 a     0.00569
+     6 Cabo de Hornos         12201 b     0.00735
+     7 Renca                  13128 a     0.00797
+     8 Vitacura               13132 b     0.00871
+     9 Placilla                6308 a     0.00892
+    10 Lumaco                  9207 b     0.00996
     # ℹ 962 more rows
 
 Esta tabla tiene 972 filas, ¿cómo confirmar si existen datos para todas
@@ -358,7 +365,7 @@ base |>
     Warning: La cantidad de comunas es anómala: hay 324, pero deberían ser 346. Revísalas
     con `territorial::validar_comunas()`
 
-    → Las comunas faltantes son: San Pedro de Atacama, Freirina, Puchuncaví, Quintero, Calle Larga, Quilpué, Chépica, Pencahue, Colbún, Retiro, Arauco, Tirúa, Temuco, Collipulli, Laguna Blanca, Cabo de Hornos, Natales, Estación Central, La Pintana, Putre, Chillán y San Carlos
+    → Las comunas faltantes son: Iquique, Mejillones, Viña del Mar, Cartagena, Llaillay, Villa Alemana, San Vicente, San Fernando, Nancagua, Vichuquén, Colbún, Retiro, Hualqui, Tirúa, Galvarino, Purén, Frutillar, Llanquihue, Dalcahue, Maipú, La Unión y El Carmen
 
 La función
 [`contar_comunas()`](https://bastianolea.github.io/territorial/reference/contar_comunas.md)
@@ -376,19 +383,19 @@ base |>
   buscar_comuna("Alto")
 ```
 
-    ! Se encontraron 27 resultados, mostrando sólo 6.
+    ! Se encontraron 30 resultados, mostrando sólo 6.
 
-    ℹ Los resultados más cercanos al término `Alto` son: Alto Biobío, Alto del Carmen, Alto Hospicio y Puente Alto
+    ℹ Los resultados más cercanos al término `Alto` son: Alto Hospicio, Alto del Carmen, Alto Biobío y Puente Alto
 
     # A tibble: 6 × 5
-      nombre_comuna   codigo_comuna name    value puntaje
-      <chr>                   <dbl> <chr>   <dbl>   <dbl>
-    1 Alto Biobío              8314 c     0.00381       1
-    2 Alto Biobío              8314 a     0.0629        1
-    3 Alto del Carmen          3302 c     0.203         1
-    4 Alto Hospicio            1107 c     0.226         1
-    5 Alto Hospicio            1107 a     0.372         1
-    6 Puente Alto             13201 b     0.407         1
+      nombre_comuna   codigo_comuna name  value puntaje
+      <chr>                   <dbl> <chr> <dbl>   <dbl>
+    1 Alto Hospicio            1107 a     0.143       1
+    2 Alto del Carmen          3302 b     0.166       1
+    3 Alto Hospicio            1107 c     0.200       1
+    4 Alto Biobío              8314 c     0.241       1
+    5 Puente Alto             13201 c     0.284       1
+    6 Puente Alto             13201 a     0.331       1
 
 ### Crear nombres de comunas a partir de códigos únicos territoriales
 

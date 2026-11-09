@@ -1,4 +1,4 @@
-# Jugar a una trivia de comunas y regiones de Chile
+# Jugar a una trivia de comunas, provincias y regiones de Chile
 
 Inicia una trivia interactiva en la consola para probar tu conocimientos
 sobre los territorios de Chile! Aparecerán 7 preguntas en la consola,

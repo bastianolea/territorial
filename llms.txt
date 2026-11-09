@@ -348,7 +348,7 @@ Funciones y tablas que entregan datos de uso territorial
 - [`cut_historicos`](https://bastianolea.github.io/territorial/reference/cut_historicos.md)
   : Códigos únicos territoriales históricos
 - [`trivia()`](https://bastianolea.github.io/territorial/reference/trivia.md)
-  : Jugar a una trivia de comunas y regiones de Chile
+  : Jugar a una trivia de comunas, provincias y regiones de Chile
 
 ## Validación de datos territoriales
 
