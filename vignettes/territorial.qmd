@@ -10,14 +10,20 @@ vignette: >
 
 ## Instalación
 
-Puedes instalar este paquete de R desde GitHub usando [el paquete `{pak}`](https://pak.r-lib.org):
+Puedes instalar el paquete desde [R-Universe](https://bastianolea.r-universe.dev/territorial):
+
+```r
+install.packages("territorial", repos = "https://bastianolea.r-universe.dev")
+```
+
+También puedes instalar la versión de desarrollo desde [GitHub](https://github.com/bastianolea/territorial):
 
 ```r
 # install.packages("pak")
 pak::pak("bastianolea/territorial")
 ```
 
-Los siguientes ejemplos te ayudarán a familiarizarte con algunas de las funciones de `{territorial}`.
+Los siguientes ejemplos te ayudarán a conocer algunas de las funciones de `{territorial}`.
 
 ## Datos comunales
 

@@ -2,7 +2,7 @@
 % Please edit documentation in R/trivia.R
 \name{trivia}
 \alias{trivia}
-\title{Jugar a una trivia de comunas y regiones de Chile}
+\title{Jugar a una trivia de comunas, provincias y regiones de Chile}
 \usage{
 trivia()
 }
