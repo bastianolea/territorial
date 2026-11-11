@@ -121,7 +121,7 @@ limpiar_comunas(
 )
 #> ℹ Limpiando 7 nombres de comunas (7 son distintas)
 #> → Paso 1: confirmar comunas correctas
-#> ℹ De las 7 comunas distintas, ninguna tiene nombres 100% correctos. Los siguientes pasos intentarán la limpieza...
+#> ℹ De las 7 comunas distintas, ninguna tiene nombres totalmente correctos. Los siguientes pasos intentarán la limpieza...
 #> → Paso 2: coincidencias por limpieza de texto
 #> ℹ A partir de la limpieza de texto, se limpiaron 2 de 7 comunas: Colchane y Huara
 #> → Paso 3: casos especiales

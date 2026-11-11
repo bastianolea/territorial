@@ -35,9 +35,9 @@ library(territorial)
 sample(comunas(), 12)
 ```
 
-     [1] "San Nicolás"   "La Florida"    "Placilla"      "Santo Domingo"
-     [5] "Valdivia"      "Puerto Varas"  "Nacimiento"    "Chile Chico"
-     [9] "Collipulli"    "Padre Hurtado" "Santa María"   "Conchalí"     
+     [1] "Toltén"          "Nacimiento"      "Porvenir"        "Villa Alegre"
+     [5] "Temuco"          "Olivar"          "Cerrillos"       "Portezuelo"
+     [9] "Cauquenes"       "Calera de Tango" "Lo Espejo"       "Pemuco"         
 
 ### Tabla de comunas, provincias y regiones de Chile
 
@@ -336,18 +336,18 @@ base
 ```
 
     # A tibble: 972 × 4
-       nombre_comuna  codigo_comuna name     value
-       <chr>                  <dbl> <chr>    <dbl>
-     1 Zapallar                5405 c     0.000463
-     2 Porvenir               12301 c     0.00107
-     3 Puerto Octay           10302 b     0.00212
-     4 Las Condes             13114 a     0.00221
-     5 Puyehue                10304 a     0.00569
-     6 Cabo de Hornos         12201 b     0.00735
-     7 Renca                  13128 a     0.00797
-     8 Vitacura               13132 b     0.00871
-     9 Placilla                6308 a     0.00892
-    10 Lumaco                  9207 b     0.00996
+       nombre_comuna codigo_comuna name      value
+       <chr>                 <dbl> <chr>     <dbl>
+     1 Coltauco               6104 c     0.0000239
+     2 Algarrobo              5602 b     0.00157
+     3 Chillán               16101 a     0.00319
+     4 Copiapó                3101 a     0.00448
+     5 Padre Hurtado         13604 a     0.00684
+     6 Victoria               9211 b     0.00703
+     7 Osorno                10301 b     0.00715
+     8 Quinta Normal         13126 c     0.00816
+     9 María Elena            2302 a     0.0105
+    10 Empedrado              7104 c     0.0106
     # ℹ 962 more rows
 
 Esta tabla tiene 972 filas, ¿cómo confirmar si existen datos para todas
@@ -365,7 +365,7 @@ base |>
     Warning: La cantidad de comunas es anómala: hay 324, pero deberían ser 346. Revísalas
     con `territorial::validar_comunas()`
 
-    → Las comunas faltantes son: Iquique, Mejillones, Viña del Mar, Cartagena, Llaillay, Villa Alemana, San Vicente, San Fernando, Nancagua, Vichuquén, Colbún, Retiro, Hualqui, Tirúa, Galvarino, Purén, Frutillar, Llanquihue, Dalcahue, Maipú, La Unión y El Carmen
+    → Las comunas faltantes son: Coquimbo, Punitaqui, San Esteban, Calera, Limache, Peumo, San Fernando, San Rafael, Longaví, Antuco, Pucón, Cholchol, Castro, Puqueldón, Lo Prado, San Miguel, Mariquina, Lago Ranco, Pemuco, Quirihue, Ñiquén y San Nicolás
 
 La función
 [`contar_comunas()`](https://bastianolea.github.io/territorial/reference/contar_comunas.md)
@@ -385,17 +385,17 @@ base |>
 
     ! Se encontraron 30 resultados, mostrando sólo 6.
 
-    ℹ Los resultados más cercanos al término `Alto` son: Alto Hospicio, Alto del Carmen, Alto Biobío y Puente Alto
+    ℹ Los resultados más cercanos al término `Alto` son: Alto Hospicio, Alto Biobío, Puente Alto y Alto del Carmen
 
     # A tibble: 6 × 5
-      nombre_comuna   codigo_comuna name  value puntaje
-      <chr>                   <dbl> <chr> <dbl>   <dbl>
-    1 Alto Hospicio            1107 a     0.143       1
-    2 Alto del Carmen          3302 b     0.166       1
-    3 Alto Hospicio            1107 c     0.200       1
-    4 Alto Biobío              8314 c     0.241       1
-    5 Puente Alto             13201 c     0.284       1
-    6 Puente Alto             13201 a     0.331       1
+      nombre_comuna   codigo_comuna name   value puntaje
+      <chr>                   <dbl> <chr>  <dbl>   <dbl>
+    1 Alto Hospicio            1107 a     0.0702       1
+    2 Alto Biobío              8314 a     0.195        1
+    3 Alto Biobío              8314 b     0.217        1
+    4 Puente Alto             13201 a     0.357        1
+    5 Alto del Carmen          3302 c     0.370        1
+    6 Alto Hospicio            1107 b     0.517        1
 
 ### Crear nombres de comunas a partir de códigos únicos territoriales
 
@@ -913,7 +913,7 @@ regiones |>
 
     → Paso 1: confirmar regiones correctas
 
-    ℹ De las 4 regiones distintas, ninguna tiene nombres 100% correctos. Los siguientes pasos intentarán la limpieza
+    ℹ De las 4 regiones distintas, ninguna tiene nombres totalmente correctos. Los siguientes pasos intentarán la limpieza
 
     → Paso 2: coincidencias por limpieza de texto
 

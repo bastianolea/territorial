@@ -1,5 +1,9 @@
 # Registro de cambios
 
+## territorial 0.9.10 (2026/11/10)
+
+- Preparación para envío a CRAN
+
 ## territorial 0.9.9 (2026/11/03)
 
 - Nuevas funciones
@@ -298,9 +302,6 @@
 - Mejoras en documentación de funciones
 - Nuevas viñetas
 - Corrección de lista de comunas
-
-## territorial 0.7.7
-
 - Mejoras en pruebas unitarias
 - Mejoras en documentación de funciones
 

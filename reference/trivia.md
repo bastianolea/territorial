@@ -13,6 +13,11 @@ las alternativas están diseñadas para confundirte!
 trivia()
 ```
 
+## Valor
+
+No devuelve ningún valor (`NULL` invisible). Se usa por su efecto:
+mostrar la trivia en la consola.
+
 ## Detalles
 
 Las preguntas son: *¿En qué región está la comuna? ¿qué comuna está en

@@ -117,7 +117,7 @@ para cambiar cómo se escriben sus nombres. Para comunas, usa
 limpiar_regiones(c("MAULE", "biobio", "la araucania", "Los rios", "RM", "aisen"))
 #> ℹ Limpiando 6 nombres de región (6 son distintos)
 #> → Paso 1: confirmar regiones correctas
-#> ℹ De las 6 regiones distintas, ninguna tiene nombres 100% correctos. Los siguientes pasos intentarán la limpieza
+#> ℹ De las 6 regiones distintas, ninguna tiene nombres totalmente correctos. Los siguientes pasos intentarán la limpieza
 #> → Paso 2: coincidencias por limpieza de texto
 #> ℹ A partir de la limpieza de texto, se limpiaron 4 de 6 regiones: Maule, Biobío, La Araucanía y Los Ríos
 #> → Paso 3: casos especiales
