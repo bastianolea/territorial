@@ -1,4 +1,4 @@
-# territorial 1.0.0 (2026/11/10)
+# territorial 0.9.10 (2026/11/10)
 - Preparación para envío a CRAN
 
 # territorial 0.9.9 (2026/11/03)
