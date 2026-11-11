@@ -20,7 +20,7 @@ as_codigo_comuna <- function(nombres_comunas) {
     cli::cli_abort("Nombres de comuna deben ser de tipo caracter (texto)")
   }
 
-  codigos_encontrados <- territorios$codigo_comuna[match(
+  codigos_encontrados <- territorial::territorios$codigo_comuna[match(
     nombres_comunas,
     territorial::territorios$nombre_comuna
   )]
