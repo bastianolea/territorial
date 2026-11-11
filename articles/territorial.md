@@ -35,9 +35,9 @@ library(territorial)
 sample(comunas(), 12)
 ```
 
-     [1] "Toltén"          "Nacimiento"      "Porvenir"        "Villa Alegre"
-     [5] "Temuco"          "Olivar"          "Cerrillos"       "Portezuelo"
-     [9] "Cauquenes"       "Calera de Tango" "Lo Espejo"       "Pemuco"         
+     [1] "Las Condes"    "San Rosendo"   "Chillán Viejo" "San Clemente"
+     [5] "El Quisco"     "Timaukel"      "Pelluhue"      "Puerto Varas"
+     [9] "Gorbea"        "Máfil"         "Puqueldón"     "Collipulli"   
 
 ### Tabla de comunas, provincias y regiones de Chile
 
@@ -336,18 +336,18 @@ base
 ```
 
     # A tibble: 972 × 4
-       nombre_comuna codigo_comuna name      value
-       <chr>                 <dbl> <chr>     <dbl>
-     1 Coltauco               6104 c     0.0000239
-     2 Algarrobo              5602 b     0.00157
-     3 Chillán               16101 a     0.00319
-     4 Copiapó                3101 a     0.00448
-     5 Padre Hurtado         13604 a     0.00684
-     6 Victoria               9211 b     0.00703
-     7 Osorno                10301 b     0.00715
-     8 Quinta Normal         13126 c     0.00816
-     9 María Elena            2302 a     0.0105
-    10 Empedrado              7104 c     0.0106
+       nombre_comuna   codigo_comuna name     value
+       <chr>                   <dbl> <chr>    <dbl>
+     1 Isla de Pascua           5201 c     0.000374
+     2 Contulmo                 8204 c     0.000511
+     3 Calle Larga              5302 a     0.000960
+     4 Ancud                   10202 b     0.000961
+     5 Alhué                   13502 b     0.00112
+     6 San Vicente              6117 b     0.00232
+     7 El Bosque               13105 b     0.00275
+     8 Padre Las Casas          9112 b     0.00341
+     9 General Lagos           15202 b     0.00614
+    10 Curepto                  7103 c     0.0105
     # ℹ 962 more rows
 
 Esta tabla tiene 972 filas, ¿cómo confirmar si existen datos para todas
@@ -365,7 +365,7 @@ base |>
     Warning: La cantidad de comunas es anómala: hay 324, pero deberían ser 346. Revísalas
     con `territorial::validar_comunas()`
 
-    → Las comunas faltantes son: Coquimbo, Punitaqui, San Esteban, Calera, Limache, Peumo, San Fernando, San Rafael, Longaví, Antuco, Pucón, Cholchol, Castro, Puqueldón, Lo Prado, San Miguel, Mariquina, Lago Ranco, Pemuco, Quirihue, Ñiquén y San Nicolás
+    → Las comunas faltantes son: Pozo Almonte, María Elena, Ovalle, Concón, Quillota, San Antonio, Putaendo, Peralillo, Placilla, San Rafael, Cañete, Antuco, Mulchén, Temuco, Ercilla, Futaleufú, Cochrane, Laguna Blanca, Pudahuel, Arica, Quirihue y Ranquil
 
 La función
 [`contar_comunas()`](https://bastianolea.github.io/territorial/reference/contar_comunas.md)
@@ -383,19 +383,19 @@ base |>
   buscar_comuna("Alto")
 ```
 
-    ! Se encontraron 30 resultados, mostrando sólo 6.
+    ! Se encontraron 24 resultados, mostrando sólo 6.
 
-    ℹ Los resultados más cercanos al término `Alto` son: Alto Hospicio, Alto Biobío, Puente Alto y Alto del Carmen
+    ℹ Los resultados más cercanos al término `Alto` son: Alto Biobío, Alto Hospicio y Alto del Carmen
 
     # A tibble: 6 × 5
       nombre_comuna   codigo_comuna name   value puntaje
       <chr>                   <dbl> <chr>  <dbl>   <dbl>
-    1 Alto Hospicio            1107 a     0.0702       1
-    2 Alto Biobío              8314 a     0.195        1
-    3 Alto Biobío              8314 b     0.217        1
-    4 Puente Alto             13201 a     0.357        1
-    5 Alto del Carmen          3302 c     0.370        1
-    6 Alto Hospicio            1107 b     0.517        1
+    1 Alto Biobío              8314 c     0.0501       1
+    2 Alto Biobío              8314 b     0.0837       1
+    3 Alto Hospicio            1107 a     0.130        1
+    4 Alto Biobío              8314 a     0.177        1
+    5 Alto del Carmen          3302 c     0.273        1
+    6 Alto del Carmen          3302 b     0.312        1
 
 ### Crear nombres de comunas a partir de códigos únicos territoriales
 
