@@ -143,14 +143,14 @@ limpiar_comunas <- function(
   # extraer limpiadas en este paso
   comunas_correctas <- resultados |>
     dplyr::select(correctas) |>
-    na.omit() |>
+    stats::na.omit() |>
     dplyr::pull()
 
   # informar
   cli::cli_alert("Paso 1: confirmar comunas correctas")
   if (length(comunas_correctas) == 0) {
     cli::cli_alert_info(
-      "De las {nrow(resultados)} comunas distintas, ninguna tiene nombres 100% correctos. Los siguientes pasos intentarán la limpieza..."
+      "De las {nrow(resultados)} comunas distintas, ninguna tiene nombres totalmente correctos. Los siguientes pasos intentarán la limpieza..."
     )
   } else {
     cli::cli_alert_info(
@@ -183,7 +183,7 @@ limpiar_comunas <- function(
   # extraer limpiadas en este paso
   comunas_limpias <- resultados |>
     dplyr::select(limpieza) |>
-    na.omit() |>
+    stats::na.omit() |>
     dplyr::pull()
 
   # informar
@@ -224,7 +224,7 @@ limpiar_comunas <- function(
   # extraer limpiadas en este paso
   comunas_especiales <- resultados |>
     dplyr::select(especiales) |>
-    na.omit() |>
+    stats::na.omit() |>
     dplyr::pull()
 
   # informar
@@ -264,7 +264,7 @@ limpiar_comunas <- function(
   # determinar las comunas que se requieren coincidir
   comunas_coincidir <- faltantes |>
     dplyr::select(coincidir) |>
-    na.omit() |>
+    stats::na.omit() |>
     dplyr::pull()
 
   # browser()
@@ -313,7 +313,7 @@ limpiar_comunas <- function(
         )
 
         # elegir resultado de menor distancia con el original
-        distancia <- adist(
+        distancia <- utils::adist(
           comuna_faltante,
           resultado
         )
@@ -351,7 +351,7 @@ limpiar_comunas <- function(
   # extraer limpiadas en este paso
   comunas_coincididas <- resultados |>
     dplyr::select(coincidencia) |>
-    na.omit() |>
+    stats::na.omit() |>
     dplyr::pull()
 
   # informar
@@ -383,7 +383,7 @@ limpiar_comunas <- function(
   # extraer las limpiadas
   comunas_limpiadas <- limpiado |>
     dplyr::select(resultado) |>
-    na.omit() |>
+    stats::na.omit() |>
     dplyr::pull()
 
   porcentaje <- length(comunas_limpiadas) / nrow(resultados)

@@ -1,6 +1,6 @@
 #' Pregunta de trivia: ¿qué comuna está en la región equis?
 #'
-#' @keywords internal
+#' @noRd
 #'
 pregunta_region <- function() {
   # elegir region al azar
@@ -49,7 +49,7 @@ pregunta_region <- function() {
   # preguntar
   cli::cli_alert(pregunta)
 
-  eleccion <- menu(
+  eleccion <- utils::menu(
     alternativas,
     title = NULL
   )

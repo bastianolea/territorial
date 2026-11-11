@@ -42,6 +42,7 @@ test_that(
   suppressMessages()
 
 test_that("revisar comunas desde dataframe especificando columna", {
+  withr::local_seed(7319)
   expect_condition(
     territorios |>
       dplyr::rename(nombres = nombre_comuna) |>
@@ -63,6 +64,7 @@ test_that("revisar comunas completas menos Antártica desde vector", {
   suppressMessages()
 
 test_that("revisar comunas con muestra pequeña (menos de 345)", {
+  withr::local_seed(7319)
   expect_condition(
     territorios |>
       dplyr::slice_sample(n = 10) |>
@@ -73,6 +75,7 @@ test_that("revisar comunas con muestra pequeña (menos de 345)", {
   suppressMessages()
 
 test_that("revisar comunas con muestra intermedia (310)", {
+  withr::local_seed(7319)
   expect_condition(
     territorios |>
       dplyr::slice_sample(n = 310) |>
@@ -102,6 +105,7 @@ test_that("revisar comunas con más de 346 comunas únicas", {
   suppressMessages()
 
 test_that("revisar comunas indicando cuáles faltan", {
+  withr::local_seed(7319)
   expect_warning(
     territorios |>
       dplyr::slice_sample(n = 10) |>

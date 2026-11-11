@@ -1,6 +1,6 @@
 #' Juego: ¿en qué provincia está la comuna?
 #'
-#' @keywords internal
+#' @noRd
 #'
 pregunta_provincia <- function() {
   # comunas que no se llaman igual a su provincia
@@ -70,7 +70,7 @@ pregunta_provincia <- function() {
   # preguntar
   cli::cli_alert(pregunta)
 
-  eleccion <- menu(
+  eleccion <- utils::menu(
     alternativas,
     title = NULL
   )

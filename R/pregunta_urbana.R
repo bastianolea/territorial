@@ -1,6 +1,6 @@
 #' Pregunta de trivia: ¿cuál de estas comunas es urbana?
 #'
-#' @keywords internal
+#' @noRd
 #'
 pregunta_urbana <- function() {
   # tabla de comunas
@@ -41,7 +41,7 @@ pregunta_urbana <- function() {
   # preguntar
   cli::cli_alert(pregunta)
 
-  eleccion <- menu(
+  eleccion <- utils::menu(
     alternativas,
     title = NULL
   )

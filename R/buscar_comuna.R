@@ -55,7 +55,7 @@ buscar_comuna <- function(
 
   # distancia de Levenshtein, donde 0 es una coincidencia exacta
   distancia <- as.vector(
-    adist(tolower(texto), tolower(nombres_comunas), partial = TRUE)
+    utils::adist(tolower(texto), tolower(nombres_comunas), partial = TRUE)
   )
 
   # puntaje de similitud normalizado a entre 0 y 1

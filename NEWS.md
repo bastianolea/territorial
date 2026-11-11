@@ -1,3 +1,6 @@
+# territorial 1.0.0 (2026/11/10)
+- Preparación para envío a CRAN
+
 # territorial 0.9.9 (2026/11/03)
 - Nuevas funciones `as_capital_regional()` e `is_capital_regional()`. Como sus nombres indican, la primera convierte regiones a las comunas que son su capital regional, y la segunda confirma si comunas corresponden a capitales regionales. Ambas funcionan tanto con códigos como con nombres.
 - `ubicar_comunas()` y `obtener_comunas()` ahora reciben también nombres de comunas y de regiones, respectivamente, además de códigos numéricos.
@@ -102,8 +105,6 @@
 - Mejoras en documentación de funciones
 - Nuevas viñetas
 - Corrección de lista de comunas
-
-# territorial 0.7.7
 - Mejoras en pruebas unitarias
 - Mejoras en documentación de funciones
 

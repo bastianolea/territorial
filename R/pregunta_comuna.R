@@ -1,5 +1,5 @@
 #' Pregunta de trivia: ¿en qué región está la comuna?
-#' @keywords internal
+#' @noRd
 #'
 pregunta_comuna <- function() {
   # elegir comuna al azar
@@ -49,7 +49,7 @@ pregunta_comuna <- function() {
   # preguntar
   cli::cli_alert(pregunta)
 
-  eleccion <- menu(
+  eleccion <- utils::menu(
     alternativas,
     title = NULL
   )

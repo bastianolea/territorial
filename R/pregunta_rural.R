@@ -1,6 +1,6 @@
 #' Pregunta de trivia: ¿cuál de estas comunas es rural?
 #'
-#' @keywords internal
+#' @noRd
 #'
 pregunta_rural <- function() {
   # tabla de comunas
@@ -41,7 +41,7 @@ pregunta_rural <- function() {
   # preguntar
   cli::cli_alert(pregunta)
 
-  eleccion <- menu(
+  eleccion <- utils::menu(
     alternativas,
     title = NULL
   )

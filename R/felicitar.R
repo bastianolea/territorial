@@ -3,7 +3,7 @@
 #' Entrega mensajes de felicitación o fracaso al azar, con un emoji
 #'
 #' @param tipo Entregar respuesta positiva (TRUE) o negativa (FALSE)
-#' @keywords internal
+#' @noRd
 #' @returns Mensaje de respuesta
 #'
 felicitar <- function(tipo) {

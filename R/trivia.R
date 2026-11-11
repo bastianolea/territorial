@@ -6,6 +6,7 @@
 #'
 #' También puedes [jugar la trivia en tu navegador](https://bastianolea.github.io/territorial/articles/trivia.html), sin instalar R.
 #'
+#' @returns No devuelve ningún valor (`NULL` invisible). Se usa por su efecto: mostrar la trivia en la consola.
 #' @export
 #' @examplesIf interactive()
 #' trivia()

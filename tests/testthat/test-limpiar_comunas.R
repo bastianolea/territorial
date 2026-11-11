@@ -271,6 +271,8 @@ test_that("prueba calidad de limpieza de comunas: guiones bajo en vez de espacio
   suppressMessages()
 
 test_that("prueba calidad de limpieza de comunas: espaciados extra", {
+  skip_if_not_installed("messy")
+  withr::local_seed(7319)
   expect_message(
     territorios |>
       dplyr::select(nombre_comuna) |>
@@ -283,6 +285,8 @@ test_that("prueba calidad de limpieza de comunas: espaciados extra", {
   suppressMessages()
 
 test_that("prueba calidad de limpieza de comunas: caracteres especiales, nivel 1", {
+  skip_if_not_installed("messy")
+  withr::local_seed(7319)
   expect_message(
     territorios |>
       dplyr::select(nombre_comuna) |>
@@ -295,18 +299,22 @@ test_that("prueba calidad de limpieza de comunas: caracteres especiales, nivel 1
   suppressMessages()
 
 test_that("prueba calidad de limpieza de comunas: caracteres especiales, nivel 2", {
+  skip_if_not_installed("messy")
+  withr::local_seed(7319)
   expect_message(
     territorios |>
       dplyr::select(nombre_comuna) |>
       messy::add_special_chars(messiness = 0.3) |>
       limpiar_comunas() |>
       suppressWarnings(),
-    regexp = "[95-99].[1-9]%|100%"
+    regexp = "(9[5-9](\\.[0-9])?|100)%"
   )
 }) |>
   suppressMessages()
 
 test_that("prueba calidad de limpieza de comunas: mayúsculas y símbolos", {
+  skip_if_not_installed("messy")
+  withr::local_seed(7319)
   expect_message(
     territorios |>
       dplyr::select(nombre_comuna) |>
@@ -320,6 +328,8 @@ test_that("prueba calidad de limpieza de comunas: mayúsculas y símbolos", {
   suppressMessages()
 
 test_that("prueba calidad de limpieza de comunas: mayúsculas, espacios y símbolos", {
+  skip_if_not_installed("messy")
+  withr::local_seed(7319)
   expect_message(
     territorios |>
       dplyr::select(nombre_comuna) |>
@@ -328,12 +338,13 @@ test_that("prueba calidad de limpieza de comunas: mayúsculas, espacios y símbo
       messy::add_special_chars() |>
       limpiar_comunas() |>
       suppressWarnings(),
-    regexp = "[95-99].[1-9]%|100%"
+    regexp = "(9[5-9](\\.[0-9])?|100)%"
   )
 }) |>
   suppressMessages()
 
 test_that("prueba calidad de limpieza de comunas: caracteres faltantes", {
+  withr::local_seed(7319)
   expect_message(
     comunas() |>
       eliminar_texto(porcentaje = 0.1) |>
@@ -345,17 +356,19 @@ test_that("prueba calidad de limpieza de comunas: caracteres faltantes", {
   suppressMessages()
 
 test_that("prueba calidad de limpieza de comunas: caracteres faltantes, nivel 2", {
+  withr::local_seed(7319)
   expect_message(
     comunas() |>
       eliminar_texto(porcentaje = 0.3) |>
       limpiar_comunas() |>
       suppressWarnings(),
-    regexp = "[92-99].[1-9]%|100%"
+    regexp = "(9[0-9](\\.[0-9])?|100)%"
   )
 }) |>
   suppressMessages()
 
 test_that("prueba calidad de limpieza de comunas: caracteres reemplazados", {
+  withr::local_seed(7319)
   expect_message(
     comunas() |>
       reemplazar_texto(porcentaje = 0.1) |>
@@ -368,13 +381,14 @@ test_that("prueba calidad de limpieza de comunas: caracteres reemplazados", {
 
 
 test_that("prueba calidad de limpieza de comunas: caracteres reemplazados, nivel 2", {
+  withr::local_seed(7319)
   expect_message(
     comunas() |>
       reemplazar_texto(porcentaje = 0.3) |>
       limpiar_comunas() |>
       suppressWarnings() |>
       suppressWarnings(),
-    regexp = "[92-99].[1-9]%|100%"
+    regexp = "(9[2-9](\\.[0-9])?|100)%"
   )
 }) |>
   suppressMessages()

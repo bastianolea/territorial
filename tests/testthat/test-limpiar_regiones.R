@@ -249,6 +249,8 @@ test_that("prueba calidad de limpieza de regiones: guiones bajo en vez de espaci
   suppressMessages()
 
 test_that("prueba calidad de limpieza de regiones: espaciados extra", {
+  skip_if_not_installed("messy")
+  withr::local_seed(7319)
   expect_message(
     territorios |>
       dplyr::distinct(nombre_region) |>
@@ -261,6 +263,8 @@ test_that("prueba calidad de limpieza de regiones: espaciados extra", {
   suppressMessages()
 
 test_that("prueba calidad de limpieza de regiones: caracteres especiales, nivel 1", {
+  skip_if_not_installed("messy")
+  withr::local_seed(7319)
   expect_message(
     territorios |>
       dplyr::distinct(nombre_region) |>
@@ -273,18 +277,22 @@ test_that("prueba calidad de limpieza de regiones: caracteres especiales, nivel 
   suppressMessages()
 
 test_that("prueba calidad de limpieza de regiones: caracteres especiales, nivel 2", {
+  skip_if_not_installed("messy")
+  withr::local_seed(7319)
   expect_message(
     territorios |>
       dplyr::distinct(nombre_region) |>
       messy::add_special_chars(messiness = 0.3) |>
       limpiar_regiones() |>
       suppressWarnings(),
-    regexp = "[95-99].[1-9]%|100%"
+    regexp = "(9[5-9](\\.[0-9])?|100)%"
   )
 }) |>
   suppressMessages()
 
 test_that("prueba calidad de limpieza de regiones: mayúsculas y símbolos", {
+  skip_if_not_installed("messy")
+  withr::local_seed(7319)
   expect_message(
     territorios |>
       dplyr::distinct(nombre_region) |>
@@ -298,6 +306,8 @@ test_that("prueba calidad de limpieza de regiones: mayúsculas y símbolos", {
   suppressMessages()
 
 test_that("prueba calidad de limpieza de regiones: mayúsculas, espacios y símbolos", {
+  skip_if_not_installed("messy")
+  withr::local_seed(7319)
   expect_message(
     territorios |>
       dplyr::select(nombre_region) |>
@@ -306,12 +316,13 @@ test_that("prueba calidad de limpieza de regiones: mayúsculas, espacios y símb
       messy::add_special_chars() |>
       limpiar_regiones() |>
       suppressWarnings(),
-    regexp = "[95-99].[1-9]%|100%"
+    regexp = "(9[5-9](\\.[0-9])?|100)%"
   )
 }) |>
   suppressMessages()
 
 test_that("prueba calidad de limpieza de regiones: caracteres faltantes", {
+  withr::local_seed(7319)
   expect_message(
     regiones() |>
       eliminar_texto(porcentaje = 0.1) |>
@@ -323,17 +334,19 @@ test_that("prueba calidad de limpieza de regiones: caracteres faltantes", {
   suppressMessages()
 
 test_that("prueba calidad de limpieza de regiones: caracteres faltantes, nivel 2", {
+  withr::local_seed(7319)
   expect_message(
     regiones() |>
       eliminar_texto(porcentaje = 0.2) |>
       limpiar_regiones(procedimiento = FALSE) |>
       suppressWarnings(),
-    regexp = "[95-99].[1-9]%|100%"
+    regexp = "(9[5-9](\\.[0-9])?|100)%"
   )
 }) |>
   suppressMessages()
 
 test_that("prueba calidad de limpieza de regiones: caracteres reemplazados", {
+  withr::local_seed(7319)
   expect_message(
     regiones() |>
       reemplazar_texto(porcentaje = 0.1) |>
@@ -345,12 +358,13 @@ test_that("prueba calidad de limpieza de regiones: caracteres reemplazados", {
   suppressMessages()
 
 test_that("prueba calidad de limpieza de regiones: caracteres reemplazados, nivel 2", {
+  withr::local_seed(7319)
   expect_message(
     regiones() |>
       reemplazar_texto(porcentaje = 0.2) |>
       limpiar_regiones(procedimiento = FALSE) |>
       suppressWarnings(),
-    regexp = "[95-99].[1-9]%|100%"
+    regexp = "(9[5-9](\\.[0-9])?|100)%"
   )
 }) |>
   suppressMessages()

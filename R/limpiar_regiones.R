@@ -130,14 +130,14 @@ limpiar_regiones <- function(
   # extraer limpiadas en este paso
   regiones_correctas <- resultados |>
     dplyr::select(correctas) |>
-    na.omit() |>
+    stats::na.omit() |>
     dplyr::pull()
 
   # informar
   cli::cli_alert("Paso 1: confirmar regiones correctas")
   if (length(regiones_correctas) == 0) {
     cli::cli_alert_info(
-      "De las {nrow(resultados)} regiones distintas, ninguna tiene nombres 100% correctos. Los siguientes pasos intentarán la limpieza"
+      "De las {nrow(resultados)} regiones distintas, ninguna tiene nombres totalmente correctos. Los siguientes pasos intentarán la limpieza"
     )
   } else {
     cli::cli_alert_info(
@@ -169,7 +169,7 @@ limpiar_regiones <- function(
   # extraer limpiadas en este paso
   regiones_limpias_paso2 <- resultados |>
     dplyr::select(limpieza) |>
-    na.omit() |>
+    stats::na.omit() |>
     dplyr::pull()
 
   # informar
@@ -208,7 +208,7 @@ limpiar_regiones <- function(
   # extraer limpiadas en este paso
   regiones_especiales <- resultados |>
     dplyr::select(especiales) |>
-    na.omit() |>
+    stats::na.omit() |>
     dplyr::pull()
 
   # informar
@@ -243,7 +243,7 @@ limpiar_regiones <- function(
   # determinar las regiones que se requieren coincidir
   regiones_coincidir <- faltantes |>
     dplyr::select(coincidir) |>
-    na.omit() |>
+    stats::na.omit() |>
     dplyr::pull()
 
   # por cada región faltante, buscar coincidencias aproximadas con agrep
@@ -278,7 +278,7 @@ limpiar_regiones <- function(
         )
 
         # elegir resultado de menor distancia con el original
-        distancia <- adist(
+        distancia <- utils::adist(
           region_faltante,
           resultado
         )
@@ -313,7 +313,7 @@ limpiar_regiones <- function(
   # extraer limpiadas en este paso
   regiones_coincididas <- resultados |>
     dplyr::select(coincidencia) |>
-    na.omit() |>
+    stats::na.omit() |>
     dplyr::pull()
 
   # informar
@@ -340,7 +340,7 @@ limpiar_regiones <- function(
   # extraer las limpiadas
   regiones_limpiadas <- limpiado |>
     dplyr::select(resultado) |>
-    na.omit() |>
+    stats::na.omit() |>
     dplyr::pull()
 
   porcentaje <- length(regiones_limpiadas) / nrow(resultados)
