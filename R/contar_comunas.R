@@ -8,7 +8,7 @@
 #' @param variable Columna del dataframe con los nombres de comunas (se pasa sin comillas, p.ej. `comuna`)
 #' @param largo Si faltan comunas en los datos, enumera esta cantidad de comunas. Por defecto son 30, y el argumento se pasa a [territorial::redactar_comunas()].
 #'
-#' @returns Dataframe o vector intacto pero en modo invisible, con mensajes de conteo de comunas
+#' @returns Mensajes de conteo de comunas, y el valor del conteo.
 #' @seealso [validar_comunas()] y [limpiar_comunas()] para revisar y corregir los nombres de comunas, y [obtener_comunas()] para obtener las comunas de una región.
 #' @export
 #'
@@ -91,5 +91,5 @@ contar_comunas <- function(
     )
   }
 
-  return(invisible(datos))
+  return(invisible(n_comunas))
 }

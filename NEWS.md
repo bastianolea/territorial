@@ -1,3 +1,6 @@
+# territorial 0.9.11 (2026/11/12)
+- `contar_comunas()` ahora entrega el número de conteo único de comunas en vez del dataframe
+
 # territorial 0.9.10 (2026/11/10)
 - Preparación para envío a CRAN
 

@@ -14,7 +14,7 @@ contar_comunas(datos, variable = NULL, largo = 30)
 \item{largo}{Si faltan comunas en los datos, enumera esta cantidad de comunas. Por defecto son 30, y el argumento se pasa a \code{\link[=redactar_comunas]{redactar_comunas()}}.}
 }
 \value{
-Dataframe o vector intacto pero en modo invisible, con mensajes de conteo de comunas
+Mensajes de conteo de comunas, y el valor del conteo.
 }
 \description{
 Revisa un vector o una tabla de datos (asumiendo la columna \code{nombre_comuna}, o indicando una columna que contenga nombres de comunas) e indica el conteo de comunas únicas, y emite mensajes dependiendo de esta cantidad: si es correcta (345 o 346), si es menor (indicando las que faltan) o si es mayor (recomendando validar con \code{\link[=validar_comunas]{validar_comunas()}}).
