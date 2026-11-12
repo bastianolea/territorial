@@ -1,5 +1,7 @@
 # NA
 
+ubicar_comunas(nivel = “Provincia”)
+
 Trivia: - \[x\] mensaje de bienvenida - \[x\] números de pregunta
 
 Agregar funciones nuevas a readme y primeros pasos: \_ \[ \]

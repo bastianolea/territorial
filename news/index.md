@@ -1,10 +1,16 @@
 # Registro de cambios
 
-## territorial 0.9.11 (2026/11/12)
+## territorial 0.9.13 (2026/11/12)
 
 - [`contar_comunas()`](https://bastianolea.github.io/territorial/reference/contar_comunas.md)
   ahora entrega el número de conteo único de comunas en vez del
-  dataframe
+  dataframe.
+- [`ubicar_comunas()`](https://bastianolea.github.io/territorial/reference/ubicar_comunas.md)
+  ahora puede ubicar comunas en su provincia con el argumento
+  `nivel = "provincia"`.
+- Nueva función
+  [`is_rural()`](https://bastianolea.github.io/territorial/reference/is_rural.md)
+  para evaluar fácilmente si comunas son rurales.
 
 ## territorial 0.9.10 (2026/11/10)
 
