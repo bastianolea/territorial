@@ -1,5 +1,7 @@
-# territorial 0.9.11 (2026/11/12)
-- `contar_comunas()` ahora entrega el número de conteo único de comunas en vez del dataframe
+# territorial 0.9.13 (2026/11/12)
+- `contar_comunas()` ahora entrega el número de conteo único de comunas en vez del dataframe.
+- `ubicar_comunas()` ahora puede ubicar comunas en su provincia con el argumento `nivel = "provincia"`.
+- Nueva función `is_rural()` para evaluar fácilmente si comunas son rurales.
 
 # territorial 0.9.10 (2026/11/10)
 - Preparación para envío a CRAN

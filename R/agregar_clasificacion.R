@@ -55,6 +55,10 @@ agregar_clasificacion <- function(
     codigo_comuna <- as.character(codigo_comuna)
   }
 
+  if (!is.numeric(codigo_comuna)) {
+    codigo_comuna <- as_codigo_comuna(codigo_comuna)
+  }
+
   clasificaciones <- territorial::clasificacion$clasificacion[match(
     codigo_comuna,
     territorial::clasificacion$codigo_comuna

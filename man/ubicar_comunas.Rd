@@ -2,23 +2,27 @@
 % Please edit documentation in R/ubicar_comunas.R
 \name{ubicar_comunas}
 \alias{ubicar_comunas}
-\title{Ubicar comunas en la región que les corresponde}
+\title{Ubicar comunas en la región o provincia que les corresponde}
 \usage{
-ubicar_comunas(codigo_comuna)
+ubicar_comunas(codigo_comuna, nivel = "región")
 }
 \arguments{
 \item{codigo_comuna}{Códigos comunales en formato numérico, o nombres de comunas (como en \code{\link[=comunas]{comunas()}})}
+
+\item{nivel}{Ubicar la/s comuna/s en su "región" (por defecto) o "provincia".}
 }
 \value{
-Vector con nombres de regiones correspondientes
+Vector con nombres de regiones o provincias correspondientes
 }
 \description{
-Entregando códigos comunales (como los que aparecen en \link{territorios}) o nombres de comunas, retorna los nombres de las regiones donde se ubican dichas comunas. Retorna NA si no corresponde con ninguna.
+Entregando códigos comunales (como los que aparecen en \link{territorios}) o nombres de comunas (que serán convertidos a códigos comunales con \code{\link[=as_codigo_comuna]{as_codigo_comuna()}}), retorna los nombres de las regiones o provincias (según el argumento \code{nivel}) donde se ubican dichas comunas. Retorna NA si no corresponde con ninguna.
 }
 \examples{
 ubicar_comunas(c("Cerrillos", "Navidad"))
 
 ubicar_comunas(c(1101, 13103))
+
+ubicar_comunas("Puente Alto", nivel = "provincia")
 }
 \seealso{
 \code{\link[=obtener_comunas]{obtener_comunas()}} para hacer lo inverso, \code{\link[=contextualizar]{contextualizar()}} para agregar región, provincia y códigos a una tabla, y \code{\link[=ubicar_localidades]{ubicar_localidades()}} para territorios más pequeños que una comuna.

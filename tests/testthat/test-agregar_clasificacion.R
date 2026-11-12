@@ -59,12 +59,70 @@ test_that("agregar_clasificacion funciona con data frames", {
   )
 })
 
+test_that("agregar_clasificacion funciona con nombres de comunas", {
+  nombres <- c("El Tabo", "Peñalolén", "Tirúa", "Santiago")
+
+  expect_identical(
+    agregar_clasificacion(nombres, ordenar = FALSE),
+    c("Mixta", "Urbana", "Rural", "Urbana")
+  )
+
+  # equivale a usar los códigos de comuna
+  expect_identical(
+    agregar_clasificacion(nombres),
+    agregar_clasificacion(c(5605, 13122, 8207, 13101))
+  )
+})
+
+test_that("agregar_clasificacion con nombres entrega factor ordenado", {
+  resultado <- agregar_clasificacion(c("Santiago", "Tirúa"))
+
+  expect_s3_class(resultado, "factor")
+  expect_identical(levels(resultado), c("Rural", "Mixta", "Urbana"))
+})
+
+test_that("agregar_clasificacion con nombres de comuna como factor", {
+  expect_identical(
+    agregar_clasificacion(factor(c("Santiago", "Tirúa")), ordenar = FALSE),
+    c("Urbana", "Rural")
+  )
+})
+
+test_that("agregar_clasificacion con nombres mantiene NA y advierte de no reconocidos", {
+  # NA de entrada no genera advertencia
+  expect_no_warning(
+    resultado <- agregar_clasificacion(c("Santiago", NA), ordenar = FALSE)
+  )
+  expect_identical(resultado, c("Urbana", NA))
+
+  # nombres inexistentes dan NA y advertencia
+  expect_warning(
+    resultado <- agregar_clasificacion(
+      c("Santiago", "Comuna Inventada"),
+      ordenar = FALSE
+    ),
+    "Comuna Inventada"
+  )
+  expect_identical(resultado, c("Urbana", NA))
+})
+
+test_that("agregar_clasificacion con nombres funciona dentro de data frames", {
+  # la columna codigo_comuna con nombres de comuna también se convierte
+  datos <- dplyr::tibble(codigo_comuna = c("Santiago", "Tirúa"))
+
+  resultado <- agregar_clasificacion(datos, ordenar = FALSE)
+  expect_identical(resultado$clasificacion, c("Urbana", "Rural"))
+})
+
 test_that("agregar_clasificacion valida sus argumentos", {
   expect_error(agregar_clasificacion(list(8107)), "vector de códigos")
 
-  # factores usan sus valores, no sus niveles
+  # factores usan sus valores, no sus niveles (niveles en orden inverso)
   expect_identical(
-    agregar_clasificacion(factor(c(8107, 13122))) |> as.character(),
-    c("Mixta", "Urbana")
+    agregar_clasificacion(
+      factor(c("Santiago", "Tirúa"), levels = c("Tirúa", "Santiago"))
+    ) |>
+      as.character(),
+    c("Urbana", "Rural")
   )
 })
