@@ -33,8 +33,7 @@ contar_comunas(datos, variable = NULL, largo = 30)
 
 ## Valor
 
-Dataframe o vector intacto pero en modo invisible, con mensajes de
-conteo de comunas
+Mensajes de conteo de comunas, y el valor del conteo.
 
 ## Detalles
 
