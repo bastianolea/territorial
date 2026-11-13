@@ -15,11 +15,6 @@ Vector lógico del mismo largo que \code{codigo_comuna}: TRUE si la comuna es ru
 \description{
 Dado un vector de cualquier largo, retorna TRUE o FALSE para cada elemento de acuerdo si la comuna está clasificada como "Rural" en la tabla \link{clasificacion} (clasificación comunal de la Política Nacional de Desarrollo Rural, PNDR, según el Censo 2024).
 }
-\details{
-Las comunas clasificadas como "Mixta" o "Urbana" retornan FALSE. Los códigos o nombres que no corresponden a una comuna retornan NA.
-
-Acepta tanto códigos de comuna en formato numérico como nombres de comuna en formato caracter.
-}
 \examples{
 is_rural(1401)
 

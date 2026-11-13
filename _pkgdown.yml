@@ -39,7 +39,6 @@ reference:
   - regiones
   - codigos_comunas
   - clasificacion
-  - contextualizar
   - capitales_regionales
   - localidades
   - cut_historicos
@@ -62,6 +61,7 @@ reference:
   - starts_with("ordenar_")
   - starts_with("ubicar_")
   - starts_with("limpiar_")
+  - contextualizar
   - starts_with("actualizar_")
 - title: Complementar nombres de territorios
   desc: Funciones que toman los nombres de territorios y hacen más cosas con ellos
