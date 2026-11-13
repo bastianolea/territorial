@@ -35,9 +35,9 @@ library(territorial)
 sample(comunas(), 12)
 ```
 
-     [1] "Ollagüe"       "Tucapel"       "Olivar"        "Ovalle"
-     [5] "Maule"         "Santa Bárbara" "Mariquina"     "Coyhaique"
-     [9] "Traiguén"      "Yerbas Buenas" "Cunco"         "Rinconada"    
+     [1] "Conchalí"    "San Rosendo" "Pelluhue"    "Copiapó"     "Empedrado"
+     [6] "Chanco"      "Bulnes"      "Río Hurtado" "Calama"      "Machalí"
+    [11] "Río Claro"   "Vallenar"   
 
 ### Tabla de comunas, provincias y regiones de Chile
 
@@ -336,18 +336,18 @@ base
 ```
 
     # A tibble: 972 × 4
-       nombre_comuna   codigo_comuna name    value
-       <chr>                   <dbl> <chr>   <dbl>
-     1 Zapallar                 5405 a     0.00201
-     2 Los Sauces               9206 b     0.00222
-     3 Río Ibáñez              11402 a     0.00278
-     4 Valparaíso               5101 c     0.00301
-     5 Tierra Amarilla          3103 a     0.00369
-     6 San Fernando             6301 a     0.00450
-     7 Rengo                    6115 c     0.00453
-     8 Chanco                   7202 c     0.00518
-     9 Pinto                   16106 c     0.00550
-    10 Tortel                  11303 a     0.00656
+       nombre_comuna codigo_comuna name    value
+       <chr>                 <dbl> <chr>   <dbl>
+     1 Lo Prado              13117 b     0.00175
+     2 Llaillay               5703 b     0.00399
+     3 Quellón               10208 a     0.00513
+     4 Curepto                7103 b     0.00581
+     5 Vilcún                 9119 a     0.00891
+     6 Tortel                11303 b     0.00982
+     7 Camiña                 1402 a     0.0104
+     8 Concepción             8101 c     0.0112
+     9 Arica                 15101 a     0.0115
+    10 Alto Hospicio          1107 c     0.0116
     # ℹ 962 more rows
 
 Esta tabla tiene 972 filas, ¿cómo confirmar si existen datos para todas
@@ -365,7 +365,7 @@ base |>
     Warning: La cantidad de comunas es anómala: hay 324, pero deberían ser 346. Revísalas
     con `territorial::validar_comunas()`
 
-    → Las comunas faltantes son: Pozo Almonte, Chañaral, Santa María, Coinco, La Estrella, Nancagua, San Rafael, Coronel, Florida, Lebu, Cabrero, Pitrufquén, Curacautín, Río Negro, Guaitecas, Laguna Blanca, Estación Central, Providencia, Quilicura, Quinta Normal, Peñaflor y Ninhue
+    → Las comunas faltantes son: Copiapó, Freirina, Huasco, Ovalle, Rancagua, Rengo, Chimbarongo, Pencahue, Río Claro, Romeral, Cañete, Quilaco, Melipeuco, Traiguén, Maullín, San Pablo, María Pinto, Isla de Maipo, Corral, Río Bueno, Quillón y San Fabián
 
 La función
 [`contar_comunas()`](https://bastianolea.github.io/territorial/reference/contar_comunas.md)
@@ -383,19 +383,19 @@ base |>
   buscar_comuna("Alto")
 ```
 
-    ! Se encontraron 27 resultados, mostrando sólo 6.
+    ! Se encontraron 30 resultados, mostrando sólo 6.
 
-    ℹ Los resultados más cercanos al término `Alto` son: Alto del Carmen, Puente Alto, Alto Biobío y Alto Hospicio
+    ℹ Los resultados más cercanos al término `Alto` son: Alto Hospicio, Puente Alto, Alto Biobío y Alto del Carmen
 
     # A tibble: 6 × 5
-      nombre_comuna   codigo_comuna name  value puntaje
-      <chr>                   <dbl> <chr> <dbl>   <dbl>
-    1 Alto del Carmen          3302 c     0.122       1
-    2 Alto del Carmen          3302 b     0.136       1
-    3 Puente Alto             13201 a     0.311       1
-    4 Alto Biobío              8314 c     0.349       1
-    5 Alto Biobío              8314 a     0.358       1
-    6 Alto Hospicio            1107 b     0.473       1
+      nombre_comuna   codigo_comuna name   value puntaje
+      <chr>                   <dbl> <chr>  <dbl>   <dbl>
+    1 Alto Hospicio            1107 c     0.0116       1
+    2 Puente Alto             13201 c     0.0327       1
+    3 Alto Biobío              8314 c     0.0469       1
+    4 Puente Alto             13201 a     0.136        1
+    5 Alto Biobío              8314 b     0.196        1
+    6 Alto del Carmen          3302 c     0.249        1
 
 ### Crear nombres de comunas a partir de códigos únicos territoriales
 

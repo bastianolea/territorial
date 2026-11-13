@@ -28,14 +28,6 @@ Vector lógico del mismo largo que `codigo_comuna`: TRUE si la comuna es
 rural, FALSE si es mixta o urbana, y NA si la comuna no se encuentra en
 la tabla de clasificación.
 
-## Detalles
-
-Las comunas clasificadas como "Mixta" o "Urbana" retornan FALSE. Los
-códigos o nombres que no corresponden a una comuna retornan NA.
-
-Acepta tanto códigos de comuna en formato numérico como nombres de
-comuna en formato caracter.
-
 ## Ver también
 
 [clasificacion](https://bastianolea.github.io/territorial/reference/clasificacion.md)
