@@ -92,17 +92,18 @@ articles:
   desc: Pon a prueba tus conocimientos territoriales
   contents:
   - articles/trivia
+- title: Ejemplos
+  navbar: Ejemplos
+  desc: Casos de uso del paquete con datos reales
+  contents:
+  - articles/ejemplo_rsh
+  - articles/suciedad_extrema
+  - articles/ejemplo_servel
+  - articles/ejemplo_bibliotecas
+  - articles/ejemplo_sercotec
 - title: Tutoriales
   navbar: Tutoriales
   desc: Guías explicativas para usar el paquete
   contents:
   - articles/mapas_comunales
   - articles/mapas_regionales_macrozonas
-- title: Ejemplos
-  navbar: Ejemplos
-  desc: Casos de uso del paquete con datos reales
-  contents:
-  - articles/suciedad_extrema
-  - articles/ejemplo_servel
-  - articles/ejemplo_bibliotecas
-  - articles/ejemplo_sercotec

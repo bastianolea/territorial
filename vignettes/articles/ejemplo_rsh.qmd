@@ -1,0 +1,114 @@
+---
+title: "Ejemplo: Registro Social de Hogares"
+description: "Uso del paquete para agregar población a una tabla de datos sociales" 
+---
+
+Usando la plataforma [Analista Digital de Información Social (ADIS)](https://adis.gob.cl/#/) del Ministerio de Desarrollo Social y Familia, podemos acceder a datos del Registro Social de Hogares (RSH) a nivel regional y comunal. 
+
+Para descargar una tabla de N° total de **personas con dependencia moderada o severa** por comuna, accedemos a la sección [Estadísticas socioeconómicas > Consultas frecuentes de ADIS](https://adis.gob.cl/#/estadisticas-socioeconomicas/frecuentes), elegimos el indicador, seleccionamos en _Territorio y desagregación_ "Nacional por Comunas", y presionamos _Descargar_. También puedes [descargar aquí los datos](https://github.com/bastianolea/territorial/raw/main/data-raw/ejemplo_rsh.xlsx) para seguir el ejemplo.
+
+```{r setup}
+#| message: false
+library(dplyr)
+library(readxl)
+library(here)
+```
+
+```{r}
+registro <- read_xlsx(
+  here("data-raw/ejemplo_rsh.xlsx"),
+  skip = 2) |> 
+  select(
+    nombre_comuna = 1,
+    discapacidad = 2,
+    total = 3
+  )
+
+registro
+```
+
+Lo primero que vemos en los datos es que existe una fila de totales que hay que filtrar, y opcionalmente podríamos omitir las filas sin valor en el conteo de personas.
+
+```{r}
+registro_1 <- registro |> 
+  filter_out(nombre_comuna == "Total") #|> 
+  #filter_out(is.na(discapacidad))
+```
+
+Como los datos son comunales, conviene [validarlos primero usando `validar_comunas()`](https://bastianolea.github.io/territorial/reference/validar_comunas.html) del paquete `{territorial}`, que realiza una revisión de los nombres de comunas.
+
+```{r}
+library(territorial)
+
+registro_1 |> 
+  validar_comunas()
+```
+
+Vemos que existen algunos problemas, así que aplicamos una limpieza automatizada de los nombres con la [función `limpiar_comunas()` de `{territorial}`](https://bastianolea.github.io/territorial/reference/limpiar_comunas.html).
+
+```{r}
+registro_2 <- registro_1 |> 
+  limpiar_comunas()
+```
+
+Ahora que los nombres de comunas fueron validados y limpiados, podemos [agregar variables territoriales faltantes con `contextualizar()`](https://bastianolea.github.io/territorial/reference/contextualizar.html), principalmente las columnas de región y los [códigos únicos territoriales](https://bastianolea.github.io/territorial/articles/codigos_unicos_territoriales.html) para un manejo más preciso de los datos.
+
+```{r}
+registro_3 <- registro_2 |> 
+  contextualizar() |> 
+  select(-starts_with("provincia"))
+
+registro_3 |> 
+  head() |> 
+  glimpse()
+```
+
+
+Ahora los datos están en buen estado para seguir trabajando con ellos. Por ejemplo, podríamos usar [la función `agregar_poblacion()` de `{poblador}`](https://bastianolea.github.io/poblador/reference/agregar_poblacion.html) para agregar automáticamente una columna con la población del año 2026 que se corresponda con los datos que estamos trabajando.
+
+## Sumar valores por clasificación comunal
+
+Con los datos ya contextualizados, podemos sumar los valores de personas con discapacidad y el total de personas por clasificación comunal (urbana, rural o mixta) usando la función `agregar_clasificacion()`:
+
+```{r}
+registro_4a <- registro_3 |> 
+  agregar_clasificacion()
+
+registro_4a |> 
+  select(ends_with("comuna"), clasificacion)
+```
+
+La función opera automáticamente dado que detecta la existencia de los códigos comunales.
+
+Con esta nueva variable, podemos, por ejemplo, sumar los casos por clasificación:
+
+```{r}
+registro_4a |> 
+  summarize(discapacidad = sum(discapacidad, na.rm = TRUE),
+            total = sum(total, na.rm = TRUE),
+            .by = clasificacion) |> 
+  mutate(porcentaje = (discapacidad/total)*100)
+```
+
+
+## Sumar valores por macrozona
+
+Dado que los datos cuentan con los códigos regionales gracias a `contextualizar()`, podemos agregar automáticamente una columna con la macrozona a la que pertenece cada región (y por consiguiente, cada comuna) usando la función `agregar_macrozona()`:
+
+```{r}
+registro_4b <- registro_3 |> 
+  agregar_macrozona()
+
+registro_4b |> 
+  select(ends_with("region"), macrozona)
+```
+
+Con esta nueva variable, podemos sumar los datos por grupo de macrozona, de manera similar a como lo hicimos con la clasificación comunal:
+
+```{r}
+registro_4b |> 
+  summarize(discapacidad = sum(discapacidad, na.rm = TRUE),
+            total = sum(total, na.rm = TRUE),
+            .by = macrozona) |> 
+  mutate(porcentaje = (discapacidad/total)*100)
+```

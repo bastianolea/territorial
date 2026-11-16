@@ -1,5 +1,5 @@
 ---
-title: "Trivia de comunas, provincias y regiones de Chile"
+title: "Trivia de comunas, provincias y regiones"
 subtitle: "Juego interactivo de R en tu navegador"
 description: Pon a prueba tus conocimientos sobre las comunas, provincias y regiones de Chile, directamente en tu navegador.
 ---
