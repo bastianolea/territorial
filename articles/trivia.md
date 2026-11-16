@@ -1,4 +1,4 @@
-# Trivia de comunas, provincias y regiones de Chile
+# Trivia de comunas, provincias y regiones
 
 ¿Cuánto sabes de los territorios de Chile? La función
 [`trivia()`](https://bastianolea.github.io/territorial/reference/trivia.md)

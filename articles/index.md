@@ -24,31 +24,20 @@ Información general sobre el paquete
 
 Pon a prueba tus conocimientos territoriales
 
-- [Trivia de comunas, provincias y regiones de
-  Chile](https://bastianolea.github.io/territorial/articles/trivia.md):
+- [Trivia de comunas, provincias y
+  regiones](https://bastianolea.github.io/territorial/articles/trivia.md):
 
   Pon a prueba tus conocimientos sobre las comunas, provincias y
   regiones de Chile, directamente en tu navegador.
 
-### Tutoriales
-
-Guías explicativas para usar el paquete
-
-- [Mapas
-  comunales](https://bastianolea.github.io/territorial/articles/mapas_comunales.md):
-
-  Uso de {territorial} para facilitar la creación de mapas comunales con
-  {chilemapas}
-
-- [Mapas regionales por
-  macrozona](https://bastianolea.github.io/territorial/articles/mapas_regionales_macrozonas.md):
-
-  Uso de {territorial} para clasificar regiones de Chile en macrozonas y
-  visualizarlas con {chilemapas}
-
 ### Ejemplos
 
 Casos de uso del paquete con datos reales
+
+- [Ejemplo: Registro Social de
+  Hogares](https://bastianolea.github.io/territorial/articles/ejemplo_rsh.md):
+
+  Uso del paquete para agregar población a una tabla de datos sociales
 
 - [Prueba de suciedad
   extrema](https://bastianolea.github.io/territorial/articles/suciedad_extrema.md):
@@ -75,3 +64,19 @@ Casos de uso del paquete con datos reales
   Limpieza de datos comunales de beneficiarios de programas de Sercotec
   en Chile según sexo, obtenidos desde datos abiertos del Servicio de
   Cooperación Técnica.
+
+### Tutoriales
+
+Guías explicativas para usar el paquete
+
+- [Mapas
+  comunales](https://bastianolea.github.io/territorial/articles/mapas_comunales.md):
+
+  Uso de {territorial} para facilitar la creación de mapas comunales con
+  {chilemapas}
+
+- [Mapas regionales por
+  macrozona](https://bastianolea.github.io/territorial/articles/mapas_regionales_macrozonas.md):
+
+  Uso de {territorial} para clasificar regiones de Chile en macrozonas y
+  visualizarlas con {chilemapas}

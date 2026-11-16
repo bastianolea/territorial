@@ -8,8 +8,6 @@ Agregar funciones nuevas a readme y primeros pasos: \_ \[ \]
 capitales_regionales \_ \[ \] as_capital_regional \_ \[ \]
 is_capital_regional \_ \[ \] trivia \_ \[ \] is_codigo_region
 
-ubicar_comunas con argumento provincias
-
 ## Pendientes
 
 limpiar regiones
