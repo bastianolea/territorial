@@ -1,10 +1,11 @@
 # Contextualizar datos de nivel comunal con variables territoriales
 
 Para cualquier tabla de datos de nivel comunal que tenga al menos una
-variable territorial (`codigo_comuna` o `nombre_comuna`), indicar esta
-variable para agregar todo el resto de variables territoriales. De esta
-manera, se contextualizan territorialmente los datos al agregar todas
-las variables territoriales faltantes.
+variable territorial (`codigo_comuna` o `nombre_comuna`), agrega todo el
+resto de variables territoriales (comunas, regiones y provincias,
+incluyendo códigos únicos territoriales). De esta manera, se
+contextualizan territorialmente los datos al agregar todas las variables
+territoriales faltantes.
 
 ## Uso
 
@@ -22,7 +23,8 @@ contextualizar(datos, variable = NULL)
 - variable:
 
   Variable territorial ya existente en el dataframe (`codigo_comuna` o
-  `nombre_comuna`). Si se omite, se asume `nombre_comuna`.
+  `nombre_comuna`). Si se omite, se asume `codigo_comuna` o
+  `nombre_comuna`.
 
 ## Valor
 

@@ -37,9 +37,9 @@ library(territorial)
 sample(comunas(), 12)
 ```
 
-     [1] "Taltal"          "Conchalí"        "Pichilemu"       "Palena"
-     [5] "Chillán Viejo"   "San Gregorio"    "Hualqui"         "Curicó"
-     [9] "Cabo de Hornos"  "Calera de Tango" "Calama"          "Salamanca"      
+     [1] "La Higuera"      "Alto del Carmen" "Carahue"         "Vallenar"
+     [5] "Quilaco"         "Casablanca"      "Chaitén"         "Perquenco"
+     [9] "Macul"           "Pudahuel"        "Colbún"          "Negrete"        
 
 ### Tabla de comunas, provincias y regiones de Chile
 
@@ -338,18 +338,18 @@ base
 ```
 
     # A tibble: 972 × 4
-       nombre_comuna   codigo_comuna name    value
-       <chr>                   <dbl> <chr>   <dbl>
-     1 Coinco                   6103 c     0.00102
-     2 Canela                   4202 a     0.00259
-     3 Hualañé                  7302 a     0.00486
-     4 La Granja               13111 a     0.00744
-     5 Purén                    9208 a     0.00771
-     6 Tirúa                    8207 a     0.00786
-     7 Illapel                  4201 c     0.0101
-     8 Futrono                 14202 c     0.0108
-     9 Las Condes              13114 b     0.0108
-    10 Curaco de Vélez         10204 a     0.0110
+       nombre_comuna        codigo_comuna name     value
+       <chr>                        <dbl> <chr>    <dbl>
+     1 Pemuco                       16105 a     0.000311
+     2 San Pedro de Atacama          2203 c     0.00191
+     3 San Vicente                   6117 c     0.00270
+     4 Purranque                    10303 c     0.00284
+     5 Coinco                        6103 a     0.00324
+     6 Purén                         9208 b     0.00500
+     7 Porvenir                     12301 a     0.00547
+     8 Llaillay                      5703 b     0.00547
+     9 Rauco                         7305 b     0.00703
+    10 La Unión                     14201 b     0.00723
     # ℹ 962 more rows
 
 Esta tabla tiene 972 filas, ¿cómo confirmar si existen datos para todas
@@ -367,7 +367,7 @@ base |>
     Warning: La cantidad de comunas es anómala: hay 324, pero deberían ser 346. Revísalas
     con `territorial::validar_comunas()`
 
-    → Las comunas faltantes son: Pozo Almonte, Caldera, Vallenar, Coquimbo, Andacollo, Vicuña, Los Vilos, Ovalle, Quintero, Papudo, Quillota, Panquehue, Curicó, San Rosendo, Temuco, Cochrane, O'Higgins, Torres del Paine, Huechuraba, San Ramón, Puente Alto y Valdivia
+    → Las comunas faltantes son: Isla de Pascua, Calera, Villa Alemana, Olivar, Nancagua, Villa Alegre, San Rosendo, Santa Bárbara, Tucapel, Carahue, Curarrehue, Frutillar, Quemchi, Quinchao, Puerto Octay, Punta Arenas, Cabo de Hornos, Peñalolén, Valdivia, Río Bueno, General Lagos y San Nicolás
 
 La función
 [`contar_comunas()`](https://bastianolea.github.io/territorial/reference/contar_comunas.md)
@@ -385,19 +385,19 @@ base |>
   buscar_comuna("Alto")
 ```
 
-    ! Se encontraron 24 resultados, mostrando sólo 6.
+    ! Se encontraron 30 resultados, mostrando sólo 6.
 
-    ℹ Los resultados más cercanos al término `Alto` son: Alto Biobío, Alto Hospicio y Alto del Carmen
+    ℹ Los resultados más cercanos al término `Alto` son: Puente Alto, Alto Biobío, Alto del Carmen y Alto Hospicio
 
     # A tibble: 6 × 5
-      nombre_comuna   codigo_comuna name  value puntaje
-      <chr>                   <dbl> <chr> <dbl>   <dbl>
-    1 Alto Biobío              8314 b     0.218       1
-    2 Alto Biobío              8314 c     0.254       1
-    3 Alto Hospicio            1107 b     0.354       1
-    4 Alto Hospicio            1107 c     0.381       1
-    5 Alto del Carmen          3302 c     0.462       1
-    6 Alto del Carmen          3302 b     0.494       1
+      nombre_comuna   codigo_comuna name   value puntaje
+      <chr>                   <dbl> <chr>  <dbl>   <dbl>
+    1 Puente Alto             13201 b     0.0980       1
+    2 Alto Biobío              8314 a     0.163        1
+    3 Alto del Carmen          3302 a     0.316        1
+    4 Alto Hospicio            1107 c     0.395        1
+    5 Puente Alto             13201 c     0.484        1
+    6 Puente Alto             13201 a     0.653        1
 
 ### Crear nombres de comunas a partir de códigos únicos territoriales
 

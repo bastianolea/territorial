@@ -1,5 +1,11 @@
 # Registro de cambios
 
+## territorial 0.9.14 (2026/11/18)
+
+- [`contextualizar()`](https://bastianolea.github.io/territorial/reference/contextualizar.md)
+  ahora asume `codigo_comuna` o `nombre_comuna`, cualquiera de las dos,
+  si están presentes y no se especifica la variable a usar como base.
+
 ## territorial 0.9.13 (2026/11/12)
 
 - [`contar_comunas()`](https://bastianolea.github.io/territorial/reference/contar_comunas.md)
