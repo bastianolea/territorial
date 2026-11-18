@@ -55,7 +55,9 @@ Puedes instalar el paquete desde
 
 ``` r
 
-install.packages("territorial", repos = "https://bastianolea.r-universe.dev")
+install.packages("territorial", 
+                 repos = c("https://bastianolea.r-universe.dev",
+                           "https://cloud.r-project.org"))
 ```
 
 También puedes instalar la versión de desarrollo desde
