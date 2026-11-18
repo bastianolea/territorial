@@ -1,3 +1,6 @@
+# territorial 0.9.14 (2026/11/18)
+- `contextualizar()` ahora asume `codigo_comuna` o `nombre_comuna`, cualquiera de las dos, si están presentes y no se especifica la variable a usar como base.
+
 # territorial 0.9.13 (2026/11/12)
 - `contar_comunas()` ahora entrega el número de conteo único de comunas en vez del dataframe.
 - `ubicar_comunas()` ahora puede ubicar comunas en su provincia con el argumento `nivel = "provincia"`.

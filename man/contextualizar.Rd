@@ -9,13 +9,13 @@ contextualizar(datos, variable = NULL)
 \arguments{
 \item{datos}{Dataframe de datos comunales al que se quieren agregar columnas con variables territoriales}
 
-\item{variable}{Variable territorial ya existente en el dataframe (\code{codigo_comuna} o \code{nombre_comuna}). Si se omite, se asume \code{nombre_comuna}.}
+\item{variable}{Variable territorial ya existente en el dataframe (\code{codigo_comuna} o \code{nombre_comuna}). Si se omite, se asume \code{codigo_comuna} o \code{nombre_comuna}.}
 }
 \value{
 El mismo dataframe con las columnas \code{codigo_region}, \code{nombre_region}, \code{codigo_provincia}, \code{nombre_provincia}, \code{codigo_comuna} y \code{nombre_comuna} agregadas al inicio.
 }
 \description{
-Para cualquier tabla de datos de nivel comunal que tenga al menos una variable territorial (\code{codigo_comuna} o \code{nombre_comuna}), indicar esta variable para agregar todo el resto de variables territoriales. De esta manera, se contextualizan territorialmente los datos al agregar todas las variables territoriales faltantes.
+Para cualquier tabla de datos de nivel comunal que tenga al menos una variable territorial (\code{codigo_comuna} o \code{nombre_comuna}), agrega todo el resto de variables territoriales (comunas, regiones y provincias, incluyendo códigos únicos territoriales). De esta manera, se contextualizan territorialmente los datos al agregar todas las variables territoriales faltantes.
 }
 \details{
 Se usa, por ejemplo, cuando tienes una tabla de datos que tienen solamente los nombres de las comunas (primero valída con \code{\link[=validar_comunas]{validar_comunas()}} y/o limpia con \code{\link[=limpiar_comunas]{limpiar_comunas()}}), y quieres agregarle más variables territoriales como los códigos únicos territoriales, las provincias, regiones, etc.

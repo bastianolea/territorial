@@ -83,7 +83,7 @@ test_that("contextualizar datos de nivel territorial cuando no existe la variabl
 
 
 test_that(
-  "contextualizar sin especificar columna, con nombre_comuna presente",
+  "contextualizar sin especificar columna, con nombre_comuna, asume nombre_comuna",
   expect_no_error(
     dplyr::tibble(
       nombre_comuna = c("Cerrillos", "Arica", "Putre"),
@@ -96,8 +96,8 @@ test_that(
 
 
 test_that(
-  "contextualizar sin especificar columna, sin nombre_comuna, debe arrojar error",
-  expect_error(
+  "contextualizar sin especificar columna, con codigo_comuna, asume codigo_comuna",
+  expect_no_error(
     dplyr::tibble(
       codigo_comuna = c(1101, 13101, 1401),
       valor = c(1, 2, 3)
