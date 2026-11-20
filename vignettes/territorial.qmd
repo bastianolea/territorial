@@ -1,6 +1,6 @@
 ---
 title: "Introducción al paquete `territorial`"
-description: "Instalación y primeros pasos con el paquete {territorial}."
+description: "Instalación y ejemplos de uso del paquete `territorial` para limpieza y procesamiento de datos territoriales de Chile."
 vignette: >
   %\VignetteIndexEntry{territorial}
   %\VignetteEngine{quarto::html}
@@ -25,16 +25,24 @@ También puedes instalar la versión de desarrollo desde [GitHub](https://github
 pak::pak("bastianolea/territorial")
 ```
 
-Los siguientes ejemplos te ayudarán a conocer algunas de las funciones de `{territorial}`.
+Los siguientes ejemplos te ayudarán a conocer algunas de las funciones de `territorial`.
 
 ## Datos comunales
 
-Quizás lo más básico que podemos hacer a nivel comunal con `{territorial}` es obtener un vector con las comunas del país:
+Quizás lo más básico que podemos hacer a nivel comunal con `territorial` es obtener un vector con las comunas del país:
 
 ```{r}
+#| warning: false
+
 library(territorial)
 
 sample(comunas(), 12)
+```
+
+Del mismo modo, `codigos_comunas()` entrega un vector con todos los códigos únicos territoriales de comunas válidos:
+
+```{r codigos_comunas}
+sample(codigos_comunas(), 12)
 ```
 
 
@@ -236,6 +244,7 @@ datos |>
   mutate(nombre_comuna = as_nombre_comuna(codigo_comuna))
 ```
 
+Con esta estragegia simplemente ignoramos los nombres de comunas que venían en la base, y usamos solamente los códigos comunales para reconstruir los nombres, evitando incertidumbre.
 
 ### Obtener códigos únicos territoriales a partir de nombres de comunas
 También podemos tener el caso inverso: una tabla con datos comunales que vienen con nombres de comunas, pero sin códigos únicos territoriales. Podemos crear los códigos únicos territoriales a partir de los nombres de comunas:
@@ -282,7 +291,20 @@ datos <- tribble(
 datos
 
 datos |>
-  contextualizar(nombre_comuna)
+  contextualizar()
+```
+
+Si no se especifica la variable, `contextualizar()` usa la columna `nombre_comuna` o `codigo_comuna`, cualquiera de las dos que esté presente. Por lo tanto, también funciona con tablas que sólo traen códigos únicos territoriales:
+
+```{r contextualizar_codigos}
+datos_codigos <- tribble(
+  ~codigo_comuna, ~valor,
+  13101,          1,
+  15101,          2,
+  16101,          3)
+
+datos_codigos |>
+  contextualizar()
 ```
 
 
@@ -294,6 +316,14 @@ Si tienes una comuna y quieres obtener la región a la que pertenece, usa `ubica
 comuna <- "Curacautín"
 
 ubicar_comunas(comuna)
+```
+
+También funciona con códigos únicos territoriales, y con el argumento `nivel = "provincia"` entrega la provincia en vez de la región:
+
+```{r ubicar_comunas_2}
+ubicar_comunas(c(1101, 13103))
+
+ubicar_comunas("Puente Alto", nivel = "provincia")
 ```
 
 Si tienes varias comunas y quieres crear un texto que las contenga, usa `redactar_comunas()`:
@@ -309,9 +339,30 @@ Si quieres saber si una comuna clasifica como urbana, mixta o rural de acuerdo a
 ```{r agregar_clasificacion}
 comunas <- c("Curanilahue", "Melipilla", "San Pedro")
 
-agregar_clasificacion(
-  as_codigo_comuna(comunas)
-  )  
+agregar_clasificacion(comunas)
+```
+
+Si le entregas una tabla de datos, `agregar_clasificacion()` usa la columna `codigo_comuna` y agrega la columna `clasificacion`:
+
+```{r agregar_clasificacion_tabla}
+territorios |> 
+  slice_sample(n = 5) |> 
+  select(codigo_comuna, nombre_comuna) |> 
+  agregar_clasificacion()
+```
+
+Si sólo necesitas saber si una comuna es rural, usa `is_rural()`, que entrega `TRUE` o `FALSE`:
+
+```{r is_rural}
+is_rural(c("Santiago", "Camiña", "Casablanca"))
+```
+
+Esto es útil, por ejemplo, para filtrar tablas de datos y dejar sólo las comunas rurales:
+
+```{r is_rural_filtrar}
+territorios |> 
+  select(nombre_region, nombre_comuna) |> 
+  filter(is_rural(nombre_comuna))
 ```
 
 Estas funciones son particularmente útiles para cuando estés [creando reportes](https://bastianolea.rbind.io/blog/quarto_reportes/) o [aplicaciones web Shiny.](https://bastianolea.rbind.io/blog/shiny/)
@@ -343,6 +394,17 @@ regiones
 ```
 
 
+### Convertir entre nombres y códigos de regiones
+
+Para obtener los nombres de regiones a partir de sus códigos, usa `as_nombre_region()`, y para el caso inverso, `as_codigo_region()`:
+
+```{r as_nombre_region}
+as_nombre_region(c(15, 4, 10))
+
+as_codigo_region(c("Maule", "Ñuble"))
+```
+
+
 ### Ordenar regiones de Chile
 
 Cuando trabajamos datos de nivel regional, una necesidad común es [ordenar las regiones en el orden geográfico](https://bastianolea.rbind.io/blog/ordenar_regiones/); es decir, de norte a sur. Para ello existe la función `ordenar_regiones()`:
@@ -351,12 +413,48 @@ Cuando trabajamos datos de nivel regional, una necesidad común es [ordenar las 
 regiones
 ```
 
-Aquí tenemos las regiones en orden según su numeración, pero queremos ordenarlas de norte a sur:
+Aquí tenemos las regiones en orden según su numeración (código único territorial de las regiones), pero queremos ordenarlas de norte a sur:
 
 ```{r ordenar_regiones}
 regiones |> 
   ordenar_regiones()
 ```
+
+### Validación de calidad de nombres de regiones
+
+Otro problema que podemos tener son datos de regiones con los nombres mal escritos. Para eso tenemos la función `validar_regiones()`, que revisará los nombres de las regiones y reportará los problemas existentes:
+
+```{r datos_validar_regiones}
+regiones_sucias <- tibble(nombre_region = c("los lagos", "nuble", "OHIGGINS", "Araucania"))
+
+regiones_sucias
+```
+
+```{r validar_regiones}
+regiones_sucias |> 
+  validar_regiones()
+```
+
+
+### Limpieza de nombres de regiones de Chile
+
+Al igual que con la función `limpiar_comunas()`, existe la función `limpiar_regiones()`, que aplica varios pasos de limpieza automatizada de textos para obtener nombres de regiones válidos.
+
+Veamos un ejemplo con una tabla de datos donde las regiones vienen mal escritas:
+
+```{r}
+regiones_sucias <- tibble(nombre_region = c("NUBLE", "AISEN", "OHIGINS", "RM"))
+
+regiones_sucias
+```
+
+Usamos `limpiar_regiones()` para obtener versiones válidas de los nombres:
+
+```{r}
+regiones_sucias |> 
+  limpiar_regiones() # asume que la columna es `nombre_region`
+```
+
 
 ### Acortar nombres de regiones de Chile
 
@@ -384,42 +482,17 @@ regiones |>
   )
 ```
 
-Para más información, [ver la viñeta sobre macrozonas.](https://bastianolea.github.io/territorial/articles/mapas_regionales_macrozonas.html)
+La función también recibe nombres de regiones, o bien una tabla de datos, en cuyo caso usa la columna `codigo_region` y agrega la columna `macrozona`:
 
-### Validación de calidad de nombres de regiones
+```{r agregar_macrozona_2}
+agregar_macrozona(c("Maule", "Ñuble"), tipo = 1)
 
-Otro problema que podemos tener son datos de regiones con los nombres mal escritos. Para eso tenemos la función `validar_regiones()`, que revisará los nombres de las regiones y reportará los problemas existentes:
-
-```{r datos_validar_regiones}
-regiones <- tibble(nombre_region = c("los lagos", "nuble", "OHIGGINS", "Araucania"))
-
-regiones
+tibble(codigo_region = c(1, 13, 12)) |> 
+  agregar_macrozona(tipo = 2)
 ```
 
-```{r validar_regiones}
-regiones |> 
-  validar_regiones()
-```
+Para conocer en detalle cómo se compone cada tipo de macrozona, [revisa el artículo sobre macrozonas, que muestra mapas de cada una de ellas.](https://bastianolea.github.io/territorial/articles/mapas_regionales_macrozonas.html)
 
-
-### Limpieza de nombres de regiones de Chile
-
-Al igual que con la función `limpiar_comunas()`, existe la función `limpiar_regiones()`, que aplica varios pasos de limpieza automatizada de textos para obtener nombres de regiones válidos.
-
-Veamos un ejemplo con una tabla de datos donde las regiones vienen mal escritas:
-
-```{r}
-regiones <- tibble(nombre_region = c("NUBLE", "AISEN", "OHIGINS", "RM"))
-
-regiones
-```
-
-Usamos `limpiar_regiones()` para obtener versiones válidas de los nombres:
-
-```{r}
-regiones |> 
-  limpiar_regiones() # asume que la columna es `nombre_region`
-```
 
 
 ### Obtener comunas de una región
@@ -432,6 +505,46 @@ region <- regiones()[4]
 region
 
 obtener_comunas(region)
+```
+
+También se pueden obtener las comunas de varias regiones a la vez, usando sus códigos regionales:
+
+```{r obtener_comunas_codigos}
+obtener_comunas(c(15, 1))
+```
+
+### Capitales regionales
+
+Para obtener la tabla con las 16 comunas que son capital regional, usa `capitales_regionales()`:
+
+```{r capitales_regionales}
+capitales_regionales()
+```
+
+Con `as_capital_regional()` puedes obtener la capital de una o varias regiones, a partir de sus nombres o códigos:
+
+```{r as_capital_regional}
+as_capital_regional(c("Maule", "Ñuble"))
+
+as_capital_regional(c(15, 4))
+```
+
+Esto puede servir cuando es necesario imputar datos comunales a partir de datos regionales; por ejemplo, para ubicar en un mapa comunal un dato que sólo existe a nivel regional:
+
+```{r as_capital_regional_imputar}
+datos_regionales <- tibble(
+  nombre_region = c("Maule", "Ñuble", "Los Lagos"),
+  valor = c(10, 20, 30)
+)
+
+datos_regionales |> 
+  mutate(nombre_comuna = as_capital_regional(nombre_region))
+```
+
+Y con `is_capital_regional()` puedes confirmar si una comuna es capital regional:
+
+```{r is_capital_regional}
+is_capital_regional(c("Santiago", "Puente Alto", "Valparaíso"))
 ```
 
 ### Otras funciones para regiones
@@ -470,7 +583,16 @@ ubicar_localidades(c("Chada", "La Dormida", "Mallarauco"))
 ```
 
 
+## Trivia territorial
 
+Para poner a prueba tus conocimientos sobre las comunas y regiones de Chile, ejecuta `trivia()` en tu consola de R, y responde las preguntas interactivas:
+
+```{r trivia}
+#| eval: false
+trivia()
+```
+
+También puedes [jugar la trivia en el navegador.](https://bastianolea.github.io/territorial/articles/trivia.html)
 
 
 ----
