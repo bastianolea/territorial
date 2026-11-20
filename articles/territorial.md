@@ -36,9 +36,9 @@ library(territorial)
 sample(comunas(), 12)
 ```
 
-     [1] "La Higuera"    "Chimbarongo"   "San Joaquín"   "Melipilla"
-     [5] "Constitución"  "San Ramón"     "San Javier"    "Independencia"
-     [9] "Lago Verde"    "Lebu"          "Macul"         "Concón"       
+     [1] "Requínoa"    "Petorca"     "Palena"      "Santa María" "Huara"
+     [6] "Illapel"     "Algarrobo"   "Macul"       "Conchalí"    "San Carlos"
+    [11] "San Joaquín" "Peñalolén"  
 
 Del mismo modo,
 [`codigos_comunas()`](https://bastianolea.github.io/territorial/reference/codigos_comunas.md)
@@ -50,7 +50,7 @@ válidos:
 sample(codigos_comunas(), 12)
 ```
 
-     [1]  9207 10403  2203  9106  6308 16201 13122  3304 13203  4103 16301 12302
+     [1] 12303  9102  5403 13603 10209  8304 13203  7401  8112  7403 13114  4204
 
 ### Tabla de comunas, provincias y regiones de Chile
 
@@ -349,18 +349,18 @@ base
 ```
 
     # A tibble: 972 × 4
-       nombre_comuna   codigo_comuna name      value
-       <chr>                   <dbl> <chr>     <dbl>
-     1 Chimbarongo              6303 b     0.0000104
-     2 Sagrada Familia          7307 b     0.000127
-     3 Caldera                  3102 b     0.000589
-     4 Recoleta                13127 b     0.00149
-     5 Papudo                   5403 a     0.00204
-     6 Calbuco                 10102 b     0.00276
-     7 San Ignacio             16108 c     0.00464
-     8 Talcahuano               8110 c     0.00524
-     9 Caldera                  3102 a     0.00716
-    10 Freirina                 3303 a     0.00893
+       nombre_comuna codigo_comuna name     value
+       <chr>                 <dbl> <chr>    <dbl>
+     1 Colchane               1403 c     0.000739
+     2 Placilla               6308 b     0.00430
+     3 Cañete                 8203 c     0.00523
+     4 Cauquenes              7201 b     0.00602
+     5 Papudo                 5403 a     0.00659
+     6 Putaendo               5705 a     0.00766
+     7 Cerro Navia           13103 a     0.00836
+     8 Futrono               14202 b     0.0105
+     9 Vichuquén              7309 a     0.0108
+    10 Cochamó               10103 a     0.0117
     # ℹ 962 more rows
 
 Esta tabla tiene 972 filas, ¿cómo confirmar si existen datos para todas
@@ -378,7 +378,7 @@ base |>
     Warning: La cantidad de comunas es anómala: hay 324, pero deberían ser 346. Revísalas
     con `territorial::validar_comunas()`
 
-    → Las comunas faltantes son: Tocopilla, Los Andes, Petorca, Nogales, Llaillay, Putaendo, Paredones, Cauquenes, Alto Biobío, Cunco, Pitrufquén, Saavedra, Toltén, Collipulli, Puyehue, Coyhaique, O'Higgins, Punta Arenas, Macul, Máfil, La Unión y Yungay
+    → Las comunas faltantes son: María Elena, Coquimbo, Andacollo, El Quisco, Graneros, Molina, Florida, Tirúa, Nacimiento, Negrete, San Rosendo, Yumbel, Carahue, Osorno, San Juan de la Costa, Tortel, Laguna Blanca, San Gregorio, La Reina, Curacaví, Lago Ranco y San Ignacio
 
 La función
 [`contar_comunas()`](https://bastianolea.github.io/territorial/reference/contar_comunas.md)
@@ -398,17 +398,17 @@ base |>
 
     ! Se encontraron 27 resultados, mostrando sólo 6.
 
-    ℹ Los resultados más cercanos al término `Alto` son: Alto Hospicio, Puente Alto y Alto del Carmen
+    ℹ Los resultados más cercanos al término `Alto` son: Alto del Carmen, Alto Biobío, Puente Alto y Alto Hospicio
 
     # A tibble: 6 × 5
-      nombre_comuna   codigo_comuna name  value puntaje
-      <chr>                   <dbl> <chr> <dbl>   <dbl>
-    1 Alto Hospicio            1107 c     0.164       1
-    2 Puente Alto             13201 a     0.225       1
-    3 Alto Hospicio            1107 a     0.397       1
-    4 Alto del Carmen          3302 a     0.430       1
-    5 Puente Alto             13201 c     0.562       1
-    6 Alto Hospicio            1107 b     0.563       1
+      nombre_comuna   codigo_comuna name   value puntaje
+      <chr>                   <dbl> <chr>  <dbl>   <dbl>
+    1 Alto del Carmen          3302 c     0.0291       1
+    2 Alto Biobío              8314 a     0.0928       1
+    3 Puente Alto             13201 c     0.266        1
+    4 Alto del Carmen          3302 b     0.400        1
+    5 Alto Hospicio            1107 b     0.493        1
+    6 Puente Alto             13201 b     0.523        1
 
 ### Crear nombres de comunas a partir de códigos únicos territoriales
 
@@ -691,13 +691,13 @@ territorios |>
 ```
 
     # A tibble: 5 × 3
-      codigo_comuna nombre_comuna        clasificacion
-              <dbl> <chr>                <fct>
-    1          2102 Mejillones           Rural
-    2         10306 San Juan de la Costa Rural
-    3          8201 Lebu                 Mixta
-    4          8314 Alto Biobío          Rural
-    5          1402 Camiña               Rural        
+      codigo_comuna nombre_comuna clasificacion
+              <dbl> <chr>         <fct>
+    1         11402 Río Ibáñez    Rural
+    2          9211 Victoria      Mixta
+    3          6117 San Vicente   Mixta
+    4         13107 Huechuraba    Urbana
+    5          9107 Gorbea        Rural        
 
 Si sólo necesitas saber si una comuna es rural, usa
 [`is_rural()`](https://bastianolea.github.io/territorial/reference/is_rural.md),
