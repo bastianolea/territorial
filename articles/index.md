@@ -5,9 +5,10 @@
 Información general sobre el paquete
 
 - [Introducción al paquete
-  {territorial}](https://bastianolea.github.io/territorial/articles/territorial.md):
+  \`territorial\`](https://bastianolea.github.io/territorial/articles/territorial.md):
 
-  Instalación y primeros pasos con el paquete {territorial}.
+  Instalación y ejemplos de uso del paquete `territorial` para limpieza
+  y procesamiento de datos territoriales de Chile.
 
 - [Localidades](https://bastianolea.github.io/territorial/articles/localidades.md):
 

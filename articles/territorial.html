@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Introducción al paquete {territorial} • territorial</title>
+<title>Introducción al paquete territorial • territorial</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="96x96" href="../favicon-96x96.png">
 <link rel="icon" type="”image/svg+xml”" href="../favicon.svg">
 <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
@@ -17,7 +17,7 @@
 <script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><script src="territorial_files/libs/quarto-html/popper.min.js"></script><script src="territorial_files/libs/quarto-html/tippy.umd.min.js"></script><link href="territorial_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="territorial_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <!-- pkgdown --><script src="../pkgdown.js"></script><link href="../extra.css" rel="stylesheet">
-<meta property="og:title" content="Introducción al paquete {territorial}">
+<meta property="og:title" content="Introducción al paquete territorial">
 <meta property="og:image" content="https://bastianolea.github.io/territorial/logo.png">
 </head>
 <body>
@@ -74,7 +74,8 @@
 </nav><div class="container template-quarto">
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
-      <img src="../logo.png" class="logo" alt=""><h1>Introducción al paquete {territorial}</h1>
+      <img src="../logo.png" class="logo" alt=""><h1>Introducción al paquete <code>territorial</code>
+</h1>
 
 
 
@@ -99,19 +100,27 @@
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># install.packages("pak")</span></span>
 <span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/pak.html" class="external-link">pak</a></span><span class="op">(</span><span class="st">"bastianolea/territorial"</span><span class="op">)</span></span></code></pre></div>
-<p>Los siguientes ejemplos te ayudarán a conocer algunas de las funciones de <a href="https://bastianolea.github.io/territorial">territorial</a>.</p>
+<p>Los siguientes ejemplos te ayudarán a conocer algunas de las funciones de <code>territorial</code>.</p>
 </section><section class="level2"><h2 id="datos-comunales">Datos comunales<a class="anchor" aria-label="anchor" href="#datos-comunales"></a>
 </h2>
-<p>Quizás lo más básico que podemos hacer a nivel comunal con <a href="https://bastianolea.github.io/territorial">territorial</a> es obtener un vector con las comunas del país:</p>
+<p>Quizás lo más básico que podemos hacer a nivel comunal con <code>territorial</code> es obtener un vector con las comunas del país:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://bastianolea.github.io/territorial">territorial</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span><span class="fu"><a href="../reference/comunas.html">comunas</a></span><span class="op">(</span><span class="op">)</span>, <span class="fl">12</span><span class="op">)</span></span></code></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] "La Higuera"      "Alto del Carmen" "Carahue"         "Vallenar"
- [5] "Quilaco"         "Casablanca"      "Chaitén"         "Perquenco"
- [9] "Macul"           "Pudahuel"        "Colbún"          "Negrete"        </code></pre>
+<pre><code> [1] "La Higuera"    "Chimbarongo"   "San Joaquín"   "Melipilla"
+ [5] "Constitución"  "San Ramón"     "San Javier"    "Independencia"
+ [9] "Lago Verde"    "Lebu"          "Macul"         "Concón"       </code></pre>
+</div>
+</div>
+<p>Del mismo modo, <code><a href="../reference/codigos_comunas.html">codigos_comunas()</a></code> entrega un vector con todos los códigos únicos territoriales de comunas válidos:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span><span class="fu"><a href="../reference/codigos_comunas.html">codigos_comunas</a></span><span class="op">(</span><span class="op">)</span>, <span class="fl">12</span><span class="op">)</span></span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1]  9207 10403  2203  9106  6308 16201 13122  3304 13203  4103 16301 12302</code></pre>
 </div>
 </div>
 <section class="level3"><h3 id="tabla-de-comunas-provincias-y-regiones-de-chile">Tabla de comunas, provincias y regiones de Chile<a class="anchor" aria-label="anchor" href="#tabla-de-comunas-provincias-y-regiones-de-chile"></a>
@@ -119,7 +128,7 @@
 <p>El paquete ofrece una tabla de datos que contiene todas las comunas del país con sus nombres oficiales, sus <a href="https://bastianolea.github.io/territorial/articles/codigos_unicos_territoriales.html">códigos únicos territoriales</a>, y lo mismo para las provincias y regiones del país.</p>
 <p>Para ver la tabla de comunas, provincias y regiones, ejecuta <code><a href="../reference/territorios.html">territorial::territorios</a></code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode cell-code" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="fu">territorial</span><span class="fu">::</span><span class="va"><a href="../reference/territorios.html">territorios</a></span><span class="op">)</span></span></code></pre></div>
@@ -127,7 +136,7 @@
 <pre><code>[1] "codigo_region"    "nombre_region"    "codigo_provincia" "nombre_provincia"
 [5] "codigo_comuna"    "nombre_comuna"   </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode cell-code" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">territorios</span></span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 346 × 6
@@ -154,7 +163,7 @@
 <p>Si tienes una tabla de datos con datos comunales, lo primero sería revisar la calidad de sus datos. La función <code><a href="../reference/validar_comunas.html">validar_comunas()</a></code> indica qué posibles problemas existen con los nombres de las comunas.</p>
 <p>Imaginemos una tabla de datos con <em>muy mala calidad</em> de nombres de comunas. Usemos como ejemplo la siguiente tabla de datos:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode cell-code" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">datos</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span></span>
@@ -163,7 +172,7 @@
 <span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode cell-code" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">datos</span></span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 9 × 2
@@ -182,7 +191,7 @@
 </div>
 <p>Para empezar a trabajar con estos datos, validamos su calidad primero:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="downlit sourceCode r">
+<div class="sourceCode cell-code" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">datos</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="../reference/validar_comunas.html">validar_comunas</a></span><span class="op">(</span><span class="va">nombre_comuna</span><span class="op">)</span> <span class="co"># cuando la columna con nombres de comunas se llama `nombre_comuna`, no es necesario especificarla</span></span></code></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -211,7 +220,7 @@
 </h3>
 <p>Luego de saber más o menos el tipo de problemas que tienen los nombres de las comunas en esta tabla, podemos usar la función <code><a href="../reference/limpiar_comunas.html">limpiar_comunas()</a></code> para corregir automáticamente los nombres de las comunas:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="downlit sourceCode r">
+<div class="sourceCode cell-code" id="cb22"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">datos</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="../reference/limpiar_comunas.html">limpiar_comunas</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -266,7 +275,7 @@
 <p>En este caso, simplemente se aplica la función porque la tabla contiene la columna <code>nombre_comuna</code>, pero si la columna con nombres se llama distinto, puedes indicarla en la función.</p>
 <p>También puedes limpiar las comunas creando una variable nueva usando la función dentro de <code><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate()</a></code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="downlit sourceCode r">
+<div class="sourceCode cell-code" id="cb35"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">datos</span> <span class="op">|&gt;</span> </span>
@@ -289,7 +298,7 @@
 <p>En ambos casos, la función entrega mensajes relevantes sobre el proceso de limpieza y el tipo de problemas resueltos.</p>
 <p>Para evaluar el funcionamiento de la limpieza automática, usar el argumento <code>procedimiento = TRUE</code> para ver el paso a paso en columnas:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="downlit sourceCode r">
+<div class="sourceCode cell-code" id="cb37"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">datos</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="../reference/limpiar_comunas.html">limpiar_comunas</a></span><span class="op">(</span>procedimiento <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/invisible.html" class="external-link">invisible</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
@@ -348,7 +357,7 @@
 </h4>
 <p>Si necesitamos más control, también podemos confirmar los nombres manualmente consultando si las comunas son válidas:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb49"><pre class="downlit sourceCode r">
+<div class="sourceCode cell-code" id="cb51"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">comunas</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Providencia"</span>, <span class="st">"Vitacura"</span>, <span class="st">"Las Condes"</span>, <span class="st">"Lo Barnechea"</span>, <span class="st">"Ratas"</span>, <span class="cn">NA</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="../reference/is_nombre_comuna.html">is_nombre_comuna</a></span><span class="op">(</span><span class="va">comunas</span><span class="op">)</span></span></code></pre></div>
@@ -359,7 +368,7 @@
 <p>Lo anterior sería equivalente a hacer <code>comunas %in% territorial::comunas()</code>. Esto puede servir, por ejemplo, para validar datos en una aplicación Shiny.</p>
 <p>También se puede confirmar si los códigos únicos territoriales son válidos:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb51"><pre class="downlit sourceCode r">
+<div class="sourceCode cell-code" id="cb53"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">comunas</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1101</span>, <span class="fl">1107</span>, <span class="cn">NA</span>, <span class="fl">99999</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="../reference/is_codigo_comuna.html">is_codigo_comuna</a></span><span class="op">(</span><span class="va">comunas</span><span class="op">)</span></span></code></pre></div>
@@ -372,7 +381,7 @@
 <p>Otro caso de validación de datos territoriales puede ser cuando nos encontramos con una tabla que tiene muchas observaciones, y queremos confirmar si tiene casos para todas las comunas del país, o bien, si hay comunas que están faltantes entre sus datos.</p>
 <p>Para el ejemplo, creemos una tabla de datos con muchas observaciones de comunas:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb53"><pre class="downlit sourceCode r">
+<div class="sourceCode cell-code" id="cb55"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">n_comunas</span> <span class="op">&lt;-</span> <span class="fl">324</span></span>
@@ -389,24 +398,24 @@
 <span><span class="va">base</span></span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 972 × 4
-   nombre_comuna        codigo_comuna name     value
-   &lt;chr&gt;                        &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt;
- 1 Pemuco                       16105 a     0.000311
- 2 San Pedro de Atacama          2203 c     0.00191
- 3 San Vicente                   6117 c     0.00270
- 4 Purranque                    10303 c     0.00284
- 5 Coinco                        6103 a     0.00324
- 6 Purén                         9208 b     0.00500
- 7 Porvenir                     12301 a     0.00547
- 8 Llaillay                      5703 b     0.00547
- 9 Rauco                         7305 b     0.00703
-10 La Unión                     14201 b     0.00723
+   nombre_comuna   codigo_comuna name      value
+   &lt;chr&gt;                   &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt;
+ 1 Chimbarongo              6303 b     0.0000104
+ 2 Sagrada Familia          7307 b     0.000127
+ 3 Caldera                  3102 b     0.000589
+ 4 Recoleta                13127 b     0.00149
+ 5 Papudo                   5403 a     0.00204
+ 6 Calbuco                 10102 b     0.00276
+ 7 San Ignacio             16108 c     0.00464
+ 8 Talcahuano               8110 c     0.00524
+ 9 Caldera                  3102 a     0.00716
+10 Freirina                 3303 a     0.00893
 # ℹ 962 more rows</code></pre>
 </div>
 </div>
 <p>Esta tabla tiene 972 filas, ¿cómo confirmar si existen datos para todas las comunas de Chile? Para eso está la función <code><a href="../reference/contar_comunas.html">contar_comunas()</a></code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb55"><pre class="downlit sourceCode r">
+<div class="sourceCode cell-code" id="cb57"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">base</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="../reference/contar_comunas.html">contar_comunas</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -417,38 +426,38 @@
 con `territorial::validar_comunas()`</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>→ Las comunas faltantes son: Isla de Pascua, Calera, Villa Alemana, Olivar, Nancagua, Villa Alegre, San Rosendo, Santa Bárbara, Tucapel, Carahue, Curarrehue, Frutillar, Quemchi, Quinchao, Puerto Octay, Punta Arenas, Cabo de Hornos, Peñalolén, Valdivia, Río Bueno, General Lagos y San Nicolás</code></pre>
+<pre><code>→ Las comunas faltantes son: Tocopilla, Los Andes, Petorca, Nogales, Llaillay, Putaendo, Paredones, Cauquenes, Alto Biobío, Cunco, Pitrufquén, Saavedra, Toltén, Collipulli, Puyehue, Coyhaique, O'Higgins, Punta Arenas, Macul, Máfil, La Unión y Yungay</code></pre>
 </div>
 </div>
 <p>La función <code><a href="../reference/contar_comunas.html">contar_comunas()</a></code> nos indica cuántas comunas únicas hay, y las que faltan. Esto es útil porque muchas veces las bases de datos reales no tienen datos para todas las comunas, sobre todo las más pequeñas y remotas.</p>
 <p>Si dentro de esa tabla con comunas quieres confirmar si existe una en específico, o saber cómo viene escrita, usa la utilidad <code><a href="../reference/buscar_comuna.html">buscar_comuna()</a></code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb59"><pre class="downlit sourceCode r">
+<div class="sourceCode cell-code" id="cb61"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">base</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="../reference/buscar_comuna.html">buscar_comuna</a></span><span class="op">(</span><span class="st">"Alto"</span><span class="op">)</span></span></code></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>! Se encontraron 30 resultados, mostrando sólo 6.</code></pre>
+<pre><code>! Se encontraron 27 resultados, mostrando sólo 6.</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>ℹ Los resultados más cercanos al término `Alto` son: Puente Alto, Alto Biobío, Alto del Carmen y Alto Hospicio</code></pre>
+<pre><code>ℹ Los resultados más cercanos al término `Alto` son: Alto Hospicio, Puente Alto y Alto del Carmen</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 5
-  nombre_comuna   codigo_comuna name   value puntaje
-  &lt;chr&gt;                   &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt;   &lt;dbl&gt;
-1 Puente Alto             13201 b     0.0980       1
-2 Alto Biobío              8314 a     0.163        1
-3 Alto del Carmen          3302 a     0.316        1
-4 Alto Hospicio            1107 c     0.395        1
-5 Puente Alto             13201 c     0.484        1
-6 Puente Alto             13201 a     0.653        1</code></pre>
+  nombre_comuna   codigo_comuna name  value puntaje
+  &lt;chr&gt;                   &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt;   &lt;dbl&gt;
+1 Alto Hospicio            1107 c     0.164       1
+2 Puente Alto             13201 a     0.225       1
+3 Alto Hospicio            1107 a     0.397       1
+4 Alto del Carmen          3302 a     0.430       1
+5 Puente Alto             13201 c     0.562       1
+6 Alto Hospicio            1107 b     0.563       1</code></pre>
 </div>
 </div>
 </section><section class="level3"><h3 id="crear-nombres-de-comunas-a-partir-de-códigos-únicos-territoriales">Crear nombres de comunas a partir de códigos únicos territoriales<a class="anchor" aria-label="anchor" href="#crear-nombres-de-comunas-a-partir-de-c%C3%B3digos-%C3%BAnicos-territoriales"></a>
 </h3>
 <p>Algo que suele pasar es tener datos comunales con las comunas mal escritas, pero que vienen con códigos únicos territoriales. En este caso, aparte de limpiarlas con <code><a href="../reference/limpiar_comunas.html">limpiar_comunas()</a></code>, podemos crear los nombres de comunas a partir de los códigos únicos territoriales:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb63"><pre class="downlit sourceCode r">
+<div class="sourceCode cell-code" id="cb65"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">datos</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tribble.html" class="external-link">tribble</a></span><span class="op">(</span></span>
@@ -466,7 +475,7 @@ con `territorial::validar_comunas()`</code></pre>
 <span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb64"><pre class="downlit sourceCode r">
+<div class="sourceCode cell-code" id="cb66"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">datos</span></span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 10 × 2
@@ -483,7 +492,7 @@ con `territorial::validar_comunas()`</code></pre>
  9         16202 COBQUECURA
 10         13116 LO ESPEJO    </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb66"><pre class="downlit sourceCode r">
+<div class="sourceCode cell-code" id="cb68"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># crear nombres de comuna a partir de códigos comunales</span></span>
 <span><span class="va">datos</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>nombre_comuna <span class="op">=</span> <span class="fu"><a href="../reference/as_nombre_comuna.html">as_nombre_comuna</a></span><span class="op">(</span><span class="va">codigo_comuna</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
@@ -503,11 +512,12 @@ con `territorial::validar_comunas()`</code></pre>
 10         13116 LO ESPEJO     Lo Espejo    </code></pre>
 </div>
 </div>
+<p>Con esta estragegia simplemente ignoramos los nombres de comunas que venían en la base, y usamos solamente los códigos comunales para reconstruir los nombres, evitando incertidumbre.</p>
 </section><section class="level3"><h3 id="obtener-códigos-únicos-territoriales-a-partir-de-nombres-de-comunas">Obtener códigos únicos territoriales a partir de nombres de comunas<a class="anchor" aria-label="anchor" href="#obtener-c%C3%B3digos-%C3%BAnicos-territoriales-a-partir-de-nombres-de-comunas"></a>
 </h3>
 <p>También podemos tener el caso inverso: una tabla con datos comunales que vienen con nombres de comunas, pero sin códigos únicos territoriales. Podemos crear los códigos únicos territoriales a partir de los nombres de comunas:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb68"><pre class="downlit sourceCode r">
+<div class="sourceCode cell-code" id="cb70"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">datos</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tribble.html" class="external-link">tribble</a></span><span class="op">(</span></span>
@@ -521,7 +531,7 @@ con `territorial::validar_comunas()`</code></pre>
 <span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb69"><pre class="downlit sourceCode r">
+<div class="sourceCode cell-code" id="cb71"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">datos</span></span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 2
@@ -534,7 +544,7 @@ con `territorial::validar_comunas()`</code></pre>
 5 Ñuñoa             1
 6 Conchalí          2</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb71"><pre class="downlit sourceCode r">
+<div class="sourceCode cell-code" id="cb73"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># agregar códigos comunales a partir de nombres de comunas</span></span>
 <span><span class="va">datos</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>codigo_comuna <span class="op">=</span> <span class="fu"><a href="../reference/as_codigo_comuna.html">as_codigo_comuna</a></span><span class="op">(</span><span class="va">nombre_comuna</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
@@ -555,7 +565,7 @@ con `territorial::validar_comunas()`</code></pre>
 </h3>
 <p>Si tenemos datos de nivel comunal pero les faltan variables territoriales, podemos <em>contextualizar</em> los datos comunales al agregarles todas las variables que les faltan con la función <code><a href="../reference/contextualizar.html">contextualizar()</a></code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb73"><pre class="downlit sourceCode r">
+<div class="sourceCode cell-code" id="cb75"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">datos</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tribble.html" class="external-link">tribble</a></span><span class="op">(</span></span>
 <span>  <span class="op">~</span><span class="va">nombre_comuna</span>, <span class="op">~</span><span class="va">valor</span>,</span>
 <span>  <span class="st">"Cerrillos"</span>,    <span class="fl">1</span>,</span>
@@ -563,7 +573,7 @@ con `territorial::validar_comunas()`</code></pre>
 <span>  <span class="st">"Putre"</span>,        <span class="fl">3</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb74"><pre class="downlit sourceCode r">
+<div class="sourceCode cell-code" id="cb76"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">datos</span></span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 2
@@ -573,9 +583,12 @@ con `territorial::validar_comunas()`</code></pre>
 2 Arica             2
 3 Putre             3</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb76"><pre class="downlit sourceCode r">
+<div class="sourceCode cell-code" id="cb78"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">datos</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="../reference/contextualizar.html">contextualizar</a></span><span class="op">(</span><span class="va">nombre_comuna</span><span class="op">)</span></span></code></pre></div>
+<span>  <span class="fu"><a href="../reference/contextualizar.html">contextualizar</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>ℹ No se especificó la variable: asumiendo columna `nombre_comuna`</code></pre>
+</div>
 <div class="cell-output cell-output-stderr">
 <pre><code>ℹ Columnas agregadas: codigo_region, nombre_region, codigo_provincia, nombre_provincia y codigo_comuna</code></pre>
 </div>
@@ -589,11 +602,38 @@ con `territorial::validar_comunas()`</code></pre>
 # ℹ 2 more variables: nombre_comuna &lt;chr&gt;, valor &lt;dbl&gt;</code></pre>
 </div>
 </div>
+<p>Si no se especifica la variable, <code><a href="../reference/contextualizar.html">contextualizar()</a></code> usa la columna <code>nombre_comuna</code> o <code>codigo_comuna</code>, cualquiera de las dos que esté presente. Por lo tanto, también funciona con tablas que sólo traen códigos únicos territoriales:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb82"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">datos_codigos</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tribble.html" class="external-link">tribble</a></span><span class="op">(</span></span>
+<span>  <span class="op">~</span><span class="va">codigo_comuna</span>, <span class="op">~</span><span class="va">valor</span>,</span>
+<span>  <span class="fl">13101</span>,          <span class="fl">1</span>,</span>
+<span>  <span class="fl">15101</span>,          <span class="fl">2</span>,</span>
+<span>  <span class="fl">16101</span>,          <span class="fl">3</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">datos_codigos</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/contextualizar.html">contextualizar</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>ℹ No se especificó la variable: asumiendo columna `codigo_comuna`</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>ℹ Columnas agregadas: codigo_region, nombre_region, codigo_provincia, nombre_provincia y nombre_comuna</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 7
+  codigo_region nombre_region    codigo_provincia nombre_provincia codigo_comuna
+          &lt;dbl&gt; &lt;chr&gt;                       &lt;dbl&gt; &lt;chr&gt;                    &lt;dbl&gt;
+1            13 Metropolitana d…              131 Santiago                 13101
+2            15 Arica y Parinac…              151 Arica                    15101
+3            16 Ñuble                         161 Diguillín                16101
+# ℹ 2 more variables: nombre_comuna &lt;chr&gt;, valor &lt;dbl&gt;</code></pre>
+</div>
+</div>
 </section><section class="level3"><h3 id="otras-funciones-para-comunas">Otras funciones para comunas<a class="anchor" aria-label="anchor" href="#otras-funciones-para-comunas"></a>
 </h3>
 <p>Si tienes una comuna y quieres obtener la región a la que pertenece, usa <code><a href="../reference/ubicar_comunas.html">ubicar_comunas()</a></code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb79"><pre class="downlit sourceCode r">
+<div class="sourceCode cell-code" id="cb86"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">comuna</span> <span class="op">&lt;-</span> <span class="st">"Curacautín"</span></span>
 <span></span>
 <span><span class="fu"><a href="../reference/ubicar_comunas.html">ubicar_comunas</a></span><span class="op">(</span><span class="va">comuna</span><span class="op">)</span></span></code></pre></div>
@@ -601,9 +641,22 @@ con `territorial::validar_comunas()`</code></pre>
 <pre><code>[1] "La Araucanía"</code></pre>
 </div>
 </div>
+<p>También funciona con códigos únicos territoriales, y con el argumento <code>nivel = "provincia"</code> entrega la provincia en vez de la región:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb88"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/ubicar_comunas.html">ubicar_comunas</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1101</span>, <span class="fl">13103</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Tarapacá"                  "Metropolitana de Santiago"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb90"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/ubicar_comunas.html">ubicar_comunas</a></span><span class="op">(</span><span class="st">"Puente Alto"</span>, nivel <span class="op">=</span> <span class="st">"provincia"</span><span class="op">)</span></span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Cordillera"</code></pre>
+</div>
+</div>
 <p>Si tienes varias comunas y quieres crear un texto que las contenga, usa <code><a href="../reference/redactar_comunas.html">redactar_comunas()</a></code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb81"><pre class="downlit sourceCode r">
+<div class="sourceCode cell-code" id="cb92"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">comunas</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Lo Espejo"</span>, <span class="st">"La Granja"</span>, <span class="st">"La Pintana"</span>, <span class="st">"Puente Alto"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="../reference/redactar_comunas.html">redactar_comunas</a></span><span class="op">(</span><span class="va">comunas</span><span class="op">)</span></span></code></pre></div>
@@ -613,15 +666,62 @@ con `territorial::validar_comunas()`</code></pre>
 </div>
 <p>Si quieres saber si una comuna clasifica como urbana, mixta o rural de acuerdo a la clasificación de la <a href="https://bibliotecadigital.odepa.gob.cl/items/ce846880-f010-4868-a5d9-18c80f7ceabd" class="external-link">Oficina de Estudios y Políticas Agrarias (Odepa)</a>, usa <code><a href="../reference/agregar_clasificacion.html">agregar_clasificacion()</a></code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb83"><pre class="downlit sourceCode r">
+<div class="sourceCode cell-code" id="cb94"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">comunas</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Curanilahue"</span>, <span class="st">"Melipilla"</span>, <span class="st">"San Pedro"</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu"><a href="../reference/agregar_clasificacion.html">agregar_clasificacion</a></span><span class="op">(</span></span>
-<span>  <span class="fu"><a href="../reference/as_codigo_comuna.html">as_codigo_comuna</a></span><span class="op">(</span><span class="va">comunas</span><span class="op">)</span></span>
-<span>  <span class="op">)</span>  </span></code></pre></div>
+<span><span class="fu"><a href="../reference/agregar_clasificacion.html">agregar_clasificacion</a></span><span class="op">(</span><span class="va">comunas</span><span class="op">)</span></span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] Mixta  Urbana Rural
 Levels: Rural Mixta Urbana</code></pre>
+</div>
+</div>
+<p>Si le entregas una tabla de datos, <code><a href="../reference/agregar_clasificacion.html">agregar_clasificacion()</a></code> usa la columna <code>codigo_comuna</code> y agrega la columna <code>clasificacion</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb96"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">territorios</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html" class="external-link">slice_sample</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">5</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">codigo_comuna</span>, <span class="va">nombre_comuna</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="../reference/agregar_clasificacion.html">agregar_clasificacion</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 3
+  codigo_comuna nombre_comuna        clasificacion
+          &lt;dbl&gt; &lt;chr&gt;                &lt;fct&gt;
+1          2102 Mejillones           Rural
+2         10306 San Juan de la Costa Rural
+3          8201 Lebu                 Mixta
+4          8314 Alto Biobío          Rural
+5          1402 Camiña               Rural        </code></pre>
+</div>
+</div>
+<p>Si sólo necesitas saber si una comuna es rural, usa <code><a href="../reference/is_rural.html">is_rural()</a></code>, que entrega <code>TRUE</code> o <code>FALSE</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb98"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/is_rural.html">is_rural</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Santiago"</span>, <span class="st">"Camiña"</span>, <span class="st">"Casablanca"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE  TRUE FALSE</code></pre>
+</div>
+</div>
+<p>Esto es útil, por ejemplo, para filtrar tablas de datos y dejar sólo las comunas rurales:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb100"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">territorios</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">nombre_region</span>, <span class="va">nombre_comuna</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="fu"><a href="../reference/is_rural.html">is_rural</a></span><span class="op">(</span><span class="va">nombre_comuna</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 185 × 2
+   nombre_region nombre_comuna
+   &lt;chr&gt;         &lt;chr&gt;
+ 1 Tarapacá      Pozo Almonte
+ 2 Tarapacá      Camiña
+ 3 Tarapacá      Colchane
+ 4 Tarapacá      Huara
+ 5 Tarapacá      Pica
+ 6 Antofagasta   Mejillones
+ 7 Antofagasta   Sierra Gorda
+ 8 Antofagasta   Taltal
+ 9 Antofagasta   Ollagüe
+10 Antofagasta   San Pedro de Atacama
+# ℹ 175 more rows</code></pre>
 </div>
 </div>
 <p>Estas funciones son particularmente útiles para cuando estés <a href="https://bastianolea.rbind.io/blog/quarto_reportes/" class="external-link">creando reportes</a> o <a href="https://bastianolea.rbind.io/blog/shiny/" class="external-link">aplicaciones web Shiny.</a></p>
@@ -629,7 +729,7 @@ Levels: Rural Mixta Urbana</code></pre>
 </h2>
 <p>Las siguientes son funciones de R centradas en las regiones de Chile. Puedes obtener las regiones con la función <code><a href="../reference/regiones.html">regiones()</a></code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb85"><pre class="downlit sourceCode r">
+<div class="sourceCode cell-code" id="cb102"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://bastianolea.github.io/territorial">territorial</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="../reference/regiones.html">regiones</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
@@ -654,7 +754,7 @@ Levels: Rural Mixta Urbana</code></pre>
 </div>
 <p>Las regiones con sus códigos territoriales puedes sacarlas de la tabla <code><a href="../reference/territorios.html">territorial::territorios</a></code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb87"><pre class="downlit sourceCode r">
+<div class="sourceCode cell-code" id="cb104"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">regiones</span> <span class="op">&lt;-</span> <span class="va">territorios</span> <span class="op">|&gt;</span> </span>
@@ -684,11 +784,26 @@ Levels: Rural Mixta Urbana</code></pre>
 16            16 Ñuble                                    </code></pre>
 </div>
 </div>
-<section class="level3"><h3 id="ordenar-regiones-de-chile">Ordenar regiones de Chile<a class="anchor" aria-label="anchor" href="#ordenar-regiones-de-chile"></a>
+<section class="level3"><h3 id="convertir-entre-nombres-y-códigos-de-regiones">Convertir entre nombres y códigos de regiones<a class="anchor" aria-label="anchor" href="#convertir-entre-nombres-y-c%C3%B3digos-de-regiones"></a>
+</h3>
+<p>Para obtener los nombres de regiones a partir de sus códigos, usa <code><a href="../reference/as_nombre_region.html">as_nombre_region()</a></code>, y para el caso inverso, <code><a href="../reference/as_codigo_region.html">as_codigo_region()</a></code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb106"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/as_nombre_region.html">as_nombre_region</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">15</span>, <span class="fl">4</span>, <span class="fl">10</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Arica y Parinacota" "Coquimbo"           "Los Lagos"         </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb108"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/as_codigo_region.html">as_codigo_region</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Maule"</span>, <span class="st">"Ñuble"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  7 16</code></pre>
+</div>
+</div>
+</section><section class="level3"><h3 id="ordenar-regiones-de-chile">Ordenar regiones de Chile<a class="anchor" aria-label="anchor" href="#ordenar-regiones-de-chile"></a>
 </h3>
 <p>Cuando trabajamos datos de nivel regional, una necesidad común es <a href="https://bastianolea.rbind.io/blog/ordenar_regiones/" class="external-link">ordenar las regiones en el orden geográfico</a>; es decir, de norte a sur. Para ello existe la función <code><a href="../reference/ordenar_regiones.html">ordenar_regiones()</a></code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb89"><pre class="downlit sourceCode r">
+<div class="sourceCode cell-code" id="cb110"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">regiones</span></span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 16 × 2
@@ -712,9 +827,9 @@ Levels: Rural Mixta Urbana</code></pre>
 16            16 Ñuble                                    </code></pre>
 </div>
 </div>
-<p>Aquí tenemos las regiones en orden según su numeración, pero queremos ordenarlas de norte a sur:</p>
+<p>Aquí tenemos las regiones en orden según su numeración (código único territorial de las regiones), pero queremos ordenarlas de norte a sur:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb91"><pre class="downlit sourceCode r">
+<div class="sourceCode cell-code" id="cb112"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">regiones</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="../reference/ordenar_regiones.html">ordenar_regiones</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -739,87 +854,14 @@ Levels: Rural Mixta Urbana</code></pre>
 16            12 Magallanes y de la Antártica Chilena     </code></pre>
 </div>
 </div>
-</section><section class="level3"><h3 id="acortar-nombres-de-regiones-de-chile">Acortar nombres de regiones de Chile<a class="anchor" aria-label="anchor" href="#acortar-nombres-de-regiones-de-chile"></a>
-</h3>
-<p>Hay regiones de Chile con nombres extensos, y que en ciertos contextos requieren de una versión más breve. Por ejemplo, no siempre es relevante leer “Libertador General” o “General Carlos Ibáñez del Campo”. Para eso podemos <code><a href="../reference/acortar_regiones.html">acortar_regiones()</a></code>:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb93"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">regiones</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu"><a href="../reference/ordenar_regiones.html">ordenar_regiones</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>nombre_region_corto <span class="op">=</span> <span class="fu"><a href="../reference/acortar_regiones.html">acortar_regiones</a></span><span class="op">(</span><span class="va">nombre_region</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: There was 1 warning in `mutate()`.
-ℹ In argument: `nombre_region_corto = acortar_regiones(nombre_region)`.
-Caused by warning:
-! Los datos están en formato factor: se perderá el orden de los niveles al
-convertirlos a texto</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 16 × 3
-   codigo_region nombre_region                             nombre_region_corto
-           &lt;dbl&gt; &lt;fct&gt;                                     &lt;chr&gt;
- 1            15 Arica y Parinacota                        Arica y Parinacota
- 2             1 Tarapacá                                  Tarapacá
- 3             2 Antofagasta                               Antofagasta
- 4             3 Atacama                                   Atacama
- 5             4 Coquimbo                                  Coquimbo
- 6             5 Valparaíso                                Valparaíso
- 7            13 Metropolitana de Santiago                 Metropolitana
- 8             6 Libertador General Bernardo O'Higgins     O'Higgins
- 9             7 Maule                                     Maule
-10            16 Ñuble                                     Ñuble
-11             8 Biobío                                    Biobío
-12             9 La Araucanía                              La Araucanía
-13            14 Los Ríos                                  Los Ríos
-14            10 Los Lagos                                 Los Lagos
-15            11 Aysén del General Carlos Ibáñez del Campo Aysén
-16            12 Magallanes y de la Antártica Chilena      Magallanes         </code></pre>
-</div>
-</div>
-</section><section class="level3"><h3 id="clasificar-regiones-de-chile-en-macrozonas">Clasificar regiones de Chile en macrozonas<a class="anchor" aria-label="anchor" href="#clasificar-regiones-de-chile-en-macrozonas"></a>
-</h3>
-<p>Algunos análisis requieren de agrupar las regiones de Chile en grupos, usualmente derivados de su posición geográfica. Con la función <code><a href="../reference/agregar_macrozona.html">agregar_macrozona()</a></code> se pueden clasificar las regiones del país en varios tipos de macrozona a partir de sus códigos regionales:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb96"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">regiones</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu"><a href="../reference/ordenar_regiones.html">ordenar_regiones</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span></span>
-<span>    macrozona_1 <span class="op">=</span> <span class="fu"><a href="../reference/agregar_macrozona.html">agregar_macrozona</a></span><span class="op">(</span><span class="va">codigo_region</span>, tipo <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>,</span>
-<span>    macrozona_2 <span class="op">=</span> <span class="fu"><a href="../reference/agregar_macrozona.html">agregar_macrozona</a></span><span class="op">(</span><span class="va">codigo_region</span>, tipo <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>,</span>
-<span>    macrozona_3 <span class="op">=</span> <span class="fu"><a href="../reference/agregar_macrozona.html">agregar_macrozona</a></span><span class="op">(</span><span class="va">codigo_region</span>, tipo <span class="op">=</span> <span class="fl">3</span><span class="op">)</span>,</span>
-<span>    macrozona_4 <span class="op">=</span> <span class="fu"><a href="../reference/agregar_macrozona.html">agregar_macrozona</a></span><span class="op">(</span><span class="va">codigo_region</span>, tipo <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span>
-<span>  <span class="op">)</span></span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 16 × 6
-   codigo_region nombre_region   macrozona_1 macrozona_2 macrozona_3 macrozona_4
-           &lt;dbl&gt; &lt;fct&gt;           &lt;fct&gt;       &lt;fct&gt;       &lt;fct&gt;       &lt;fct&gt;
- 1            15 Arica y Parina… Norte       Norte       Norte       Norte Gran…
- 2             1 Tarapacá        Norte       Norte       Norte       Norte Gran…
- 3             2 Antofagasta     Norte       Norte       Norte       Norte Gran…
- 4             3 Atacama         Norte       Norte       Norte       Norte Chico
- 5             4 Coquimbo        Norte       Centro      Centro      Norte Chico
- 6             5 Valparaíso      Centro      Centro      Centro      Norte Chico
- 7            13 Metropolitana … Centro      Centro      Metropolit… Zona centr…
- 8             6 Libertador Gen… Centro      Centro      Centro sur  Zona centr…
- 9             7 Maule           Centro      Centro/sur  Centro sur  Zona centr…
-10            16 Ñuble           Sur         Centro/sur  Centro sur  Zona centr…
-11             8 Biobío          Sur         Centro/sur  Centro sur  Zona centr…
-12             9 La Araucanía    Sur         Centro/sur  Sur         Zona Sur
-13            14 Los Ríos        Sur         Sur         Sur         Zona Sur
-14            10 Los Lagos       Sur         Sur         Sur         Zona Sur
-15            11 Aysén del Gene… Austral     Sur         Austral     Zona Austr…
-16            12 Magallanes y d… Austral     Sur         Austral     Zona Austr…</code></pre>
-</div>
-</div>
-<p>Para más información, <a href="https://bastianolea.github.io/territorial/articles/mapas_regionales_macrozonas.html">ver la viñeta sobre macrozonas.</a></p>
 </section><section class="level3"><h3 id="validación-de-calidad-de-nombres-de-regiones">Validación de calidad de nombres de regiones<a class="anchor" aria-label="anchor" href="#validaci%C3%B3n-de-calidad-de-nombres-de-regiones"></a>
 </h3>
 <p>Otro problema que podemos tener son datos de regiones con los nombres mal escritos. Para eso tenemos la función <code><a href="../reference/validar_regiones.html">validar_regiones()</a></code>, que revisará los nombres de las regiones y reportará los problemas existentes:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb98"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">regiones</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span>nombre_region <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"los lagos"</span>, <span class="st">"nuble"</span>, <span class="st">"OHIGGINS"</span>, <span class="st">"Araucania"</span><span class="op">)</span><span class="op">)</span></span>
+<div class="sourceCode cell-code" id="cb114"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">regiones_sucias</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span>nombre_region <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"los lagos"</span>, <span class="st">"nuble"</span>, <span class="st">"OHIGGINS"</span>, <span class="st">"Araucania"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">regiones</span></span></code></pre></div>
+<span><span class="va">regiones_sucias</span></span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 4 × 1
   nombre_region
@@ -831,8 +873,8 @@ convertirlos a texto</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb100"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">regiones</span> <span class="op">|&gt;</span> </span>
+<div class="sourceCode cell-code" id="cb116"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">regiones_sucias</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="../reference/validar_regiones.html">validar_regiones</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>ℹ No se especificó la variable: asumiendo columna `nombre_region`</code></pre>
@@ -862,10 +904,10 @@ convertirlos a texto</code></pre>
 <p>Al igual que con la función <code><a href="../reference/limpiar_comunas.html">limpiar_comunas()</a></code>, existe la función <code><a href="../reference/limpiar_regiones.html">limpiar_regiones()</a></code>, que aplica varios pasos de limpieza automatizada de textos para obtener nombres de regiones válidos.</p>
 <p>Veamos un ejemplo con una tabla de datos donde las regiones vienen mal escritas:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb108"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">regiones</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span>nombre_region <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"NUBLE"</span>, <span class="st">"AISEN"</span>, <span class="st">"OHIGINS"</span>, <span class="st">"RM"</span><span class="op">)</span><span class="op">)</span></span>
+<div class="sourceCode cell-code" id="cb124"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">regiones_sucias</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span>nombre_region <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"NUBLE"</span>, <span class="st">"AISEN"</span>, <span class="st">"OHIGINS"</span>, <span class="st">"RM"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">regiones</span></span></code></pre></div>
+<span><span class="va">regiones_sucias</span></span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 4 × 1
   nombre_region
@@ -878,8 +920,8 @@ convertirlos a texto</code></pre>
 </div>
 <p>Usamos <code><a href="../reference/limpiar_regiones.html">limpiar_regiones()</a></code> para obtener versiones válidas de los nombres:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb110"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">regiones</span> <span class="op">|&gt;</span> </span>
+<div class="sourceCode cell-code" id="cb126"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">regiones_sucias</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="../reference/limpiar_regiones.html">limpiar_regiones</a></span><span class="op">(</span><span class="op">)</span> <span class="co"># asume que la columna es `nombre_region`</span></span></code></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>ℹ Limpiando 4 nombres de región (4 son distintos)</code></pre>
@@ -927,18 +969,111 @@ convertirlos a texto</code></pre>
 4 Metropolitana de Santiago                </code></pre>
 </div>
 </div>
+</section><section class="level3"><h3 id="acortar-nombres-de-regiones-de-chile">Acortar nombres de regiones de Chile<a class="anchor" aria-label="anchor" href="#acortar-nombres-de-regiones-de-chile"></a>
+</h3>
+<p>Hay regiones de Chile con nombres extensos, y que en ciertos contextos requieren de una versión más breve. Por ejemplo, no siempre es relevante leer “Libertador General” o “General Carlos Ibáñez del Campo”. Para eso podemos <code><a href="../reference/acortar_regiones.html">acortar_regiones()</a></code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb140"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">regiones</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="../reference/ordenar_regiones.html">ordenar_regiones</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>nombre_region_corto <span class="op">=</span> <span class="fu"><a href="../reference/acortar_regiones.html">acortar_regiones</a></span><span class="op">(</span><span class="va">nombre_region</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: There was 1 warning in `mutate()`.
+ℹ In argument: `nombre_region_corto = acortar_regiones(nombre_region)`.
+Caused by warning:
+! Los datos están en formato factor: se perderá el orden de los niveles al
+convertirlos a texto</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 16 × 3
+   codigo_region nombre_region                             nombre_region_corto
+           &lt;dbl&gt; &lt;fct&gt;                                     &lt;chr&gt;
+ 1            15 Arica y Parinacota                        Arica y Parinacota
+ 2             1 Tarapacá                                  Tarapacá
+ 3             2 Antofagasta                               Antofagasta
+ 4             3 Atacama                                   Atacama
+ 5             4 Coquimbo                                  Coquimbo
+ 6             5 Valparaíso                                Valparaíso
+ 7            13 Metropolitana de Santiago                 Metropolitana
+ 8             6 Libertador General Bernardo O'Higgins     O'Higgins
+ 9             7 Maule                                     Maule
+10            16 Ñuble                                     Ñuble
+11             8 Biobío                                    Biobío
+12             9 La Araucanía                              La Araucanía
+13            14 Los Ríos                                  Los Ríos
+14            10 Los Lagos                                 Los Lagos
+15            11 Aysén del General Carlos Ibáñez del Campo Aysén
+16            12 Magallanes y de la Antártica Chilena      Magallanes         </code></pre>
+</div>
+</div>
+</section><section class="level3"><h3 id="clasificar-regiones-de-chile-en-macrozonas">Clasificar regiones de Chile en macrozonas<a class="anchor" aria-label="anchor" href="#clasificar-regiones-de-chile-en-macrozonas"></a>
+</h3>
+<p>Algunos análisis requieren de agrupar las regiones de Chile en grupos, usualmente derivados de su posición geográfica. Con la función <code><a href="../reference/agregar_macrozona.html">agregar_macrozona()</a></code> se pueden clasificar las regiones del país en varios tipos de macrozona a partir de sus códigos regionales:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb143"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">regiones</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="../reference/ordenar_regiones.html">ordenar_regiones</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span></span>
+<span>    macrozona_1 <span class="op">=</span> <span class="fu"><a href="../reference/agregar_macrozona.html">agregar_macrozona</a></span><span class="op">(</span><span class="va">codigo_region</span>, tipo <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>,</span>
+<span>    macrozona_2 <span class="op">=</span> <span class="fu"><a href="../reference/agregar_macrozona.html">agregar_macrozona</a></span><span class="op">(</span><span class="va">codigo_region</span>, tipo <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>,</span>
+<span>    macrozona_3 <span class="op">=</span> <span class="fu"><a href="../reference/agregar_macrozona.html">agregar_macrozona</a></span><span class="op">(</span><span class="va">codigo_region</span>, tipo <span class="op">=</span> <span class="fl">3</span><span class="op">)</span>,</span>
+<span>    macrozona_4 <span class="op">=</span> <span class="fu"><a href="../reference/agregar_macrozona.html">agregar_macrozona</a></span><span class="op">(</span><span class="va">codigo_region</span>, tipo <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span>
+<span>  <span class="op">)</span></span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 16 × 6
+   codigo_region nombre_region   macrozona_1 macrozona_2 macrozona_3 macrozona_4
+           &lt;dbl&gt; &lt;fct&gt;           &lt;fct&gt;       &lt;fct&gt;       &lt;fct&gt;       &lt;fct&gt;
+ 1            15 Arica y Parina… Norte       Norte       Norte       Norte Gran…
+ 2             1 Tarapacá        Norte       Norte       Norte       Norte Gran…
+ 3             2 Antofagasta     Norte       Norte       Norte       Norte Gran…
+ 4             3 Atacama         Norte       Norte       Norte       Norte Chico
+ 5             4 Coquimbo        Norte       Centro      Centro      Norte Chico
+ 6             5 Valparaíso      Centro      Centro      Centro      Norte Chico
+ 7            13 Metropolitana … Centro      Centro      Metropolit… Zona centr…
+ 8             6 Libertador Gen… Centro      Centro      Centro sur  Zona centr…
+ 9             7 Maule           Centro      Centro/sur  Centro sur  Zona centr…
+10            16 Ñuble           Sur         Centro/sur  Centro sur  Zona centr…
+11             8 Biobío          Sur         Centro/sur  Centro sur  Zona centr…
+12             9 La Araucanía    Sur         Centro/sur  Sur         Zona Sur
+13            14 Los Ríos        Sur         Sur         Sur         Zona Sur
+14            10 Los Lagos       Sur         Sur         Sur         Zona Sur
+15            11 Aysén del Gene… Austral     Sur         Austral     Zona Austr…
+16            12 Magallanes y d… Austral     Sur         Austral     Zona Austr…</code></pre>
+</div>
+</div>
+<p>La función también recibe nombres de regiones, o bien una tabla de datos, en cuyo caso usa la columna <code>codigo_region</code> y agrega la columna <code>macrozona</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb145"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/agregar_macrozona.html">agregar_macrozona</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Maule"</span>, <span class="st">"Ñuble"</span><span class="op">)</span>, tipo <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] Centro Sur
+Levels: Norte Centro Sur Austral</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb147"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span>codigo_region <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">13</span>, <span class="fl">12</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="../reference/agregar_macrozona.html">agregar_macrozona</a></span><span class="op">(</span>tipo <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 2
+  codigo_region macrozona
+          &lt;dbl&gt; &lt;fct&gt;
+1             1 Norte
+2            13 Centro
+3            12 Sur      </code></pre>
+</div>
+</div>
+<p>Para conocer en detalle cómo se compone cada tipo de macrozona, <a href="https://bastianolea.github.io/territorial/articles/mapas_regionales_macrozonas.html">revisa el artículo sobre macrozonas, que muestra mapas de cada una de ellas.</a></p>
 </section><section class="level3"><h3 id="obtener-comunas-de-una-región">Obtener comunas de una región<a class="anchor" aria-label="anchor" href="#obtener-comunas-de-una-regi%C3%B3n"></a>
 </h3>
 <p>Para saber qué comunas forman parte de una región, usa <code><a href="../reference/obtener_comunas.html">obtener_comunas()</a></code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb124"><pre class="downlit sourceCode r">
+<div class="sourceCode cell-code" id="cb149"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">region</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/regiones.html">regiones</a></span><span class="op">(</span><span class="op">)</span><span class="op">[</span><span class="fl">4</span><span class="op">]</span></span>
 <span></span>
 <span><span class="va">region</span></span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Atacama"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb126"><pre class="downlit sourceCode r">
+<div class="sourceCode cell-code" id="cb151"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/obtener_comunas.html">obtener_comunas</a></span><span class="op">(</span><span class="va">region</span><span class="op">)</span></span></code></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>ℹ Comunas de la región: Copiapó, Caldera, Tierra Amarilla, Chañaral, Diego de Almagro, Vallenar, Alto del Carmen, Freirina y Huasco</code></pre>
@@ -949,11 +1084,93 @@ convertirlos a texto</code></pre>
 [9] "Huasco"          </code></pre>
 </div>
 </div>
+<p>También se pueden obtener las comunas de varias regiones a la vez, usando sus códigos regionales:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb154"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/obtener_comunas.html">obtener_comunas</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">15</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>ℹ Comunas de la región: Iquique, Alto Hospicio, Pozo Almonte, Camiña, Colchane, Huara, Pica, Arica, Camarones, Putre y General Lagos</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "Iquique"       "Alto Hospicio" "Pozo Almonte"  "Camiña"
+ [5] "Colchane"      "Huara"         "Pica"          "Arica"
+ [9] "Camarones"     "Putre"         "General Lagos"</code></pre>
+</div>
+</div>
+</section><section class="level3"><h3 id="capitales-regionales">Capitales regionales<a class="anchor" aria-label="anchor" href="#capitales-regionales"></a>
+</h3>
+<p>Para obtener la tabla con las 16 comunas que son capital regional, usa <code><a href="../reference/capitales_regionales.html">capitales_regionales()</a></code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb157"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/capitales_regionales.html">capitales_regionales</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 16 × 6
+   codigo_region nombre_region   codigo_provincia nombre_provincia codigo_comuna
+           &lt;dbl&gt; &lt;chr&gt;                      &lt;dbl&gt; &lt;chr&gt;                    &lt;dbl&gt;
+ 1             1 Tarapacá                      11 Iquique                   1101
+ 2             2 Antofagasta                   21 Antofagasta               2101
+ 3             3 Atacama                       31 Copiapó                   3101
+ 4             4 Coquimbo                      41 Elqui                     4102
+ 5             5 Valparaíso                    51 Valparaíso                5101
+ 6             6 Libertador Gen…               61 Cachapoal                 6101
+ 7             7 Maule                         71 Talca                     7101
+ 8             8 Biobío                        81 Concepción                8101
+ 9             9 La Araucanía                  91 Cautín                    9101
+10            10 Los Lagos                    101 Llanquihue               10101
+11            11 Aysén del Gene…              111 Coyhaique                11101
+12            12 Magallanes y d…              121 Magallanes               12101
+13            13 Metropolitana …              131 Santiago                 13101
+14            14 Los Ríos                     141 Valdivia                 14101
+15            15 Arica y Parina…              151 Arica                    15101
+16            16 Ñuble                        161 Diguillín                16101
+# ℹ 1 more variable: nombre_comuna &lt;chr&gt;</code></pre>
+</div>
+</div>
+<p>Con <code><a href="../reference/as_capital_regional.html">as_capital_regional()</a></code> puedes obtener la capital de una o varias regiones, a partir de sus nombres o códigos:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb159"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/as_capital_regional.html">as_capital_regional</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Maule"</span>, <span class="st">"Ñuble"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Talca"   "Chillán"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb161"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/as_capital_regional.html">as_capital_regional</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">15</span>, <span class="fl">4</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Arica"    "Coquimbo"</code></pre>
+</div>
+</div>
+<p>Esto puede servir cuando es necesario imputar datos comunales a partir de datos regionales; por ejemplo, para ubicar en un mapa comunal un dato que sólo existe a nivel regional:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb163"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">datos_regionales</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble</a></span><span class="op">(</span></span>
+<span>  nombre_region <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Maule"</span>, <span class="st">"Ñuble"</span>, <span class="st">"Los Lagos"</span><span class="op">)</span>,</span>
+<span>  valor <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">20</span>, <span class="fl">30</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">datos_regionales</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>nombre_comuna <span class="op">=</span> <span class="fu"><a href="../reference/as_capital_regional.html">as_capital_regional</a></span><span class="op">(</span><span class="va">nombre_region</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 3
+  nombre_region valor nombre_comuna
+  &lt;chr&gt;         &lt;dbl&gt; &lt;chr&gt;
+1 Maule            10 Talca
+2 Ñuble            20 Chillán
+3 Los Lagos        30 Puerto Montt </code></pre>
+</div>
+</div>
+<p>Y con <code><a href="../reference/is_capital_regional.html">is_capital_regional()</a></code> puedes confirmar si una comuna es capital regional:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb165"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/is_capital_regional.html">is_capital_regional</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Santiago"</span>, <span class="st">"Puente Alto"</span>, <span class="st">"Valparaíso"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  TRUE FALSE  TRUE</code></pre>
+</div>
+</div>
 </section><section class="level3"><h3 id="otras-funciones-para-regiones">Otras funciones para regiones<a class="anchor" aria-label="anchor" href="#otras-funciones-para-regiones"></a>
 </h3>
 <p>Si tienes nombres de región y estás creando reportes o aplicaciones que usan las regiones dentro de párrafos, sabrás que hay regiones que se anteceden por preposiciones distintas (<em>Región “del” Maule, Región “de” O’Higgins</em>), e incluso sin preposiciones (no se escribe <em>Región “de” Metropolitana</em>). Para eso existe la función <code><a href="../reference/preposicion_region.html">preposicion_region()</a></code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb129"><pre class="downlit sourceCode r">
+<div class="sourceCode cell-code" id="cb167"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">region</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Maule"</span>, <span class="st">"O'Higgins"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="../reference/preposicion_region.html">preposicion_region</a></span><span class="op">(</span><span class="va">region</span><span class="op">)</span></span></code></pre></div>
@@ -963,7 +1180,7 @@ convertirlos a texto</code></pre>
 </div>
 <p>La mejor forma de obtener el nombre redactado de la región sería con, obviamente, <code><a href="../reference/redactar_region.html">redactar_region()</a></code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb131"><pre class="downlit sourceCode r">
+<div class="sourceCode cell-code" id="cb169"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/redactar_region.html">redactar_region</a></span><span class="op">(</span><span class="va">region</span><span class="op">)</span></span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Región del Maule"    "Región de O'Higgins"</code></pre>
@@ -973,7 +1190,7 @@ convertirlos a texto</code></pre>
 </h2>
 <p>El paquete también contiene datos a nivel sub-comunal de Chile, como son las localidades. Las localidades son asentamientos o áreas subcomunales que no son entidades administrativas. Puedes consultarlas en la tabla <code><a href="../reference/localidades.html">territorial::localidades</a></code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb133"><pre class="downlit sourceCode r">
+<div class="sourceCode cell-code" id="cb171"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">localidades</span></span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 29,256 × 6
@@ -997,7 +1214,7 @@ convertirlos a texto</code></pre>
 </h3>
 <p>Con la función <code><a href="../reference/ubicar_localidades.html">ubicar_localidades()</a></code>, podemos consultar nombres de localidades de Chile para ubicarlas geográficamente en la comuna donde se emplazan:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb135"><pre class="downlit sourceCode r">
+<div class="sourceCode cell-code" id="cb173"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/ubicar_localidades.html">ubicar_localidades</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Chada"</span>, <span class="st">"La Dormida"</span>, <span class="st">"Mallarauco"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>ℹ Buscando localidad 'Chada'</code></pre>
@@ -1052,9 +1269,17 @@ convertirlos a texto</code></pre>
 <pre><code>[1] "Paine"    "Olmué"    "Peñaflor"</code></pre>
 </div>
 </div>
+</section></section><section class="level2"><h2 id="trivia-territorial">Trivia territorial<a class="anchor" aria-label="anchor" href="#trivia-territorial"></a>
+</h2>
+<p>Para poner a prueba tus conocimientos sobre las comunas y regiones de Chile, ejecuta <code><a href="../reference/trivia.html">trivia()</a></code> en tu consola de R, y responde las preguntas interactivas:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb187"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/trivia.html">trivia</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+</div>
+<p>También puedes <a href="https://bastianolea.github.io/territorial/articles/trivia.html">jugar la trivia en el navegador.</a></p>
 <hr>
 <p>Estas son algunas de las funciones principales, pero existen muchas más: <a href="https://bastianolea.github.io/territorial/reference/index.html">revisa el índice de funciones!</a></p>
-</section></section><script id="quarto-html-after-body" type="application/javascript">
+</section><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);

@@ -1,4 +1,4 @@
-# Introducción al paquete {territorial}
+# Introducción al paquete `territorial`
 
 ## Instalación
 
@@ -22,13 +22,12 @@ pak::pak("bastianolea/territorial")
 ```
 
 Los siguientes ejemplos te ayudarán a conocer algunas de las funciones
-de [territorial](https://bastianolea.github.io/territorial).
+de `territorial`.
 
 ## Datos comunales
 
-Quizás lo más básico que podemos hacer a nivel comunal con
-[territorial](https://bastianolea.github.io/territorial) es obtener un
-vector con las comunas del país:
+Quizás lo más básico que podemos hacer a nivel comunal con `territorial`
+es obtener un vector con las comunas del país:
 
 ``` r
 
@@ -37,9 +36,21 @@ library(territorial)
 sample(comunas(), 12)
 ```
 
-     [1] "La Higuera"      "Alto del Carmen" "Carahue"         "Vallenar"
-     [5] "Quilaco"         "Casablanca"      "Chaitén"         "Perquenco"
-     [9] "Macul"           "Pudahuel"        "Colbún"          "Negrete"        
+     [1] "La Higuera"    "Chimbarongo"   "San Joaquín"   "Melipilla"
+     [5] "Constitución"  "San Ramón"     "San Javier"    "Independencia"
+     [9] "Lago Verde"    "Lebu"          "Macul"         "Concón"       
+
+Del mismo modo,
+[`codigos_comunas()`](https://bastianolea.github.io/territorial/reference/codigos_comunas.md)
+entrega un vector con todos los códigos únicos territoriales de comunas
+válidos:
+
+``` r
+
+sample(codigos_comunas(), 12)
+```
+
+     [1]  9207 10403  2203  9106  6308 16201 13122  3304 13203  4103 16301 12302
 
 ### Tabla de comunas, provincias y regiones de Chile
 
@@ -338,18 +349,18 @@ base
 ```
 
     # A tibble: 972 × 4
-       nombre_comuna        codigo_comuna name     value
-       <chr>                        <dbl> <chr>    <dbl>
-     1 Pemuco                       16105 a     0.000311
-     2 San Pedro de Atacama          2203 c     0.00191
-     3 San Vicente                   6117 c     0.00270
-     4 Purranque                    10303 c     0.00284
-     5 Coinco                        6103 a     0.00324
-     6 Purén                         9208 b     0.00500
-     7 Porvenir                     12301 a     0.00547
-     8 Llaillay                      5703 b     0.00547
-     9 Rauco                         7305 b     0.00703
-    10 La Unión                     14201 b     0.00723
+       nombre_comuna   codigo_comuna name      value
+       <chr>                   <dbl> <chr>     <dbl>
+     1 Chimbarongo              6303 b     0.0000104
+     2 Sagrada Familia          7307 b     0.000127
+     3 Caldera                  3102 b     0.000589
+     4 Recoleta                13127 b     0.00149
+     5 Papudo                   5403 a     0.00204
+     6 Calbuco                 10102 b     0.00276
+     7 San Ignacio             16108 c     0.00464
+     8 Talcahuano               8110 c     0.00524
+     9 Caldera                  3102 a     0.00716
+    10 Freirina                 3303 a     0.00893
     # ℹ 962 more rows
 
 Esta tabla tiene 972 filas, ¿cómo confirmar si existen datos para todas
@@ -367,7 +378,7 @@ base |>
     Warning: La cantidad de comunas es anómala: hay 324, pero deberían ser 346. Revísalas
     con `territorial::validar_comunas()`
 
-    → Las comunas faltantes son: Isla de Pascua, Calera, Villa Alemana, Olivar, Nancagua, Villa Alegre, San Rosendo, Santa Bárbara, Tucapel, Carahue, Curarrehue, Frutillar, Quemchi, Quinchao, Puerto Octay, Punta Arenas, Cabo de Hornos, Peñalolén, Valdivia, Río Bueno, General Lagos y San Nicolás
+    → Las comunas faltantes son: Tocopilla, Los Andes, Petorca, Nogales, Llaillay, Putaendo, Paredones, Cauquenes, Alto Biobío, Cunco, Pitrufquén, Saavedra, Toltén, Collipulli, Puyehue, Coyhaique, O'Higgins, Punta Arenas, Macul, Máfil, La Unión y Yungay
 
 La función
 [`contar_comunas()`](https://bastianolea.github.io/territorial/reference/contar_comunas.md)
@@ -385,19 +396,19 @@ base |>
   buscar_comuna("Alto")
 ```
 
-    ! Se encontraron 30 resultados, mostrando sólo 6.
+    ! Se encontraron 27 resultados, mostrando sólo 6.
 
-    ℹ Los resultados más cercanos al término `Alto` son: Puente Alto, Alto Biobío, Alto del Carmen y Alto Hospicio
+    ℹ Los resultados más cercanos al término `Alto` son: Alto Hospicio, Puente Alto y Alto del Carmen
 
     # A tibble: 6 × 5
-      nombre_comuna   codigo_comuna name   value puntaje
-      <chr>                   <dbl> <chr>  <dbl>   <dbl>
-    1 Puente Alto             13201 b     0.0980       1
-    2 Alto Biobío              8314 a     0.163        1
-    3 Alto del Carmen          3302 a     0.316        1
-    4 Alto Hospicio            1107 c     0.395        1
-    5 Puente Alto             13201 c     0.484        1
-    6 Puente Alto             13201 a     0.653        1
+      nombre_comuna   codigo_comuna name  value puntaje
+      <chr>                   <dbl> <chr> <dbl>   <dbl>
+    1 Alto Hospicio            1107 c     0.164       1
+    2 Puente Alto             13201 a     0.225       1
+    3 Alto Hospicio            1107 a     0.397       1
+    4 Alto del Carmen          3302 a     0.430       1
+    5 Puente Alto             13201 c     0.562       1
+    6 Alto Hospicio            1107 b     0.563       1
 
 ### Crear nombres de comunas a partir de códigos únicos territoriales
 
@@ -466,6 +477,10 @@ datos |>
      8         11401 CHILE CHICO   Chile Chico
      9         16202 COBQUECURA    Cobquecura
     10         13116 LO ESPEJO     Lo Espejo    
+
+Con esta estragegia simplemente ignoramos los nombres de comunas que
+venían en la base, y usamos solamente los códigos comunales para
+reconstruir los nombres, evitando incertidumbre.
 
 ### Obtener códigos únicos territoriales a partir de nombres de comunas
 
@@ -558,8 +573,10 @@ datos
 ``` r
 
 datos |>
-  contextualizar(nombre_comuna)
+  contextualizar()
 ```
+
+    ℹ No se especificó la variable: asumiendo columna `nombre_comuna`
 
     ℹ Columnas agregadas: codigo_region, nombre_region, codigo_provincia, nombre_provincia y codigo_comuna
 
@@ -569,6 +586,36 @@ datos |>
     1            13 Metropolitana d…              131 Santiago                 13102
     2            15 Arica y Parinac…              151 Arica                    15101
     3            15 Arica y Parinac…              152 Parinacota               15201
+    # ℹ 2 more variables: nombre_comuna <chr>, valor <dbl>
+
+Si no se especifica la variable,
+[`contextualizar()`](https://bastianolea.github.io/territorial/reference/contextualizar.md)
+usa la columna `nombre_comuna` o `codigo_comuna`, cualquiera de las dos
+que esté presente. Por lo tanto, también funciona con tablas que sólo
+traen códigos únicos territoriales:
+
+``` r
+
+datos_codigos <- tribble(
+  ~codigo_comuna, ~valor,
+  13101,          1,
+  15101,          2,
+  16101,          3)
+
+datos_codigos |>
+  contextualizar()
+```
+
+    ℹ No se especificó la variable: asumiendo columna `codigo_comuna`
+
+    ℹ Columnas agregadas: codigo_region, nombre_region, codigo_provincia, nombre_provincia y nombre_comuna
+
+    # A tibble: 3 × 7
+      codigo_region nombre_region    codigo_provincia nombre_provincia codigo_comuna
+              <dbl> <chr>                       <dbl> <chr>                    <dbl>
+    1            13 Metropolitana d…              131 Santiago                 13101
+    2            15 Arica y Parinac…              151 Arica                    15101
+    3            16 Ñuble                         161 Diguillín                16101
     # ℹ 2 more variables: nombre_comuna <chr>, valor <dbl>
 
 ### Otras funciones para comunas
@@ -584,6 +631,23 @@ ubicar_comunas(comuna)
 ```
 
     [1] "La Araucanía"
+
+También funciona con códigos únicos territoriales, y con el argumento
+`nivel = "provincia"` entrega la provincia en vez de la región:
+
+``` r
+
+ubicar_comunas(c(1101, 13103))
+```
+
+    [1] "Tarapacá"                  "Metropolitana de Santiago"
+
+``` r
+
+ubicar_comunas("Puente Alto", nivel = "provincia")
+```
+
+    [1] "Cordillera"
 
 Si tienes varias comunas y quieres crear un texto que las contenga, usa
 [`redactar_comunas()`](https://bastianolea.github.io/territorial/reference/redactar_comunas.md):
@@ -608,13 +672,68 @@ usa
 
 comunas <- c("Curanilahue", "Melipilla", "San Pedro")
 
-agregar_clasificacion(
-  as_codigo_comuna(comunas)
-  )  
+agregar_clasificacion(comunas)
 ```
 
     [1] Mixta  Urbana Rural
     Levels: Rural Mixta Urbana
+
+Si le entregas una tabla de datos,
+[`agregar_clasificacion()`](https://bastianolea.github.io/territorial/reference/agregar_clasificacion.md)
+usa la columna `codigo_comuna` y agrega la columna `clasificacion`:
+
+``` r
+
+territorios |> 
+  slice_sample(n = 5) |> 
+  select(codigo_comuna, nombre_comuna) |> 
+  agregar_clasificacion()
+```
+
+    # A tibble: 5 × 3
+      codigo_comuna nombre_comuna        clasificacion
+              <dbl> <chr>                <fct>
+    1          2102 Mejillones           Rural
+    2         10306 San Juan de la Costa Rural
+    3          8201 Lebu                 Mixta
+    4          8314 Alto Biobío          Rural
+    5          1402 Camiña               Rural        
+
+Si sólo necesitas saber si una comuna es rural, usa
+[`is_rural()`](https://bastianolea.github.io/territorial/reference/is_rural.md),
+que entrega `TRUE` o `FALSE`:
+
+``` r
+
+is_rural(c("Santiago", "Camiña", "Casablanca"))
+```
+
+    [1] FALSE  TRUE FALSE
+
+Esto es útil, por ejemplo, para filtrar tablas de datos y dejar sólo las
+comunas rurales:
+
+``` r
+
+territorios |> 
+  select(nombre_region, nombre_comuna) |> 
+  filter(is_rural(nombre_comuna))
+```
+
+    # A tibble: 185 × 2
+       nombre_region nombre_comuna
+       <chr>         <chr>
+     1 Tarapacá      Pozo Almonte
+     2 Tarapacá      Camiña
+     3 Tarapacá      Colchane
+     4 Tarapacá      Huara
+     5 Tarapacá      Pica
+     6 Antofagasta   Mejillones
+     7 Antofagasta   Sierra Gorda
+     8 Antofagasta   Taltal
+     9 Antofagasta   Ollagüe
+    10 Antofagasta   San Pedro de Atacama
+    # ℹ 175 more rows
 
 Estas funciones son particularmente útiles para cuando estés [creando
 reportes](https://bastianolea.rbind.io/blog/quarto_reportes/) o
@@ -684,6 +803,27 @@ regiones
     15            15 Arica y Parinacota
     16            16 Ñuble                                    
 
+### Convertir entre nombres y códigos de regiones
+
+Para obtener los nombres de regiones a partir de sus códigos, usa
+[`as_nombre_region()`](https://bastianolea.github.io/territorial/reference/as_nombre_region.md),
+y para el caso inverso,
+[`as_codigo_region()`](https://bastianolea.github.io/territorial/reference/as_codigo_region.md):
+
+``` r
+
+as_nombre_region(c(15, 4, 10))
+```
+
+    [1] "Arica y Parinacota" "Coquimbo"           "Los Lagos"         
+
+``` r
+
+as_codigo_region(c("Maule", "Ñuble"))
+```
+
+    [1]  7 16
+
 ### Ordenar regiones de Chile
 
 Cuando trabajamos datos de nivel regional, una necesidad común es
@@ -717,8 +857,8 @@ regiones
     15            15 Arica y Parinacota
     16            16 Ñuble                                    
 
-Aquí tenemos las regiones en orden según su numeración, pero queremos
-ordenarlas de norte a sur:
+Aquí tenemos las regiones en orden según su numeración (código único
+territorial de las regiones), pero queremos ordenarlas de norte a sur:
 
 ``` r
 
@@ -745,6 +885,119 @@ regiones |>
     14            10 Los Lagos
     15            11 Aysén del General Carlos Ibáñez del Campo
     16            12 Magallanes y de la Antártica Chilena     
+
+### Validación de calidad de nombres de regiones
+
+Otro problema que podemos tener son datos de regiones con los nombres
+mal escritos. Para eso tenemos la función
+[`validar_regiones()`](https://bastianolea.github.io/territorial/reference/validar_regiones.md),
+que revisará los nombres de las regiones y reportará los problemas
+existentes:
+
+``` r
+
+regiones_sucias <- tibble(nombre_region = c("los lagos", "nuble", "OHIGGINS", "Araucania"))
+
+regiones_sucias
+```
+
+    # A tibble: 4 × 1
+      nombre_region
+      <chr>
+    1 los lagos
+    2 nuble
+    3 OHIGGINS
+    4 Araucania    
+
+``` r
+
+regiones_sucias |> 
+  validar_regiones()
+```
+
+    ℹ No se especificó la variable: asumiendo columna `nombre_region`
+
+    Warning: Mayúsculas: 1 caso de regiones escritas en mayúsculas
+
+    Warning: Mayúsculas: 2 casos de regiones escritas en minúsculas
+
+    Warning: Ortografía: 1 caso de la Región de Ñuble escrita sin eñe
+
+    Warning: Ortografía: 1 caso de la Región de O'Higgins escrita sin su apóstrofo
+    (')
+
+    Warning: Ortografía: 1 caso de regiones escritas sin tilde
+
+    ✖ Validación de regiones: se encontraron 6 problemas con las regiones!
+
+### Limpieza de nombres de regiones de Chile
+
+Al igual que con la función
+[`limpiar_comunas()`](https://bastianolea.github.io/territorial/reference/limpiar_comunas.md),
+existe la función
+[`limpiar_regiones()`](https://bastianolea.github.io/territorial/reference/limpiar_regiones.md),
+que aplica varios pasos de limpieza automatizada de textos para obtener
+nombres de regiones válidos.
+
+Veamos un ejemplo con una tabla de datos donde las regiones vienen mal
+escritas:
+
+``` r
+
+regiones_sucias <- tibble(nombre_region = c("NUBLE", "AISEN", "OHIGINS", "RM"))
+
+regiones_sucias
+```
+
+    # A tibble: 4 × 1
+      nombre_region
+      <chr>
+    1 NUBLE
+    2 AISEN
+    3 OHIGINS
+    4 RM           
+
+Usamos
+[`limpiar_regiones()`](https://bastianolea.github.io/territorial/reference/limpiar_regiones.md)
+para obtener versiones válidas de los nombres:
+
+``` r
+
+regiones_sucias |> 
+  limpiar_regiones() # asume que la columna es `nombre_region`
+```
+
+    ℹ Limpiando 4 nombres de región (4 son distintos)
+
+    → Paso 1: confirmar regiones correctas
+
+    ℹ De las 4 regiones distintas, ninguna tiene nombres totalmente correctos. Los siguientes pasos intentarán la limpieza
+
+    → Paso 2: coincidencias por limpieza de texto
+
+    ℹ A partir de la limpieza de texto, se limpiaron 1 de 4 regiones: Ñuble
+
+    → Paso 3: casos especiales
+
+    ℹ Se encontraron 2 casos especiales: Aysén del General Carlos Ibáñez del Campo y Metropolitana de Santiago
+
+    → Paso 4: coincidencias aproximadas de texto
+
+    ! Se encontraron 2 coincidencias para la región `ohigins`: ohiggins y libertador general bernardo ohiggins
+
+    ℹ Se limpiaron 1 de 1 regiones por medio de coincidencias aproximadas de texto: Libertador General Bernardo O'Higgins
+
+    → Conclusión de limpieza de regiones
+
+    ✔ De las 4 regiones distintas, se limpiaron 4 en total (100%)
+
+    # A tibble: 4 × 1
+      nombre_region
+      <chr>
+    1 Ñuble
+    2 Aysén del General Carlos Ibáñez del Campo
+    3 Libertador General Bernardo O'Higgins
+    4 Metropolitana de Santiago                
 
 ### Acortar nombres de regiones de Chile
 
@@ -827,121 +1080,34 @@ regiones |>
     15            11 Aysén del Gene… Austral     Sur         Austral     Zona Austr…
     16            12 Magallanes y d… Austral     Sur         Austral     Zona Austr…
 
-Para más información, [ver la viñeta sobre
-macrozonas.](https://bastianolea.github.io/territorial/articles/mapas_regionales_macrozonas.html)
-
-### Validación de calidad de nombres de regiones
-
-Otro problema que podemos tener son datos de regiones con los nombres
-mal escritos. Para eso tenemos la función
-[`validar_regiones()`](https://bastianolea.github.io/territorial/reference/validar_regiones.md),
-que revisará los nombres de las regiones y reportará los problemas
-existentes:
+La función también recibe nombres de regiones, o bien una tabla de
+datos, en cuyo caso usa la columna `codigo_region` y agrega la columna
+`macrozona`:
 
 ``` r
 
-regiones <- tibble(nombre_region = c("los lagos", "nuble", "OHIGGINS", "Araucania"))
-
-regiones
+agregar_macrozona(c("Maule", "Ñuble"), tipo = 1)
 ```
 
-    # A tibble: 4 × 1
-      nombre_region
-      <chr>
-    1 los lagos
-    2 nuble
-    3 OHIGGINS
-    4 Araucania    
+    [1] Centro Sur
+    Levels: Norte Centro Sur Austral
 
 ``` r
 
-regiones |> 
-  validar_regiones()
+tibble(codigo_region = c(1, 13, 12)) |> 
+  agregar_macrozona(tipo = 2)
 ```
 
-    ℹ No se especificó la variable: asumiendo columna `nombre_region`
+    # A tibble: 3 × 2
+      codigo_region macrozona
+              <dbl> <fct>
+    1             1 Norte
+    2            13 Centro
+    3            12 Sur      
 
-    Warning: Mayúsculas: 1 caso de regiones escritas en mayúsculas
-
-    Warning: Mayúsculas: 2 casos de regiones escritas en minúsculas
-
-    Warning: Ortografía: 1 caso de la Región de Ñuble escrita sin eñe
-
-    Warning: Ortografía: 1 caso de la Región de O'Higgins escrita sin su apóstrofo
-    (')
-
-    Warning: Ortografía: 1 caso de regiones escritas sin tilde
-
-    ✖ Validación de regiones: se encontraron 6 problemas con las regiones!
-
-### Limpieza de nombres de regiones de Chile
-
-Al igual que con la función
-[`limpiar_comunas()`](https://bastianolea.github.io/territorial/reference/limpiar_comunas.md),
-existe la función
-[`limpiar_regiones()`](https://bastianolea.github.io/territorial/reference/limpiar_regiones.md),
-que aplica varios pasos de limpieza automatizada de textos para obtener
-nombres de regiones válidos.
-
-Veamos un ejemplo con una tabla de datos donde las regiones vienen mal
-escritas:
-
-``` r
-
-regiones <- tibble(nombre_region = c("NUBLE", "AISEN", "OHIGINS", "RM"))
-
-regiones
-```
-
-    # A tibble: 4 × 1
-      nombre_region
-      <chr>
-    1 NUBLE
-    2 AISEN
-    3 OHIGINS
-    4 RM           
-
-Usamos
-[`limpiar_regiones()`](https://bastianolea.github.io/territorial/reference/limpiar_regiones.md)
-para obtener versiones válidas de los nombres:
-
-``` r
-
-regiones |> 
-  limpiar_regiones() # asume que la columna es `nombre_region`
-```
-
-    ℹ Limpiando 4 nombres de región (4 son distintos)
-
-    → Paso 1: confirmar regiones correctas
-
-    ℹ De las 4 regiones distintas, ninguna tiene nombres totalmente correctos. Los siguientes pasos intentarán la limpieza
-
-    → Paso 2: coincidencias por limpieza de texto
-
-    ℹ A partir de la limpieza de texto, se limpiaron 1 de 4 regiones: Ñuble
-
-    → Paso 3: casos especiales
-
-    ℹ Se encontraron 2 casos especiales: Aysén del General Carlos Ibáñez del Campo y Metropolitana de Santiago
-
-    → Paso 4: coincidencias aproximadas de texto
-
-    ! Se encontraron 2 coincidencias para la región `ohigins`: ohiggins y libertador general bernardo ohiggins
-
-    ℹ Se limpiaron 1 de 1 regiones por medio de coincidencias aproximadas de texto: Libertador General Bernardo O'Higgins
-
-    → Conclusión de limpieza de regiones
-
-    ✔ De las 4 regiones distintas, se limpiaron 4 en total (100%)
-
-    # A tibble: 4 × 1
-      nombre_region
-      <chr>
-    1 Ñuble
-    2 Aysén del General Carlos Ibáñez del Campo
-    3 Libertador General Bernardo O'Higgins
-    4 Metropolitana de Santiago                
+Para conocer en detalle cómo se compone cada tipo de macrozona, [revisa
+el artículo sobre macrozonas, que muestra mapas de cada una de
+ellas.](https://bastianolea.github.io/territorial/articles/mapas_regionales_macrozonas.html)
 
 ### Obtener comunas de una región
 
@@ -967,6 +1133,103 @@ obtener_comunas(region)
     [1] "Copiapó"          "Caldera"          "Tierra Amarilla"  "Chañaral"
     [5] "Diego de Almagro" "Vallenar"         "Alto del Carmen"  "Freirina"
     [9] "Huasco"          
+
+También se pueden obtener las comunas de varias regiones a la vez,
+usando sus códigos regionales:
+
+``` r
+
+obtener_comunas(c(15, 1))
+```
+
+    ℹ Comunas de la región: Iquique, Alto Hospicio, Pozo Almonte, Camiña, Colchane, Huara, Pica, Arica, Camarones, Putre y General Lagos
+
+     [1] "Iquique"       "Alto Hospicio" "Pozo Almonte"  "Camiña"
+     [5] "Colchane"      "Huara"         "Pica"          "Arica"
+     [9] "Camarones"     "Putre"         "General Lagos"
+
+### Capitales regionales
+
+Para obtener la tabla con las 16 comunas que son capital regional, usa
+[`capitales_regionales()`](https://bastianolea.github.io/territorial/reference/capitales_regionales.md):
+
+``` r
+
+capitales_regionales()
+```
+
+    # A tibble: 16 × 6
+       codigo_region nombre_region   codigo_provincia nombre_provincia codigo_comuna
+               <dbl> <chr>                      <dbl> <chr>                    <dbl>
+     1             1 Tarapacá                      11 Iquique                   1101
+     2             2 Antofagasta                   21 Antofagasta               2101
+     3             3 Atacama                       31 Copiapó                   3101
+     4             4 Coquimbo                      41 Elqui                     4102
+     5             5 Valparaíso                    51 Valparaíso                5101
+     6             6 Libertador Gen…               61 Cachapoal                 6101
+     7             7 Maule                         71 Talca                     7101
+     8             8 Biobío                        81 Concepción                8101
+     9             9 La Araucanía                  91 Cautín                    9101
+    10            10 Los Lagos                    101 Llanquihue               10101
+    11            11 Aysén del Gene…              111 Coyhaique                11101
+    12            12 Magallanes y d…              121 Magallanes               12101
+    13            13 Metropolitana …              131 Santiago                 13101
+    14            14 Los Ríos                     141 Valdivia                 14101
+    15            15 Arica y Parina…              151 Arica                    15101
+    16            16 Ñuble                        161 Diguillín                16101
+    # ℹ 1 more variable: nombre_comuna <chr>
+
+Con
+[`as_capital_regional()`](https://bastianolea.github.io/territorial/reference/as_capital_regional.md)
+puedes obtener la capital de una o varias regiones, a partir de sus
+nombres o códigos:
+
+``` r
+
+as_capital_regional(c("Maule", "Ñuble"))
+```
+
+    [1] "Talca"   "Chillán"
+
+``` r
+
+as_capital_regional(c(15, 4))
+```
+
+    [1] "Arica"    "Coquimbo"
+
+Esto puede servir cuando es necesario imputar datos comunales a partir
+de datos regionales; por ejemplo, para ubicar en un mapa comunal un dato
+que sólo existe a nivel regional:
+
+``` r
+
+datos_regionales <- tibble(
+  nombre_region = c("Maule", "Ñuble", "Los Lagos"),
+  valor = c(10, 20, 30)
+)
+
+datos_regionales |> 
+  mutate(nombre_comuna = as_capital_regional(nombre_region))
+```
+
+    # A tibble: 3 × 3
+      nombre_region valor nombre_comuna
+      <chr>         <dbl> <chr>
+    1 Maule            10 Talca
+    2 Ñuble            20 Chillán
+    3 Los Lagos        30 Puerto Montt 
+
+Y con
+[`is_capital_regional()`](https://bastianolea.github.io/territorial/reference/is_capital_regional.md)
+puedes confirmar si una comuna es capital regional:
+
+``` r
+
+is_capital_regional(c("Santiago", "Puente Alto", "Valparaíso"))
+```
+
+    [1]  TRUE FALSE  TRUE
 
 ### Otras funciones para regiones
 
@@ -1078,6 +1341,21 @@ ubicar_localidades(c("Chada", "La Dormida", "Mallarauco"))
     ℹ Localidad encontrada: Mallarauco, ubicada en la comuna de Peñaflor, Región Metropolitana de Santiago
 
     [1] "Paine"    "Olmué"    "Peñaflor"
+
+## Trivia territorial
+
+Para poner a prueba tus conocimientos sobre las comunas y regiones de
+Chile, ejecuta
+[`trivia()`](https://bastianolea.github.io/territorial/reference/trivia.md)
+en tu consola de R, y responde las preguntas interactivas:
+
+``` r
+
+trivia()
+```
+
+También puedes [jugar la trivia en el
+navegador.](https://bastianolea.github.io/territorial/articles/trivia.html)
 
 ------------------------------------------------------------------------
 
