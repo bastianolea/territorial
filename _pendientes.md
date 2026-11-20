@@ -1,4 +1,4 @@
-
+- [ ] no me gusta que diga `regiones_sucias` en la viñeta principal
 - [x] ubicar_comunas(nivel = "Provincia")
 
 Trivia:
