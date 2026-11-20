@@ -1,5 +1,5 @@
 ---
-title: "Introducción al paquete {territorial}"
+title: "Introducción al paquete `territorial`"
 description: "Instalación y primeros pasos con el paquete {territorial}."
 vignette: >
   %\VignetteIndexEntry{territorial}
