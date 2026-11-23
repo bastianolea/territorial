@@ -4,10 +4,9 @@
 #'
 #' @returns Vector de texto sin puntuación, símbolos y números, en minúsculas y sin acentos
 #' @seealso [limpiar_comunas()] y [limpiar_regiones()], que usan este tipo de limpieza para corregir nombres de comunas y regiones.
-#' @export
-#'
+#' @keywords internal
 #' @examples
-#' limpiar_texto("Ñuñoa")
+#' territorial:::limpiar_texto("Ñuñoa")
 limpiar_texto <- function(texto) {
   texto |>
     stringr::str_remove_all("[:punct:]") |>

@@ -42,7 +42,6 @@ reference:
   - capitales_regionales
   - localidades
   - cut_historicos
-  - trivia
 - title: Validación de datos territoriales
   desc: Funciones que permiten probar la calidad de los datos territoriales
   contents:
@@ -77,7 +76,8 @@ reference:
 - title: Misceláneas
   desc: Otras funciones usadas a lo largo del paquete
   contents:
-  - contains("texto")
+  - aplicacion
+  - trivia
 
 articles:
 - title: Viñetas

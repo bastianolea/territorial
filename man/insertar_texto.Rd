@@ -20,8 +20,9 @@ Vector de texto con caracteres insertados al azar
 Insertar caracteres al azar para ensuciar texto
 }
 \examples{
-insertar_texto(c("mapache", "lindo"), porcentaje = 0.3)
+territorial:::insertar_texto(c("mapache", "lindo"), porcentaje = 0.3)
 }
 \seealso{
 \code{\link[=eliminar_texto]{eliminar_texto()}} y \code{\link[=reemplazar_texto]{reemplazar_texto()}} para otras formas de ensuciar texto, útiles para probar \code{\link[=limpiar_comunas]{limpiar_comunas()}}.
 }
+\keyword{internal}

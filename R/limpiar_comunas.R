@@ -114,7 +114,9 @@ limpiar_comunas <- function(
   # preprocesar ----
   # limpiar comunas eliminando símbolos y bajando a minúsculas
   resultados <- resultados |>
-    dplyr::mutate(comunas_limpias = limpiar_texto(nombre_comuna)) |>
+    dplyr::mutate(
+      comunas_limpias = territorial:::limpiar_texto(nombre_comuna)
+    ) |>
     dplyr::mutate(
       comunas_limpias = stringr::str_remove(
         comunas_limpias,
@@ -165,7 +167,7 @@ limpiar_comunas <- function(
   cli::cli_alert("Paso 2: coincidencias por limpieza de texto")
 
   # limpiar nombres de comunas oficiales
-  comunas_oficiales_limpias <- limpiar_texto(comunas())
+  comunas_oficiales_limpias <- territorial:::limpiar_texto(comunas())
 
   # detectar comunas limpiadas
   resultados <- resultados |>

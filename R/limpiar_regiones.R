@@ -101,7 +101,9 @@ limpiar_regiones <- function(
   # preprocesar ----
   # limpiar regiones eliminando símbolos y bajando a minúsculas
   resultados <- resultados |>
-    dplyr::mutate(regiones_limpias = limpiar_texto(nombre_region)) |>
+    dplyr::mutate(
+      regiones_limpias = territorial:::limpiar_texto(nombre_region)
+    ) |>
     dplyr::mutate(
       regiones_limpias = stringr::str_remove(
         regiones_limpias,
@@ -151,7 +153,7 @@ limpiar_regiones <- function(
   cli::cli_alert("Paso 2: coincidencias por limpieza de texto")
 
   # limpiar nombres de regiones oficiales (largos y cortos)
-  regiones_oficiales_limpias <- limpiar_texto(regiones_validas)
+  regiones_oficiales_limpias <- territorial:::limpiar_texto(regiones_validas)
 
   # detectar regiones limpiadas
   resultados <- resultados |>

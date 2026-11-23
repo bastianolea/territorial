@@ -20,8 +20,9 @@ Vector de texto con caracteres reemplazados al azar
 Reemplazar caracteres al azar para ensuciar texto
 }
 \examples{
-reemplazar_texto(c("mapache", "lindo"), porcentaje = 0.3)
+territorial:::reemplazar_texto(c("mapache", "lindo"), porcentaje = 0.3)
 }
 \seealso{
 \code{\link[=eliminar_texto]{eliminar_texto()}} e \code{\link[=insertar_texto]{insertar_texto()}} para otras formas de ensuciar texto, útiles para probar \code{\link[=limpiar_comunas]{limpiar_comunas()}}.
 }
+\keyword{internal}

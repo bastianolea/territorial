@@ -6,10 +6,9 @@
 #'
 #' @returns Vector de texto con caracteres reemplazados al azar
 #' @seealso [eliminar_texto()] e [insertar_texto()] para otras formas de ensuciar texto, útiles para probar [limpiar_comunas()].
-#' @export
-#'
+#' @keywords internal
 #' @examples
-#' reemplazar_texto(c("mapache", "lindo"), porcentaje = 0.3)
+#' territorial:::reemplazar_texto(c("mapache", "lindo"), porcentaje = 0.3)
 reemplazar_texto <- function(
   texto,
   porcentaje = 0.1,
