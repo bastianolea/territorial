@@ -113,9 +113,9 @@
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span><span class="fu"><a href="../reference/comunas.html">comunas</a></span><span class="op">(</span><span class="op">)</span>, <span class="fl">12</span><span class="op">)</span></span></code></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] "Curanilahue"   "Calbuco"       "Tucapel"       "Putre"
- [5] "San Antonio"   "Cartagena"     "Panguipulli"   "Cabildo"
- [9] "Villa Alemana" "Pudahuel"      "Máfil"         "San Joaquín"  </code></pre>
+<pre><code> [1] "Mariquina"     "Combarbalá"    "Talagante"     "Alhué"
+ [5] "Iquique"       "Copiapó"       "Peralillo"     "San Joaquín"
+ [9] "La Florida"    "Los Ángeles"   "Isla de Maipo" "Huara"        </code></pre>
 </div>
 </div>
 <p>Del mismo modo, <code><a href="../reference/codigos_comunas.html">codigos_comunas()</a></code> entrega un vector con todos los códigos únicos territoriales de comunas válidos:</p>
@@ -123,7 +123,7 @@
 <div class="sourceCode cell-code" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span><span class="fu"><a href="../reference/codigos_comunas.html">codigos_comunas</a></span><span class="op">(</span><span class="op">)</span>, <span class="fl">12</span><span class="op">)</span></span></code></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1]  2201 13119  8105  9112  6101  8110 13503  6310  9111 10210  7306 13502</code></pre>
+<pre><code> [1] 11201 14102  7109  9114  9208  4103  6113 13203 14104  6306  9113  7402</code></pre>
 </div>
 </div>
 <section class="level3"><h3 id="tabla-de-comunas-provincias-y-regiones-de-chile">Tabla de comunas, provincias y regiones de Chile<a class="anchor" aria-label="anchor" href="#tabla-de-comunas-provincias-y-regiones-de-chile"></a>
@@ -401,18 +401,18 @@
 <span><span class="va">base</span></span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 972 × 4
-   nombre_comuna codigo_comuna name    value
-   &lt;chr&gt;                 &lt;dbl&gt; &lt;chr&gt;   &lt;dbl&gt;
- 1 Calama                 2201 b     0.00286
- 2 Los Sauces             9206 c     0.00305
- 3 Algarrobo              5602 b     0.00339
- 4 La Florida            13110 c     0.00351
- 5 Quirihue              16201 a     0.00509
- 6 Paine                 13404 c     0.00563
- 7 Río Ibáñez            11402 b     0.00727
- 8 San Vicente            6117 c     0.00979
- 9 El Carmen             16104 a     0.0133
-10 Conchalí              13104 a     0.0134
+   nombre_comuna codigo_comuna name     value
+   &lt;chr&gt;                 &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt;
+ 1 Cabrero                8303 a     0.000305
+ 2 Casablanca             5102 b     0.00137
+ 3 Iquique                1101 c     0.00169
+ 4 Nancagua               6305 a     0.00200
+ 5 Hualqui                8105 a     0.00284
+ 6 Villarrica             9120 b     0.00497
+ 7 Quilaco                8308 a     0.00537
+ 8 La Pintana            13112 a     0.00580
+ 9 Pica                   1405 b     0.00650
+10 Ollagüe                2202 c     0.00838
 # ℹ 962 more rows</code></pre>
 </div>
 </div>
@@ -429,7 +429,7 @@
 con `territorial::validar_comunas()`</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>→ Las comunas faltantes son: Antofagasta, Casablanca, El Quisco, Catemu, Llaillay, Putaendo, Coinco, Mostazal, Navidad, Empedrado, Alto Biobío, Cunco, Galvarino, Ancud, Queilén, San Juan de la Costa, Punta Arenas, El Bosque, Alhué, Mariquina, Pemuco y Portezuelo</code></pre>
+<pre><code>→ Las comunas faltantes son: Juan Fernández, Calle Larga, Rancagua, Graneros, Pichidegua, Romeral, Chiguayante, San Pedro de la Paz, Los Álamos, Antuco, Cunco, Pitrufquén, Toltén, Purranque, Punta Arenas, Huechuraba, Lo Espejo, Lo Prado, Ñuñoa, Tiltil, Isla de Maipo y Yungay</code></pre>
 </div>
 </div>
 <p>La función <code><a href="../reference/contar_comunas.html">contar_comunas()</a></code> nos indica cuántas comunas únicas hay, y las que faltan. Esto es útil porque muchas veces las bases de datos reales no tienen datos para todas las comunas, sobre todo las más pequeñas y remotas.</p>
@@ -439,21 +439,21 @@ con `territorial::validar_comunas()`</code></pre>
 <code class="sourceCode R"><span><span class="va">base</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="../reference/buscar_comuna.html">buscar_comuna</a></span><span class="op">(</span><span class="st">"Alto"</span><span class="op">)</span></span></code></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>! Se encontraron 21 resultados, mostrando sólo 6.</code></pre>
+<pre><code>! Se encontraron 30 resultados, mostrando sólo 6.</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>ℹ Los resultados más cercanos al término `Alto` son: Alto Hospicio, Alto del Carmen y Puente Alto</code></pre>
+<pre><code>ℹ Los resultados más cercanos al término `Alto` son: Alto del Carmen, Alto Hospicio, Puente Alto y Alto Biobío</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 5
-  nombre_comuna   codigo_comuna name   value puntaje
-  &lt;chr&gt;                   &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt;   &lt;dbl&gt;
-1 Alto Hospicio            1107 c     0.0285       1
-2 Alto del Carmen          3302 c     0.226        1
-3 Alto del Carmen          3302 a     0.277        1
-4 Alto Hospicio            1107 b     0.281        1
-5 Puente Alto             13201 b     0.306        1
-6 Alto Hospicio            1107 a     0.417        1</code></pre>
+  nombre_comuna   codigo_comuna name  value puntaje
+  &lt;chr&gt;                   &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt;   &lt;dbl&gt;
+1 Alto del Carmen          3302 b     0.230       1
+2 Alto Hospicio            1107 a     0.372       1
+3 Puente Alto             13201 a     0.471       1
+4 Alto Biobío              8314 a     0.496       1
+5 Alto del Carmen          3302 c     0.556       1
+6 Alto del Carmen          3302 a     0.562       1</code></pre>
 </div>
 </div>
 </section><section class="level3"><h3 id="crear-nombres-de-comunas-a-partir-de-códigos-únicos-territoriales">Crear nombres de comunas a partir de códigos únicos territoriales<a class="anchor" aria-label="anchor" href="#crear-nombres-de-comunas-a-partir-de-c%C3%B3digos-%C3%BAnicos-territoriales"></a>
@@ -689,11 +689,11 @@ Levels: Rural Mixta Urbana</code></pre>
 <pre><code># A tibble: 5 × 3
   codigo_comuna nombre_comuna clasificacion
           &lt;dbl&gt; &lt;chr&gt;         &lt;fct&gt;
-1         10208 Quellón       Mixta
-2          5704 Panquehue     Rural
-3         12102 Laguna Blanca Rural
-4         13118 Macul         Urbana
-5          1101 Iquique       Urbana       </code></pre>
+1         16206 Ranquil       Rural
+2         13127 Recoleta      Urbana
+3          8109 Santa Juana   Mixta
+4          9121 Cholchol      Rural
+5          7109 San Clemente  Mixta        </code></pre>
 </div>
 </div>
 <p>Si sólo necesitas saber si una comuna es rural, usa <code><a href="../reference/is_rural.html">is_rural()</a></code>, que entrega <code>TRUE</code> o <code>FALSE</code>:</p>
