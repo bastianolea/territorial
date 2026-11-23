@@ -74,7 +74,7 @@ reference:
   contents:
   - starts_with("agregar_")
 - title: Misceláneas
-  desc: Otras funciones usadas a lo largo del paquete
+  desc: Otras funciones secundarias
   contents:
   - aplicacion
   - trivia
