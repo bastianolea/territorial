@@ -37,6 +37,6 @@ para otras formas de ensuciar texto, útiles para probar
 ## Ejemplos
 
 ``` r
-reemplazar_texto(c("mapache", "lindo"), porcentaje = 0.3)
+territorial:::reemplazar_texto(c("mapache", "lindo"), porcentaje = 0.3)
 #> [1] "qGpache" "Bindo"  
 ```

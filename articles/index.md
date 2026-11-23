@@ -10,6 +10,9 @@ Información general sobre el paquete
   Instalación y ejemplos de uso del paquete `territorial` para limpieza
   y procesamiento de datos territoriales de Chile.
 
+- [Comunas, provincias y regiones de
+  Chile](https://bastianolea.github.io/territorial/articles/comunas_provincias_regiones.md):
+
 - [Localidades](https://bastianolea.github.io/territorial/articles/localidades.md):
 
   Sobre la tabla de localidades de Chile, basada en datos del estudio de
@@ -30,6 +33,13 @@ Pon a prueba tus conocimientos territoriales
 
   Pon a prueba tus conocimientos sobre las comunas, provincias y
   regiones de Chile, directamente en tu navegador.
+
+### App
+
+Aplicación web del paquete
+
+- [Aplicación
+  interactiva](https://bastianolea.github.io/territorial/articles/aplicacion.md):
 
 ### Ejemplos
 

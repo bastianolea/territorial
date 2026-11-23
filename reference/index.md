@@ -20,8 +20,6 @@ Funciones y tablas que entregan datos de uso territorial
   : Tabla de localidades de Chile
 - [`cut_historicos`](https://bastianolea.github.io/territorial/reference/cut_historicos.md)
   : Códigos únicos territoriales históricos
-- [`trivia()`](https://bastianolea.github.io/territorial/reference/trivia.md)
-  : Jugar a una trivia de comunas, provincias y regiones de Chile
 
 ## Validación de datos territoriales
 
@@ -86,8 +84,6 @@ ordenarlos, etc.
   : Limpieza de nombres de comunas de Chile a sus nombres oficiales
 - [`limpiar_regiones()`](https://bastianolea.github.io/territorial/reference/limpiar_regiones.md)
   : Limpieza de nombres de regiones de Chile a sus nombres oficiales
-- [`limpiar_texto()`](https://bastianolea.github.io/territorial/reference/limpiar_texto.md)
-  : Eliminar puntuación, símbolos y números de textos
 - [`contextualizar()`](https://bastianolea.github.io/territorial/reference/contextualizar.md)
   : Contextualizar datos de nivel comunal con variables territoriales
 - [`actualizar_codigo_comuna()`](https://bastianolea.github.io/territorial/reference/actualizar_codigo_comuna.md)
@@ -124,13 +120,12 @@ existentes
 
 ## Misceláneas
 
-Otras funciones usadas a lo largo del paquete
+Otras funciones secundarias
 
-- [`eliminar_texto()`](https://bastianolea.github.io/territorial/reference/eliminar_texto.md)
-  : Eliminar caracteres al azar para ensuciar texto
-- [`insertar_texto()`](https://bastianolea.github.io/territorial/reference/insertar_texto.md)
-  : Insertar caracteres al azar para ensuciar texto
-- [`limpiar_texto()`](https://bastianolea.github.io/territorial/reference/limpiar_texto.md)
-  : Eliminar puntuación, símbolos y números de textos
-- [`reemplazar_texto()`](https://bastianolea.github.io/territorial/reference/reemplazar_texto.md)
-  : Reemplazar caracteres al azar para ensuciar texto
+- [`aplicacion()`](https://bastianolea.github.io/territorial/reference/aplicacion.md)
+  :
+
+  Uso interactivo del paquete `territorial`
+
+- [`trivia()`](https://bastianolea.github.io/territorial/reference/trivia.md)
+  : Jugar a una trivia de comunas, provincias y regiones de Chile

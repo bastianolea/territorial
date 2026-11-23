@@ -1,5 +1,24 @@
 # Registro de cambios
 
+## territorial 0.9.15 (2026/11/23)
+
+- Nueva función
+  [`aplicacion()`](https://bastianolea.github.io/territorial/reference/aplicacion.md)
+  que abre una aplicación Shiny para poder usar algunas de las funciones
+  del paquete, como
+  [`as_codigo_comuna()`](https://bastianolea.github.io/territorial/reference/as_codigo_comuna.md)
+  y
+  [`as_nombre_comuna()`](https://bastianolea.github.io/territorial/reference/as_nombre_comuna.md).
+  Puedes [probar la aplicación
+  aquí](https://bastianolea.github.io/territorial/articles/aplicacion.html).
+- Nueva viñeta *Comunas, provincias y regiones de Chile*,
+  [`vignette("comunas_provincias_regiones")`](https://bastianolea.github.io/territorial/articles/comunas_provincias_regiones.md),
+  con una tabla interactiva para explorar nombres de regiones y comunas
+  con sus códigos al igual que en
+  [`territorial::territorios`](https://bastianolea.github.io/territorial/reference/territorios.md).
+- Se ocultaron algunas funciones internas que se usaban sólo en ejemplos
+  o como parte del funcionamiento del paquete.
+
 ## territorial 0.9.14 (2026/11/18)
 
 - [`contextualizar()`](https://bastianolea.github.io/territorial/reference/contextualizar.md)

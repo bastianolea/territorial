@@ -29,9 +29,9 @@ utilitarias [inspiradas en el paquete
 sucios <- territorios |> 
   select(nombre_comuna) |> 
   mutate(nombres_sucios = nombre_comuna |> 
-      reemplazar_texto(porcentaje = 0.1) |>
-      eliminar_texto(porcentaje = 0.1) |>
-      insertar_texto(porcentaje = 0.1)
+      territorial:::reemplazar_texto(porcentaje = 0.1) |>
+      territorial:::eliminar_texto(porcentaje = 0.1) |>
+      territorial:::insertar_texto(porcentaje = 0.1)
   ) |> 
   filter_out(nombre_comuna == nombres_sucios) # excluir los que no se ensuciaron por azar
 ```

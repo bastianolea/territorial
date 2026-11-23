@@ -37,6 +37,6 @@ para otras formas de ensuciar texto, útiles para probar
 ## Ejemplos
 
 ``` r
-insertar_texto(c("mapache", "lindo"), porcentaje = 0.3)
+territorial:::insertar_texto(c("mapache", "lindo"), porcentaje = 0.3)
 #> [1] "lmfapache" "lindHo"   
 ```

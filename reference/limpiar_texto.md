@@ -30,6 +30,6 @@ regiones.
 ## Ejemplos
 
 ``` r
-limpiar_texto("Ñuñoa")
+territorial:::limpiar_texto("Ñuñoa")
 #> [1] "nunoa"
 ```

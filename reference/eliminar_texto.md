@@ -33,6 +33,6 @@ para otras formas de ensuciar texto, útiles para probar
 ## Ejemplos
 
 ``` r
-eliminar_texto(c("mapache", "lindo"), porcentaje = 0.3)
+territorial:::eliminar_texto(c("mapache", "lindo"), porcentaje = 0.3)
 #> [1] "mpche" "lndo" 
 ```
