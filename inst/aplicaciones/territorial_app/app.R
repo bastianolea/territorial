@@ -4,10 +4,24 @@ library(territorial)
 # https://deanattali.com/2015/04/21/r-package-shiny-app/
 
 # app ejecutada con territorial::aplicacion()
+# https://bastianolea-territorial-app.share.connect.posit.cloud/
+
+# si la app no despliega, reinstalar desde github
 
 ui <- page_fluid(
   title = "App",
   includeCSS("estilos.css"),
+
+  # avisa a la página que embebe la app (si existe) que shiny terminó de renderizar
+  tags$script(HTML(
+    "
+    $(document).one('shiny:idle', function() {
+      if (window.top !== window.self) {
+        window.top.postMessage('territorial-app-lista', '*');
+      }
+    });
+  "
+  )),
 
   theme = bs_theme(
     fg = "#5c534a",

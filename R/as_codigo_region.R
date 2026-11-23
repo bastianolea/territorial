@@ -27,7 +27,7 @@ as_codigo_region <- function(nombres_regiones) {
   # conservar nombres originales para los mensajes
   nombres_originales <- nombres_regiones
 
-  nombres_regiones <- territorial:::limpiar_texto(nombres_regiones)
+  nombres_regiones <- limpiar_texto(nombres_regiones)
 
   codigos_encontrados <- dplyr::recode_values(
     nombres_regiones,

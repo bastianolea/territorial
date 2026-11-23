@@ -7,7 +7,7 @@
 aplicacion()
 }
 \description{
-Ejecutar para abrir una aplicación Shiny pequeña donde se pueden usar algunas funciones de manera interactiva.
+Ejecutar para abrir una aplicación Shiny pequeña donde se pueden usar algunas funciones de manera interactiva. También puedes \href{https://bastianolea-territorial-app.share.connect.posit.cloud/}{navegar la aplicación en este enlace.}
 }
 \details{
 Sirve principalmente para mostrar el paquete a un público menos nerd.

@@ -1,0 +1,51 @@
+---
+title: "Aplicación interactiva"
+subtitle: "Prueba algunas de las funciones del paquete en tu navegador"
+---
+
+Para facilitar el acceso a los datos de comunas y regiones, puedes ejecutar `territorial::aplicacion()` para abrir una aplicación [Shiny](https://bastianolea.rbind.io/blog/shiny) con un par de utilidades de `{territorial}`:
+
+- Convertir nombre de comuna a código territorial
+- Convertir código territorial a nombre de comuna
+
+Prueba la aplicación aquí:
+
+<!-- texto de cargando (desaparece al cargar) -->
+<div id="cargando" style="margin: 120px 0; text-align: center; font-size: 120%; color: #6C635A;">
+  <em>Cargando...</em>
+</div>
+
+<!-- aplicación shiny embebida (opacidad 0 hasta confirmar que renderizó) -->
+<iframe
+  id="territorial-iframe"
+  src="https://bastianolea-territorial-app.share.connect.posit.cloud/"
+  style="width: 100%; height: 760px; border: none; border-radius: 4px; background: transparent; opacity: 0; transition: opacity 0.4s ease;"
+  title="Aplicación territorial">
+</iframe>
+
+<script>
+  var aplicacionLista = false
+
+  function mostrarAplicacion(motivo) {
+    if (aplicacionLista) return
+    console.log('territorial: iframe revelado por', motivo, Math.round(performance.now()), 'ms')
+    aplicacionLista = true
+    document.getElementById('cargando').style.display = 'none'
+    document.getElementById('territorial-iframe').style.opacity = '1'
+  }
+
+  // la app avisa con postMessage cuando shiny terminó de renderizar;
+  // se verifica que el mensaje venga del origen de la app
+  window.addEventListener('message', function (evento) {
+    if (evento.origin !== 'https://bastianolea-territorial-app.share.connect.posit.cloud') return
+    if (evento.data === 'territorial-app-lista') mostrarAplicacion('postMessage')
+  })
+
+  // resguardo si el mensaje nunca llega (ej. app desplegada sin esta versión):
+  // revela igual pasado un tiempo prudente tras el evento load
+  document.getElementById('territorial-iframe').addEventListener('load', function () {
+    setTimeout(function () { mostrarAplicacion('respaldo de tiempo') }, 4000)
+  })
+</script>
+
+[Abrir la aplicación en una pestaña nueva](https://bastianolea-territorial-app.share.connect.posit.cloud/){target="_blank"}

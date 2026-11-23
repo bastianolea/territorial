@@ -1,3 +1,8 @@
+# territorial 0.9.15 (2026/11/23)
+- Nueva función `aplicacion()` que abre una aplicación Shiny para poder usar algunas de las funciones del paquete, como `as_codigo_comuna()` y `as_nombre_comuna()`. Puedes [probar la aplicación aquí](https://bastianolea.github.io/territorial/articles/aplicacion.html).
+- Nueva viñeta _Comunas, provincias y regiones de Chile_, `vignette("comunas_provincias_regiones")`, con una tabla interactiva para explorar nombres de regiones y comunas con sus códigos al igual que en `territorial::territorios`.
+- Se ocultaron algunas funciones internas que se usaban sólo en ejemplos o como parte del funcionamiento del paquete.
+
 # territorial 0.9.14 (2026/11/18)
 - `contextualizar()` ahora asume `codigo_comuna` o `nombre_comuna`, cualquiera de las dos, si están presentes y no se especifica la variable a usar como base.
 

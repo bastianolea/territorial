@@ -1,0 +1,13 @@
+name: territorial_app
+title: territorial_app
+username: bastianolea
+account: bastianolea
+server: connect.posit.cloud
+hostUrl: https://api.connect.posit.cloud/v1
+appId: 01a208c2-4a9f-769c-bf85-61e98dc30c38
+appGuid:
+bundleId:
+url: https://connect.posit.cloud/bastianolea/content/01a208c2-4a9f-769c-bf85-61e98dc30c38
+version: 1
+asMultiple: FALSE
+asStatic: FALSE

@@ -17,11 +17,14 @@ authors:
 
 navbar:
   structure:
-    left: [intro, reference, articles, tutorials, news, trivia]
+    left: [intro, reference, articles, tutorials, news, trivia, app]
   components:
     trivia:
       text: Trivia
       href: articles/trivia.html
+    app:
+      text: App
+      href: articles/aplicacion.html
 
 home:
   links:
@@ -93,6 +96,11 @@ articles:
   desc: Pon a prueba tus conocimientos territoriales
   contents:
   - articles/trivia
+- title: App
+  navbar: ~
+  desc: Aplicación web del paquete
+  contents:
+  - articles/aplicacion
 - title: Ejemplos
   navbar: Ejemplos
   desc: Casos de uso del paquete con datos reales
