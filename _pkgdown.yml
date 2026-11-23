@@ -85,6 +85,7 @@ articles:
   desc: Información general sobre el paquete
   contents:
   - territorial
+  - comunas_provincias_regiones
   - localidades
   - codigos_unicos_territoriales
 - title: Juegos

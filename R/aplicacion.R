@@ -6,6 +6,10 @@
 #'
 #' @export
 aplicacion <- function() {
+  rlang::check_installed("shiny", reason = "para abrir la app interactiva.")
+  rlang::check_installed("bslib", reason = "para la interfaz de la app.")
+
+  # ubicar aplicación
   appDir <- system.file(
     "aplicaciones",
     "territorial_app",
@@ -13,19 +17,12 @@ aplicacion <- function() {
   )
   if (appDir == "") {
     stop(
-      "Could not find example directory. Try re-installing `territorial`.",
+      "No se encontró la aplicación. Reinstala `territorial`.",
       call. = FALSE
     )
   }
 
+  # ejecutar aplicación
   shiny::runApp(appDir, display.mode = "normal")
-  # ui <- page_fillable(
-  #   title = "App"
-  # )
-  #
-  # server <- function(input, output, session) {}
-  #
-  # app <- list(ui = ui,
-  #             server = server)
-  #   runApp(app)
+  # https://deanattali.com/2015/04/21/r-package-shiny-app/
 }

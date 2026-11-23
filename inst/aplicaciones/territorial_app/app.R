@@ -3,6 +3,8 @@ library(bslib)
 library(territorial)
 # https://deanattali.com/2015/04/21/r-package-shiny-app/
 
+# app ejecutada con territorial::aplicacion()
+
 ui <- page_fluid(
   title = "App",
   includeCSS("estilos.css"),
