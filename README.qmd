@@ -55,7 +55,7 @@ pak::pak("bastianolea/territorial")
 
 Como su nombre lo dice, `{territorial}` entrega herramientas para trabajar con datos territoriales de Chile, entendidos como datos tabulares cuyas observaciones correspondan a comunas o regiones del país.
 
-La premisa del paquete es que tenemos una tabla principal, `territorial::territorios`, que contiene los nombres oficiales y los códigos únicos territoriales de todas las regiones, provincias y comunas de Chile. 
+La premisa del paquete es que tenemos una [tabla principal](https://bastianolea.github.io/territorial/articles/comunas_provincias_regiones.html), `territorial::territorios`, que contiene los nombres oficiales y los códigos únicos territoriales de todas las regiones, provincias y comunas de Chile. 
 
 
 ```{r}
@@ -66,7 +66,7 @@ library(dplyr)
 head(territorios)
 ```
 
-Usando esta tabla como fuente de verdad, podemos validar, corregir y complementar datos territoriales.
+Puedes explorar esta tabla completa [aquí](https://bastianolea.github.io/territorial/articles/comunas_provincias_regiones.html). Usando esta tabla como fuente de verdad, podemos validar, corregir y complementar datos territoriales.
 
 También se plantea el estándar de llamar las columnas como `nombre_{x}` y `codigo_{x}` (por ejemplo, `nombre_comuna` y `codigo_comuna`), para mantener orden y compatibilidad entre tablas.
 

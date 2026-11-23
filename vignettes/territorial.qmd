@@ -48,7 +48,7 @@ sample(codigos_comunas(), 12)
 
 ### Tabla de comunas, provincias y regiones de Chile
 
-El paquete ofrece una tabla de datos que contiene todas las comunas del país con sus nombres oficiales, sus [códigos únicos territoriales](https://bastianolea.github.io/territorial/articles/codigos_unicos_territoriales.html), y lo mismo para las provincias y regiones del país.
+El paquete ofrece una [tabla de datos](https://bastianolea.github.io/territorial/articles/comunas_provincias_regiones.html) que contiene todas las comunas del país con sus nombres oficiales, sus [códigos únicos territoriales](https://bastianolea.github.io/territorial/articles/codigos_unicos_territoriales.html), y lo mismo para las provincias y regiones del país.
 
 Para ver la tabla de comunas, provincias y regiones, ejecuta `territorial::territorios`:
 
@@ -63,24 +63,7 @@ names(territorial::territorios)
 
 territorios
 ```
-
-<!-- Puedes navegar la tabla de territorios de Chile aquí: -->
-
-```{r tabla_comunas}
-#| echo: false
-#| eval: false
-
-traduccion <- jsonlite::read_json('https://cdn.datatables.net/plug-ins/1.10.11/i18n/Spanish.json')
-
-DT::datatable(
-  territorial::territorios,
-  options = list(
-    language = traduccion,
-    pageLength = 10,
-    lengthMenu = c(10, 15, 20, 50)
-  )
-)
-```
+También puedes [explorar esta tabla de comunas, provincias y regiones de Chile aquí](https://bastianolea.github.io/territorial/articles/comunas_provincias_regiones.html).
 
 Esta tabla es la _fuente de verdad_ de toda la información territorial usada en el paquete, y corresponde a los datos oficiales de la [Subsecretría de Desarrollo Regional y Administrativo, Ministerio del Interior de Chile](https://www.subdere.gov.cl/documentacion/códigos-únicos-territoriales-actualizados-al-06-de-septiembre-2018).
 
@@ -214,7 +197,7 @@ base |>
 
 ### Crear nombres de comunas a partir de códigos únicos territoriales
 
-Algo que suele pasar es tener datos comunales con las comunas mal escritas, pero que vienen con códigos únicos territoriales. En este caso, aparte de limpiarlas con `limpiar_comunas()`, podemos crear los nombres de comunas a partir de los códigos únicos territoriales:
+Algo que suele pasar es tener datos comunales con las comunas mal escritas, pero que vienen con códigos únicos territoriales. En este caso, aparte de limpiarlas con `limpiar_comunas()`, podemos crear los nombres de comunas a partir de los códigos únicos territoriales con `as_nombre_comuna()`:
 
 ```{r datos_as_nombre_comuna}
 #| message: false
@@ -247,7 +230,7 @@ datos |>
 Con esta estragegia simplemente ignoramos los nombres de comunas que venían en la base, y usamos solamente los códigos comunales para reconstruir los nombres, evitando incertidumbre.
 
 ### Obtener códigos únicos territoriales a partir de nombres de comunas
-También podemos tener el caso inverso: una tabla con datos comunales que vienen con nombres de comunas, pero sin códigos únicos territoriales. Podemos crear los códigos únicos territoriales a partir de los nombres de comunas:
+Si tenemos nombres de comunas, pero sin códigos únicos territoriales, podemos usar `as_codigo_comuna()` para crear los códigos únicos territoriales a partir de los nombres de comunas:
 
 ```{r datos_as_codigo_comuna}
 #| message: false
