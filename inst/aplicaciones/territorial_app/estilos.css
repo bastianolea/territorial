@@ -1,0 +1,69 @@
+h3 {
+  margin-bottom: -6px;
+}
+
+.form-control, .form-control:focus {
+  background-color: #F8F6F2;
+}
+
+.bslib-card {
+  box-shadow: none;
+  border: solid 1px #D3CABD;
+  background-color: #F2EBDF;
+}
+
+.code, code {
+  background-color: #F2EBDF !important;
+}
+
+/* bloques de código */
+pre {
+  background-color: #faf6ef !important;
+  border: solid 1px #D3CABD !important;
+}
+
+pre code {
+  background-color: none !important;
+}
+
+/* código inline */
+p code, dt code, li code, a code, h1 code, h2 code, h3 code {
+  background-color: #ebe2d7 !important;
+}
+
+/* texto dentro de bloques de código */
+pre code span.va {
+  color: #6c635a !important;
+}
+
+code a:any-link {
+  color: inherit;
+  text-decoration-color: inherit !important;
+}
+
+pre code span.st {
+  color: #575f66 !important;
+}
+
+pre code span.er {
+  color: #4cbf99;
+  text-decoration: none;
+}
+
+pre code span.co {
+  color: #b6ab9a;
+}
+
+/* logo del paquete */
+img.logo {
+  border: none !important;
+}
+
+/* imágenes */
+main img {
+  max-width: 100%;
+  height: auto;
+  border: solid 1px #D3CABD;
+  border-radius: 6px;
+}
+
