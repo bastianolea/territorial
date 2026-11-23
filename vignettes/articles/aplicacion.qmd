@@ -3,12 +3,12 @@ title: "Aplicación interactiva"
 subtitle: "Prueba algunas de las funciones del paquete en tu navegador"
 ---
 
-Para facilitar el acceso a los datos de comunas y regiones, puedes ejecutar `territorial::aplicacion()` para abrir una aplicación [Shiny](https://bastianolea.rbind.io/blog/shiny) con un par de utilidades de `{territorial}`:
+Ejecuta `territorial::aplicacion()` para abrir una aplicación [Shiny](https://bastianolea.rbind.io/blog/shiny) que te ayuda a usar un par de utilidades de `{territorial}`:
 
-- Convertir nombre de comuna a código territorial
-- Convertir código territorial a nombre de comuna
+- [Convertir nombre de comuna a código territorial](https://bastianolea.github.io/territorial/reference/as_codigo_comuna.html)
+- [Convertir código territorial a nombre de comuna](https://bastianolea.github.io/territorial/reference/as_nombre_comuna.html)
 
-Prueba la aplicación aquí:
+Prueba la aplicación a continuación, o [abrir la app en una pestaña nueva](https://bastianolea-territorial-app.share.connect.posit.cloud/).
 
 <!-- texto de cargando (desaparece al cargar) -->
 <div id="cargando" style="margin: 120px 0; text-align: center; font-size: 120%; color: #6C635A;">
@@ -48,4 +48,4 @@ Prueba la aplicación aquí:
   })
 </script>
 
-[Abrir la aplicación en una pestaña nueva](https://bastianolea-territorial-app.share.connect.posit.cloud/){target="_blank"}
+Si necesitas una [tabla de todas las comunas, provincias y regiones de Chile](https://bastianolea.github.io/territorial/articles/comunas_provincias_regiones.html), con sus respectivos códigos únicos territoriales, [revisa aquí.](https://bastianolea.github.io/territorial/articles/comunas_provincias_regiones.html)
