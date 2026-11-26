@@ -1,5 +1,15 @@
 # Registro de cambios
 
+## territorial 0.9.16 (2026/11/23)
+
+- Corrección de la comuna de *Ránquil*, que estaba sin tilde!
+- Mejoras:
+  [`territorial::territorios`](https://bastianolea.github.io/territorial/reference/territorios.md)
+  ahora viene ordenado de norte a sur.
+- Nueva función:
+  [`provincias()`](https://bastianolea.github.io/territorial/reference/provincias.md)
+  retorna todos los nombres de las provincias de Chile.
+
 ## territorial 0.9.15 (2026/11/23)
 
 - Nueva función
@@ -21,16 +31,19 @@
 
 ## territorial 0.9.14 (2026/11/18)
 
-- [`contextualizar()`](https://bastianolea.github.io/territorial/reference/contextualizar.md)
+- Mejoras:
+  [`contextualizar()`](https://bastianolea.github.io/territorial/reference/contextualizar.md)
   ahora asume `codigo_comuna` o `nombre_comuna`, cualquiera de las dos,
   si están presentes y no se especifica la variable a usar como base.
 
 ## territorial 0.9.13 (2026/11/12)
 
-- [`contar_comunas()`](https://bastianolea.github.io/territorial/reference/contar_comunas.md)
+- Mejoras:
+  [`contar_comunas()`](https://bastianolea.github.io/territorial/reference/contar_comunas.md)
   ahora entrega el número de conteo único de comunas en vez del
   dataframe.
-- [`ubicar_comunas()`](https://bastianolea.github.io/territorial/reference/ubicar_comunas.md)
+- Mejoras:
+  [`ubicar_comunas()`](https://bastianolea.github.io/territorial/reference/ubicar_comunas.md)
   ahora puede ubicar comunas en su provincia con el argumento
   `nivel = "provincia"`.
 - Nueva función
@@ -51,7 +64,8 @@
   que son su capital regional, y la segunda confirma si comunas
   corresponden a capitales regionales. Ambas funcionan tanto con códigos
   como con nombres.
-- [`ubicar_comunas()`](https://bastianolea.github.io/territorial/reference/ubicar_comunas.md)
+- Mejoras:
+  [`ubicar_comunas()`](https://bastianolea.github.io/territorial/reference/ubicar_comunas.md)
   y
   [`obtener_comunas()`](https://bastianolea.github.io/territorial/reference/obtener_comunas.md)
   ahora reciben también nombres de comunas y de regiones,
@@ -59,8 +73,8 @@
 
 ## territorial 0.9.8 (2026/11/03)
 
-- Pone a prueba tus conocimientos territoriales con un juego de
-  preguntas! 🎉 Ejecuta la función
+- Nueva función: pon a prueba tus conocimientos territoriales con un
+  juego de preguntas! 🎉 Ejecuta la función
   [`trivia()`](https://bastianolea.github.io/territorial/reference/trivia.md)
   para iniciar una trivia interactiva sobre comunas y regiones de Chile,
   o [juega en el navegador
@@ -68,12 +82,14 @@
   Son 4 tipos de preguntas, y las alternativas se crean al azar con
   respuestas que buscan engañarte. A ver si logras sacar el puntaje
   máximo!
-- [`agregar_macrozona()`](https://bastianolea.github.io/territorial/reference/agregar_macrozona.md)
+- Mejoras en
+  [`agregar_macrozona()`](https://bastianolea.github.io/territorial/reference/agregar_macrozona.md):
   ahora también funciona con nombres de región (son convertidos a
   códigos de región con
   [`as_codigo_region()`](https://bastianolea.github.io/territorial/reference/as_codigo_region.md))
   y con *data frames* asumiendo la columna `codigo_region`.
-- [`agregar_clasificacion()`](https://bastianolea.github.io/territorial/reference/agregar_clasificacion.md)
+- Mejoras en
+  [`agregar_clasificacion()`](https://bastianolea.github.io/territorial/reference/agregar_clasificacion.md):
   ahora también funciona con *data frames* asumiendo la columna
   `codigo_comuna`.
 - Nueva función
@@ -94,13 +110,14 @@
 
 ## territorial 0.9.6 (2026/10/27)
 
-- Funciones para convertir nombres a códigos y viceversa
+- Mejoras: funciones para convertir nombres a códigos y viceversa
   ([`as_codigo_comuna()`](https://bastianolea.github.io/territorial/reference/as_codigo_comuna.md),
   [`as_nombre_region()`](https://bastianolea.github.io/territorial/reference/as_nombre_region.md),
   etc.) ahora arrojan *warnings* cuando existan valores que no puedan
   ser convertidos (antes simplemente entregaban los NA de manera
   silenciosa)
-- [`limpiar_comunas()`](https://bastianolea.github.io/territorial/reference/limpiar_comunas.md)
+- Mejoras:
+  [`limpiar_comunas()`](https://bastianolea.github.io/territorial/reference/limpiar_comunas.md)
   reconoce “Santiago Centro” como la comuna de Santiago.
 - Mejores errores en
   [`contextualizar()`](https://bastianolea.github.io/territorial/reference/contextualizar.md)
@@ -108,7 +125,8 @@
 
 ## territorial 0.9.5 (2026/10/23)
 
-- [`redactar_region()`](https://bastianolea.github.io/territorial/reference/redactar_region.md)
+- Mejoras:
+  [`redactar_region()`](https://bastianolea.github.io/territorial/reference/redactar_region.md)
   ahora funciona con columnas vector, como las generadas por
   [`ordenar_regiones()`](https://bastianolea.github.io/territorial/reference/ordenar_regiones.md)
 - Modificados los mensajes a lo largo de todo el paquete para entregar

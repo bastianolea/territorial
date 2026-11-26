@@ -33,21 +33,21 @@ capitales_regionales()
 #> # A tibble: 16 × 6
 #>    codigo_region nombre_region   codigo_provincia nombre_provincia codigo_comuna
 #>            <dbl> <chr>                      <dbl> <chr>                    <dbl>
-#>  1             1 Tarapacá                      11 Iquique                   1101
-#>  2             2 Antofagasta                   21 Antofagasta               2101
-#>  3             3 Atacama                       31 Copiapó                   3101
-#>  4             4 Coquimbo                      41 Elqui                     4102
-#>  5             5 Valparaíso                    51 Valparaíso                5101
-#>  6             6 Libertador Gen…               61 Cachapoal                 6101
-#>  7             7 Maule                         71 Talca                     7101
-#>  8             8 Biobío                        81 Concepción                8101
-#>  9             9 La Araucanía                  91 Cautín                    9101
-#> 10            10 Los Lagos                    101 Llanquihue               10101
-#> 11            11 Aysén del Gene…              111 Coyhaique                11101
-#> 12            12 Magallanes y d…              121 Magallanes               12101
-#> 13            13 Metropolitana …              131 Santiago                 13101
-#> 14            14 Los Ríos                     141 Valdivia                 14101
-#> 15            15 Arica y Parina…              151 Arica                    15101
-#> 16            16 Ñuble                        161 Diguillín                16101
+#>  1            15 Arica y Parina…              151 Arica                    15101
+#>  2             1 Tarapacá                      11 Iquique                   1101
+#>  3             2 Antofagasta                   21 Antofagasta               2101
+#>  4             3 Atacama                       31 Copiapó                   3101
+#>  5             4 Coquimbo                      41 Elqui                     4102
+#>  6             5 Valparaíso                    51 Valparaíso                5101
+#>  7            13 Metropolitana …              131 Santiago                 13101
+#>  8             6 Libertador Gen…               61 Cachapoal                 6101
+#>  9             7 Maule                         71 Talca                     7101
+#> 10            16 Ñuble                        161 Diguillín                16101
+#> 11             8 Biobío                        81 Concepción                8101
+#> 12             9 La Araucanía                  91 Cautín                    9101
+#> 13            14 Los Ríos                     141 Valdivia                 14101
+#> 14            10 Los Lagos                    101 Llanquihue               10101
+#> 15            11 Aysén del Gene…              111 Coyhaique                11101
+#> 16            12 Magallanes y d…              121 Magallanes               12101
 #> # ℹ 1 more variable: nombre_comuna <chr>
 ```

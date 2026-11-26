@@ -50,6 +50,13 @@ Casos de uso del paquete con datos reales
 
   Uso del paquete para agregar población a una tabla de datos sociales
 
+- [Ejemplo: tasa de ocupación
+  formal](https://bastianolea.github.io/territorial/articles/ejemplo_mideso.md):
+
+  Limpieza y territorialización de datos comunales de ocupación formal
+  dependiente del Ministerio de Desarrollo Social y Familia, comparando
+  dos maneras de agregar columnas territoriales.
+
 - [Prueba de suciedad
   extrema](https://bastianolea.github.io/territorial/articles/suciedad_extrema.md):
 

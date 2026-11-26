@@ -143,13 +143,13 @@ servel |>
 
     ! Mayúsculas: 12091 casos de comunas escritas en mayúsculas: ANTOFAGASTA, CALAMA, MARIA ELENA, MEJILLONES, OLLAGUE, SAN PEDRO DE ATACAMA, SIERRA GORDA, TALTAL, TOCOPILLA, ARICA y 337 comunas más
 
-    ℹ Tildes: 2373 casos de comunas que deberían tener tildes y no los tienen: MARIA ELENA, COPIAPO, AYSEN, RIO IBAÑEZ, COMBARBALA, RIO HURTADO, CURACAUTIN, PITRUFQUEN, PUCON, PUREN y 61 comunas más
+    ℹ Tildes: 2403 casos de comunas que deberían tener tildes y no los tienen: MARIA ELENA, COPIAPO, AYSEN, RIO IBAÑEZ, COMBARBALA, RIO HURTADO, CURACAUTIN, PITRUFQUEN, PUCON, PUREN y 62 comunas más
 
     ℹ Eñes: 29 casos de comunas que deberían tener diéresis (¨) y no tienen: OLLAGUE
 
     ℹ Escrituras alternativas: 31 casos de comunas escritas de una forma no recomendada, aunque válida: PAIGUANO
 
-    ✖ Validación de comunas: se encontraron 26615 problemas con las comunas! Usa `territorial::limpiar_comunas()` para solucionarlos.
+    ✖ Validación de comunas: se encontraron 26645 problemas con las comunas! Usa `territorial::limpiar_comunas()` para solucionarlos.
 
 Vemos que hay miles de comunas escritas en mayúsculas, más de 2 mil
 comunas sin tildes, 29 casos de comunas sin eñes, y formas incorrectas

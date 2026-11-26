@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">territorial</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.9.15</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.9.16</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Cambiar la navegación">
@@ -27,6 +27,7 @@
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>Ejemplos</h6></li>
     <li><a class="dropdown-item" href="../articles/ejemplo_rsh.html">Ejemplo: Registro Social de Hogares</a></li>
+    <li><a class="dropdown-item" href="../articles/ejemplo_mideso.html">Ejemplo: tasa de ocupación formal</a></li>
     <li><a class="dropdown-item" href="../articles/suciedad_extrema.html">Prueba de suciedad extrema</a></li>
     <li><a class="dropdown-item" href="../articles/ejemplo_servel.html">Ejemplo: datos electorales</a></li>
     <li><a class="dropdown-item" href="../articles/ejemplo_bibliotecas.html">Ejemplo: préstamos en bibliotecas</a></li>
@@ -120,14 +121,14 @@
 <span class="r-in"><span> <span class="fu">buscar_comuna</span><span class="op">(</span><span class="st">"alto"</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">nombre_comuna</span>, <span class="va">puntaje</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> Se encontraron 10 resultados, mostrando sólo 6.</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Los resultados más cercanos al término `alto` son: Alto Hospicio, Alto del Carmen, Alto Biobío y Puente Alto</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Los resultados más cercanos al término `alto` son: Alto Hospicio, Alto del Carmen, Puente Alto y Alto Biobío</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 6 × 2</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   nombre_comuna   puntaje</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> Alto Hospicio     1    </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> Alto del Carmen   1    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> Alto Biobío       1    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> Puente Alto       1    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> Puente Alto       1    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> Alto Biobío       1    </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span> Santo Domingo     0.923</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span> Pozo Almonte      0.917</span>
 <span class="r-in"><span></span></span>
@@ -150,8 +151,8 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span>   nombre_comuna        puntaje</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> San Pedro de Atacama   0.95 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> San Pedro de la Paz    0.947</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> Pedro Aguirre Cerda    0.947</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> Pedro Aguirre Cerda    0.947</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> San Pedro de la Paz    0.947</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> Cerro Navia            0.909</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>

@@ -127,7 +127,7 @@ limpiar_comunas(
 #> → Paso 3: casos especiales
 #> ℹ No se encontraron casos especiales
 #> → Paso 4: coincidencias aproximadas de texto
-#> ! Se encontraron 2 coincidencias para la comuna "laflorida": florida y la florida
+#> ! Se encontraron 2 coincidencias para la comuna "laflorida": la florida y florida
 #> ℹ Se limpiaron 5 de 5 comunas por medio de coincidencias aproximadas de texto: Alto Hospicio, Providencia, La Florida, Cerrillos y Llaillay
 #> → Conclusión de limpieza de comunas
 #> ✔ De las 7 comunas distintas, se limpiaron 7 en total (100%)

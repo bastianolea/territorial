@@ -16,6 +16,7 @@ Vector de nombres de regiones de Chile
 
 ## Ver también
 
+[`provincias()`](https://bastianolea.github.io/territorial/reference/provincias.md),
 [`comunas()`](https://bastianolea.github.io/territorial/reference/comunas.md),
 [`codigos_comunas()`](https://bastianolea.github.io/territorial/reference/codigos_comunas.md)
 

@@ -41,8 +41,8 @@ obtener_comunas("Tarapacá")
 #> [5] "Colchane"      "Huara"         "Pica"         
 
 obtener_comunas(c(15, 1))
-#> ℹ Comunas de la región: Iquique, Alto Hospicio, Pozo Almonte, Camiña, Colchane, Huara, Pica, Arica, Camarones, Putre y General Lagos
-#>  [1] "Iquique"       "Alto Hospicio" "Pozo Almonte"  "Camiña"       
-#>  [5] "Colchane"      "Huara"         "Pica"          "Arica"        
-#>  [9] "Camarones"     "Putre"         "General Lagos"
+#> ℹ Comunas de la región: Arica, Camarones, Putre, General Lagos, Iquique, Alto Hospicio, Pozo Almonte, Camiña, Colchane, Huara y Pica
+#>  [1] "Arica"         "Camarones"     "Putre"         "General Lagos"
+#>  [5] "Iquique"       "Alto Hospicio" "Pozo Almonte"  "Camiña"       
+#>  [9] "Colchane"      "Huara"         "Pica"         
 ```

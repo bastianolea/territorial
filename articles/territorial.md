@@ -36,9 +36,10 @@ library(territorial)
 sample(comunas(), 12)
 ```
 
-     [1] "Mariquina"     "Combarbalá"    "Talagante"     "Alhué"
-     [5] "Iquique"       "Copiapó"       "Peralillo"     "San Joaquín"
-     [9] "La Florida"    "Los Ángeles"   "Isla de Maipo" "Huara"        
+     [1] "Puerto Octay"        "Linares"             "Pelarco"
+     [4] "Trehuaco"            "Lampa"               "Independencia"
+     [7] "Vichuquén"           "Limache"             "San Pedro de la Paz"
+    [10] "Canela"              "Loncoche"            "Vallenar"           
 
 Del mismo modo,
 [`codigos_comunas()`](https://bastianolea.github.io/territorial/reference/codigos_comunas.md)
@@ -50,12 +51,14 @@ válidos:
 sample(codigos_comunas(), 12)
 ```
 
-     [1] 11201 14102  7109  9114  9208  4103  6113 13203 14104  6306  9113  7402
+     [1] 13124 10108  5404 10403  8106  4203 10301  2301  5304 15101  5601 13602
 
 ### Tabla de comunas, provincias y regiones de Chile
 
-El paquete ofrece una tabla de datos que contiene todas las comunas del
-país con sus nombres oficiales, sus [códigos únicos
+El paquete ofrece una [tabla de
+datos](https://bastianolea.github.io/territorial/articles/comunas_provincias_regiones.html)
+que contiene todas las comunas del país con sus nombres oficiales, sus
+[códigos únicos
 territoriales](https://bastianolea.github.io/territorial/articles/codigos_unicos_territoriales.html),
 y lo mismo para las provincias y regiones del país.
 
@@ -78,20 +81,24 @@ territorios
 ```
 
     # A tibble: 346 × 6
-       codigo_region nombre_region codigo_provincia nombre_provincia codigo_comuna
-               <dbl> <chr>                    <dbl> <chr>                    <dbl>
-     1             1 Tarapacá                    11 Iquique                   1101
-     2             1 Tarapacá                    11 Iquique                   1107
-     3             1 Tarapacá                    14 Tamarugal                 1401
-     4             1 Tarapacá                    14 Tamarugal                 1402
-     5             1 Tarapacá                    14 Tamarugal                 1403
-     6             1 Tarapacá                    14 Tamarugal                 1404
-     7             1 Tarapacá                    14 Tamarugal                 1405
-     8             2 Antofagasta                 21 Antofagasta               2101
-     9             2 Antofagasta                 21 Antofagasta               2102
-    10             2 Antofagasta                 21 Antofagasta               2103
+       codigo_region nombre_region   codigo_provincia nombre_provincia codigo_comuna
+               <dbl> <chr>                      <dbl> <chr>                    <dbl>
+     1            15 Arica y Parina…              151 Arica                    15101
+     2            15 Arica y Parina…              151 Arica                    15102
+     3            15 Arica y Parina…              152 Parinacota               15201
+     4            15 Arica y Parina…              152 Parinacota               15202
+     5             1 Tarapacá                      11 Iquique                   1101
+     6             1 Tarapacá                      11 Iquique                   1107
+     7             1 Tarapacá                      14 Tamarugal                 1401
+     8             1 Tarapacá                      14 Tamarugal                 1402
+     9             1 Tarapacá                      14 Tamarugal                 1403
+    10             1 Tarapacá                      14 Tamarugal                 1404
     # ℹ 336 more rows
     # ℹ 1 more variable: nombre_comuna <chr>
+
+También puedes [explorar esta tabla de comunas, provincias y regiones de
+Chile
+aquí](https://bastianolea.github.io/territorial/articles/comunas_provincias_regiones.html).
 
 Esta tabla es la *fuente de verdad* de toda la información territorial
 usada en el paquete, y corresponde a los datos oficiales de la
@@ -349,18 +356,18 @@ base
 ```
 
     # A tibble: 972 × 4
-       nombre_comuna codigo_comuna name     value
-       <chr>                 <dbl> <chr>    <dbl>
-     1 Cabrero                8303 a     0.000305
-     2 Casablanca             5102 b     0.00137
-     3 Iquique                1101 c     0.00169
-     4 Nancagua               6305 a     0.00200
-     5 Hualqui                8105 a     0.00284
-     6 Villarrica             9120 b     0.00497
-     7 Quilaco                8308 a     0.00537
-     8 La Pintana            13112 a     0.00580
-     9 Pica                   1405 b     0.00650
-    10 Ollagüe                2202 c     0.00838
+       nombre_comuna   codigo_comuna name    value
+       <chr>                   <dbl> <chr>   <dbl>
+     1 Parral                   7404 a     0.00256
+     2 Collipulli               9202 a     0.00355
+     3 Cauquenes                7201 c     0.00589
+     4 Coihueco                16302 b     0.00603
+     5 Padre Las Casas          9112 c     0.00626
+     6 Calbuco                 10102 a     0.00640
+     7 Olivar                   6111 c     0.00736
+     8 Lonquimay                9205 a     0.00762
+     9 El Bosque               13105 a     0.00803
+    10 Santiago                13101 a     0.00867
     # ℹ 962 more rows
 
 Esta tabla tiene 972 filas, ¿cómo confirmar si existen datos para todas
@@ -378,7 +385,7 @@ base |>
     Warning: La cantidad de comunas es anómala: hay 324, pero deberían ser 346. Revísalas
     con `territorial::validar_comunas()`
 
-    → Las comunas faltantes son: Juan Fernández, Calle Larga, Rancagua, Graneros, Pichidegua, Romeral, Chiguayante, San Pedro de la Paz, Los Álamos, Antuco, Cunco, Pitrufquén, Toltén, Purranque, Punta Arenas, Huechuraba, Lo Espejo, Lo Prado, Ñuñoa, Tiltil, Isla de Maipo y Yungay
+    → Las comunas faltantes son: Caldera, Chañaral, Santo Domingo, Llaillay, Ñuñoa, San Joaquín, Puente Alto, Codegua, Pichidegua, Rauco, San Fabián, Cabrero, Tucapel, Galvarino, Mariquina, Paillaco, Puqueldón, Queilén, Cisnes, Chile Chico, Laguna Blanca y Porvenir
 
 La función
 [`contar_comunas()`](https://bastianolea.github.io/territorial/reference/contar_comunas.md)
@@ -396,19 +403,19 @@ base |>
   buscar_comuna("Alto")
 ```
 
-    ! Se encontraron 30 resultados, mostrando sólo 6.
+    ! Se encontraron 24 resultados, mostrando sólo 6.
 
-    ℹ Los resultados más cercanos al término `Alto` son: Alto del Carmen, Alto Hospicio, Puente Alto y Alto Biobío
+    ℹ Los resultados más cercanos al término `Alto` son: Alto del Carmen, Alto Biobío y Alto Hospicio
 
     # A tibble: 6 × 5
-      nombre_comuna   codigo_comuna name  value puntaje
-      <chr>                   <dbl> <chr> <dbl>   <dbl>
-    1 Alto del Carmen          3302 b     0.230       1
-    2 Alto Hospicio            1107 a     0.372       1
-    3 Puente Alto             13201 a     0.471       1
-    4 Alto Biobío              8314 a     0.496       1
-    5 Alto del Carmen          3302 c     0.556       1
-    6 Alto del Carmen          3302 a     0.562       1
+      nombre_comuna   codigo_comuna name   value puntaje
+      <chr>                   <dbl> <chr>  <dbl>   <dbl>
+    1 Alto del Carmen          3302 c     0.0893       1
+    2 Alto Biobío              8314 c     0.192        1
+    3 Alto Biobío              8314 b     0.299        1
+    4 Alto Hospicio            1107 a     0.565        1
+    5 Alto del Carmen          3302 a     0.759        1
+    6 Alto Hospicio            1107 c     0.776        1
 
 ### Crear nombres de comunas a partir de códigos únicos territoriales
 
@@ -417,7 +424,8 @@ escritas, pero que vienen con códigos únicos territoriales. En este
 caso, aparte de limpiarlas con
 [`limpiar_comunas()`](https://bastianolea.github.io/territorial/reference/limpiar_comunas.md),
 podemos crear los nombres de comunas a partir de los códigos únicos
-territoriales:
+territoriales con
+[`as_nombre_comuna()`](https://bastianolea.github.io/territorial/reference/as_nombre_comuna.md):
 
 ``` r
 
@@ -484,10 +492,11 @@ reconstruir los nombres, evitando incertidumbre.
 
 ### Obtener códigos únicos territoriales a partir de nombres de comunas
 
-También podemos tener el caso inverso: una tabla con datos comunales que
-vienen con nombres de comunas, pero sin códigos únicos territoriales.
-Podemos crear los códigos únicos territoriales a partir de los nombres
-de comunas:
+Si tenemos nombres de comunas, pero sin códigos únicos territoriales,
+podemos usar
+[`as_codigo_comuna()`](https://bastianolea.github.io/territorial/reference/as_codigo_comuna.md)
+para crear los códigos únicos territoriales a partir de los nombres de
+comunas:
 
 ``` r
 
@@ -693,11 +702,11 @@ territorios |>
     # A tibble: 5 × 3
       codigo_comuna nombre_comuna clasificacion
               <dbl> <chr>         <fct>
-    1         16206 Ranquil       Rural
-    2         13127 Recoleta      Urbana
-    3          8109 Santa Juana   Mixta
-    4          9121 Cholchol      Rural
-    5          7109 San Clemente  Mixta        
+    1         10304 Puyehue       Rural
+    2         12301 Porvenir      Rural
+    3          8305 Mulchén       Mixta
+    4          2202 Ollagüe       Rural
+    5          8202 Arauco        Rural        
 
 Si sólo necesitas saber si una comuna es rural, usa
 [`is_rural()`](https://bastianolea.github.io/territorial/reference/is_rural.md),
@@ -721,18 +730,18 @@ territorios |>
 ```
 
     # A tibble: 185 × 2
-       nombre_region nombre_comuna
-       <chr>         <chr>
-     1 Tarapacá      Pozo Almonte
-     2 Tarapacá      Camiña
-     3 Tarapacá      Colchane
-     4 Tarapacá      Huara
-     5 Tarapacá      Pica
-     6 Antofagasta   Mejillones
-     7 Antofagasta   Sierra Gorda
-     8 Antofagasta   Taltal
-     9 Antofagasta   Ollagüe
-    10 Antofagasta   San Pedro de Atacama
+       nombre_region      nombre_comuna
+       <chr>              <chr>
+     1 Arica y Parinacota Camarones
+     2 Arica y Parinacota Putre
+     3 Arica y Parinacota General Lagos
+     4 Tarapacá           Pozo Almonte
+     5 Tarapacá           Camiña
+     6 Tarapacá           Colchane
+     7 Tarapacá           Huara
+     8 Tarapacá           Pica
+     9 Antofagasta        Mejillones
+    10 Antofagasta        Sierra Gorda
     # ℹ 175 more rows
 
 Estas funciones son particularmente útiles para cuando estés [creando
@@ -786,22 +795,22 @@ regiones
     # A tibble: 16 × 2
        codigo_region nombre_region
                <dbl> <chr>
-     1             1 Tarapacá
-     2             2 Antofagasta
-     3             3 Atacama
-     4             4 Coquimbo
-     5             5 Valparaíso
-     6             6 Libertador General Bernardo O'Higgins
-     7             7 Maule
-     8             8 Biobío
-     9             9 La Araucanía
-    10            10 Los Lagos
-    11            11 Aysén del General Carlos Ibáñez del Campo
-    12            12 Magallanes y de la Antártica Chilena
-    13            13 Metropolitana de Santiago
-    14            14 Los Ríos
-    15            15 Arica y Parinacota
-    16            16 Ñuble                                    
+     1            15 Arica y Parinacota
+     2             1 Tarapacá
+     3             2 Antofagasta
+     4             3 Atacama
+     5             4 Coquimbo
+     6             5 Valparaíso
+     7            13 Metropolitana de Santiago
+     8             6 Libertador General Bernardo O'Higgins
+     9             7 Maule
+    10            16 Ñuble
+    11             8 Biobío
+    12             9 La Araucanía
+    13            14 Los Ríos
+    14            10 Los Lagos
+    15            11 Aysén del General Carlos Ibáñez del Campo
+    16            12 Magallanes y de la Antártica Chilena     
 
 ### Convertir entre nombres y códigos de regiones
 
@@ -840,22 +849,22 @@ regiones
     # A tibble: 16 × 2
        codigo_region nombre_region
                <dbl> <chr>
-     1             1 Tarapacá
-     2             2 Antofagasta
-     3             3 Atacama
-     4             4 Coquimbo
-     5             5 Valparaíso
-     6             6 Libertador General Bernardo O'Higgins
-     7             7 Maule
-     8             8 Biobío
-     9             9 La Araucanía
-    10            10 Los Lagos
-    11            11 Aysén del General Carlos Ibáñez del Campo
-    12            12 Magallanes y de la Antártica Chilena
-    13            13 Metropolitana de Santiago
-    14            14 Los Ríos
-    15            15 Arica y Parinacota
-    16            16 Ñuble                                    
+     1            15 Arica y Parinacota
+     2             1 Tarapacá
+     3             2 Antofagasta
+     4             3 Atacama
+     5             4 Coquimbo
+     6             5 Valparaíso
+     7            13 Metropolitana de Santiago
+     8             6 Libertador General Bernardo O'Higgins
+     9             7 Maule
+    10            16 Ñuble
+    11             8 Biobío
+    12             9 La Araucanía
+    13            14 Los Ríos
+    14            10 Los Lagos
+    15            11 Aysén del General Carlos Ibáñez del Campo
+    16            12 Magallanes y de la Antártica Chilena     
 
 Aquí tenemos las regiones en orden según su numeración (código único
 territorial de las regiones), pero queremos ordenarlas de norte a sur:
@@ -1142,11 +1151,11 @@ usando sus códigos regionales:
 obtener_comunas(c(15, 1))
 ```
 
-    ℹ Comunas de la región: Iquique, Alto Hospicio, Pozo Almonte, Camiña, Colchane, Huara, Pica, Arica, Camarones, Putre y General Lagos
+    ℹ Comunas de la región: Arica, Camarones, Putre, General Lagos, Iquique, Alto Hospicio, Pozo Almonte, Camiña, Colchane, Huara y Pica
 
-     [1] "Iquique"       "Alto Hospicio" "Pozo Almonte"  "Camiña"
-     [5] "Colchane"      "Huara"         "Pica"          "Arica"
-     [9] "Camarones"     "Putre"         "General Lagos"
+     [1] "Arica"         "Camarones"     "Putre"         "General Lagos"
+     [5] "Iquique"       "Alto Hospicio" "Pozo Almonte"  "Camiña"
+     [9] "Colchane"      "Huara"         "Pica"         
 
 ### Capitales regionales
 
@@ -1161,22 +1170,22 @@ capitales_regionales()
     # A tibble: 16 × 6
        codigo_region nombre_region   codigo_provincia nombre_provincia codigo_comuna
                <dbl> <chr>                      <dbl> <chr>                    <dbl>
-     1             1 Tarapacá                      11 Iquique                   1101
-     2             2 Antofagasta                   21 Antofagasta               2101
-     3             3 Atacama                       31 Copiapó                   3101
-     4             4 Coquimbo                      41 Elqui                     4102
-     5             5 Valparaíso                    51 Valparaíso                5101
-     6             6 Libertador Gen…               61 Cachapoal                 6101
-     7             7 Maule                         71 Talca                     7101
-     8             8 Biobío                        81 Concepción                8101
-     9             9 La Araucanía                  91 Cautín                    9101
-    10            10 Los Lagos                    101 Llanquihue               10101
-    11            11 Aysén del Gene…              111 Coyhaique                11101
-    12            12 Magallanes y d…              121 Magallanes               12101
-    13            13 Metropolitana …              131 Santiago                 13101
-    14            14 Los Ríos                     141 Valdivia                 14101
-    15            15 Arica y Parina…              151 Arica                    15101
-    16            16 Ñuble                        161 Diguillín                16101
+     1            15 Arica y Parina…              151 Arica                    15101
+     2             1 Tarapacá                      11 Iquique                   1101
+     3             2 Antofagasta                   21 Antofagasta               2101
+     4             3 Atacama                       31 Copiapó                   3101
+     5             4 Coquimbo                      41 Elqui                     4102
+     6             5 Valparaíso                    51 Valparaíso                5101
+     7            13 Metropolitana …              131 Santiago                 13101
+     8             6 Libertador Gen…               61 Cachapoal                 6101
+     9             7 Maule                         71 Talca                     7101
+    10            16 Ñuble                        161 Diguillín                16101
+    11             8 Biobío                        81 Concepción                8101
+    12             9 La Araucanía                  91 Cautín                    9101
+    13            14 Los Ríos                     141 Valdivia                 14101
+    14            10 Los Lagos                    101 Llanquihue               10101
+    15            11 Aysén del Gene…              111 Coyhaique                11101
+    16            12 Magallanes y d…              121 Magallanes               12101
     # ℹ 1 more variable: nombre_comuna <chr>
 
 Con

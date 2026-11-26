@@ -83,14 +83,14 @@ territorios |>
  buscar_comuna("alto") |>
  dplyr::select(nombre_comuna, puntaje)
 #> ! Se encontraron 10 resultados, mostrando sólo 6.
-#> ℹ Los resultados más cercanos al término `alto` son: Alto Hospicio, Alto del Carmen, Alto Biobío y Puente Alto
+#> ℹ Los resultados más cercanos al término `alto` son: Alto Hospicio, Alto del Carmen, Puente Alto y Alto Biobío
 #> # A tibble: 6 × 2
 #>   nombre_comuna   puntaje
 #>   <chr>             <dbl>
 #> 1 Alto Hospicio     1    
 #> 2 Alto del Carmen   1    
-#> 3 Alto Biobío       1    
-#> 4 Puente Alto       1    
+#> 3 Puente Alto       1    
+#> 4 Alto Biobío       1    
 #> 5 Santo Domingo     0.923
 #> 6 Pozo Almonte      0.917
 
@@ -113,7 +113,7 @@ territorios |>
 #>   nombre_comuna        puntaje
 #>   <chr>                  <dbl>
 #> 1 San Pedro de Atacama   0.95 
-#> 2 San Pedro de la Paz    0.947
-#> 3 Pedro Aguirre Cerda    0.947
+#> 2 Pedro Aguirre Cerda    0.947
+#> 3 San Pedro de la Paz    0.947
 #> 4 Cerro Navia            0.909
 ```

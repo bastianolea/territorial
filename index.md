@@ -1,4 +1,4 @@
-# Paquete `{territorial}`
+# Paquete `territorial`
 
 Herramientas para facilitar el trabajo con datos de comunas y regiones
 de Chile en R.
@@ -78,7 +78,8 @@ herramientas para trabajar con datos territoriales de Chile, entendidos
 como datos tabulares cuyas observaciones correspondan a comunas o
 regiones del país.
 
-La premisa del paquete es que tenemos una tabla principal,
+La premisa del paquete es que tenemos una [tabla
+principal](https://bastianolea.github.io/territorial/articles/comunas_provincias_regiones.html),
 [`territorial::territorios`](https://bastianolea.github.io/territorial/reference/territorios.md),
 que contiene los nombres oficiales y los códigos únicos territoriales de
 todas las regiones, provincias y comunas de Chile.
@@ -104,6 +105,8 @@ head(territorios)
 # ℹ 1 more variable: nombre_comuna <chr>
 ```
 
+Puedes explorar esta tabla completa
+[aquí](https://bastianolea.github.io/territorial/articles/comunas_provincias_regiones.html).
 Usando esta tabla como fuente de verdad, podemos validar, corregir y
 complementar datos territoriales.
 

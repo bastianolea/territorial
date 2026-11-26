@@ -49,18 +49,18 @@ sucios |>
 ```
 
     # A tibble: 10 × 2
-       nombre_comuna  nombres_sucios
-       <chr>          <chr>
-     1 Puerto Montt   Suemro Montt
-     2 San Bernardo   GSa Bgrnardo
-     3 Puchuncaví     Pwhuncaví
-     4 San Felipe     San FYlie
-     5 La Pintana     LaPUntana
-     6 San Esteban    SaQn stebQn
-     7 Alto Biobío    EAfto Bioío
-     8 Juan Fernández dJuan Ftnández
-     9 San Carlos     fan Crlos
-    10 Pozo Almonte   ozo Aolmovte  
+       nombre_comuna    nombres_sucios
+       <chr>            <chr>
+     1 Juan Fernández   dJuan erYández
+     2 Santo Domingo    SantoWDomiJno
+     3 Nueva Imperial   Nueva IWeTrial
+     4 Calle Larga      ColleLargaP
+     5 La Estrella      Lat Estrell
+     6 Casablanca       Cawablaca
+     7 Torres del Paine Yorres de PaineE
+     8 Alto Hospicio    lto Hvospvcio
+     9 La Cisterna      La CiEsteja
+    10 San Gregorio     ISanJGregoro    
 
 Ahora que tenemos la columna `nombres_sucios`, usamos
 [`limpiar_comunas()`](https://bastianolea.github.io/territorial/reference/limpiar_comunas.md)
@@ -84,36 +84,36 @@ limpios |>
     # A tibble: 109 × 2
        nombres_sucios      nombres_limpios
        <chr>               <chr>
-     1 Alo Hvospicpo       Alto Hospicio
-     2 ozo Aolmovte        Pozo Almonte
-     3 AnoRagKasta         Antofagasta
-     4 ejillones           Mejillones
-     5 Sierrp GrdaA        Sierra Gorda
-     6 SvnMPmedro d Atacaa San Pedro de Atacama
-     7 María EleaZ         María Elena
-     8 Tiera AVmarilln     Tierra Amarilla
-     9 DiXeno de Almgro    Diego de Almagro
-    10 Alto del Cawmdn     Alto del Carmen
-    11 a uiguera           La Higuera
-    12 Combrbtlá           Combarbalá
-    13 Monte PJctia        Monte Patria
-    14 RíoEHrtasdo         Río Hurtado
-    15 Valparase           Valparaíso
-    16 Csablanca           Casablanca
-    17 dJuan Ftnández      Juan Fernández
-    18 Pwhuncaví           Puchuncaví
-    19 Viña denYMar        Viña del Mar
-    20 Isla e Pamscua      Isla de Pascua
-    21 Calle LFgaP         Calle Larga
-    22 SaQn stebQn         San Esteban
-    23 Son UAtonio         San Antonio
-    24 SantWDominJgo       Santo Domingo
-    25 San FYlie           San Felipe
-    26 SanaWMaríaW         Santa María
-    27 Vvila AlemanF       Villa Alemana
-    28 as Cabras           Las Cabras
-    29 ichideguq           Pichidegua
-    30 Quinta mPe Tilcco   Quinta de Tilcoco
+     1 nGeneral Lagp       General Lagos
+     2 lto Hvospvcio       Alto Hospicio
+     3 PozoRoAlmnte        Pozo Almonte
+     4 AnofagKaeta         Antofagasta
+     5 Mejilpone           Mejillones
+     6 SieHa GordaA        Sierra Gorda
+     7 San Pmnoro dAtacama San Pedro de Atacama
+     8 arna ElenaZ         María Elena
+     9 Tiera AVmarilda     Tierra Amarilla
+    10 DiXeuo de Almgro    Diego de Almagro
+    11 Alto det arwmen     Alto del Carmen
+    12 La Hiucra           La Higuera
+    13 ComEarblá           Combarbalá
+    14 Mnte PaJteia        Monte Patria
+    15 RUo Hutasdo         Río Hurtado
+    16 Vlparatso           Valparaíso
+    17 Cawablaca           Casablanca
+    18 dJuan erYández      Juan Fernández
+    19 PuchuJcaí           Puchuncaví
+    20 ViñadeFn Mar        Viña del Mar
+    21 Isla de PmQscu      Isla de Pascua
+    22 ColleLargaP         Calle Larga
+    23 SaQn Wteban         San Esteban
+    24 San UAYtoni         San Antonio
+    25 SantoWDomiJno       Santo Domingo
+    26 han Felie           San Felipe
+    27 Sana MarqaW         Santa María
+    28 Vvila Alemhna       Villa Alemana
+    29 erro NamvFa         Cerro Navia
+    30 staEción Centrvl    Estación Central
     # ℹ 79 more rows
 
 Podemos confirmar que la limpieza realizada con

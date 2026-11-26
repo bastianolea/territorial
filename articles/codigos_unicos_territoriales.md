@@ -41,22 +41,22 @@ territorial::territorios |>
     # A tibble: 16 × 2
        codigo_region nombre_region
                <dbl> <chr>
-     1             1 Tarapacá
-     2             2 Antofagasta
-     3             3 Atacama
-     4             4 Coquimbo
-     5             5 Valparaíso
-     6             6 Libertador General Bernardo O'Higgins
-     7             7 Maule
-     8             8 Biobío
-     9             9 La Araucanía
-    10            10 Los Lagos
-    11            11 Aysén del General Carlos Ibáñez del Campo
-    12            12 Magallanes y de la Antártica Chilena
-    13            13 Metropolitana de Santiago
-    14            14 Los Ríos
-    15            15 Arica y Parinacota
-    16            16 Ñuble                                    
+     1            15 Arica y Parinacota
+     2             1 Tarapacá
+     3             2 Antofagasta
+     4             3 Atacama
+     5             4 Coquimbo
+     6             5 Valparaíso
+     7            13 Metropolitana de Santiago
+     8             6 Libertador General Bernardo O'Higgins
+     9             7 Maule
+    10            16 Ñuble
+    11             8 Biobío
+    12             9 La Araucanía
+    13            14 Los Ríos
+    14            10 Los Lagos
+    15            11 Aysén del General Carlos Ibáñez del Campo
+    16            12 Magallanes y de la Antártica Chilena     
 
 ## Provincias
 

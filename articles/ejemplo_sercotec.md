@@ -121,7 +121,7 @@ sercotec |>
   validar_comunas(comuna_beneficiario)
 ```
 
-    ! Resumen: 21 casos de comunas que no conciden con comunas correctamente escritas (ver `territorial::comunas()`): Aisén, Los Alamos, No Informada, OHiggins, Otro lugar, Puerto Saavedra, Ránquil y Treguaco
+    ! Resumen: 19 casos de comunas que no conciden con comunas correctamente escritas (ver `territorial::comunas()`): Aisén, Los Alamos, No Informada, OHiggins, Otro lugar, Puerto Saavedra y Treguaco
 
     ℹ Tildes: 3 casos de comunas que deberían tener tildes y no los tienen: Los Alamos
 
@@ -129,7 +129,7 @@ sercotec |>
 
     ℹ Escrituras alternativas: 5 casos de comunas escritas de una forma no recomendada, aunque válida: Aisén y Treguaco
 
-    ✖ Validación de comunas: se encontraron 31 problemas con las comunas! Usa `territorial::limpiar_comunas()` para solucionarlos.
+    ✖ Validación de comunas: se encontraron 29 problemas con las comunas! Usa `territorial::limpiar_comunas()` para solucionarlos.
 
 La validación detecta varios problemas: *Los Alamos* le falta el tilde
 (muchas personas siguen pensando que las letras mayúsculas no llevan
@@ -152,7 +152,7 @@ sercotec_limpio <- sercotec |>
 
     → Paso 1: confirmar comunas correctas
 
-    ℹ De las 346 comunas distintas, 338 ya eran correctas: Algarrobo, Alhué, Alto Biobío, Alto Hospicio, Alto del Carmen, Ancud, Andacollo, Angol, Antofagasta, Antuco y 328 comunas más
+    ℹ De las 346 comunas distintas, 339 ya eran correctas: Algarrobo, Alhué, Alto Biobío, Alto Hospicio, Alto del Carmen, Ancud, Andacollo, Angol, Antofagasta, Antuco y 329 comunas más
 
     → Paso 2: coincidencias por limpieza de texto
 

@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">territorial</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.9.15</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.9.16</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Cambiar la navegación">
@@ -27,6 +27,7 @@
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>Ejemplos</h6></li>
     <li><a class="dropdown-item" href="../articles/ejemplo_rsh.html">Ejemplo: Registro Social de Hogares</a></li>
+    <li><a class="dropdown-item" href="../articles/ejemplo_mideso.html">Ejemplo: tasa de ocupación formal</a></li>
     <li><a class="dropdown-item" href="../articles/suciedad_extrema.html">Prueba de suciedad extrema</a></li>
     <li><a class="dropdown-item" href="../articles/ejemplo_servel.html">Ejemplo: datos electorales</a></li>
     <li><a class="dropdown-item" href="../articles/ejemplo_bibliotecas.html">Ejemplo: préstamos en bibliotecas</a></li>
@@ -78,6 +79,13 @@
 
         <dt>
 
+          <code><a href="codigos_comunas.html">codigos_comunas()</a></code>
+
+        </dt>
+        <dd>Códigos de comunas de Chile</dd>
+
+        <dt>
+
           <code><a href="regiones.html">regiones()</a></code>
 
         </dt>
@@ -85,10 +93,17 @@
 
         <dt>
 
-          <code><a href="codigos_comunas.html">codigos_comunas()</a></code>
+          <code><a href="provincias.html">provincias()</a></code>
 
         </dt>
-        <dd>Códigos de comunas de Chile</dd>
+        <dd>Nombres de provincias de Chile</dd>
+
+        <dt>
+
+          <code><a href="localidades.html">localidades</a></code>
+
+        </dt>
+        <dd>Tabla de localidades de Chile</dd>
 
         <dt>
 
@@ -103,13 +118,6 @@
 
         </dt>
         <dd>Capitales regionales de Chile</dd>
-
-        <dt>
-
-          <code><a href="localidades.html">localidades</a></code>
-
-        </dt>
-        <dd>Tabla de localidades de Chile</dd>
 
         <dt>
 
@@ -147,17 +155,8 @@
 
         </dt>
         <dd>Conteo de comunas disponibles, indicando las faltantes</dd>
-      </dl></div><div class="section level2">
-      <h2 id="consulta-de-datos-territoriales">Consulta de datos territoriales<a class="anchor" aria-label="anchor" href="#consulta-de-datos-territoriales"></a></h2>
 
-      <div class="section-desc"><p>Funciones y utilidades para navegar datos territoriales</p></div>
-
-      <dl></dl></div><div class="section level2">
-
-
-
-
-      <dl><dt>
+        <dt>
 
           <code><a href="is_capital_regional.html">is_capital_regional()</a></code>
 
@@ -205,20 +204,6 @@
 
         </dt>
         <dd>Evaluar si una comuna es rural</dd>
-
-        <dt>
-
-          <code><a href="buscar_comuna.html">buscar_comuna()</a></code>
-
-        </dt>
-        <dd>Buscar comunas por similitud</dd>
-
-        <dt>
-
-          <code><a href="obtener_comunas.html">obtener_comunas()</a></code>
-
-        </dt>
-        <dd>Obtener las comunas de una región de Chile</dd>
       </dl></div><div class="section level2">
       <h2 id="limpieza-y-correcci-n-de-territorios">Limpieza y corrección de territorios<a class="anchor" aria-label="anchor" href="#limpieza-y-correcci-n-de-territorios"></a></h2>
 
@@ -230,6 +215,20 @@
 
 
       <dl><dt>
+
+          <code><a href="limpiar_comunas.html">limpiar_comunas()</a></code>
+
+        </dt>
+        <dd>Limpieza de nombres de comunas de Chile a sus nombres oficiales</dd>
+
+        <dt>
+
+          <code><a href="limpiar_regiones.html">limpiar_regiones()</a></code>
+
+        </dt>
+        <dd>Limpieza de nombres de regiones de Chile a sus nombres oficiales</dd>
+
+        <dt>
 
           <code><a href="as_capital_regional.html">as_capital_regional()</a></code>
 
@@ -284,20 +283,6 @@
 
         </dt>
         <dd>Ubicar localidades en la comuna que les corresponde</dd>
-
-        <dt>
-
-          <code><a href="limpiar_comunas.html">limpiar_comunas()</a></code>
-
-        </dt>
-        <dd>Limpieza de nombres de comunas de Chile a sus nombres oficiales</dd>
-
-        <dt>
-
-          <code><a href="limpiar_regiones.html">limpiar_regiones()</a></code>
-
-        </dt>
-        <dd>Limpieza de nombres de regiones de Chile a sus nombres oficiales</dd>
 
         <dt>
 
@@ -386,6 +371,29 @@
 
         </dt>
         <dd>Agregar orden geográfico (norte a sur) a códigos de regiones</dd>
+      </dl></div><div class="section level2">
+      <h2 id="consulta-de-datos-territoriales">Consulta de datos territoriales<a class="anchor" aria-label="anchor" href="#consulta-de-datos-territoriales"></a></h2>
+
+      <div class="section-desc"><p>Funciones y utilidades para navegar datos territoriales</p></div>
+
+      <dl></dl></div><div class="section level2">
+
+
+
+
+      <dl><dt>
+
+          <code><a href="buscar_comuna.html">buscar_comuna()</a></code>
+
+        </dt>
+        <dd>Buscar comunas por similitud</dd>
+
+        <dt>
+
+          <code><a href="obtener_comunas.html">obtener_comunas()</a></code>
+
+        </dt>
+        <dd>Obtener las comunas de una región de Chile</dd>
       </dl></div><div class="section level2">
       <h2 id="miscel-neas">Misceláneas<a class="anchor" aria-label="anchor" href="#miscel-neas"></a></h2>
 

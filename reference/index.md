@@ -8,16 +8,18 @@ Funciones y tablas que entregan datos de uso territorial
   : Tabla de comunas, provincias y regiones de Chile
 - [`comunas()`](https://bastianolea.github.io/territorial/reference/comunas.md)
   : Nombres de comunas de Chile
-- [`regiones()`](https://bastianolea.github.io/territorial/reference/regiones.md)
-  : Nombres de regiones de Chile
 - [`codigos_comunas()`](https://bastianolea.github.io/territorial/reference/codigos_comunas.md)
   : Códigos de comunas de Chile
+- [`regiones()`](https://bastianolea.github.io/territorial/reference/regiones.md)
+  : Nombres de regiones de Chile
+- [`provincias()`](https://bastianolea.github.io/territorial/reference/provincias.md)
+  : Nombres de provincias de Chile
+- [`localidades`](https://bastianolea.github.io/territorial/reference/localidades.md)
+  : Tabla de localidades de Chile
 - [`clasificacion`](https://bastianolea.github.io/territorial/reference/clasificacion.md)
   : Tabla de clasificación comunal PNDR, Censo 2024
 - [`capitales_regionales()`](https://bastianolea.github.io/territorial/reference/capitales_regionales.md)
   : Capitales regionales de Chile
-- [`localidades`](https://bastianolea.github.io/territorial/reference/localidades.md)
-  : Tabla de localidades de Chile
 - [`cut_historicos`](https://bastianolea.github.io/territorial/reference/cut_historicos.md)
   : Códigos únicos territoriales históricos
 
@@ -31,11 +33,6 @@ Funciones que permiten probar la calidad de los datos territoriales
   : Validación de calidad de nombres de regiones de Chile
 - [`contar_comunas()`](https://bastianolea.github.io/territorial/reference/contar_comunas.md)
   : Conteo de comunas disponibles, indicando las faltantes
-
-## Consulta de datos territoriales
-
-Funciones y utilidades para navegar datos territoriales
-
 - [`is_capital_regional()`](https://bastianolea.github.io/territorial/reference/is_capital_regional.md)
   : Evaluar si una comuna corresponde a una capital regional
 - [`is_codigo_comuna()`](https://bastianolea.github.io/territorial/reference/is_codigo_comuna.md)
@@ -54,16 +51,16 @@ Funciones y utilidades para navegar datos territoriales
   válido
 - [`is_rural()`](https://bastianolea.github.io/territorial/reference/is_rural.md)
   : Evaluar si una comuna es rural
-- [`buscar_comuna()`](https://bastianolea.github.io/territorial/reference/buscar_comuna.md)
-  : Buscar comunas por similitud
-- [`obtener_comunas()`](https://bastianolea.github.io/territorial/reference/obtener_comunas.md)
-  : Obtener las comunas de una región de Chile
 
 ## Limpieza y corrección de territorios
 
 Funciones para transformar datos de identificación de territorios,
 ordenarlos, etc.
 
+- [`limpiar_comunas()`](https://bastianolea.github.io/territorial/reference/limpiar_comunas.md)
+  : Limpieza de nombres de comunas de Chile a sus nombres oficiales
+- [`limpiar_regiones()`](https://bastianolea.github.io/territorial/reference/limpiar_regiones.md)
+  : Limpieza de nombres de regiones de Chile a sus nombres oficiales
 - [`as_capital_regional()`](https://bastianolea.github.io/territorial/reference/as_capital_regional.md)
   : Convertir regiones a capitales regionales
 - [`as_codigo_comuna()`](https://bastianolea.github.io/territorial/reference/as_codigo_comuna.md)
@@ -80,10 +77,6 @@ ordenarlos, etc.
   : Ubicar comunas en la región o provincia que les corresponde
 - [`ubicar_localidades()`](https://bastianolea.github.io/territorial/reference/ubicar_localidades.md)
   : Ubicar localidades en la comuna que les corresponde
-- [`limpiar_comunas()`](https://bastianolea.github.io/territorial/reference/limpiar_comunas.md)
-  : Limpieza de nombres de comunas de Chile a sus nombres oficiales
-- [`limpiar_regiones()`](https://bastianolea.github.io/territorial/reference/limpiar_regiones.md)
-  : Limpieza de nombres de regiones de Chile a sus nombres oficiales
 - [`contextualizar()`](https://bastianolea.github.io/territorial/reference/contextualizar.md)
   : Contextualizar datos de nivel comunal con variables territoriales
 - [`actualizar_codigo_comuna()`](https://bastianolea.github.io/territorial/reference/actualizar_codigo_comuna.md)
@@ -117,6 +110,15 @@ existentes
   : Agregar macrozona del país a regiones
 - [`agregar_orden_region()`](https://bastianolea.github.io/territorial/reference/agregar_orden_region.md)
   : Agregar orden geográfico (norte a sur) a códigos de regiones
+
+## Consulta de datos territoriales
+
+Funciones y utilidades para navegar datos territoriales
+
+- [`buscar_comuna()`](https://bastianolea.github.io/territorial/reference/buscar_comuna.md)
+  : Buscar comunas por similitud
+- [`obtener_comunas()`](https://bastianolea.github.io/territorial/reference/obtener_comunas.md)
+  : Obtener las comunas de una región de Chile
 
 ## Misceláneas
 

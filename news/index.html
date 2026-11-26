@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">territorial</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.9.15</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.9.16</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Cambiar la navegación">
@@ -27,6 +27,7 @@
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>Ejemplos</h6></li>
     <li><a class="dropdown-item" href="../articles/ejemplo_rsh.html">Ejemplo: Registro Social de Hogares</a></li>
+    <li><a class="dropdown-item" href="../articles/ejemplo_mideso.html">Ejemplo: tasa de ocupación formal</a></li>
     <li><a class="dropdown-item" href="../articles/suciedad_extrema.html">Prueba de suciedad extrema</a></li>
     <li><a class="dropdown-item" href="../articles/ejemplo_servel.html">Ejemplo: datos electorales</a></li>
     <li><a class="dropdown-item" href="../articles/ejemplo_bibliotecas.html">Ejemplo: préstamos en bibliotecas</a></li>
@@ -54,6 +55,12 @@
     </div>
 
     <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.9.16" id="territorial-0916-20261123">territorial 0.9.16 (2026/11/23)<a class="anchor" aria-label="anchor" href="#territorial-0916-20261123"></a></h2>
+<ul><li>Corrección de la comuna de <em>Ránquil</em>, que estaba sin tilde!</li>
+<li>Mejoras: <code><a href="../reference/territorios.html">territorial::territorios</a></code> ahora viene ordenado de norte a sur.</li>
+<li>Nueva función: <code><a href="../reference/provincias.html">provincias()</a></code> retorna todos los nombres de las provincias de Chile.</li>
+</ul></div>
+    <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.9.15" id="territorial-0915-20261123">territorial 0.9.15 (2026/11/23)<a class="anchor" aria-label="anchor" href="#territorial-0915-20261123"></a></h2>
 <ul><li>Nueva función <code><a href="../reference/aplicacion.html">aplicacion()</a></code> que abre una aplicación Shiny para poder usar algunas de las funciones del paquete, como <code><a href="../reference/as_codigo_comuna.html">as_codigo_comuna()</a></code> y <code><a href="../reference/as_nombre_comuna.html">as_nombre_comuna()</a></code>. Puedes <a href="https://bastianolea.github.io/territorial/articles/aplicacion.html">probar la aplicación aquí</a>.</li>
 <li>Nueva viñeta <em>Comunas, provincias y regiones de Chile</em>, <code><a href="../articles/comunas_provincias_regiones.html">vignette("comunas_provincias_regiones")</a></code>, con una tabla interactiva para explorar nombres de regiones y comunas con sus códigos al igual que en <code><a href="../reference/territorios.html">territorial::territorios</a></code>.</li>
@@ -61,15 +68,12 @@
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.9.14" id="territorial-0914-20261118">territorial 0.9.14 (2026/11/18)<a class="anchor" aria-label="anchor" href="#territorial-0914-20261118"></a></h2>
-<ul><li>
-<code><a href="../reference/contextualizar.html">contextualizar()</a></code> ahora asume <code>codigo_comuna</code> o <code>nombre_comuna</code>, cualquiera de las dos, si están presentes y no se especifica la variable a usar como base.</li>
+<ul><li>Mejoras: <code><a href="../reference/contextualizar.html">contextualizar()</a></code> ahora asume <code>codigo_comuna</code> o <code>nombre_comuna</code>, cualquiera de las dos, si están presentes y no se especifica la variable a usar como base.</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.9.13" id="territorial-0913-20261112">territorial 0.9.13 (2026/11/12)<a class="anchor" aria-label="anchor" href="#territorial-0913-20261112"></a></h2>
-<ul><li>
-<code><a href="../reference/contar_comunas.html">contar_comunas()</a></code> ahora entrega el número de conteo único de comunas en vez del dataframe.</li>
-<li>
-<code><a href="../reference/ubicar_comunas.html">ubicar_comunas()</a></code> ahora puede ubicar comunas en su provincia con el argumento <code>nivel = "provincia"</code>.</li>
+<ul><li>Mejoras: <code><a href="../reference/contar_comunas.html">contar_comunas()</a></code> ahora entrega el número de conteo único de comunas en vez del dataframe.</li>
+<li>Mejoras: <code><a href="../reference/ubicar_comunas.html">ubicar_comunas()</a></code> ahora puede ubicar comunas en su provincia con el argumento <code>nivel = "provincia"</code>.</li>
 <li>Nueva función <code><a href="../reference/is_rural.html">is_rural()</a></code> para evaluar fácilmente si comunas son rurales.</li>
 </ul></div>
     <div class="section level2">
@@ -79,16 +83,13 @@
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.9.9" id="territorial-099-20261103">territorial 0.9.9 (2026/11/03)<a class="anchor" aria-label="anchor" href="#territorial-099-20261103"></a></h2>
 <ul><li>Nuevas funciones <code><a href="../reference/as_capital_regional.html">as_capital_regional()</a></code> e <code><a href="../reference/is_capital_regional.html">is_capital_regional()</a></code>. Como sus nombres indican, la primera convierte regiones a las comunas que son su capital regional, y la segunda confirma si comunas corresponden a capitales regionales. Ambas funcionan tanto con códigos como con nombres.</li>
-<li>
-<code><a href="../reference/ubicar_comunas.html">ubicar_comunas()</a></code> y <code><a href="../reference/obtener_comunas.html">obtener_comunas()</a></code> ahora reciben también nombres de comunas y de regiones, respectivamente, además de códigos numéricos.</li>
+<li>Mejoras: <code><a href="../reference/ubicar_comunas.html">ubicar_comunas()</a></code> y <code><a href="../reference/obtener_comunas.html">obtener_comunas()</a></code> ahora reciben también nombres de comunas y de regiones, respectivamente, además de códigos numéricos.</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.9.8" id="territorial-098-20261103">territorial 0.9.8 (2026/11/03)<a class="anchor" aria-label="anchor" href="#territorial-098-20261103"></a></h2>
-<ul><li>Pone a prueba tus conocimientos territoriales con un juego de preguntas! 🎉 Ejecuta la función <code><a href="../reference/trivia.html">trivia()</a></code> para iniciar una trivia interactiva sobre comunas y regiones de Chile, o <a href="https://bastianolea.github.io/territorial/articles/trivia.html">juega en el navegador aquí!</a>. Son 4 tipos de preguntas, y las alternativas se crean al azar con respuestas que buscan engañarte. A ver si logras sacar el puntaje máximo!</li>
-<li>
-<code><a href="../reference/agregar_macrozona.html">agregar_macrozona()</a></code> ahora también funciona con nombres de región (son convertidos a códigos de región con <code><a href="../reference/as_codigo_region.html">as_codigo_region()</a></code>) y con <em>data frames</em> asumiendo la columna <code>codigo_region</code>.</li>
-<li>
-<code><a href="../reference/agregar_clasificacion.html">agregar_clasificacion()</a></code> ahora también funciona con <em>data frames</em> asumiendo la columna <code>codigo_comuna</code>.</li>
+<ul><li>Nueva función: pon a prueba tus conocimientos territoriales con un juego de preguntas! 🎉 Ejecuta la función <code><a href="../reference/trivia.html">trivia()</a></code> para iniciar una trivia interactiva sobre comunas y regiones de Chile, o <a href="https://bastianolea.github.io/territorial/articles/trivia.html">juega en el navegador aquí!</a>. Son 4 tipos de preguntas, y las alternativas se crean al azar con respuestas que buscan engañarte. A ver si logras sacar el puntaje máximo!</li>
+<li>Mejoras en <code><a href="../reference/agregar_macrozona.html">agregar_macrozona()</a></code>: ahora también funciona con nombres de región (son convertidos a códigos de región con <code><a href="../reference/as_codigo_region.html">as_codigo_region()</a></code>) y con <em>data frames</em> asumiendo la columna <code>codigo_region</code>.</li>
+<li>Mejoras en <code><a href="../reference/agregar_clasificacion.html">agregar_clasificacion()</a></code>: ahora también funciona con <em>data frames</em> asumiendo la columna <code>codigo_comuna</code>.</li>
 <li>Nueva función <code><a href="../reference/is_codigo_region.html">is_codigo_region()</a></code>, súper básica pero es para mantener concordancia con su hermana mayor <code><a href="../reference/is_codigo_comuna.html">is_codigo_comuna()</a></code>.</li>
 </ul></div>
     <div class="section level2">
@@ -98,15 +99,13 @@
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.9.6" id="territorial-096-20261027">territorial 0.9.6 (2026/10/27)<a class="anchor" aria-label="anchor" href="#territorial-096-20261027"></a></h2>
-<ul><li>Funciones para convertir nombres a códigos y viceversa (<code><a href="../reference/as_codigo_comuna.html">as_codigo_comuna()</a></code>, <code><a href="../reference/as_nombre_region.html">as_nombre_region()</a></code>, etc.) ahora arrojan <em>warnings</em> cuando existan valores que no puedan ser convertidos (antes simplemente entregaban los NA de manera silenciosa)</li>
-<li>
-<code><a href="../reference/limpiar_comunas.html">limpiar_comunas()</a></code> reconoce “Santiago Centro” como la comuna de Santiago.</li>
+<ul><li>Mejoras: funciones para convertir nombres a códigos y viceversa (<code><a href="../reference/as_codigo_comuna.html">as_codigo_comuna()</a></code>, <code><a href="../reference/as_nombre_region.html">as_nombre_region()</a></code>, etc.) ahora arrojan <em>warnings</em> cuando existan valores que no puedan ser convertidos (antes simplemente entregaban los NA de manera silenciosa)</li>
+<li>Mejoras: <code><a href="../reference/limpiar_comunas.html">limpiar_comunas()</a></code> reconoce “Santiago Centro” como la comuna de Santiago.</li>
 <li>Mejores errores en <code><a href="../reference/contextualizar.html">contextualizar()</a></code> cuando los datos vienen con columnas distintas o insuficientes.</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.9.5" id="territorial-095-20261023">territorial 0.9.5 (2026/10/23)<a class="anchor" aria-label="anchor" href="#territorial-095-20261023"></a></h2>
-<ul><li>
-<code><a href="../reference/redactar_region.html">redactar_region()</a></code> ahora funciona con columnas vector, como las generadas por <code><a href="../reference/ordenar_regiones.html">ordenar_regiones()</a></code>
+<ul><li>Mejoras: <code><a href="../reference/redactar_region.html">redactar_region()</a></code> ahora funciona con columnas vector, como las generadas por <code><a href="../reference/ordenar_regiones.html">ordenar_regiones()</a></code>
 </li>
 <li>Modificados los mensajes a lo largo de todo el paquete para entregar <em>warnings</em> cuando corresponda, y alertas cuando no sea tan relevante.</li>
 </ul></div>

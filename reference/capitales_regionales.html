@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">territorial</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.9.15</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.9.16</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Cambiar la navegación">
@@ -27,6 +27,7 @@
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>Ejemplos</h6></li>
     <li><a class="dropdown-item" href="../articles/ejemplo_rsh.html">Ejemplo: Registro Social de Hogares</a></li>
+    <li><a class="dropdown-item" href="../articles/ejemplo_mideso.html">Ejemplo: tasa de ocupación formal</a></li>
     <li><a class="dropdown-item" href="../articles/suciedad_extrema.html">Prueba de suciedad extrema</a></li>
     <li><a class="dropdown-item" href="../articles/ejemplo_servel.html">Ejemplo: datos electorales</a></li>
     <li><a class="dropdown-item" href="../articles/ejemplo_bibliotecas.html">Ejemplo: préstamos en bibliotecas</a></li>
@@ -79,22 +80,22 @@
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 16 × 6</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    codigo_region nombre_region   codigo_provincia nombre_provincia codigo_comuna</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>             1 Tarapacá                      11 Iquique                   <span style="text-decoration: underline;">1</span>101</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>             2 Antofagasta                   21 Antofagasta               <span style="text-decoration: underline;">2</span>101</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>             3 Atacama                       31 Copiapó                   <span style="text-decoration: underline;">3</span>101</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>             4 Coquimbo                      41 Elqui                     <span style="text-decoration: underline;">4</span>102</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>             5 Valparaíso                    51 Valparaíso                <span style="text-decoration: underline;">5</span>101</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>             6 Libertador Gen…               61 Cachapoal                 <span style="text-decoration: underline;">6</span>101</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>             7 Maule                         71 Talca                     <span style="text-decoration: underline;">7</span>101</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>             8 Biobío                        81 Concepción                <span style="text-decoration: underline;">8</span>101</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>             9 La Araucanía                  91 Cautín                    <span style="text-decoration: underline;">9</span>101</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>            10 Los Lagos                    101 Llanquihue               <span style="text-decoration: underline;">10</span>101</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">11</span>            11 Aysén del Gene…              111 Coyhaique                <span style="text-decoration: underline;">11</span>101</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">12</span>            12 Magallanes y d…              121 Magallanes               <span style="text-decoration: underline;">12</span>101</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">13</span>            13 Metropolitana …              131 Santiago                 <span style="text-decoration: underline;">13</span>101</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">14</span>            14 Los Ríos                     141 Valdivia                 <span style="text-decoration: underline;">14</span>101</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">15</span>            15 Arica y Parina…              151 Arica                    <span style="text-decoration: underline;">15</span>101</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">16</span>            16 Ñuble                        161 Diguillín                <span style="text-decoration: underline;">16</span>101</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>            15 Arica y Parina…              151 Arica                    <span style="text-decoration: underline;">15</span>101</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>             1 Tarapacá                      11 Iquique                   <span style="text-decoration: underline;">1</span>101</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>             2 Antofagasta                   21 Antofagasta               <span style="text-decoration: underline;">2</span>101</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>             3 Atacama                       31 Copiapó                   <span style="text-decoration: underline;">3</span>101</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>             4 Coquimbo                      41 Elqui                     <span style="text-decoration: underline;">4</span>102</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>             5 Valparaíso                    51 Valparaíso                <span style="text-decoration: underline;">5</span>101</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>            13 Metropolitana …              131 Santiago                 <span style="text-decoration: underline;">13</span>101</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>             6 Libertador Gen…               61 Cachapoal                 <span style="text-decoration: underline;">6</span>101</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>             7 Maule                         71 Talca                     <span style="text-decoration: underline;">7</span>101</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>            16 Ñuble                        161 Diguillín                <span style="text-decoration: underline;">16</span>101</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">11</span>             8 Biobío                        81 Concepción                <span style="text-decoration: underline;">8</span>101</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">12</span>             9 La Araucanía                  91 Cautín                    <span style="text-decoration: underline;">9</span>101</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">13</span>            14 Los Ríos                     141 Valdivia                 <span style="text-decoration: underline;">14</span>101</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">14</span>            10 Los Lagos                    101 Llanquihue               <span style="text-decoration: underline;">10</span>101</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">15</span>            11 Aysén del Gene…              111 Coyhaique                <span style="text-decoration: underline;">11</span>101</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">16</span>            12 Magallanes y d…              121 Magallanes               <span style="text-decoration: underline;">12</span>101</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 1 more variable: nombre_comuna &lt;chr&gt;</span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>

@@ -75,13 +75,13 @@ registro_1 |>
   validar_comunas()
 ```
 
-    ! Resumen: 5 casos de comunas que no conciden con comunas correctamente escritas (ver `territorial::comunas()`): La Calera, Llay Llay, Alto Bío Bío, Ránquil y Treguaco
+    ! Resumen: 4 casos de comunas que no conciden con comunas correctamente escritas (ver `territorial::comunas()`): La Calera, Llay Llay, Alto Bío Bío y Treguaco
 
     ℹ Problemas comunes: 1 caso de comunas popularmente mal escritas: Llay Llay
 
     ℹ Escrituras alternativas: 1 caso de comunas escritas de una forma no recomendada, aunque válida: Treguaco
 
-    ✖ Validación de comunas: se encontraron 7 problemas con las comunas! Usa `territorial::limpiar_comunas()` para solucionarlos.
+    ✖ Validación de comunas: se encontraron 6 problemas con las comunas! Usa `territorial::limpiar_comunas()` para solucionarlos.
 
 Vemos que existen algunos problemas, así que aplicamos una limpieza
 automatizada de los nombres con la [función `limpiar_comunas()` de
@@ -97,7 +97,7 @@ registro_2 <- registro_1 |>
 
     → Paso 1: confirmar comunas correctas
 
-    ℹ De las 345 comunas distintas, 340 ya eran correctas: Iquique, Alto Hospicio, Pozo Almonte, Camiña, Colchane, Huara, Pica, Antofagasta, Mejillones, Sierra Gorda y 330 comunas más
+    ℹ De las 345 comunas distintas, 341 ya eran correctas: Iquique, Alto Hospicio, Pozo Almonte, Camiña, Colchane, Huara, Pica, Antofagasta, Mejillones, Sierra Gorda y 331 comunas más
 
     → Paso 2: coincidencias por limpieza de texto
 

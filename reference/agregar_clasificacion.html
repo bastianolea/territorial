@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">territorial</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.9.15</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.9.16</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Cambiar la navegación">
@@ -27,6 +27,7 @@
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>Ejemplos</h6></li>
     <li><a class="dropdown-item" href="../articles/ejemplo_rsh.html">Ejemplo: Registro Social de Hogares</a></li>
+    <li><a class="dropdown-item" href="../articles/ejemplo_mideso.html">Ejemplo: tasa de ocupación formal</a></li>
     <li><a class="dropdown-item" href="../articles/suciedad_extrema.html">Prueba de suciedad extrema</a></li>
     <li><a class="dropdown-item" href="../articles/ejemplo_servel.html">Ejemplo: datos electorales</a></li>
     <li><a class="dropdown-item" href="../articles/ejemplo_bibliotecas.html">Ejemplo: préstamos en bibliotecas</a></li>
@@ -94,18 +95,18 @@
 <span class="r-in"><span><span class="va">territorios</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu">agregar_clasificacion</span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 346 × 7</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    codigo_region nombre_region codigo_provincia nombre_provincia codigo_comuna</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>             1 Tarapacá                    11 Iquique                   <span style="text-decoration: underline;">1</span>101</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>             1 Tarapacá                    11 Iquique                   <span style="text-decoration: underline;">1</span>107</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>             1 Tarapacá                    14 Tamarugal                 <span style="text-decoration: underline;">1</span>401</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>             1 Tarapacá                    14 Tamarugal                 <span style="text-decoration: underline;">1</span>402</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>             1 Tarapacá                    14 Tamarugal                 <span style="text-decoration: underline;">1</span>403</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>             1 Tarapacá                    14 Tamarugal                 <span style="text-decoration: underline;">1</span>404</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>             1 Tarapacá                    14 Tamarugal                 <span style="text-decoration: underline;">1</span>405</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>             2 Antofagasta                 21 Antofagasta               <span style="text-decoration: underline;">2</span>101</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>             2 Antofagasta                 21 Antofagasta               <span style="text-decoration: underline;">2</span>102</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>             2 Antofagasta                 21 Antofagasta               <span style="text-decoration: underline;">2</span>103</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    codigo_region nombre_region   codigo_provincia nombre_provincia codigo_comuna</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>            15 Arica y Parina…              151 Arica                    <span style="text-decoration: underline;">15</span>101</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>            15 Arica y Parina…              151 Arica                    <span style="text-decoration: underline;">15</span>102</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>            15 Arica y Parina…              152 Parinacota               <span style="text-decoration: underline;">15</span>201</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>            15 Arica y Parina…              152 Parinacota               <span style="text-decoration: underline;">15</span>202</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>             1 Tarapacá                      11 Iquique                   <span style="text-decoration: underline;">1</span>101</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>             1 Tarapacá                      11 Iquique                   <span style="text-decoration: underline;">1</span>107</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>             1 Tarapacá                      14 Tamarugal                 <span style="text-decoration: underline;">1</span>401</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>             1 Tarapacá                      14 Tamarugal                 <span style="text-decoration: underline;">1</span>402</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>             1 Tarapacá                      14 Tamarugal                 <span style="text-decoration: underline;">1</span>403</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>             1 Tarapacá                      14 Tamarugal                 <span style="text-decoration: underline;">1</span>404</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 336 more rows</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 2 more variables: nombre_comuna &lt;chr&gt;, clasificacion &lt;fct&gt;</span></span>
 </code></pre></div>

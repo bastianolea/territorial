@@ -58,5 +58,5 @@ territorios |>
 #> ℹ Cantidad de comunas únicas: 300
 #> Warning: La cantidad de comunas es anómala: hay 300, pero deberían ser 346. Revísalas
 #> con `territorial::validar_comunas()`
-#> → Las comunas faltantes son: Iquique, Alto Hospicio, Mejillones, Paihuano, Ovalle, Monte Patria, Santo Domingo, Codegua, Coinco, Machalí, Marchihue, Chépica, Empedrado, San Rafael, Cauquenes, Chanco, Molina, Rauco, Longaví, Parral, Yerbas Buenas, Penco, Tomé, Contulmo, Gorbea, Toltén, Los Muermos, Quellón, Chaitén, Hualaihué y 16 comunas más
+#> → Las comunas faltantes son: Arica, Camarones, Colchane, La Serena, Illapel, Los Vilos, Algarrobo, Limache, Olmué, Conchalí, Lo Prado, Pedro Aguirre Cerda, Puente Alto, San Bernardo, Buin, Calera de Tango, María Pinto, San Pedro, Codegua, Coinco, Las Cabras, Quinta de Tilcoco, Pichilemu, Paredones, Curicó, Longaví, Ránquil, Hualqui, Cañete, Curanilahue y 16 comunas más
 ```

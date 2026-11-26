@@ -50,18 +50,18 @@ agregar_clasificacion(8107)
 territorios |>
   agregar_clasificacion()
 #> # A tibble: 346 × 7
-#>    codigo_region nombre_region codigo_provincia nombre_provincia codigo_comuna
-#>            <dbl> <chr>                    <dbl> <chr>                    <dbl>
-#>  1             1 Tarapacá                    11 Iquique                   1101
-#>  2             1 Tarapacá                    11 Iquique                   1107
-#>  3             1 Tarapacá                    14 Tamarugal                 1401
-#>  4             1 Tarapacá                    14 Tamarugal                 1402
-#>  5             1 Tarapacá                    14 Tamarugal                 1403
-#>  6             1 Tarapacá                    14 Tamarugal                 1404
-#>  7             1 Tarapacá                    14 Tamarugal                 1405
-#>  8             2 Antofagasta                 21 Antofagasta               2101
-#>  9             2 Antofagasta                 21 Antofagasta               2102
-#> 10             2 Antofagasta                 21 Antofagasta               2103
+#>    codigo_region nombre_region   codigo_provincia nombre_provincia codigo_comuna
+#>            <dbl> <chr>                      <dbl> <chr>                    <dbl>
+#>  1            15 Arica y Parina…              151 Arica                    15101
+#>  2            15 Arica y Parina…              151 Arica                    15102
+#>  3            15 Arica y Parina…              152 Parinacota               15201
+#>  4            15 Arica y Parina…              152 Parinacota               15202
+#>  5             1 Tarapacá                      11 Iquique                   1101
+#>  6             1 Tarapacá                      11 Iquique                   1107
+#>  7             1 Tarapacá                      14 Tamarugal                 1401
+#>  8             1 Tarapacá                      14 Tamarugal                 1402
+#>  9             1 Tarapacá                      14 Tamarugal                 1403
+#> 10             1 Tarapacá                      14 Tamarugal                 1404
 #> # ℹ 336 more rows
 #> # ℹ 2 more variables: nombre_comuna <chr>, clasificacion <fct>
 ```

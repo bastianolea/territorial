@@ -28,7 +28,7 @@
 
     <a class="navbar-brand me-2" href="index.html">territorial</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.9.15</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.9.16</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Cambiar la navegación">
@@ -50,6 +50,7 @@
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>Ejemplos</h6></li>
     <li><a class="dropdown-item" href="articles/ejemplo_rsh.html">Ejemplo: Registro Social de Hogares</a></li>
+    <li><a class="dropdown-item" href="articles/ejemplo_mideso.html">Ejemplo: tasa de ocupación formal</a></li>
     <li><a class="dropdown-item" href="articles/suciedad_extrema.html">Prueba de suciedad extrema</a></li>
     <li><a class="dropdown-item" href="articles/ejemplo_servel.html">Ejemplo: datos electorales</a></li>
     <li><a class="dropdown-item" href="articles/ejemplo_bibliotecas.html">Ejemplo: préstamos en bibliotecas</a></li>
@@ -78,7 +79,7 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="section level1">
 <div class="page-header">
-<img src="logo.png" class="logo" alt=""><h1 id="paquete-territorial-">Paquete <code>{territorial}</code> 
+<img src="logo.png" class="logo" alt=""><h1 id="paquete-territorial-">Paquete <code>territorial</code> 
 <a class="anchor" aria-label="anchor" href="#paquete-territorial-"></a>
 </h1>
 </div>
@@ -123,7 +124,7 @@
 <a class="anchor" aria-label="anchor" href="#usando-territorial"></a>
 </h2>
 <p>Como su nombre lo dice, <a href="https://bastianolea.github.io/territorial">territorial</a> entrega herramientas para trabajar con datos territoriales de Chile, entendidos como datos tabulares cuyas observaciones correspondan a comunas o regiones del país.</p>
-<p>La premisa del paquete es que tenemos una tabla principal, <code><a href="reference/territorios.html">territorial::territorios</a></code>, que contiene los nombres oficiales y los códigos únicos territoriales de todas las regiones, provincias y comunas de Chile.</p>
+<p>La premisa del paquete es que tenemos una <a href="https://bastianolea.github.io/territorial/articles/comunas_provincias_regiones.html">tabla principal</a>, <code><a href="reference/territorios.html">territorial::territorios</a></code>, que contiene los nombres oficiales y los códigos únicos territoriales de todas las regiones, provincias y comunas de Chile.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://bastianolea.github.io/territorial">territorial</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
@@ -139,7 +140,7 @@
 <span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a><span class="dv">5</span>             <span class="dv">1</span> Tarapacá                    <span class="dv">14</span> Tamarugal                 <span class="dv">1403</span></span>
 <span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a><span class="dv">6</span>             <span class="dv">1</span> Tarapacá                    <span class="dv">14</span> Tamarugal                 <span class="dv">1404</span></span>
 <span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a><span class="co"># ℹ 1 more variable: nombre_comuna &lt;chr&gt;</span></span></code></pre></div>
-<p>Usando esta tabla como fuente de verdad, podemos validar, corregir y complementar datos territoriales.</p>
+<p>Puedes explorar esta tabla completa <a href="https://bastianolea.github.io/territorial/articles/comunas_provincias_regiones.html">aquí</a>. Usando esta tabla como fuente de verdad, podemos validar, corregir y complementar datos territoriales.</p>
 <p>También se plantea el estándar de llamar las columnas como <code>nombre_{x}</code> y <code>codigo_{x}</code> (por ejemplo, <code>nombre_comuna</code> y <code>codigo_comuna</code>), para mantener orden y compatibilidad entre tablas.</p>
 <p>Además se incluyen funciones útiles como <code><a href="reference/comunas.html">comunas()</a></code>, que retorna un vector con los nombres de comunas o <code><a href="reference/regiones.html">regiones()</a></code>, que hace lo mismo con regiones, así como <code><a href="reference/obtener_comunas.html">obtener_comunas()</a></code> para obtener las comunas de una región, <code><a href="reference/ubicar_comunas.html">ubicar_comunas()</a></code> para saber en qué región está una comuna, <a href="https://bastianolea.github.io/territorial/reference/index.html">y muchas más!</a>.</p>
 <div class="section level3">

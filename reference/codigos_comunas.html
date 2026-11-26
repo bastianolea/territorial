@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">territorial</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.9.15</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.9.16</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Cambiar la navegación">
@@ -27,6 +27,7 @@
     <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>Ejemplos</h6></li>
     <li><a class="dropdown-item" href="../articles/ejemplo_rsh.html">Ejemplo: Registro Social de Hogares</a></li>
+    <li><a class="dropdown-item" href="../articles/ejemplo_mideso.html">Ejemplo: tasa de ocupación formal</a></li>
     <li><a class="dropdown-item" href="../articles/suciedad_extrema.html">Prueba de suciedad extrema</a></li>
     <li><a class="dropdown-item" href="../articles/ejemplo_servel.html">Ejemplo: datos electorales</a></li>
     <li><a class="dropdown-item" href="../articles/ejemplo_bibliotecas.html">Ejemplo: préstamos en bibliotecas</a></li>
@@ -75,35 +76,35 @@
     <div class="section level2">
     <h2 id="ref-examples">Ejemplos<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">codigos_comunas</span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   [1]  1101  1107  1401  1402  1403  1404  1405  2101  2102  2103  2104  2201</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [13]  2202  2203  2301  2302  3101  3102  3103  3201  3202  3301  3302  3303</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [25]  3304  4101  4102  4103  4104  4105  4106  4201  4202  4203  4204  4301</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [37]  4302  4303  4304  4305  5101  5102  5103  5104  5105  5107  5109  5201</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [49]  5301  5302  5303  5304  5401  5402  5403  5404  5405  5501  5502  5503</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [61]  5504  5506  5601  5602  5603  5604  5605  5606  5701  5702  5703  5704</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [73]  5705  5706  5801  5802  5803  5804  6101  6102  6103  6104  6105  6106</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [85]  6107  6108  6109  6110  6111  6112  6113  6114  6115  6116  6117  6201</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [97]  6202  6203  6204  6205  6206  6301  6302  6303  6304  6305  6306  6307</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [109]  6308  6309  6310  7101  7102  7103  7104  7105  7106  7107  7108  7109</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [121]  7110  7201  7202  7203  7301  7302  7303  7304  7305  7306  7307  7308</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [133]  7309  7401  7402  7403  7404  7405  7406  7407  7408  8101  8102  8103</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [145]  8104  8105  8106  8107  8108  8109  8110  8111  8112  8201  8202  8203</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [157]  8204  8205  8206  8207  8301  8302  8303  8304  8305  8306  8307  8308</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [169]  8309  8310  8311  8312  8313  8314  9101  9102  9103  9104  9105  9106</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [181]  9107  9108  9109  9110  9111  9112  9113  9114  9115  9116  9117  9118</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [193]  9119  9120  9121  9201  9202  9203  9204  9205  9206  9207  9208  9209</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [205]  9210  9211 10101 10102 10103 10104 10105 10106 10107 10108 10109 10201</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [217] 10202 10203 10204 10205 10206 10207 10208 10209 10210 10301 10302 10303</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [229] 10304 10305 10306 10307 10401 10402 10403 10404 11101 11102 11201 11202</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [241] 11203 11301 11302 11303 11401 11402 12101 12102 12103 12104 12201 12202</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [253] 12301 12302 12303 12401 12402 13101 13102 13103 13104 13105 13106 13107</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [265] 13108 13109 13110 13111 13112 13113 13114 13115 13116 13117 13118 13119</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [277] 13120 13121 13122 13123 13124 13125 13126 13127 13128 13129 13130 13131</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [289] 13132 13201 13202 13203 13301 13302 13303 13401 13402 13403 13404 13501</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [301] 13502 13503 13504 13505 13601 13602 13603 13604 13605 14101 14102 14103</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [313] 14104 14105 14106 14107 14108 14201 14202 14203 14204 15101 15102 15201</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [325] 15202 16101 16102 16103 16104 16105 16106 16107 16108 16109 16201 16202</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [337] 16203 16204 16205 16206 16207 16301 16302 16303 16304 16305</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   [1] 15101 15102 15201 15202  1101  1107  1401  1402  1403  1404  1405  2101</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [13]  2102  2103  2104  2201  2202  2203  2301  2302  3101  3102  3103  3201</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [25]  3202  3301  3302  3303  3304  4101  4102  4103  4104  4105  4106  4201</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [37]  4202  4203  4204  4301  4302  4303  4304  4305  5101  5102  5103  5104</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [49]  5105  5107  5109  5201  5301  5302  5303  5304  5401  5402  5403  5404</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [61]  5405  5501  5502  5503  5504  5506  5601  5602  5603  5604  5605  5606</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [73]  5701  5702  5703  5704  5705  5706  5801  5802  5803  5804 13101 13102</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [85] 13103 13104 13105 13106 13107 13108 13109 13110 13111 13112 13113 13114</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [97] 13115 13116 13117 13118 13119 13120 13121 13122 13123 13124 13125 13126</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [109] 13127 13128 13129 13130 13131 13132 13201 13202 13203 13301 13302 13303</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [121] 13401 13402 13403 13404 13501 13502 13503 13504 13505 13601 13602 13603</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [133] 13604 13605  6101  6102  6103  6104  6105  6106  6107  6108  6109  6110</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [145]  6111  6112  6113  6114  6115  6116  6117  6201  6202  6203  6204  6205</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [157]  6206  6301  6302  6303  6304  6305  6306  6307  6308  6309  6310  7101</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [169]  7102  7103  7104  7105  7106  7107  7108  7109  7110  7201  7202  7203</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [181]  7301  7302  7303  7304  7305  7306  7307  7308  7309  7401  7402  7403</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [193]  7404  7405  7406  7407  7408 16101 16102 16103 16104 16105 16106 16107</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [205] 16108 16109 16201 16202 16203 16204 16205 16206 16207 16301 16302 16303</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [217] 16304 16305  8101  8102  8103  8104  8105  8106  8107  8108  8109  8110</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [229]  8111  8112  8201  8202  8203  8204  8205  8206  8207  8301  8302  8303</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [241]  8304  8305  8306  8307  8308  8309  8310  8311  8312  8313  8314  9101</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [253]  9102  9103  9104  9105  9106  9107  9108  9109  9110  9111  9112  9113</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [265]  9114  9115  9116  9117  9118  9119  9120  9121  9201  9202  9203  9204</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [277]  9205  9206  9207  9208  9209  9210  9211 14101 14102 14103 14104 14105</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [289] 14106 14107 14108 14201 14202 14203 14204 10101 10102 10103 10104 10105</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [301] 10106 10107 10108 10109 10201 10202 10203 10204 10205 10206 10207 10208</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [313] 10209 10210 10301 10302 10303 10304 10305 10306 10307 10401 10402 10403</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [325] 10404 11101 11102 11201 11202 11203 11301 11302 11303 11401 11402 12101</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [337] 12102 12103 12104 12201 12202 12301 12302 12303 12401 12402</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
