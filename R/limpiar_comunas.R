@@ -125,7 +125,7 @@ limpiar_comunas <- function(
       comunas_limpias = stringr::str_remove_all(
         comunas_limpias,
         # "(ilustre|i|ilus) municipalidad de|municipalidad de|municipalidad|municipio de|municipio|^muni|alcald(ía|e|esa) de"
-        "(ilustre|^i|ilus)|municipalidadde|municipalidad|municipiode|municipio|^munide|^muni|alcald(ía|e|esa)"
+        "(ilustre|^i|ilus)|municipalidad de|municipalidad|municipio de|municipio|^muni de|^muni|alcald(ía|e|esa)"
       )
     ) |>
     dplyr::mutate(

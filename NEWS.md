@@ -1,7 +1,8 @@
-# territorial 0.9.16 (2026/11/23)
-- Corrección de la comuna de _Ránquil_, que estaba sin tilde!
+# territorial 0.9.16 (2026/11/26)
+- Mejoras: Corrección de la comuna de _Ránquil_, que estaba sin tilde!
 - Mejoras: `territorial::territorios` ahora viene ordenado de norte a sur.
 - Nueva función: `provincias()` retorna todos los nombres de las provincias de Chile.
+- Mejoras: `limpiar_comunas()` limpia mejor municipios con prefijos como "Ilustre Municipalidad" y similares, y evita limpiar comunas que ya estaban correctas.
 
 # territorial 0.9.15 (2026/11/23)
 - Nueva función `aplicacion()` que abre una aplicación Shiny para poder usar algunas de las funciones del paquete, como `as_codigo_comuna()` y `as_nombre_comuna()`. Puedes [probar la aplicación aquí](https://bastianolea.github.io/territorial/articles/aplicacion.html).
