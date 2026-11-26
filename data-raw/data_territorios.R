@@ -18,7 +18,9 @@ territorios <- codigos_comunales |>
       "Los Angeles" ~ "Los Ángeles",
       "Ranquil" ~ "Ránquil"
     )
-  )
+  ) |>
+  # ordenar regiones
+  territorial::ordenar_regiones()
 
 # # revisar
 # territorios |> filter(stringr::str_detect(nombre_comuna, "Coy"))

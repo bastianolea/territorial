@@ -1,14 +1,19 @@
+# territorial 0.9.16 (2026/11/23)
+- Corrección de la comuna de _Ránquil_, que estaba sin tilde!
+- Mejoras: `territorial::territorios` ahora viene ordenado de norte a sur.
+- Nueva función: `provincias()` retorna todos los nombres de las provincias de Chile.
+
 # territorial 0.9.15 (2026/11/23)
 - Nueva función `aplicacion()` que abre una aplicación Shiny para poder usar algunas de las funciones del paquete, como `as_codigo_comuna()` y `as_nombre_comuna()`. Puedes [probar la aplicación aquí](https://bastianolea.github.io/territorial/articles/aplicacion.html).
 - Nueva viñeta _Comunas, provincias y regiones de Chile_, `vignette("comunas_provincias_regiones")`, con una tabla interactiva para explorar nombres de regiones y comunas con sus códigos al igual que en `territorial::territorios`.
 - Se ocultaron algunas funciones internas que se usaban sólo en ejemplos o como parte del funcionamiento del paquete.
 
 # territorial 0.9.14 (2026/11/18)
-- `contextualizar()` ahora asume `codigo_comuna` o `nombre_comuna`, cualquiera de las dos, si están presentes y no se especifica la variable a usar como base.
+- Mejoras: `contextualizar()` ahora asume `codigo_comuna` o `nombre_comuna`, cualquiera de las dos, si están presentes y no se especifica la variable a usar como base.
 
 # territorial 0.9.13 (2026/11/12)
-- `contar_comunas()` ahora entrega el número de conteo único de comunas en vez del dataframe.
-- `ubicar_comunas()` ahora puede ubicar comunas en su provincia con el argumento `nivel = "provincia"`.
+- Mejoras: `contar_comunas()` ahora entrega el número de conteo único de comunas en vez del dataframe.
+- Mejoras: `ubicar_comunas()` ahora puede ubicar comunas en su provincia con el argumento `nivel = "provincia"`.
 - Nueva función `is_rural()` para evaluar fácilmente si comunas son rurales.
 
 # territorial 0.9.10 (2026/11/10)
@@ -16,12 +21,12 @@
 
 # territorial 0.9.9 (2026/11/03)
 - Nuevas funciones `as_capital_regional()` e `is_capital_regional()`. Como sus nombres indican, la primera convierte regiones a las comunas que son su capital regional, y la segunda confirma si comunas corresponden a capitales regionales. Ambas funcionan tanto con códigos como con nombres.
-- `ubicar_comunas()` y `obtener_comunas()` ahora reciben también nombres de comunas y de regiones, respectivamente, además de códigos numéricos.
+- Mejoras: `ubicar_comunas()` y `obtener_comunas()` ahora reciben también nombres de comunas y de regiones, respectivamente, además de códigos numéricos.
 
 # territorial 0.9.8 (2026/11/03)
-- Pone a prueba tus conocimientos territoriales con un juego de preguntas! 🎉 Ejecuta la función `trivia()` para iniciar una trivia interactiva sobre comunas y regiones de Chile, o [juega en el navegador aquí!](https://bastianolea.github.io/territorial/articles/trivia.html). Son 4 tipos de preguntas, y las alternativas se crean al azar con respuestas que buscan engañarte. A ver si logras sacar el puntaje máximo!
-- `agregar_macrozona()` ahora también funciona con nombres de región (son convertidos a códigos de región con `as_codigo_region()`) y con _data frames_ asumiendo la columna `codigo_region`.
-- `agregar_clasificacion()` ahora también funciona con _data frames_ asumiendo la columna `codigo_comuna`.
+- Nueva función: pon a prueba tus conocimientos territoriales con un juego de preguntas! 🎉 Ejecuta la función `trivia()` para iniciar una trivia interactiva sobre comunas y regiones de Chile, o [juega en el navegador aquí!](https://bastianolea.github.io/territorial/articles/trivia.html). Son 4 tipos de preguntas, y las alternativas se crean al azar con respuestas que buscan engañarte. A ver si logras sacar el puntaje máximo!
+- Mejoras en `agregar_macrozona()`: ahora también funciona con nombres de región (son convertidos a códigos de región con `as_codigo_region()`) y con _data frames_ asumiendo la columna `codigo_region`.
+- Mejoras en `agregar_clasificacion()`: ahora también funciona con _data frames_ asumiendo la columna `codigo_comuna`.
 - Nueva función `is_codigo_region()`, súper básica pero es para mantener concordancia con su hermana mayor `is_codigo_comuna()`.
 
 # territorial 0.9.7 (2026/11/02)
@@ -29,12 +34,12 @@
 - Documentación: se agregaron funciones relacionadas y recomendadas a la documentación de cada función del paquete, para ayudar a que encuentres lo que necesitas!
 
 # territorial 0.9.6 (2026/10/27)
-- Funciones para convertir nombres a códigos y viceversa (`as_codigo_comuna()`, `as_nombre_region()`, etc.) ahora arrojan _warnings_ cuando existan valores que no puedan ser convertidos (antes simplemente entregaban los NA de manera silenciosa)
-- `limpiar_comunas()` reconoce "Santiago Centro" como la comuna de Santiago.
+- Mejoras: funciones para convertir nombres a códigos y viceversa (`as_codigo_comuna()`, `as_nombre_region()`, etc.) ahora arrojan _warnings_ cuando existan valores que no puedan ser convertidos (antes simplemente entregaban los NA de manera silenciosa)
+- Mejoras: `limpiar_comunas()` reconoce "Santiago Centro" como la comuna de Santiago.
 - Mejores errores en `contextualizar()` cuando los datos vienen con columnas distintas o insuficientes.
 
 # territorial 0.9.5 (2026/10/23)
-- `redactar_region()` ahora funciona con columnas vector, como las generadas por `ordenar_regiones()`
+- Mejoras: `redactar_region()` ahora funciona con columnas vector, como las generadas por `ordenar_regiones()`
 - Modificados los mensajes a lo largo de todo el paquete para entregar _warnings_ cuando corresponda, y alertas cuando no sea tan relevante.
 
 # territorial 0.9.4 (2026/10/08)

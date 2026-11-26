@@ -39,30 +39,26 @@ reference:
   contents:
   - territorios
   - comunas
-  - regiones
   - codigos_comunas
+  - regiones
+  - provincias
+  - localidades
   - clasificacion
   - capitales_regionales
-  - localidades
   - cut_historicos
 - title: Validación de datos territoriales
   desc: Funciones que permiten probar la calidad de los datos territoriales
   contents:
   - starts_with("validar")
   - starts_with("contar")
-- title: Consulta de datos territoriales
-  desc: Funciones y utilidades para navegar datos territoriales
-  contents:
   - starts_with("is_")
-  - starts_with("buscar")
-  - starts_with("obtener")
 - title: Limpieza y corrección de territorios
   desc: Funciones para transformar datos de identificación de territorios, ordenarlos, etc.
   contents:
+  - starts_with("limpiar_")
   - starts_with("as_")
   - starts_with("ordenar_")
   - starts_with("ubicar_")
-  - starts_with("limpiar_")
   - contextualizar
   - starts_with("actualizar_")
 - title: Complementar nombres de territorios
@@ -76,6 +72,11 @@ reference:
   desc: Funciones para agregar nuevas variables a partir de datos territoriales existentes
   contents:
   - starts_with("agregar_")
+- title: Consulta de datos territoriales
+  desc: Funciones y utilidades para navegar datos territoriales
+  contents:
+  - starts_with("buscar")
+  - starts_with("obtener")
 - title: Misceláneas
   desc: Otras funciones secundarias
   contents:
@@ -106,6 +107,7 @@ articles:
   desc: Casos de uso del paquete con datos reales
   contents:
   - articles/ejemplo_rsh
+  - articles/ejemplo_mideso
   - articles/suciedad_extrema
   - articles/ejemplo_servel
   - articles/ejemplo_bibliotecas
