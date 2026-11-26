@@ -293,7 +293,7 @@ biblio_limpio <- biblio_ancho |>
 
     → Paso 2: coincidencias por limpieza de texto
 
-    ℹ A partir de la limpieza de texto, se limpiaron 321 de 325 comunas: Arica, Camarones, General Lagos, Putre, Alto Hospicio, Huara, Iquique, Pica, Pozo Almonte, Antofagasta y 311 comunas más
+    ℹ A partir de la limpieza de texto, se limpiaron 3 de 325 comunas: Alto Biobío, Padre Las Casas y O'Higgins
 
     → Paso 3: casos especiales
 

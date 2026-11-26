@@ -36,10 +36,9 @@ library(territorial)
 sample(comunas(), 12)
 ```
 
-     [1] "Puerto Octay"        "Linares"             "Pelarco"
-     [4] "Trehuaco"            "Lampa"               "Independencia"
-     [7] "Vichuquén"           "Limache"             "San Pedro de la Paz"
-    [10] "Canela"              "Loncoche"            "Vallenar"           
+     [1] "La Serena"    "Porvenir"     "Los Vilos"    "Curacautín"   "Lota"
+     [6] "Chonchi"      "Pencahue"     "Pica"         "Sierra Gorda" "Combarbalá"
+    [11] "Huasco"       "Tortel"      
 
 Del mismo modo,
 [`codigos_comunas()`](https://bastianolea.github.io/territorial/reference/codigos_comunas.md)
@@ -51,7 +50,7 @@ válidos:
 sample(codigos_comunas(), 12)
 ```
 
-     [1] 13124 10108  5404 10403  8106  4203 10301  2301  5304 15101  5601 13602
+     [1] 11301  6303  8302  5501 13302  5506  5703  6101  8307  6305 13132 10401
 
 ### Tabla de comunas, provincias y regiones de Chile
 
@@ -187,7 +186,7 @@ datos |>
 
     → Paso 2: coincidencias por limpieza de texto
 
-    ℹ A partir de la limpieza de texto, se limpiaron 7 de 9 comunas: Pirque, El Monte, Maipú, Santiago, Cerrillos, San José de Maipo y O'Higgins
+    ℹ A partir de la limpieza de texto, se limpiaron 6 de 9 comunas: Pirque, Maipú, Santiago, Cerrillos, San José de Maipo y O'Higgins
 
     → Paso 3: casos especiales
 
@@ -268,7 +267,7 @@ datos |>
 
     → Paso 2: coincidencias por limpieza de texto
 
-    ℹ A partir de la limpieza de texto, se limpiaron 7 de 9 comunas: Pirque, El Monte, Maipú, Santiago, Cerrillos, San José de Maipo y O'Higgins
+    ℹ A partir de la limpieza de texto, se limpiaron 6 de 9 comunas: Pirque, Maipú, Santiago, Cerrillos, San José de Maipo y O'Higgins
 
     → Paso 3: casos especiales
 
@@ -288,7 +287,7 @@ datos |>
       original          correctas limpieza         especiales coincidencia resultado
       <chr>             <chr>     <chr>            <chr>      <chr>        <chr>
     1 PIRQUE            <NA>      Pirque           <NA>       <NA>         Pirque
-    2 El Monte          El Monte  El Monte         <NA>       <NA>         El Monte
+    2 El Monte          El Monte  <NA>             <NA>       <NA>         El Monte
     3 Maipu             <NA>      Maipú            <NA>       <NA>         Maipú
     4 santiago          <NA>      Santiago         <NA>       <NA>         Santiago
     5 prohibidencia     <NA>      <NA>             <NA>       Providencia  Providen…
@@ -356,18 +355,18 @@ base
 ```
 
     # A tibble: 972 × 4
-       nombre_comuna   codigo_comuna name    value
-       <chr>                   <dbl> <chr>   <dbl>
-     1 Parral                   7404 a     0.00256
-     2 Collipulli               9202 a     0.00355
-     3 Cauquenes                7201 c     0.00589
-     4 Coihueco                16302 b     0.00603
-     5 Padre Las Casas          9112 c     0.00626
-     6 Calbuco                 10102 a     0.00640
-     7 Olivar                   6111 c     0.00736
-     8 Lonquimay                9205 a     0.00762
-     9 El Bosque               13105 a     0.00803
-    10 Santiago                13101 a     0.00867
+       nombre_comuna codigo_comuna name     value
+       <chr>                 <dbl> <chr>    <dbl>
+     1 Punitaqui              4304 a     0.000110
+     2 Chillán Viejo         16103 b     0.00115
+     3 Mostazal               6110 a     0.00198
+     4 Cisnes                11202 c     0.00397
+     5 San Clemente           7109 b     0.00578
+     6 Olivar                 6111 b     0.00599
+     7 Ercilla                9204 b     0.00744
+     8 Yerbas Buenas          7408 c     0.00791
+     9 Ollagüe                2202 b     0.00839
+    10 Palena                10404 b     0.00954
     # ℹ 962 more rows
 
 Esta tabla tiene 972 filas, ¿cómo confirmar si existen datos para todas
@@ -385,7 +384,7 @@ base |>
     Warning: La cantidad de comunas es anómala: hay 324, pero deberían ser 346. Revísalas
     con `territorial::validar_comunas()`
 
-    → Las comunas faltantes son: Caldera, Chañaral, Santo Domingo, Llaillay, Ñuñoa, San Joaquín, Puente Alto, Codegua, Pichidegua, Rauco, San Fabián, Cabrero, Tucapel, Galvarino, Mariquina, Paillaco, Puqueldón, Queilén, Cisnes, Chile Chico, Laguna Blanca y Porvenir
+    → Las comunas faltantes son: Tierra Amarilla, Monte Patria, Putaendo, Quilpué, Cerrillos, Pudahuel, Quinta Normal, Buin, Paine, Paredones, Placilla, Río Claro, Hualañé, Pinto, Cobquecura, Coelemu, Coihueco, Los Ángeles, Antuco, Laja, Antártica y Torres del Paine
 
 La función
 [`contar_comunas()`](https://bastianolea.github.io/territorial/reference/contar_comunas.md)
@@ -403,19 +402,19 @@ base |>
   buscar_comuna("Alto")
 ```
 
-    ! Se encontraron 24 resultados, mostrando sólo 6.
+    ! Se encontraron 30 resultados, mostrando sólo 6.
 
-    ℹ Los resultados más cercanos al término `Alto` son: Alto del Carmen, Alto Biobío y Alto Hospicio
+    ℹ Los resultados más cercanos al término `Alto` son: Alto Hospicio, Alto Biobío, Puente Alto y Alto del Carmen
 
     # A tibble: 6 × 5
       nombre_comuna   codigo_comuna name   value puntaje
       <chr>                   <dbl> <chr>  <dbl>   <dbl>
-    1 Alto del Carmen          3302 c     0.0893       1
-    2 Alto Biobío              8314 c     0.192        1
-    3 Alto Biobío              8314 b     0.299        1
-    4 Alto Hospicio            1107 a     0.565        1
-    5 Alto del Carmen          3302 a     0.759        1
-    6 Alto Hospicio            1107 c     0.776        1
+    1 Alto Hospicio            1107 a     0.0192       1
+    2 Alto Biobío              8314 c     0.0305       1
+    3 Puente Alto             13201 c     0.0824       1
+    4 Alto del Carmen          3302 c     0.107        1
+    5 Alto Hospicio            1107 c     0.192        1
+    6 Alto Biobío              8314 a     0.207        1
 
 ### Crear nombres de comunas a partir de códigos únicos territoriales
 
@@ -702,11 +701,11 @@ territorios |>
     # A tibble: 5 × 3
       codigo_comuna nombre_comuna clasificacion
               <dbl> <chr>         <fct>
-    1         10304 Puyehue       Rural
-    2         12301 Porvenir      Rural
-    3          8305 Mulchén       Mixta
-    4          2202 Ollagüe       Rural
-    5          8202 Arauco        Rural        
+    1         13603 Isla de Maipo Mixta
+    2         10107 Llanquihue    Rural
+    3         13112 La Pintana    Urbana
+    4          5705 Putaendo      Rural
+    5         10404 Palena        Rural        
 
 Si sólo necesitas saber si una comuna es rural, usa
 [`is_rural()`](https://bastianolea.github.io/territorial/reference/is_rural.md),

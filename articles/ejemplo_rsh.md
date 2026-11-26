@@ -101,7 +101,7 @@ registro_2 <- registro_1 |>
 
     → Paso 2: coincidencias por limpieza de texto
 
-    ℹ A partir de la limpieza de texto, se limpiaron 341 de 345 comunas: Iquique, Alto Hospicio, Pozo Almonte, Camiña, Colchane, Huara, Pica, Antofagasta, Mejillones, Sierra Gorda y 331 comunas más
+    ℹ No se limpiaron comunas por medio de limpieza de texto
 
     → Paso 3: casos especiales
 

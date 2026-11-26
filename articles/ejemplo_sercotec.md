@@ -156,7 +156,7 @@ sercotec_limpio <- sercotec |>
 
     → Paso 2: coincidencias por limpieza de texto
 
-    ℹ A partir de la limpieza de texto, se limpiaron 341 de 346 comunas: Algarrobo, Alhué, Alto Biobío, Alto Hospicio, Alto del Carmen, Ancud, Andacollo, Angol, Antofagasta, Antuco y 331 comunas más
+    ℹ A partir de la limpieza de texto, se limpiaron 2 de 346 comunas: Los Álamos y O'Higgins
 
     → Paso 3: casos especiales
 

@@ -144,8 +144,6 @@ datos_2 <- datos |>
 
     → Paso 3: casos especiales
 
-    ℹ No se encontraron casos especiales
-
     → Paso 4: coincidencias aproximadas de texto
 
     ℹ No se limpiaron comunas como parte de este paso

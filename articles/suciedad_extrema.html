@@ -92,7 +92,7 @@
 
 
 
-    <p>Una de las utilidades principales del paquete <a href="https://bastianolea.github.io/territorial">territorial</a> es poder <a href="https://bastianolea.github.io/territorial/reference/limpiar_comunas.html">limpiar automáticamente las comunas</a> de una base de datos que venga con datos sucios: comunas mal escritas, en mayúsculas, sin tildes, sin eñes, etc.</p>
+    <p>Una de las utilidades principales del paquete <code>territorial</code> es <a href="https://bastianolea.github.io/territorial/reference/limpiar_comunas.html">limpiar automáticamente las comunas</a> de una base de datos que venga con datos sucios: comunas mal escritas, en mayúsculas, sin tildes, sin eñes, etc.</p>
 <p>En este ejemplo, probaremos la función <code><a href="../reference/limpiar_comunas.html">territorial::limpiar_comunas()</a></code> con un caso extremo de datos intencionalmente sucios.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="downlit sourceCode r">
@@ -101,7 +101,7 @@
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">1234</span><span class="op">)</span></span></code></pre></div>
 </div>
-<p>Crearemos una tabla con nombres de comunas ensuciados, a partir de la tabla <code>territorios</code> que viene con el paquete, y usando algunas funciones utilitarias <a href="https://nrennie.rbind.io/messy/" class="external-link">inspiradas en el paquete <code>{messy}</code></a> para ensuciar los datos.</p>
+<p>Crearemos una tabla con nombres de comunas ensuciados, a partir de la tabla <code><a href="../reference/territorios.html">territorial::territorios</a></code> que viene con el paquete, y usando algunas funciones utilitarias <a href="https://nrennie.rbind.io/messy/" class="external-link">inspiradas en el paquete <code>messy</code></a> para ensuciar los datos.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">sucios</span> <span class="op">&lt;-</span> <span class="va">territorios</span> <span class="op">|&gt;</span> </span>
@@ -135,7 +135,7 @@
 10 San Gregorio     ISanJGregoro    </code></pre>
 </div>
 </div>
-<p>Ahora que tenemos la columna <code>nombres_sucios</code>, usamos <code><a href="../reference/limpiar_comunas.html">limpiar_comunas()</a></code> para limpiar los datos, creando la columna <code>nombres_limpios</code>:</p>
+<p>¡Horrible! Ahora que tenemos la columna <code>nombres_sucios</code>, usamos <code><a href="../reference/limpiar_comunas.html">limpiar_comunas()</a></code> para limpiar los datos, creando la columna <code>nombres_limpios</code>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">limpios</span> <span class="op">&lt;-</span> <span class="va">sucios</span> <span class="op">|&gt;</span> </span>
@@ -184,8 +184,8 @@
 # ℹ 79 more rows</code></pre>
 </div>
 </div>
-<p>Podemos confirmar que la limpieza realizada con <code><a href="../reference/limpiar_comunas.html">limpiar_comunas()</a></code> es capaz de abarcar casos muy extremos: por ejemplo, identifica que <code>SvnMPmedro d Atacaa</code> es <em>San Pedro de Atacama</em>, o que <code>SanaWMaríaW</code> es <em>Santa María</em>, por lo que la función podría resultar apropiada para detección de datos escritos a mano o de documentos antiguos procesados con OCR.</p>
-<p>A este nivel de dificultad, la limpieza no siempre es 100% correcta.</p>
+<p>Podemos confirmar que la limpieza realizada con <code><a href="../reference/limpiar_comunas.html">limpiar_comunas()</a></code> es capaz de abarcar casos muy extremos: por ejemplo, identifica que <code>SvnMPmedro d Atacaa</code> es <em>San Pedro de Atacama</em>, o que <code>SanaWMaríaW</code> es <em>Santa María</em>!</p>
+<p>A este nivel de dificultad, la limpieza no siempre es 100% correcta. Revisemos si algún caso no pudo limpiarse, o si se limpiaron incorrectamente:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">problemas</span> <span class="op">&lt;-</span> <span class="va">limpios</span> <span class="op">|&gt;</span> </span>

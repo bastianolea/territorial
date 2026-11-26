@@ -207,9 +207,6 @@ Visita https://buymeacoffee.com/pacha/ si deseas donar para contribuir al desarr
 <pre><code>→ Paso 3: casos especiales</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>ℹ No se encontraron casos especiales</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
 <pre><code>→ Paso 4: coincidencias aproximadas de texto</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
@@ -221,7 +218,7 @@ Visita https://buymeacoffee.com/pacha/ si deseas donar para contribuir al desarr
 <div class="cell-output cell-output-stderr">
 <pre><code>✔ De las 3 comunas distintas, se limpiaron 3 en total (100%)</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb27"><pre class="downlit sourceCode r">
+<div class="sourceCode cell-code" id="cb26"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">datos_2</span></span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 2
@@ -234,7 +231,7 @@ Visita https://buymeacoffee.com/pacha/ si deseas donar para contribuir al desarr
 </div>
 <p>Luego podemos agregar los códigos comunales a partir de los nuevos nombres de las comunas con <code><a href="../reference/as_codigo_comuna.html">territorial::as_codigo_comuna()</a></code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="downlit sourceCode r">
+<div class="sourceCode cell-code" id="cb28"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">datos_3</span> <span class="op">&lt;-</span> <span class="va">datos_2</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>codigo_comuna <span class="op">=</span> <span class="fu"><a href="../reference/as_codigo_comuna.html">as_codigo_comuna</a></span><span class="op">(</span><span class="va">comuna</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
@@ -252,12 +249,12 @@ Visita https://buymeacoffee.com/pacha/ si deseas donar para contribuir al desarr
 </h3>
 <p>Ahora que los datos tienen códigos comunales, podemos agregarle los polígonos con un <code><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join()</a></code>, pero primero tenemos que convertir los códigos comunales del mapa a formato numérico:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="downlit sourceCode r">
+<div class="sourceCode cell-code" id="cb30"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">mapa</span> <span class="op">&lt;-</span> <span class="va">mapa</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>codigo_comuna <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html" class="external-link">as.numeric</a></span><span class="op">(</span><span class="va">codigo_comuna</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="downlit sourceCode r">
+<div class="sourceCode cell-code" id="cb31"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">datos_4</span> <span class="op">&lt;-</span> <span class="va">datos_3</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span></span>
 <span>    <span class="va">mapa</span>,</span>
@@ -268,7 +265,7 @@ Visita https://buymeacoffee.com/pacha/ si deseas donar para contribuir al desarr
 </h3>
 <p>Ahora los datos cuentan con los polígonos apropiados, y podemos visualizarlos <a href="https://bastianolea.rbind.io/blog/tutorial_mapa_chile/" class="external-link">siguiendo este tutorial</a>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="downlit sourceCode r">
+<div class="sourceCode cell-code" id="cb32"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://r-spatial.github.io/sf/" class="external-link">sf</a></span><span class="op">)</span></span>
 <span></span>

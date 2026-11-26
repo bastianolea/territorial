@@ -1,14 +1,18 @@
 # Registro de cambios
 
-## territorial 0.9.16 (2026/11/23)
+## territorial 0.9.16 (2026/11/26)
 
-- Corrección de la comuna de *Ránquil*, que estaba sin tilde!
+- Mejoras: Corrección de la comuna de *Ránquil*, que estaba sin tilde!
 - Mejoras:
   [`territorial::territorios`](https://bastianolea.github.io/territorial/reference/territorios.md)
   ahora viene ordenado de norte a sur.
 - Nueva función:
   [`provincias()`](https://bastianolea.github.io/territorial/reference/provincias.md)
   retorna todos los nombres de las provincias de Chile.
+- Mejoras:
+  [`limpiar_comunas()`](https://bastianolea.github.io/territorial/reference/limpiar_comunas.md)
+  limpia mejor municipios con prefijos como “Ilustre Municipalidad” y
+  similares, y evita limpiar comunas que ya estaban correctas.
 
 ## territorial 0.9.15 (2026/11/23)
 

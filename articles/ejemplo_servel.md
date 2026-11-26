@@ -173,7 +173,7 @@ servel_limpio <- servel |>
 
     → Paso 2: coincidencias por limpieza de texto
 
-    ℹ A partir de la limpieza de texto, se limpiaron 343 de 347 comunas: Antofagasta, Calama, María Elena, Mejillones, Ollagüe, San Pedro de Atacama, Sierra Gorda, Taltal, Tocopilla, Arica y 333 comunas más
+    ℹ A partir de la limpieza de texto, se limpiaron 338 de 347 comunas: Antofagasta, Calama, María Elena, Mejillones, Ollagüe, San Pedro de Atacama, Sierra Gorda, Taltal, Tocopilla, Arica y 328 comunas más
 
     → Paso 3: casos especiales
 
@@ -181,9 +181,15 @@ servel_limpio <- servel |>
 
     → Paso 4: coincidencias aproximadas de texto
 
+    ! Se encontraron 6 coincidencias para la comuna "llapel": illapel, llaillay, villa alemana, villa alegre, tucapel y collipulli
+
+    ! Se encontraron 12 coincidencias para la comuna "quique": iquique, quintero, panquehue, quilpue, cauquenes, vichuquen, niquen, quilleco, pitrufquen, llanquihue y 2 comunas más
+
     ! Se encontraron 2 coincidencias para la comuna "marchigue": la higuera y marchihue
 
-    ℹ Se limpiaron 2 de 3 comunas por medio de coincidencias aproximadas de texto: Paihuano y Marchihue
+    ! Se encontraron 2 coincidencias para la comuna "sla de maipo": san jose de maipo y isla de maipo
+
+    ℹ Se limpiaron 7 de 8 comunas por medio de coincidencias aproximadas de texto: Illapel, Paihuano, Iquique, Isla de Pascua, Marchihue, Independencia y Isla de Maipo
 
     → Conclusión de limpieza de comunas
 

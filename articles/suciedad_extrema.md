@@ -1,8 +1,7 @@
 # Prueba de suciedad extrema
 
-Una de las utilidades principales del paquete
-[territorial](https://bastianolea.github.io/territorial) es poder
-[limpiar automáticamente las
+Una de las utilidades principales del paquete `territorial` es [limpiar
+automáticamente las
 comunas](https://bastianolea.github.io/territorial/reference/limpiar_comunas.html)
 de una base de datos que venga con datos sucios: comunas mal escritas,
 en mayúsculas, sin tildes, sin eñes, etc.
@@ -20,9 +19,11 @@ set.seed(1234)
 ```
 
 Crearemos una tabla con nombres de comunas ensuciados, a partir de la
-tabla `territorios` que viene con el paquete, y usando algunas funciones
-utilitarias [inspiradas en el paquete
-`{messy}`](https://nrennie.rbind.io/messy/) para ensuciar los datos.
+tabla
+[`territorial::territorios`](https://bastianolea.github.io/territorial/reference/territorios.md)
+que viene con el paquete, y usando algunas funciones utilitarias
+[inspiradas en el paquete `messy`](https://nrennie.rbind.io/messy/) para
+ensuciar los datos.
 
 ``` r
 
@@ -62,7 +63,7 @@ sucios |>
      9 La Cisterna      La CiEsteja
     10 San Gregorio     ISanJGregoro    
 
-Ahora que tenemos la columna `nombres_sucios`, usamos
+¡Horrible! Ahora que tenemos la columna `nombres_sucios`, usamos
 [`limpiar_comunas()`](https://bastianolea.github.io/territorial/reference/limpiar_comunas.md)
 para limpiar los datos, creando la columna `nombres_limpios`:
 
@@ -120,11 +121,11 @@ Podemos confirmar que la limpieza realizada con
 [`limpiar_comunas()`](https://bastianolea.github.io/territorial/reference/limpiar_comunas.md)
 es capaz de abarcar casos muy extremos: por ejemplo, identifica que
 `SvnMPmedro d Atacaa` es *San Pedro de Atacama*, o que `SanaWMaríaW` es
-*Santa María*, por lo que la función podría resultar apropiada para
-detección de datos escritos a mano o de documentos antiguos procesados
-con OCR.
+*Santa María*!
 
 A este nivel de dificultad, la limpieza no siempre es 100% correcta.
+Revisemos si algún caso no pudo limpiarse, o si se limpiaron
+incorrectamente:
 
 ``` r
 

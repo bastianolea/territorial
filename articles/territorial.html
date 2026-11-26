@@ -114,10 +114,9 @@
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span><span class="fu"><a href="../reference/comunas.html">comunas</a></span><span class="op">(</span><span class="op">)</span>, <span class="fl">12</span><span class="op">)</span></span></code></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] "Puerto Octay"        "Linares"             "Pelarco"
- [4] "Trehuaco"            "Lampa"               "Independencia"
- [7] "Vichuquén"           "Limache"             "San Pedro de la Paz"
-[10] "Canela"              "Loncoche"            "Vallenar"           </code></pre>
+<pre><code> [1] "La Serena"    "Porvenir"     "Los Vilos"    "Curacautín"   "Lota"
+ [6] "Chonchi"      "Pencahue"     "Pica"         "Sierra Gorda" "Combarbalá"
+[11] "Huasco"       "Tortel"      </code></pre>
 </div>
 </div>
 <p>Del mismo modo, <code><a href="../reference/codigos_comunas.html">codigos_comunas()</a></code> entrega un vector con todos los códigos únicos territoriales de comunas válidos:</p>
@@ -125,7 +124,7 @@
 <div class="sourceCode cell-code" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span><span class="fu"><a href="../reference/codigos_comunas.html">codigos_comunas</a></span><span class="op">(</span><span class="op">)</span>, <span class="fl">12</span><span class="op">)</span></span></code></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 13124 10108  5404 10403  8106  4203 10301  2301  5304 15101  5601 13602</code></pre>
+<pre><code> [1] 11301  6303  8302  5501 13302  5506  5703  6101  8307  6305 13132 10401</code></pre>
 </div>
 </div>
 <section class="level3"><h3 id="tabla-de-comunas-provincias-y-regiones-de-chile">Tabla de comunas, provincias y regiones de Chile<a class="anchor" aria-label="anchor" href="#tabla-de-comunas-provincias-y-regiones-de-chile"></a>
@@ -241,7 +240,7 @@
 <pre><code>→ Paso 2: coincidencias por limpieza de texto</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>ℹ A partir de la limpieza de texto, se limpiaron 7 de 9 comunas: Pirque, El Monte, Maipú, Santiago, Cerrillos, San José de Maipo y O'Higgins</code></pre>
+<pre><code>ℹ A partir de la limpieza de texto, se limpiaron 6 de 9 comunas: Pirque, Maipú, Santiago, Cerrillos, San José de Maipo y O'Higgins</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>→ Paso 3: casos especiales</code></pre>
@@ -320,7 +319,7 @@
 <pre><code>→ Paso 2: coincidencias por limpieza de texto</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>ℹ A partir de la limpieza de texto, se limpiaron 7 de 9 comunas: Pirque, El Monte, Maipú, Santiago, Cerrillos, San José de Maipo y O'Higgins</code></pre>
+<pre><code>ℹ A partir de la limpieza de texto, se limpiaron 6 de 9 comunas: Pirque, Maipú, Santiago, Cerrillos, San José de Maipo y O'Higgins</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>→ Paso 3: casos especiales</code></pre>
@@ -348,7 +347,7 @@
   original          correctas limpieza         especiales coincidencia resultado
   &lt;chr&gt;             &lt;chr&gt;     &lt;chr&gt;            &lt;chr&gt;      &lt;chr&gt;        &lt;chr&gt;
 1 PIRQUE            &lt;NA&gt;      Pirque           &lt;NA&gt;       &lt;NA&gt;         Pirque
-2 El Monte          El Monte  El Monte         &lt;NA&gt;       &lt;NA&gt;         El Monte
+2 El Monte          El Monte  &lt;NA&gt;             &lt;NA&gt;       &lt;NA&gt;         El Monte
 3 Maipu             &lt;NA&gt;      Maipú            &lt;NA&gt;       &lt;NA&gt;         Maipú
 4 santiago          &lt;NA&gt;      Santiago         &lt;NA&gt;       &lt;NA&gt;         Santiago
 5 prohibidencia     &lt;NA&gt;      &lt;NA&gt;             &lt;NA&gt;       Providencia  Providen…
@@ -403,18 +402,18 @@
 <span><span class="va">base</span></span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 972 × 4
-   nombre_comuna   codigo_comuna name    value
-   &lt;chr&gt;                   &lt;dbl&gt; &lt;chr&gt;   &lt;dbl&gt;
- 1 Parral                   7404 a     0.00256
- 2 Collipulli               9202 a     0.00355
- 3 Cauquenes                7201 c     0.00589
- 4 Coihueco                16302 b     0.00603
- 5 Padre Las Casas          9112 c     0.00626
- 6 Calbuco                 10102 a     0.00640
- 7 Olivar                   6111 c     0.00736
- 8 Lonquimay                9205 a     0.00762
- 9 El Bosque               13105 a     0.00803
-10 Santiago                13101 a     0.00867
+   nombre_comuna codigo_comuna name     value
+   &lt;chr&gt;                 &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt;
+ 1 Punitaqui              4304 a     0.000110
+ 2 Chillán Viejo         16103 b     0.00115
+ 3 Mostazal               6110 a     0.00198
+ 4 Cisnes                11202 c     0.00397
+ 5 San Clemente           7109 b     0.00578
+ 6 Olivar                 6111 b     0.00599
+ 7 Ercilla                9204 b     0.00744
+ 8 Yerbas Buenas          7408 c     0.00791
+ 9 Ollagüe                2202 b     0.00839
+10 Palena                10404 b     0.00954
 # ℹ 962 more rows</code></pre>
 </div>
 </div>
@@ -431,7 +430,7 @@
 con `territorial::validar_comunas()`</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>→ Las comunas faltantes son: Caldera, Chañaral, Santo Domingo, Llaillay, Ñuñoa, San Joaquín, Puente Alto, Codegua, Pichidegua, Rauco, San Fabián, Cabrero, Tucapel, Galvarino, Mariquina, Paillaco, Puqueldón, Queilén, Cisnes, Chile Chico, Laguna Blanca y Porvenir</code></pre>
+<pre><code>→ Las comunas faltantes son: Tierra Amarilla, Monte Patria, Putaendo, Quilpué, Cerrillos, Pudahuel, Quinta Normal, Buin, Paine, Paredones, Placilla, Río Claro, Hualañé, Pinto, Cobquecura, Coelemu, Coihueco, Los Ángeles, Antuco, Laja, Antártica y Torres del Paine</code></pre>
 </div>
 </div>
 <p>La función <code><a href="../reference/contar_comunas.html">contar_comunas()</a></code> nos indica cuántas comunas únicas hay, y las que faltan. Esto es útil porque muchas veces las bases de datos reales no tienen datos para todas las comunas, sobre todo las más pequeñas y remotas.</p>
@@ -441,21 +440,21 @@ con `territorial::validar_comunas()`</code></pre>
 <code class="sourceCode R"><span><span class="va">base</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="../reference/buscar_comuna.html">buscar_comuna</a></span><span class="op">(</span><span class="st">"Alto"</span><span class="op">)</span></span></code></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>! Se encontraron 24 resultados, mostrando sólo 6.</code></pre>
+<pre><code>! Se encontraron 30 resultados, mostrando sólo 6.</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>ℹ Los resultados más cercanos al término `Alto` son: Alto del Carmen, Alto Biobío y Alto Hospicio</code></pre>
+<pre><code>ℹ Los resultados más cercanos al término `Alto` son: Alto Hospicio, Alto Biobío, Puente Alto y Alto del Carmen</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 5
   nombre_comuna   codigo_comuna name   value puntaje
   &lt;chr&gt;                   &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt;   &lt;dbl&gt;
-1 Alto del Carmen          3302 c     0.0893       1
-2 Alto Biobío              8314 c     0.192        1
-3 Alto Biobío              8314 b     0.299        1
-4 Alto Hospicio            1107 a     0.565        1
-5 Alto del Carmen          3302 a     0.759        1
-6 Alto Hospicio            1107 c     0.776        1</code></pre>
+1 Alto Hospicio            1107 a     0.0192       1
+2 Alto Biobío              8314 c     0.0305       1
+3 Puente Alto             13201 c     0.0824       1
+4 Alto del Carmen          3302 c     0.107        1
+5 Alto Hospicio            1107 c     0.192        1
+6 Alto Biobío              8314 a     0.207        1</code></pre>
 </div>
 </div>
 </section><section class="level3"><h3 id="crear-nombres-de-comunas-a-partir-de-códigos-únicos-territoriales">Crear nombres de comunas a partir de códigos únicos territoriales<a class="anchor" aria-label="anchor" href="#crear-nombres-de-comunas-a-partir-de-c%C3%B3digos-%C3%BAnicos-territoriales"></a>
@@ -691,11 +690,11 @@ Levels: Rural Mixta Urbana</code></pre>
 <pre><code># A tibble: 5 × 3
   codigo_comuna nombre_comuna clasificacion
           &lt;dbl&gt; &lt;chr&gt;         &lt;fct&gt;
-1         10304 Puyehue       Rural
-2         12301 Porvenir      Rural
-3          8305 Mulchén       Mixta
-4          2202 Ollagüe       Rural
-5          8202 Arauco        Rural        </code></pre>
+1         13603 Isla de Maipo Mixta
+2         10107 Llanquihue    Rural
+3         13112 La Pintana    Urbana
+4          5705 Putaendo      Rural
+5         10404 Palena        Rural        </code></pre>
 </div>
 </div>
 <p>Si sólo necesitas saber si una comuna es rural, usa <code><a href="../reference/is_rural.html">is_rural()</a></code>, que entrega <code>TRUE</code> o <code>FALSE</code>:</p>

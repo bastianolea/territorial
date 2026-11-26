@@ -125,7 +125,6 @@ limpiar_comunas(
 #> → Paso 2: coincidencias por limpieza de texto
 #> ℹ A partir de la limpieza de texto, se limpiaron 2 de 7 comunas: Colchane y Huara
 #> → Paso 3: casos especiales
-#> ℹ No se encontraron casos especiales
 #> → Paso 4: coincidencias aproximadas de texto
 #> ! Se encontraron 2 coincidencias para la comuna "laflorida": la florida y florida
 #> ℹ Se limpiaron 5 de 5 comunas por medio de coincidencias aproximadas de texto: Alto Hospicio, Providencia, La Florida, Cerrillos y Llaillay
@@ -148,9 +147,8 @@ datos |>
 #> → Paso 1: confirmar comunas correctas
 #> ℹ De las 8 comunas distintas, 1 ya eran correctas: El Monte
 #> → Paso 2: coincidencias por limpieza de texto
-#> ℹ A partir de la limpieza de texto, se limpiaron 7 de 8 comunas: Pirque, El Monte, Maipú, Santiago, Cerrillos, San José de Maipo y O'Higgins
+#> ℹ A partir de la limpieza de texto, se limpiaron 6 de 8 comunas: Pirque, Maipú, Santiago, Cerrillos, San José de Maipo y O'Higgins
 #> → Paso 3: casos especiales
-#> ℹ No se encontraron casos especiales
 #> → Paso 4: coincidencias aproximadas de texto
 #> ℹ Se limpió la comuna por medio de coincidencia aproximada de texto: Providencia
 #> → Conclusión de limpieza de comunas
@@ -174,9 +172,8 @@ datos |>
 #> → Paso 1: confirmar comunas correctas
 #> ℹ De las 8 comunas distintas, 1 ya eran correctas: El Monte
 #> → Paso 2: coincidencias por limpieza de texto
-#> ℹ A partir de la limpieza de texto, se limpiaron 7 de 8 comunas: Pirque, El Monte, Maipú, Santiago, Cerrillos, San José de Maipo y O'Higgins
+#> ℹ A partir de la limpieza de texto, se limpiaron 6 de 8 comunas: Pirque, Maipú, Santiago, Cerrillos, San José de Maipo y O'Higgins
 #> → Paso 3: casos especiales
-#> ℹ No se encontraron casos especiales
 #> → Paso 4: coincidencias aproximadas de texto
 #> ℹ Se limpió la comuna por medio de coincidencia aproximada de texto: Providencia
 #> → Conclusión de limpieza de comunas
