@@ -1,0 +1,122 @@
+---
+title: "Ejemplo: tasa de ocupación formal"
+description: Limpieza y territorialización de datos comunales de ocupación formal dependiente del Ministerio de Desarrollo Social y Familia, comparando dos maneras de agregar columnas territoriales.
+---
+
+En este ejemplo se limpian datos territoriales sobre la **tasa de ocupación formal dependiente** a nivel comunal, publicados por el Ministerio de Desarrollo Social y Familia como parte de sus [estadísticas de registros administrativos 2025](https://bidat.gob.cl/details/ficha/dataset/estadisticas-registros-administrativos-2025?page=2).
+
+Cargaremos los datos, limpiaremos los nombres de las comunas, y luego agregaremos las columnas territoriales faltantes (regiones, provincias) de dos maneras distintas: primero una por una, y luego todo de una vez con `contextualizar()`.
+
+Puedes [descargar aquí los datos](https://github.com/bastianolea/territorial/raw/main/data-raw/ejemplo_mideso.xlsx) para seguir el ejemplo.
+
+----
+
+Primero cargamos los datos originales:
+
+```{r setup}
+#| message: false
+#| warning: false
+library(dplyr)
+library(readxl)
+library(here)
+
+datos_originales <- read_xlsx(
+  here("data-raw/ejemplo_mideso.xlsx"),
+  sheet = 3,
+  skip = 2)
+
+datos_originales
+```
+
+La planilla contiene indicadores para distintos niveles de desagregación (país, sexo, tramos de edad, región, comuna, etc.), identificados en la columna `Nivel`. Nos quedamos sólo con las filas comunales, y seleccionamos el nombre de la comuna y el valor de la tasa de ocupación:
+
+```{r}
+datos_comunales <- datos_originales |> 
+  filter(Nivel == "comuna") |> 
+  select(nombre_comuna = Desagregación1, 
+         ocupacion = 5)
+
+datos_comunales
+```
+
+Los datos solamente vienen con los nombres de comunas, y sin [códigos únicos territoriales](https://bastianolea.github.io/territorial/articles/codigos_unicos_territoriales.html), ni regiones, ni nada más.
+
+Cargamos el paquete `territorial` para evaluar la calidad de los nombres de las comunas:
+
+```{r}
+library(territorial)
+
+datos_comunales |> 
+  validar_comunas()
+```
+
+La validación detecta algunos problemas: _Juan Fernandez_ le falta el tilde, _O Higgins_ tiene su apóstrofo omitido, a _Ránquil_ le sobra el tilde, y _Paiguano_ y _Treguaco_ están escritas de formas no recomendadas.
+
+Para corregirlos usamos `limpiar_comunas()`, que al no recibir una columna asume que existe una llamada `nombre_comuna`:
+
+```{r}
+datos_limpios <- datos_comunales |> 
+  limpiar_comunas()
+```
+
+La función nos informa que, de las 346 comunas distintas, 342 eran correctas, y las demás se limpiaron mediante distintas técnicas automatizadas.
+
+Con esta limpieza ya confirmamos que nuestra base de datos tiene nombres de comunas correctos, así que podemos basarnos en ellos para agregar más variables territoriales.
+
+## Agregar columnas territoriales paso a paso
+
+Con `as_codigo_comuna()` transformamos el nombre de la comuna en su **código único territorial** (ver `vignette("codigos_unicos_territoriales")`), con `ubicar_comunas()` obtenemos la **región** a la que pertenece cada comuna, y con `as_codigo_region()` convertimos el nombre de la región en su **código regional**:
+
+```{r}
+datos_paso_a_paso <- datos_limpios |> 
+  mutate(codigo_comuna = as_codigo_comuna(nombre_comuna)) |> 
+  mutate(nombre_region = ubicar_comunas(nombre_comuna)) |> 
+  mutate(codigo_region = as_codigo_region(nombre_region))
+
+datos_paso_a_paso
+```
+
+Este método permite elegir exactamente qué columnas agregar y en qué orden, a costa de escribir una línea por cada una.
+
+## Agregar columnas territoriales con `contextualizar()`
+
+Alternativamente, la función `contextualizar()` agrega de una sola vez todas las columnas de identificación territorial a partir del **nombre de la comuna** (o el código, si está presente). Es decir que agrega automáticamente las variables de códigos y nombres de región y provincia, y también código de comuna. 
+
+Como en este ejemplo no nos interesa la provincia, la quitamos después:
+
+```{r}
+datos_contextualizados <- datos_limpios |> 
+  contextualizar() |> 
+  select(-ends_with("provincia"))
+
+datos_contextualizados
+```
+
+## Comparar ambos métodos
+
+Comparamos las columnas de nombres de comuna de ambos resultados con el [paquete `{waldo}`](https://bastianolea.rbind.io/blog/waldo/):
+
+```{r}
+waldo::compare(
+  datos_paso_a_paso$nombre_comuna,
+  datos_contextualizados$nombre_comuna
+)
+```
+
+No hay diferencias: ambos métodos entregan las mismas comunas en el mismo orden. Si comparamos las tablas completas, la única diferencia es el orden de las columnas, ya que `contextualizar()` ubica las columnas territoriales al comienzo de la tabla:
+
+```{r}
+waldo::compare(
+  datos_paso_a_paso,
+  datos_contextualizados
+)
+```
+
+Podemos reordenar las columnas del primer método para confirmar que el contenido de las tablas completas es idéntico:
+
+```{r}
+waldo::compare(
+  datos_paso_a_paso |> select(all_of(names(datos_contextualizados))),
+  datos_contextualizados
+)
+```
