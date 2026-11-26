@@ -48,10 +48,26 @@ test_that(
 
 test_that(
   "obtener comunas con más de un código",
-  expect_equal(
+  expect_setequal(
     obtener_comunas(c(15, 1)),
     c(comunas_tarapaca, comunas_arica)
   )
+) |>
+  suppressMessages()
+
+test_that(
+  "comunas de varias regiones se ordenan de norte a sur, sin importar el orden de entrada",
+  {
+    # el resultado sigue el orden de la tabla territorios, no el de los argumentos
+    expect_equal(
+      obtener_comunas(c(15, 1)),
+      c(comunas_arica, comunas_tarapaca)
+    )
+    expect_equal(
+      obtener_comunas(c(1, 15)),
+      c(comunas_arica, comunas_tarapaca)
+    )
+  }
 ) |>
   suppressMessages()
 

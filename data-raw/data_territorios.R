@@ -20,7 +20,8 @@ territorios <- codigos_comunales |>
     )
   ) |>
   # ordenar regiones
-  territorial::ordenar_regiones()
+  territorial::ordenar_regiones() |>
+  mutate(nombre_region = as.character(nombre_region))
 
 # # revisar
 # territorios |> filter(stringr::str_detect(nombre_comuna, "Coy"))

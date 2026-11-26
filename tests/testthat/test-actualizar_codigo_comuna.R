@@ -39,7 +39,8 @@ test_that("actualizar código comunal, caso de antiguos", {
 test_that("actualizar código comunal, caso mezclando con válidos", {
   codigo_comuna <- c(
     cut_historicos_l$codigo_comuna_historico[12:16],
-    codigos_comunas()[5:9]
+    # códigos vigentes explícitos, para no depender del orden de la tabla
+    c(1403, 1404, 1405, 2101, 2102)
   )
 
   resultados <- actualizar_codigo_comuna(codigo_comuna) |>
