@@ -17,5 +17,5 @@ comunas()
 
 }
 \seealso{
-\code{\link[=codigos_comunas]{codigos_comunas()}} para un vector de códigos únicos territoriales de comunas, \code{\link[=regiones]{regiones()}} para un vector de regiones de Chile. Puedes usar \code{\link[=as_codigo_comuna]{as_codigo_comuna()}} para obtener códigos únicos territoriales (CUT) a partir de los nombres de comunas.
+\code{\link[=codigos_comunas]{codigos_comunas()}} para un vector de códigos únicos territoriales de comunas, \code{\link[=regiones]{regiones()}} para un vector de regiones de Chile, y \code{\link[=provincias]{provincias()}} para las provincias. Puedes usar \code{\link[=as_codigo_comuna]{as_codigo_comuna()}} para obtener códigos únicos territoriales (CUT) a partir de los nombres de comunas.
 }

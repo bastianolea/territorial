@@ -17,5 +17,5 @@ regiones()
 
 }
 \seealso{
-\code{\link[=comunas]{comunas()}}, \code{\link[=codigos_comunas]{codigos_comunas()}}
+\code{\link[=provincias]{provincias()}}, \code{\link[=comunas]{comunas()}}, \code{\link[=codigos_comunas]{codigos_comunas()}}
 }
