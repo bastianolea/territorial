@@ -15,7 +15,8 @@ territorios <- codigos_comunales |>
       "Paiguano" ~ "Paihuano",
       "Treguaco" ~ "Trehuaco",
       "Los Alamos" ~ "Los Álamos",
-      "Los Angeles" ~ "Los Ángeles"
+      "Los Angeles" ~ "Los Ángeles",
+      "Ranquil" ~ "Ránquil"
     )
   )
 
