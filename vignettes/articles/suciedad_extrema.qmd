@@ -3,7 +3,7 @@ title: "Prueba de suciedad extrema"
 description: Prueba de limpieza automática de nombres de comunas sobre datos intencionalmente sucios.
 ---
 
-Una de las utilidades principales del paquete `{territorial}` es poder [limpiar automáticamente las comunas](https://bastianolea.github.io/territorial/reference/limpiar_comunas.html) de una base de datos que venga con datos sucios: comunas mal escritas, en mayúsculas, sin tildes, sin eñes, etc.
+Una de las utilidades principales del paquete `territorial` es [limpiar automáticamente las comunas](https://bastianolea.github.io/territorial/reference/limpiar_comunas.html) de una base de datos que venga con datos sucios: comunas mal escritas, en mayúsculas, sin tildes, sin eñes, etc.
 
 En este ejemplo, probaremos la función `territorial::limpiar_comunas()` con un caso extremo de datos intencionalmente sucios.
 
@@ -15,7 +15,7 @@ library(dplyr)
 set.seed(1234)
 ```
 
-Crearemos una tabla con nombres de comunas ensuciados, a partir de la tabla `territorios` que viene con el paquete, y usando algunas funciones utilitarias [inspiradas en el paquete `{messy}`](https://nrennie.rbind.io/messy/) para ensuciar los datos.
+Crearemos una tabla con nombres de comunas ensuciados, a partir de la tabla `territorial::territorios` que viene con el paquete, y usando algunas funciones utilitarias [inspiradas en el paquete `messy`](https://nrennie.rbind.io/messy/) para ensuciar los datos.
 
 ```{r}
 sucios <- territorios |> 
@@ -37,7 +37,7 @@ sucios |>
   slice_sample(n = 10)
 ```
 
-Ahora que tenemos la columna `nombres_sucios`, usamos `limpiar_comunas()` para limpiar los datos, creando la columna `nombres_limpios`:
+¡Horrible! Ahora que tenemos la columna `nombres_sucios`, usamos `limpiar_comunas()` para limpiar los datos, creando la columna `nombres_limpios`:
 
 ```{r}
 #| message: false
@@ -63,9 +63,9 @@ limpios |>
 ```
 
 
-Podemos confirmar que la limpieza realizada con `limpiar_comunas()` es capaz de abarcar casos muy extremos: por ejemplo, identifica que `SvnMPmedro d Atacaa` es _San Pedro de Atacama_, o que `SanaWMaríaW` es _Santa María_, por lo que la función podría resultar apropiada para detección de datos escritos a mano o de documentos antiguos procesados con OCR.
+Podemos confirmar que la limpieza realizada con `limpiar_comunas()` es capaz de abarcar casos muy extremos: por ejemplo, identifica que `SvnMPmedro d Atacaa` es _San Pedro de Atacama_, o que `SanaWMaríaW` es _Santa María_!
 
-A este nivel de dificultad, la limpieza no siempre es 100% correcta. 
+A este nivel de dificultad, la limpieza no siempre es 100% correcta. Revisemos si algún caso no pudo limpiarse, o si se limpiaron incorrectamente:
 
 ```{r}
 problemas <- limpios |> 

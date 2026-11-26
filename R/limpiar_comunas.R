@@ -102,7 +102,11 @@ limpiar_comunas <- function(
   # empezar a registrar resultados
   # empezando por la versión original de los nombres
   comunas_originales <- dplyr::tibble(nombre_comuna)
-  # los nombres originales se usarán al final para un left join
+
+  # la lógica es que a la tabla `resultados` se le van agregando
+  # columnas con los intentos de limpieza, y luego se unirán los
+  # intentos en una sola columna, que se unirá a los datos
+  # originales a partir de la columna original de nombres
 
   resultados <- comunas_originales |>
     dplyr::distinct()
@@ -118,9 +122,10 @@ limpiar_comunas <- function(
       comunas_limpias = limpiar_texto(nombre_comuna)
     ) |>
     dplyr::mutate(
-      comunas_limpias = stringr::str_remove(
+      comunas_limpias = stringr::str_remove_all(
         comunas_limpias,
-        "(ilustre|i|ilus) municipalidad|municipalidad de|municipalidad|municipio de|municipio|^muni|alcald(ía|e|esa) de"
+        # "(ilustre|i|ilus) municipalidad de|municipalidad de|municipalidad|municipio de|municipio|^muni|alcald(ía|e|esa) de"
+        "(ilustre|^i|ilus)|municipalidadde|municipalidad|municipiode|municipio|^munide|^muni|alcald(ía|e|esa)"
       )
     ) |>
     dplyr::mutate(
@@ -163,17 +168,25 @@ limpiar_comunas <- function(
 
   # limpiar ----
   # bajar a minúsculas y sacar tildes, comparar con correctas con mismo tratamiento
-  # si coinciden, usar correctas
+  # bajo el supuesto de que los nombres son incorrectos por problemas de capitalización,
+  # tildes que faltan o sobran, y símbolos incorrectos. Al tomar los nombres oficiales y
+  # "limpiarlos" con este proceso, se pueden hacer equivaler con los nombres con problemas
   cli::cli_alert("Paso 2: coincidencias por limpieza de texto")
 
   # limpiar nombres de comunas oficiales
   comunas_oficiales_limpias <- limpiar_texto(comunas())
 
   # detectar comunas limpiadas
+  # si la comuna limpia coincide con una comuna oficial limpia, asignar el nombre oficial correspondiente
   resultados <- resultados |>
+    # solamente las que no son correctas ya
+    # para no volver a limpiar comunas que estaban ok
+    dplyr::mutate(
+      limpieza = dplyr::if_else(is.na(correctas), comunas_limpias, NA)
+    ) |>
     dplyr::mutate(
       limpieza = dplyr::if_else(
-        comunas_limpias %in% comunas_oficiales_limpias,
+        limpieza %in% comunas_oficiales_limpias,
         comunas()[match(
           comunas_limpias,
           comunas_oficiales_limpias
@@ -230,9 +243,9 @@ limpiar_comunas <- function(
     dplyr::pull()
 
   # informar
-  if (length(comunas_especiales) == 0) {
-    cli::cli_alert_info("No se encontraron casos especiales")
-  } else {
+  if (length(comunas_especiales) > 0) {
+    # cli::cli_alert_info("No se encontraron casos especiales")
+    # } else {
     mensaje <- cli::pluralize(
       "Se encontr{?ó/aron} {length(comunas_especiales)} caso{?s} especial{?es}"
     )
@@ -376,6 +389,7 @@ limpiar_comunas <- function(
   cli::cli_alert("Conclusión de limpieza de comunas")
 
   # separar las originales, y unir los resultados en una sola columna
+  # en orden de más confianza a menos confianza
   limpiado <- resultados |>
     dplyr::rename(original = nombre_comuna) |>
     dplyr::mutate(
@@ -411,7 +425,7 @@ limpiar_comunas <- function(
     # browser()
   }
 
-  # volver a unir con las originales
+  # unir limpiadas con las originales
   resultado <- comunas_originales |>
     dplyr::left_join(
       limpiado |>
