@@ -1,19 +1,20 @@
 - [ ] no me gusta que diga `regiones_sucias` en la viñeta principal
 - [x] ubicar_comunas(nivel = "Provincia")
-
+- [ ] falta limpiar_provincias()
+- [ ] agregar funciones de provincias a readme y primeros pasos
 - [ ] limpiar_regiones es igual a limpiar_comunas, podría separarse en funciones
 
+- [ ] funciones as_ también deberían convertir? Por ejemplo una provincia as_region, o una comuna as_provincia?!?!?!
 
 Trivia:
 - [x] mensaje de bienvenida
 - [x] números de pregunta
 
 Agregar funciones nuevas a readme y primeros pasos:
-_ [ ] capitales_regionales
-_ [ ] as_capital_regional
-_ [ ] is_capital_regional
-_ [ ] trivia
-_ [ ] is_codigo_region
+_ [x] capitales_regionales
+_ [x] as_capital_regional
+_ [x] is_capital_regional
+_ [x] trivia
  
 ## Pendientes
 - [x] limpiar regiones
@@ -26,10 +27,9 @@ _ [ ] is_codigo_region
   - [x] pero debería poder aplicar a otras tablas
 - [x] `obtener_comunas()` obtener comunas de la región, entregar como vector o redactada 
 - [x] clasificar regiones por zona (norte, centro, sur)
-- [ ] convertir códigos DEIS a comunas
 - [x] `contar_comunas()` = cuántas comunas únicas incluye, y si todas son válidas
+- [ ] convertir códigos DEIS a comunas
 - [ ] `confirmar_comunas()` = comparar si los códigos comunales corresponden con los nombres de comuna
-
 
 ## Cambios
 

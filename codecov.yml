@@ -12,3 +12,8 @@ coverage:
         target: auto
         threshold: 1%
         informational: true
+
+ignore:
+  - "R/pregunta.*R"
+  - "R/aplicacion.R"
+  - "R/trivia.R"

@@ -9,8 +9,6 @@ de Chile en R.
 
 [![Codecov test
 coverage](https://codecov.io/gh/bastianolea/territorial/graph/badge.svg)](https://app.codecov.io/gh/bastianolea/territorial)
-[![R-universe
-version](https://bastianolea.r-universe.dev/territorial/badges/version.png)](https://bastianolea.r-universe.dev/territorial)
 <!-- badges: end -->
 
 Los datos sobre temáticas sociales suelen venir en dudosa calidad, sobre
@@ -91,14 +89,14 @@ head(territorios)
 ```
 
     # A tibble: 6 × 6
-      codigo_region nombre_region codigo_provincia nombre_provincia codigo_comuna
-              <dbl> <chr>                    <dbl> <chr>                    <dbl>
-    1             1 Tarapacá                    11 Iquique                   1101
-    2             1 Tarapacá                    11 Iquique                   1107
-    3             1 Tarapacá                    14 Tamarugal                 1401
-    4             1 Tarapacá                    14 Tamarugal                 1402
-    5             1 Tarapacá                    14 Tamarugal                 1403
-    6             1 Tarapacá                    14 Tamarugal                 1404
+      codigo_region nombre_region    codigo_provincia nombre_provincia codigo_comuna
+              <dbl> <chr>                       <dbl> <chr>                    <dbl>
+    1            15 Arica y Parinac…              151 Arica                    15101
+    2            15 Arica y Parinac…              151 Arica                    15102
+    3            15 Arica y Parinac…              152 Parinacota               15201
+    4            15 Arica y Parinac…              152 Parinacota               15202
+    5             1 Tarapacá                       11 Iquique                   1101
+    6             1 Tarapacá                       11 Iquique                   1107
     # ℹ 1 more variable: nombre_comuna <chr>
 
 Puedes explorar esta tabla completa
@@ -192,7 +190,7 @@ datos |>
 
     → Paso 2: coincidencias por limpieza de texto
 
-    ℹ A partir de la limpieza de texto, se limpiaron 7 de 10 comunas: Pirque, El Monte, Maipú, Ñuñoa, Cerrillos, San José de Maipo y O'Higgins
+    ℹ A partir de la limpieza de texto, se limpiaron 6 de 10 comunas: Pirque, Maipú, Ñuñoa, Cerrillos, San José de Maipo y O'Higgins
 
     → Paso 3: casos especiales
 
@@ -328,22 +326,22 @@ regiones
     # A tibble: 16 × 2
        codigo_region nombre_region                            
                <dbl> <chr>                                    
-     1            16 Ñuble                                    
-     2             1 Tarapacá                                 
-     3             3 Atacama                                  
-     4            11 Aysén del General Carlos Ibáñez del Campo
-     5             6 Libertador General Bernardo O'Higgins    
-     6            13 Metropolitana de Santiago                
-     7             8 Biobío                                   
-     8            10 Los Lagos                                
-     9            14 Los Ríos                                 
-    10            15 Arica y Parinacota                       
-    11             2 Antofagasta                              
-    12             7 Maule                                    
-    13             4 Coquimbo                                 
-    14            12 Magallanes y de la Antártica Chilena     
-    15             5 Valparaíso                               
-    16             9 La Araucanía                             
+     1            12 Magallanes y de la Antártica Chilena     
+     2            15 Arica y Parinacota                       
+     3             2 Antofagasta                              
+     4             8 Biobío                                   
+     5             5 Valparaíso                               
+     6            14 Los Ríos                                 
+     7             6 Libertador General Bernardo O'Higgins    
+     8            16 Ñuble                                    
+     9            10 Los Lagos                                
+    10            11 Aysén del General Carlos Ibáñez del Campo
+    11             1 Tarapacá                                 
+    12            13 Metropolitana de Santiago                
+    13             3 Atacama                                  
+    14             9 La Araucanía                             
+    15             4 Coquimbo                                 
+    16             7 Maule                                    
 
 Las regiones están desordenadas! Queremos ordenarlas de norte a sur:
 
