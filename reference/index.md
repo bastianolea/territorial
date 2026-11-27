@@ -65,10 +65,14 @@ ordenarlos, etc.
   : Convertir regiones a capitales regionales
 - [`as_codigo_comuna()`](https://bastianolea.github.io/territorial/reference/as_codigo_comuna.md)
   : Convertir nombres de comunas a códigos comunales
+- [`as_codigo_provincia()`](https://bastianolea.github.io/territorial/reference/as_codigo_provincia.md)
+  : Convertir nombres de provincias a códigos de provincia
 - [`as_codigo_region()`](https://bastianolea.github.io/territorial/reference/as_codigo_region.md)
   : Convertir nombres de regiones a códigos regionales
 - [`as_nombre_comuna()`](https://bastianolea.github.io/territorial/reference/as_nombre_comuna.md)
   : Convertir códigos comunales a nombres de comunas
+- [`as_nombre_provincia()`](https://bastianolea.github.io/territorial/reference/as_nombre_provincia.md)
+  : Convertir códigos de provincia a nombres de provincias
 - [`as_nombre_region()`](https://bastianolea.github.io/territorial/reference/as_nombre_region.md)
   : Convertir códigos regionales a nombres de regiones
 - [`ordenar_regiones()`](https://bastianolea.github.io/territorial/reference/ordenar_regiones.md)
@@ -77,6 +81,8 @@ ordenarlos, etc.
   : Ubicar comunas en la región o provincia que les corresponde
 - [`ubicar_localidades()`](https://bastianolea.github.io/territorial/reference/ubicar_localidades.md)
   : Ubicar localidades en la comuna que les corresponde
+- [`ubicar_provincias()`](https://bastianolea.github.io/territorial/reference/ubicar_provincias.md)
+  : Ubicar provincias en la región que les corresponde
 - [`contextualizar()`](https://bastianolea.github.io/territorial/reference/contextualizar.md)
   : Contextualizar datos de nivel comunal con variables territoriales
 - [`actualizar_codigo_comuna()`](https://bastianolea.github.io/territorial/reference/actualizar_codigo_comuna.md)

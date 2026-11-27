@@ -8,12 +8,12 @@ corresponde con ninguna.
 ## Uso
 
 ``` r
-as_nombre_region(codigos_regiones)
+as_nombre_region(codigo_region)
 ```
 
 ## Argumentos
 
-- codigos_regiones:
+- codigo_region:
 
   Códigos regionales en formato numérico
 

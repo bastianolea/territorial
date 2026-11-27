@@ -8,12 +8,12 @@ retorna los códigos de región correspondientes en formato numérico
 ## Uso
 
 ``` r
-as_codigo_region(nombres_regiones)
+as_codigo_region(nombre_region)
 ```
 
 ## Argumentos
 
-- nombres_regiones:
+- nombre_region:
 
   Nombres de región (como los que aparecen en
   [territorios](https://bastianolea.github.io/territorial/reference/territorios.md))

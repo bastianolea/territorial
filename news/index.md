@@ -1,5 +1,25 @@
 # Registro de cambios
 
+## territorial 0.9.17 (2026/11/27)
+
+- Nuevas funciones:
+  [`as_nombre_provincia()`](https://bastianolea.github.io/territorial/reference/as_nombre_provincia.md)
+  y
+  [`as_codigo_provincia()`](https://bastianolea.github.io/territorial/reference/as_codigo_provincia.md),
+  análogas a sus pares para regiones de Chile.
+- Nueva función:
+  [`ubicar_provincias()`](https://bastianolea.github.io/territorial/reference/ubicar_provincias.md)
+  sirve para saber en qué región se encuentra una provincia, ya sea por
+  su nombre o su código.
+- Mejoras:
+  [`as_nombre_region()`](https://bastianolea.github.io/territorial/reference/as_nombre_region.md)
+  ahora convierte los datos entrantes a numérico si es necesario.
+- Cambios:
+  [`as_nombre_region()`](https://bastianolea.github.io/territorial/reference/as_nombre_region.md)
+  y
+  [`as_codigo_region()`](https://bastianolea.github.io/territorial/reference/as_codigo_region.md)
+  tienen argumentos en singular, para mantener coherencia en el paquete.
+
 ## territorial 0.9.16 (2026/11/26)
 
 - Mejoras: Corrección de la comuna de *Ránquil*, que estaba sin tilde!
@@ -12,7 +32,12 @@
 - Mejoras:
   [`limpiar_comunas()`](https://bastianolea.github.io/territorial/reference/limpiar_comunas.md)
   limpia mejor municipios con prefijos como “Ilustre Municipalidad” y
-  similares, y evita limpiar comunas que ya estaban correctas.
+  similares.
+- Mejoras:
+  [`limpiar_comunas()`](https://bastianolea.github.io/territorial/reference/limpiar_comunas.md)
+  y
+  [`limpiar_regiones()`](https://bastianolea.github.io/territorial/reference/limpiar_regiones.md)
+  evitan limpiar territorios que ya estaban correctos.
 
 ## territorial 0.9.15 (2026/11/23)
 
