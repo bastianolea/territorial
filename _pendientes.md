@@ -1,6 +1,9 @@
 - [ ] no me gusta que diga `regiones_sucias` en la viñeta principal
 - [x] ubicar_comunas(nivel = "Provincia")
 
+- [ ] limpiar_regiones es igual a limpiar_comunas, podría separarse en funciones
+
+
 Trivia:
 - [x] mensaje de bienvenida
 - [x] números de pregunta
