@@ -131,14 +131,14 @@
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">territorios</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb4"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="co"># A tibble: 6 × 6</span></span>
-<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>  codigo_region nombre_region codigo_provincia nombre_provincia codigo_comuna</span>
-<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a>          <span class="sc">&lt;</span>dbl<span class="sc">&gt;</span> <span class="er">&lt;</span>chr<span class="sc">&gt;</span>                    <span class="er">&lt;</span>dbl<span class="sc">&gt;</span> <span class="er">&lt;</span>chr<span class="sc">&gt;</span>                    <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
-<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="dv">1</span>             <span class="dv">1</span> Tarapacá                    <span class="dv">11</span> Iquique                   <span class="dv">1101</span></span>
-<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a><span class="dv">2</span>             <span class="dv">1</span> Tarapacá                    <span class="dv">11</span> Iquique                   <span class="dv">1107</span></span>
-<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a><span class="dv">3</span>             <span class="dv">1</span> Tarapacá                    <span class="dv">14</span> Tamarugal                 <span class="dv">1401</span></span>
-<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a><span class="dv">4</span>             <span class="dv">1</span> Tarapacá                    <span class="dv">14</span> Tamarugal                 <span class="dv">1402</span></span>
-<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a><span class="dv">5</span>             <span class="dv">1</span> Tarapacá                    <span class="dv">14</span> Tamarugal                 <span class="dv">1403</span></span>
-<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a><span class="dv">6</span>             <span class="dv">1</span> Tarapacá                    <span class="dv">14</span> Tamarugal                 <span class="dv">1404</span></span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>  codigo_region nombre_region    codigo_provincia nombre_provincia codigo_comuna</span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a>          <span class="sc">&lt;</span>dbl<span class="sc">&gt;</span> <span class="er">&lt;</span>chr<span class="sc">&gt;</span>                       <span class="er">&lt;</span>dbl<span class="sc">&gt;</span> <span class="er">&lt;</span>chr<span class="sc">&gt;</span>                    <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="dv">1</span>            <span class="dv">15</span> Arica y Parinac…              <span class="dv">151</span> Arica                    <span class="dv">15101</span></span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a><span class="dv">2</span>            <span class="dv">15</span> Arica y Parinac…              <span class="dv">151</span> Arica                    <span class="dv">15102</span></span>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a><span class="dv">3</span>            <span class="dv">15</span> Arica y Parinac…              <span class="dv">152</span> Parinacota               <span class="dv">15201</span></span>
+<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a><span class="dv">4</span>            <span class="dv">15</span> Arica y Parinac…              <span class="dv">152</span> Parinacota               <span class="dv">15202</span></span>
+<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a><span class="dv">5</span>             <span class="dv">1</span> Tarapacá                       <span class="dv">11</span> Iquique                   <span class="dv">1101</span></span>
+<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a><span class="dv">6</span>             <span class="dv">1</span> Tarapacá                       <span class="dv">11</span> Iquique                   <span class="dv">1107</span></span>
 <span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a><span class="co"># ℹ 1 more variable: nombre_comuna &lt;chr&gt;</span></span></code></pre></div>
 <p>Puedes explorar esta tabla completa <a href="https://bastianolea.github.io/territorial/articles/comunas_provincias_regiones.html">aquí</a>. Usando esta tabla como fuente de verdad, podemos validar, corregir y complementar datos territoriales.</p>
 <p>También se plantea el estándar de llamar las columnas como <code>nombre_{x}</code> y <code>codigo_{x}</code> (por ejemplo, <code>nombre_comuna</code> y <code>codigo_comuna</code>), para mantener orden y compatibilidad entre tablas.</p>
@@ -201,7 +201,7 @@
 <span id="cb10-6"><a href="#cb10-6" tabindex="-1"></a></span>
 <span id="cb10-7"><a href="#cb10-7" tabindex="-1"></a>→ Paso <span class="dv">2</span><span class="sc">:</span> coincidencias por limpieza de texto</span>
 <span id="cb10-8"><a href="#cb10-8" tabindex="-1"></a></span>
-<span id="cb10-9"><a href="#cb10-9" tabindex="-1"></a>ℹ A partir de la limpieza de texto, se limpiaron <span class="dv">7</span> de <span class="dv">10</span> comunas<span class="sc">:</span> Pirque, El Monte, Maipú, Ñuñoa, Cerrillos, San José de Maipo y O<span class="st">'Higgins</span></span>
+<span id="cb10-9"><a href="#cb10-9" tabindex="-1"></a>ℹ A partir de la limpieza de texto, se limpiaron <span class="dv">6</span> de <span class="dv">10</span> comunas<span class="sc">:</span> Pirque, Maipú, Ñuñoa, Cerrillos, San José de Maipo y O<span class="st">'Higgins</span></span>
 <span id="cb10-10"><a href="#cb10-10" tabindex="-1"></a></span>
 <span id="cb10-11"><a href="#cb10-11" tabindex="-1"></a><span class="st">→ Paso 3: casos especiales</span></span>
 <span id="cb10-12"><a href="#cb10-12" tabindex="-1"></a></span>
@@ -299,22 +299,22 @@
 <div class="sourceCode" id="cb18"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a><span class="co"># A tibble: 16 × 2</span></span>
 <span id="cb18-2"><a href="#cb18-2" tabindex="-1"></a>   codigo_region nombre_region                            </span>
 <span id="cb18-3"><a href="#cb18-3" tabindex="-1"></a>           <span class="sc">&lt;</span>dbl<span class="sc">&gt;</span> <span class="er">&lt;</span>chr<span class="sc">&gt;</span>                                    </span>
-<span id="cb18-4"><a href="#cb18-4" tabindex="-1"></a> <span class="dv">1</span>            <span class="dv">16</span> Ñuble                                    </span>
-<span id="cb18-5"><a href="#cb18-5" tabindex="-1"></a> <span class="dv">2</span>             <span class="dv">1</span> Tarapacá                                 </span>
-<span id="cb18-6"><a href="#cb18-6" tabindex="-1"></a> <span class="dv">3</span>             <span class="dv">3</span> Atacama                                  </span>
-<span id="cb18-7"><a href="#cb18-7" tabindex="-1"></a> <span class="dv">4</span>            <span class="dv">11</span> Aysén del General Carlos Ibáñez del Campo</span>
-<span id="cb18-8"><a href="#cb18-8" tabindex="-1"></a> <span class="dv">5</span>             <span class="dv">6</span> Libertador General Bernardo O<span class="st">'Higgins    </span></span>
-<span id="cb18-9"><a href="#cb18-9" tabindex="-1"></a><span class="st"> 6            13 Metropolitana de Santiago                </span></span>
-<span id="cb18-10"><a href="#cb18-10" tabindex="-1"></a><span class="st"> 7             8 Biobío                                   </span></span>
-<span id="cb18-11"><a href="#cb18-11" tabindex="-1"></a><span class="st"> 8            10 Los Lagos                                </span></span>
-<span id="cb18-12"><a href="#cb18-12" tabindex="-1"></a><span class="st"> 9            14 Los Ríos                                 </span></span>
-<span id="cb18-13"><a href="#cb18-13" tabindex="-1"></a><span class="st">10            15 Arica y Parinacota                       </span></span>
-<span id="cb18-14"><a href="#cb18-14" tabindex="-1"></a><span class="st">11             2 Antofagasta                              </span></span>
-<span id="cb18-15"><a href="#cb18-15" tabindex="-1"></a><span class="st">12             7 Maule                                    </span></span>
-<span id="cb18-16"><a href="#cb18-16" tabindex="-1"></a><span class="st">13             4 Coquimbo                                 </span></span>
-<span id="cb18-17"><a href="#cb18-17" tabindex="-1"></a><span class="st">14            12 Magallanes y de la Antártica Chilena     </span></span>
-<span id="cb18-18"><a href="#cb18-18" tabindex="-1"></a><span class="st">15             5 Valparaíso                               </span></span>
-<span id="cb18-19"><a href="#cb18-19" tabindex="-1"></a><span class="st">16             9 La Araucanía                             </span></span></code></pre></div>
+<span id="cb18-4"><a href="#cb18-4" tabindex="-1"></a> <span class="dv">1</span>            <span class="dv">12</span> Magallanes y de la Antártica Chilena     </span>
+<span id="cb18-5"><a href="#cb18-5" tabindex="-1"></a> <span class="dv">2</span>            <span class="dv">15</span> Arica y Parinacota                       </span>
+<span id="cb18-6"><a href="#cb18-6" tabindex="-1"></a> <span class="dv">3</span>             <span class="dv">2</span> Antofagasta                              </span>
+<span id="cb18-7"><a href="#cb18-7" tabindex="-1"></a> <span class="dv">4</span>             <span class="dv">8</span> Biobío                                   </span>
+<span id="cb18-8"><a href="#cb18-8" tabindex="-1"></a> <span class="dv">5</span>             <span class="dv">5</span> Valparaíso                               </span>
+<span id="cb18-9"><a href="#cb18-9" tabindex="-1"></a> <span class="dv">6</span>            <span class="dv">14</span> Los Ríos                                 </span>
+<span id="cb18-10"><a href="#cb18-10" tabindex="-1"></a> <span class="dv">7</span>             <span class="dv">6</span> Libertador General Bernardo O<span class="st">'Higgins    </span></span>
+<span id="cb18-11"><a href="#cb18-11" tabindex="-1"></a><span class="st"> 8            16 Ñuble                                    </span></span>
+<span id="cb18-12"><a href="#cb18-12" tabindex="-1"></a><span class="st"> 9            10 Los Lagos                                </span></span>
+<span id="cb18-13"><a href="#cb18-13" tabindex="-1"></a><span class="st">10            11 Aysén del General Carlos Ibáñez del Campo</span></span>
+<span id="cb18-14"><a href="#cb18-14" tabindex="-1"></a><span class="st">11             1 Tarapacá                                 </span></span>
+<span id="cb18-15"><a href="#cb18-15" tabindex="-1"></a><span class="st">12            13 Metropolitana de Santiago                </span></span>
+<span id="cb18-16"><a href="#cb18-16" tabindex="-1"></a><span class="st">13             3 Atacama                                  </span></span>
+<span id="cb18-17"><a href="#cb18-17" tabindex="-1"></a><span class="st">14             9 La Araucanía                             </span></span>
+<span id="cb18-18"><a href="#cb18-18" tabindex="-1"></a><span class="st">15             4 Coquimbo                                 </span></span>
+<span id="cb18-19"><a href="#cb18-19" tabindex="-1"></a><span class="st">16             7 Maule                                    </span></span></code></pre></div>
 <p>Las regiones están desordenadas! Queremos ordenarlas de norte a sur:</p>
 <div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">regiones</span> <span class="op">|&gt;</span> </span>
@@ -452,7 +452,6 @@
 <h2 data-toc-skip>Estado de desarrollo</h2>
 <ul class="list-unstyled">
 <li><a href="https://app.codecov.io/gh/bastianolea/territorial" class="external-link"><img src="https://codecov.io/gh/bastianolea/territorial/graph/badge.svg" alt="Codecov test coverage"></a></li>
-<li><a href="https://bastianolea.r-universe.dev/territorial" class="external-link"><img src="https://bastianolea.r-universe.dev/territorial/badges/version.png" alt="R-universe version"></a></li>
 </ul>
 </div>
 
