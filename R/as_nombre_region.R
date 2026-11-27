@@ -2,7 +2,7 @@
 #'
 #' Entregando códigos regionales (como los que aparecen en [territorial::territorios]), retorna los nombres de región correspondientes. Retorna NA si no corresponde con ninguna.
 #'
-#' @param codigos_regiones Códigos regionales en formato numérico
+#' @param codigo_region Códigos regionales en formato numérico
 #'
 #' @returns Vector con nombres de región
 #' @examples
@@ -12,13 +12,14 @@
 #'
 #' @seealso [as_codigo_region()] para la conversión inversa, y [redactar_region()] o [acortar_regiones()] para cambiar cómo se escriben los nombres resultantes.
 #' @export
-as_nombre_region <- function(codigos_regiones) {
-  if (!is.numeric(codigos_regiones)) {
-    cli::cli_abort("Códigos regionales deben estar en formato numérico")
+as_nombre_region <- function(codigo_region) {
+  if (!is.numeric(codigo_region)) {
+    cli::cli_alert_warning("Códigos regionales deben estar en formato numérico")
+    codigo_region <- as.numeric(codigo_region)
   }
 
   nombres_encontrados <- territorios$nombre_region[match(
-    codigos_regiones,
+    codigo_region,
     territorial::territorios$codigo_region
   )]
 
@@ -30,9 +31,9 @@ as_nombre_region <- function(codigos_regiones) {
     # )
 
     # si los NA resultantes son distintos a los que vienen
-    if (any(is.na(codigos_regiones) != is.na(nombres_encontrados))) {
-      codigos_no_convertidos <- codigos_regiones[which(
-        is.na(nombres_encontrados) & !is.na(codigos_regiones)
+    if (any(is.na(codigo_region) != is.na(nombres_encontrados))) {
+      codigos_no_convertidos <- codigo_region[which(
+        is.na(nombres_encontrados) & !is.na(codigo_region)
       )]
       texto <- glue::glue_collapse(
         unique(codigos_no_convertidos),

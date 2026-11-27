@@ -4,10 +4,10 @@
 \alias{as_codigo_region}
 \title{Convertir nombres de regiones a códigos regionales}
 \usage{
-as_codigo_region(nombres_regiones)
+as_codigo_region(nombre_region)
 }
 \arguments{
-\item{nombres_regiones}{Nombres de región (como los que aparecen en \link{territorios}) en formato caracter.}
+\item{nombre_region}{Nombres de región (como los que aparecen en \link{territorios}) en formato caracter.}
 }
 \value{
 Vector numérico con códigos de región.

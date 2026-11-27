@@ -22,11 +22,13 @@ test_that("convertir NAs a nombres de región", {
 
 
 test_that("convertir texto a nombres de región cuando debería ser numérico", {
-  expect_error(
+  expect_message(
     as_nombre_region(
       c("hola", "basty", NA)
     )
-  )
+  ) |>
+    suppressMessages() |>
+    suppressWarnings()
 })
 
 

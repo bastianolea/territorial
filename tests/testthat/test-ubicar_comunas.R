@@ -105,3 +105,41 @@ test_that("nombres no reconocidos con nivel = 'provincia' arrojan warning", {
 test_that("nivel inválido arroja error", {
   expect_error(ubicar_comunas("Cerrillos", nivel = "comuna"))
 })
+
+test_that("ubicar comunas por código entero funciona igual que numérico", {
+  expect_equal(
+    ubicar_comunas(as.integer(c(1101, 13103))),
+    ubicar_comunas(c(1101, 13103))
+  )
+})
+
+test_that("comunas distintas de una misma región devuelven la misma región", {
+  expect_equal(
+    ubicar_comunas(c("Cerrillos", "Puente Alto")),
+    c("Metropolitana de Santiago", "Metropolitana de Santiago")
+  )
+})
+
+test_that("el largo y el orden de la entrada se conservan, incluyendo duplicados", {
+  expect_equal(
+    ubicar_comunas(c("Cerrillos", "Navidad", "Cerrillos")),
+    c("Metropolitana de Santiago", "Libertador General Bernardo O'Higgins", "Metropolitana de Santiago")
+  )
+})
+
+test_that("entrada solo con NA devuelve NA sin warnings", {
+  expect_no_warning(res <- ubicar_comunas(NA))
+  expect_equal(res, NA_character_)
+})
+
+test_that("entrada vacía devuelve vector vacío", {
+  expect_equal(ubicar_comunas(character(0)), character(0))
+})
+
+test_that("varios nombres no reconocidos aparecen juntos en el warning", {
+  expect_warning(
+    res <- ubicar_comunas(c("Cerrillos", "Puente Altosh", "Navidadd")),
+    regexp = "Puente Altosh y Navidadd"
+  )
+  expect_equal(res, c("Metropolitana de Santiago", NA, NA))
+})

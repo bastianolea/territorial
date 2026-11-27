@@ -4,7 +4,7 @@
 #'
 #' Para más información sobre los códigos únicos territoriales, revisa la viñeta \code{vignette("codigos_unicos_territoriales")}
 #'
-#' @param nombres_regiones Nombres de región (como los que aparecen en [territorial::territorios]) en formato caracter.
+#' @param nombre_region Nombres de región (como los que aparecen en [territorial::territorios]) en formato caracter.
 #'
 #' @returns Vector numérico con códigos de región.
 #' @seealso [as_nombre_region()] para la conversión inversa, y [limpiar_regiones()] para corregir los nombres antes de convertirlos. Para comunas, usa [as_codigo_comuna()].
@@ -13,8 +13,8 @@
 #' @examples
 #' as_codigo_region("Metropolitana de Santiago")
 #'
-as_codigo_region <- function(nombres_regiones) {
-  if (is.numeric(nombres_regiones)) {
+as_codigo_region <- function(nombre_region) {
+  if (is.numeric(nombre_region)) {
     cli::cli_abort("Nombres de región deben ser de tipo caracter (texto)")
   }
 
@@ -22,15 +22,15 @@ as_codigo_region <- function(nombres_regiones) {
   #   dplyr::distinct(nombre_region, codigo_region) |>
   #   dplyr::mutate(nombre_region = tolower(nombre_region))
 
-  # nombres_regiones <- c("Atacama", "TARAPACÁ", "Maule", "O'Higgins")
+  # nombre_region <- c("Atacama", "TARAPACÁ", "Maule", "O'Higgins")
 
   # conservar nombres originales para los mensajes
-  nombres_originales <- nombres_regiones
+  nombres_originales <- nombre_region
 
-  nombres_regiones <- limpiar_texto(nombres_regiones)
+  nombre_region <- limpiar_texto(nombre_region)
 
   codigos_encontrados <- dplyr::recode_values(
-    nombres_regiones,
+    nombre_region,
     "tarapaca" ~ 1,
     "antofagasta" ~ 2,
     "atacama" ~ 3,
