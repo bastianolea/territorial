@@ -86,6 +86,15 @@ limpiar_regiones <- function(
   regiones_validas <- c(regiones_oficiales, regiones_cortas)
   regiones_resultado <- c(regiones_oficiales, regiones_oficiales)
 
+  # nombre_region <- c(
+  #   "TARAPACA",
+  #   "Coquimbo",
+  #   "valparaiso",
+  #   "santiago",
+  #   "ohiggins",
+  #   "NUBLE"
+  # )
+
   # empezar a registrar resultados
   # empezando por la versión original de los nombres
   regiones_originales <- dplyr::tibble(nombre_region)
@@ -149,14 +158,20 @@ limpiar_regiones <- function(
 
   # limpiar ----
   # bajar a minúsculas y sacar tildes, comparar con correctas con mismo tratamiento
-  # si coinciden, usar correctas
+  # bajo el supuesto de que los nombres son incorrectos por problemas de capitalización,
+  # tildes que faltan o sobran, y símbolos incorrectos. Al tomar los nombres oficiales y
+  # "limpiarlos" con este proceso, se pueden hacer equivaler con los nombres con problemas
   cli::cli_alert("Paso 2: coincidencias por limpieza de texto")
 
   # limpiar nombres de regiones oficiales (largos y cortos)
   regiones_oficiales_limpias <- limpiar_texto(regiones_validas)
 
   # detectar regiones limpiadas
-  resultados <- resultados |>
+  resultados <- resultados |> # solamente las que no son correctas ya
+    # para no volver a limpiar comunas que estaban ok
+    dplyr::mutate(
+      limpieza = dplyr::if_else(is.na(correctas), regiones_limpias, NA)
+    ) |>
     dplyr::mutate(
       limpieza = dplyr::if_else(
         regiones_limpias %in% regiones_oficiales_limpias,
@@ -169,15 +184,29 @@ limpiar_regiones <- function(
     )
 
   # extraer limpiadas en este paso
-  regiones_limpias_paso2 <- resultados |>
+  regiones_limpias <- resultados |>
     dplyr::select(limpieza) |>
     stats::na.omit() |>
     dplyr::pull()
 
+  # # informar
+  # cli::cli_alert_info(
+  #   "A partir de la limpieza de texto, se limpiaron {length(regiones_limpias)} de {nrow(resultados)} regiones: {redactar_comunas(regiones_limpias, largo = 0)}"
+  # )
   # informar
-  cli::cli_alert_info(
-    "A partir de la limpieza de texto, se limpiaron {length(regiones_limpias_paso2)} de {nrow(resultados)} regiones: {redactar_comunas(regiones_limpias_paso2, largo = 0)}"
-  )
+  if (length(regiones_limpias) == 0) {
+    cli::cli_alert_info(
+      "No se limpiaron regiones por medio de limpieza de texto"
+    )
+  } else if (length(regiones_limpias) == 1) {
+    cli::cli_alert_info(
+      "Se limpió la región a partir de limpieza de texto: {redactar_comunas(regiones_limpias)}"
+    )
+  } else {
+    cli::cli_alert_info(
+      "A partir de la limpieza de texto, se limpiaron {length(regiones_limpias)} de {nrow(resultados)} regiones: {redactar_comunas(regiones_limpias)}"
+    )
+  }
 
   # casos especiales ----
   cli::cli_alert("Paso 3: casos especiales")
@@ -361,7 +390,7 @@ limpiar_regiones <- function(
       print(n = Inf)
   }
 
-  # volver a unir con las originales
+  # unir limpiadas con las originales
   resultado <- regiones_originales |>
     dplyr::left_join(
       limpiado |>

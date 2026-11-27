@@ -360,9 +360,6 @@ limpiar_comunas <- function(
       coincidencia = comunas()[coincidencias_proximidad]
     )
 
-  # resultados |>
-  #   print(n=60)
-
   # extraer limpiadas en este paso
   comunas_coincididas <- resultados |>
     dplyr::select(coincidencia) |>
@@ -422,7 +419,6 @@ limpiar_comunas <- function(
       dplyr::distinct() |>
       dplyr::select(-comunas_limpias) |>
       print(n = Inf)
-    # browser()
   }
 
   # unir limpiadas con las originales
