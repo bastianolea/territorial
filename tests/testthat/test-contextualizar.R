@@ -246,3 +246,46 @@ test_that("hay una columna pero no tiene el nombre correcto", {
   )
 }) |>
   suppressMessages()
+
+test_that("contextualizar falla si no encuentra columnas territoriales", {
+  expect_error(
+    suppressMessages(contextualizar(data.frame(comuna = "Cerrillos"))),
+    "No se encontraron las columnas"
+  )
+})
+
+test_that("contextualizar falla si la variable no es nombre_comuna ni codigo_comuna", {
+  expect_error(
+    suppressMessages(
+      contextualizar(data.frame(nombre_comuna = "Cerrillos"), variable = "otra")
+    ),
+    "una variable"
+  )
+})
+
+test_that("contextualizar falla si codigo_comuna es texto", {
+  expect_error(
+    suppressMessages(contextualizar(data.frame(codigo_comuna = "1101"))),
+    "numérica"
+  )
+})
+
+test_that("contextualizar advierte si hay filas sin coincidencia", {
+  datos <- data.frame(nombre_comuna = c("Cerrillos", "Comuna inexistente"))
+
+  expect_warning(
+    resultado <- suppressMessages(contextualizar(datos)),
+    "no coincidi"
+  )
+  expect_equal(nrow(resultado), 2)
+  expect_true(is.na(resultado$codigo_region[2]))
+})
+
+test_that("contextualizar advierte si hay más de una variable territorial", {
+  datos <- data.frame(codigo_comuna = 1101, nombre_comuna = "Iquique")
+
+  expect_warning(
+    suppressMessages(contextualizar(datos)),
+    "Más de una variable territorial"
+  )
+})

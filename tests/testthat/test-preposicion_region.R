@@ -16,3 +16,14 @@ test_that("artículos de región funciona con nombres no estándar", {
     c("de", "de la", "de los")
   )
 })
+
+test_that("preposicion_region falla si no recibe texto", {
+  expect_error(preposicion_region(1), "texto")
+})
+
+test_that("preposicion_region entrega todas las variantes de preposición", {
+  expect_equal(
+    preposicion_region(c("Maule", "Metropolitana", "Araucanía", "Lagos")),
+    c("del", "", "de la", "de los")
+  )
+})

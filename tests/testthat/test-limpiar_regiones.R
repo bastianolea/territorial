@@ -368,3 +368,13 @@ test_that("prueba calidad de limpieza de regiones: caracteres reemplazados, nive
   )
 }) |>
   suppressMessages()
+
+test_that("limpiar_regiones con procedimiento muestra la tabla intermedia", {
+  expect_output(
+    resultado <- suppressMessages(
+      limpiar_regiones("valparaiso", procedimiento = TRUE)
+    ),
+    "original"
+  )
+  expect_equal(resultado, "Valparaíso")
+})

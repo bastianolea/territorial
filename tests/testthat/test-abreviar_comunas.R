@@ -10,3 +10,7 @@ test_that("abreviaciones de comuna retornan mismo largo", {
     346
   )
 })
+
+test_that("abreviar_comunas falla si no recibe un vector", {
+  expect_error(abreviar_comunas(data.frame(a = 1)), "vector")
+})

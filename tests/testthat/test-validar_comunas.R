@@ -195,3 +195,12 @@ test_that(
   )
 ) |>
   suppressMessages()
+
+test_that("validar_comunas detecta comunas sin tildes ni eñes", {
+  mensajes <- testthat::capture_messages(
+    validar_comunas(c("Cerrillos", "Nunoa", "Aysen"))
+  )
+
+  expect_match(mensajes, "Tildes", all = FALSE)
+  expect_match(mensajes, "Eñes", all = FALSE)
+})

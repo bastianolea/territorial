@@ -163,3 +163,7 @@ test_that("acortar_regiones funciona tras ordenar_regiones() (columna factor)", 
   expect_true(is.character(resultado$nombre_region_corto))
   expect_false(anyNA(resultado$nombre_region_corto))
 })
+
+test_that("acortar_regiones falla si no recibe texto", {
+  expect_error(acortar_regiones(1), "caracter")
+})

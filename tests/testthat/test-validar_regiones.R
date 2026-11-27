@@ -163,3 +163,28 @@ test_that(
   )
 ) |>
   suppressMessages()
+
+test_that("validar_regiones detecta errores ortográficos de regiones", {
+  expect_warning(
+    suppressMessages(
+      validar_regiones(c("Nuble", "Maule"))
+    ),
+    "Ñuble"
+  )
+  expect_warning(
+    suppressMessages(validar_regiones(c("OHiggins", "Maule"))),
+    "apóstrofo"
+  )
+  # "Aisen" sin tilde también gatilla la advertencia de tildes
+  expect_warning(
+    expect_warning(
+      suppressMessages(validar_regiones(c("Aisen", "Maule"))),
+      "Aysén"
+    ),
+    "sin tilde"
+  )
+})
+
+test_that("validar_regiones falla con datos de tipo incompatible", {
+  expect_error(suppressMessages(validar_regiones(list(1, 2))), "incompatible")
+})

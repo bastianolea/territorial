@@ -74,3 +74,19 @@ test_that("ubicar localidades lanza un error si no se encuentra ninguna localida
   )
 }) |>
   suppressMessages()
+
+test_that("ubicar_localidades falla si no hay resultados", {
+  expect_error(
+    suppressMessages(
+      ubicar_localidades("zzzzzzzz", procedimiento = FALSE)
+    ),
+    "Sin resultados"
+  )
+})
+
+test_that("ubicar_localidades con procedimiento muestra los resultados", {
+  expect_output(
+    suppressMessages(ubicar_localidades("La Boca", procedimiento = TRUE)),
+    "La Boca"
+  )
+})

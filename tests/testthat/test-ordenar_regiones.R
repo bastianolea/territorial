@@ -104,3 +104,29 @@ test_that("ordenar regiones avisa si datos vienen agrupados", {
     regexp = "agrupado"
   )
 })
+
+test_that("ordenar_regiones falla si no recibe un dataframe", {
+  expect_error(ordenar_regiones(1), "dataframe")
+})
+
+test_that("ordenar_regiones falla si codigo_region no es numérico", {
+  datos <- data.frame(codigo_region = "1", nombre_region = "Tarapacá")
+
+  expect_error(ordenar_regiones(datos), "numérica")
+})
+
+test_that("ordenar_regiones advierte si los datos están agrupados", {
+  datos_agrupados <- dplyr::group_by(territorios, nombre_region)
+
+  expect_warning(
+    resultado <- suppressMessages(ordenar_regiones(datos_agrupados)),
+    "agrupados"
+  )
+  expect_false(dplyr::is_grouped_df(resultado))
+})
+
+test_that("ordenar_regiones con limpiar = FALSE conserva orden_region", {
+  resultado <- suppressMessages(ordenar_regiones(territorios, limpiar = FALSE))
+
+  expect_true("orden_region" %in% names(resultado))
+})

@@ -117,3 +117,26 @@ test_that("revisar comunas indicando cuáles faltan", {
 #' territorios |>
 #'   dplyr::slice_sample(300) |>
 #'   contar_comunas()
+
+test_that("contar_comunas advierte si faltan comunas", {
+  expect_warning(
+    suppressMessages(contar_comunas(comunas()[1:300])),
+    "anómala"
+  )
+})
+
+test_that("contar_comunas advierte si hay comunas de más", {
+  comunas_de_mas <- c(comunas(), paste("comuna inventada", 1:5))
+
+  expect_warning(
+    suppressMessages(contar_comunas(comunas_de_mas)),
+    "anómala"
+  )
+})
+
+test_that("contar_comunas retorna la cantidad de comunas de forma invisible", {
+  resultado <- suppressMessages(suppressWarnings(
+    contar_comunas(comunas()[1:344])
+  ))
+  expect_equal(resultado, 344)
+})

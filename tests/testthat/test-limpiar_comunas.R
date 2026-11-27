@@ -417,3 +417,13 @@ test_that(
   )
 ) |>
   suppressMessages()
+
+test_that("limpiar_comunas con procedimiento muestra la tabla intermedia", {
+  expect_output(
+    resultado <- suppressMessages(
+      limpiar_comunas("cerillos", procedimiento = TRUE)
+    ),
+    "original"
+  )
+  expect_equal(resultado, "Cerrillos")
+})

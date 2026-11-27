@@ -1,8 +1,8 @@
 # territorial 0.9.17 (2026/11/27)
-- Mejoras: `as_nombre_region()` ahora convierte los datos entrantes a numérico si es necesario.
 - Nuevas funciones: `as_nombre_provincia()` y `as_codigo_provincia()`, análogas a sus pares para regiones de Chile.
 - Nueva función: `ubicar_provincias()` sirve para saber en qué región se encuentra una provincia, ya sea por su nombre o su código.
-- Cambios: `as_nombre_region()` y `as_codigo_region()` tienen arguementos en singular, para mantener coherencia en el paquete.
+- Mejoras: `as_nombre_region()` ahora convierte los datos entrantes a numérico si es necesario.
+- Cambios: `as_nombre_region()` y `as_codigo_region()` tienen argumentos en singular, para mantener coherencia en el paquete.
 
 # territorial 0.9.16 (2026/11/26)
 - Mejoras: Corrección de la comuna de _Ránquil_, que estaba sin tilde!
